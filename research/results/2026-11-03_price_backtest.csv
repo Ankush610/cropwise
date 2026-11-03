@@ -1,0 +1,297 @@
+crop,state,naive,seasonal_naive,blend,prophet,best
+apple,All India,20.74,17.14,17.42,20.58,seasonal_naive
+apple,Chandigarh,38.27,27.52,27.75,62.17,seasonal_naive
+apple,Chhattisgarh,17.88,17.39,17.16,36.82,blend
+apple,Delhi,47.35,44.88,40.42,59.66,blend
+apple,Goa,2.41,3.97,3.19,38.14,naive
+apple,Gujarat,37.83,15.28,24.64,40.94,seasonal_naive
+apple,Haryana,31.12,9.95,18.29,12.72,seasonal_naive
+apple,Himachal Pradesh,42.53,10.98,25.17,15.84,seasonal_naive
+apple,Jammu And Kashmir,41.84,23.29,30.23,33.7,seasonal_naive
+apple,Karnataka,18.07,13.44,14.08,18.53,seasonal_naive
+apple,Kerala,16.26,11.26,12.41,13.58,seasonal_naive
+apple,Madhya Pradesh,39.1,43.02,33.63,34.74,blend
+apple,Maharashtra,15.69,10.51,11.02,14.32,seasonal_naive
+apple,Punjab,28.05,10.0,17.54,14.54,seasonal_naive
+apple,Rajasthan,28.39,15.26,20.41,18.06,seasonal_naive
+apple,Telangana,31.34,21.64,22.31,37.82,seasonal_naive
+apple,Tripura,43.67,31.43,35.97,26.82,prophet
+apple,Uttar Pradesh,21.3,12.04,15.06,15.4,seasonal_naive
+apple,Uttarakhand,16.87,10.46,12.49,17.41,seasonal_naive
+apple,West Bengal,16.15,17.07,14.17,22.88,blend
+banana,All India,15.91,23.91,19.72,39.03,naive
+banana,Andhra Pradesh,46.59,38.1,40.03,54.95,seasonal_naive
+banana,Chhattisgarh,36.24,32.8,32.77,27.03,prophet
+banana,Delhi,21.77,33.8,19.79,78.31,blend
+banana,Goa,7.6,10.24,7.27,12.55,blend
+banana,Gujarat,18.35,19.18,16.96,24.1,blend
+banana,Haryana,8.15,6.74,7.33,7.62,seasonal_naive
+banana,Himachal Pradesh,11.65,12.56,9.52,11.42,blend
+banana,Jammu And Kashmir,9.15,12.05,10.5,13.14,naive
+banana,Karnataka,53.95,72.2,63.07,70.88,naive
+banana,Kerala,25.03,31.11,27.95,51.7,naive
+banana,Madhya Pradesh,34.85,40.44,32.44,38.98,blend
+banana,Maharashtra,8.27,26.55,17.41,29.38,naive
+banana,Manipur,3.29,8.87,6.08,31.39,naive
+banana,Meghalaya,19.44,23.83,19.1,37.14,blend
+banana,Nagaland,11.85,11.86,9.73,10.56,blend
+banana,Odisha,26.64,21.27,20.97,33.73,blend
+banana,Punjab,7.17,7.82,6.98,8.5,blend
+banana,Rajasthan,17.94,20.64,18.6,22.91,naive
+banana,Telangana,21.97,30.39,25.05,90.78,naive
+banana,Tripura,5.15,11.2,7.97,30.67,naive
+banana,Uttar Pradesh,9.83,12.07,10.35,15.4,naive
+banana,Uttarakhand,7.75,10.73,7.99,14.82,naive
+banana,West Bengal,9.5,15.88,12.17,20.28,naive
+blackgram,All India,11.44,17.16,13.89,11.78,naive
+blackgram,Andhra Pradesh,16.59,25.51,20.52,38.27,naive
+blackgram,Chhattisgarh,11.89,13.95,11.04,19.05,blend
+blackgram,Gujarat,13.28,20.96,16.92,18.95,naive
+blackgram,Karnataka,25.03,25.47,23.3,33.94,blend
+blackgram,Kerala,10.25,13.67,11.11,11.99,naive
+blackgram,Madhya Pradesh,8.65,12.8,10.65,16.44,naive
+blackgram,Maharashtra,18.18,24.93,21.08,26.61,naive
+blackgram,Manipur,2.68,1.32,1.92,4.92,seasonal_naive
+blackgram,Puducherry,11.51,23.66,17.1,81.62,naive
+blackgram,Rajasthan,16.13,26.84,21.18,23.78,naive
+blackgram,Tamil Nadu,11.77,13.2,11.2,14.02,blend
+blackgram,Telangana,19.5,20.2,18.58,33.12,blend
+blackgram,Uttar Pradesh,2.21,3.52,2.76,3.72,naive
+blackgram,Uttarakhand,23.17,22.39,12.93,25.71,blend
+chickpea,All India,8.46,13.09,10.3,13.3,naive
+chickpea,Andhra Pradesh,9.52,9.8,8.71,14.16,blend
+chickpea,Chhattisgarh,7.02,12.57,9.28,16.87,naive
+chickpea,Delhi,9.82,17.02,11.61,81.25,naive
+chickpea,Gujarat,8.39,13.81,10.43,19.45,naive
+chickpea,Haryana,14.64,18.97,16.3,27.39,naive
+chickpea,Karnataka,9.16,12.41,9.56,21.1,naive
+chickpea,Kerala,5.81,8.37,6.62,6.43,naive
+chickpea,Madhya Pradesh,8.7,14.83,10.86,18.5,naive
+chickpea,Maharashtra,8.15,13.3,9.83,19.82,naive
+chickpea,Manipur,10.48,12.02,11.25,147.87,naive
+chickpea,Rajasthan,9.78,15.46,11.66,23.97,naive
+chickpea,Telangana,8.19,12.75,9.83,22.8,naive
+chickpea,Uttar Pradesh,8.41,11.39,9.37,19.9,naive
+chickpea,Uttarakhand,12.09,15.31,13.7,54.51,naive
+chickpea,West Bengal,7.64,21.0,13.76,13.09,naive
+coconut,All India,20.4,32.44,26.42,41.27,naive
+coconut,Goa,1793.7,1713.67,1753.29,2669.47,seasonal_naive
+coconut,Karnataka,24.71,28.92,26.81,24.33,prophet
+coconut,Kerala,20.03,35.86,27.95,36.38,naive
+coconut,Maharashtra,27.66,37.73,32.7,22.74,prophet
+coconut,Rajasthan,33.74,939.05,486.4,143.82,naive
+coconut,Tamil Nadu,201.1,201.28,201.19,204.15,naive
+coconut,Uttarakhand,46.3,26.09,36.2,32.82,seasonal_naive
+coffee,All India,16.45,21.71,17.96,33.13,naive
+coffee,Kerala,16.45,21.71,17.96,33.07,naive
+cotton,All India,2.57,3.71,2.99,5.1,naive
+cotton,Andhra Pradesh,4.9,4.6,4.45,5.43,blend
+cotton,Gujarat,2.34,3.16,2.52,5.59,naive
+cotton,Haryana,6.41,8.3,6.88,14.32,naive
+cotton,Karnataka,8.98,7.85,8.17,14.16,seasonal_naive
+cotton,Madhya Pradesh,6.68,4.11,5.11,7.37,seasonal_naive
+cotton,Maharashtra,4.59,5.07,4.7,9.42,naive
+cotton,Odisha,9.3,8.1,8.7,14.31,seasonal_naive
+cotton,Punjab,6.58,8.55,7.22,14.67,naive
+cotton,Rajasthan,8.41,9.65,8.15,12.42,blend
+cotton,Tamil Nadu,4.64,7.91,5.91,7.79,naive
+cotton,Telangana,3.36,4.07,3.54,5.91,naive
+grapes,All India,18.03,18.3,15.05,18.19,blend
+grapes,Chhattisgarh,18.37,26.5,16.76,36.55,blend
+grapes,Delhi,65.3,46.41,49.49,69.3,seasonal_naive
+grapes,Goa,4.41,6.76,5.59,387663.59,naive
+grapes,Gujarat,15.04,38.06,24.96,41.35,naive
+grapes,Haryana,33.99,22.21,22.02,22.85,blend
+grapes,Himachal Pradesh,28.08,18.85,17.98,32.09,blend
+grapes,Jammu And Kashmir,46.28,35.55,35.14,48.38,blend
+grapes,Karnataka,106.88,101.06,103.97,181.63,seasonal_naive
+grapes,Kerala,19.22,20.35,18.04,20.45,blend
+grapes,Madhya Pradesh,19.04,14.49,13.1,13.74,blend
+grapes,Maharashtra,39.79,21.95,29.77,30.14,seasonal_naive
+grapes,Punjab,27.34,21.62,21.15,16.71,prophet
+grapes,Rajasthan,12.94,13.05,10.08,22.68,blend
+grapes,Telangana,18.05,34.17,26.11,37.48,naive
+grapes,Uttar Pradesh,25.64,49.93,37.78,147.9,naive
+grapes,Uttarakhand,23.37,24.7,23.65,58.34,naive
+jute,All India,16.7,21.64,19.11,18.59,naive
+jute,West Bengal,16.61,21.72,19.11,18.54,naive
+lentil,All India,2.57,2.48,2.23,6.53,blend
+lentil,Chhattisgarh,2.66,6.41,4.54,10.36,naive
+lentil,Madhya Pradesh,2.91,5.4,3.81,3.22,naive
+lentil,Maharashtra,2.07,1.85,1.48,2.46,blend
+lentil,Rajasthan,5.4,8.07,6.3,7.16,naive
+lentil,Uttar Pradesh,2.21,1.44,1.77,1.86,seasonal_naive
+lentil,West Bengal,7.5,7.18,7.1,9.95,blend
+maize,All India,10.37,14.65,12.17,15.99,naive
+maize,Andhra Pradesh,21.26,15.17,16.71,27.4,seasonal_naive
+maize,Chhattisgarh,6.5,9.36,7.93,11.96,naive
+maize,Delhi,16.68,20.55,18.51,23.7,naive
+maize,Gujarat,7.81,12.21,9.53,16.76,naive
+maize,Haryana,29.74,23.06,24.59,17.07,prophet
+maize,Karnataka,8.46,11.02,8.83,12.42,naive
+maize,Madhya Pradesh,10.69,15.6,12.75,19.73,naive
+maize,Maharashtra,9.83,13.41,10.82,14.11,naive
+maize,Manipur,6.48,6.48,6.48,12.19,naive
+maize,Odisha,6.31,7.8,6.92,11.07,naive
+maize,Punjab,15.92,18.67,17.3,130.35,naive
+maize,Rajasthan,10.85,14.37,12.13,16.95,naive
+maize,Tamil Nadu,13.58,20.18,16.88,30.86,naive
+maize,Telangana,6.08,8.6,6.92,10.49,naive
+maize,Uttar Pradesh,7.47,9.2,7.89,11.25,naive
+maize,Uttarakhand,28.11,28.78,28.07,141099180.73,blend
+mango,All India,30.82,17.72,17.31,20.2,blend
+mango,Chhattisgarh,25.14,8.04,9.25,59.1,seasonal_naive
+mango,Delhi,154.95,70.91,98.59,125.44,seasonal_naive
+mango,Goa,36.1,27.48,30.69,659.69,seasonal_naive
+mango,Gujarat,28.79,30.85,19.98,63.69,blend
+mango,Haryana,51.01,22.21,31.66,34.4,seasonal_naive
+mango,Himachal Pradesh,45.8,22.86,30.86,21.45,prophet
+mango,Jammu And Kashmir,44.19,28.63,30.87,42.36,seasonal_naive
+mango,Karnataka,111.87,108.75,110.31,32.11,prophet
+mango,Kerala,27.42,18.7,14.76,28.92,blend
+mango,Madhya Pradesh,24.27,20.44,22.35,43.27,seasonal_naive
+mango,Maharashtra,34.43,11.89,20.43,16.22,seasonal_naive
+mango,Odisha,19.15,52.95,29.41,22.81,naive
+mango,Punjab,42.65,24.68,29.27,46.86,seasonal_naive
+mango,Rajasthan,32.16,22.56,24.83,65.5,seasonal_naive
+mango,Telangana,33.42,55.9,40.07,153.44,naive
+mango,Uttar Pradesh,47.17,19.23,27.14,100.2,seasonal_naive
+mango,Uttarakhand,42.92,14.77,23.58,14.91,seasonal_naive
+mothbeans,All India,16.43,16.33,12.15,10.27,prophet
+mothbeans,Gujarat,26.02,25.46,25.59,53.79,seasonal_naive
+mothbeans,Karnataka,13.5,12.96,11.03,14.66,blend
+mothbeans,Rajasthan,11.11,17.57,12.24,13.46,naive
+mothbeans,West Bengal,5.56,7.13,5.2,7.07,blend
+mungbean,All India,7.07,9.78,7.25,12.71,naive
+mungbean,Chhattisgarh,16.72,19.48,17.02,24.88,naive
+mungbean,Delhi,42.11,25.77,30.58,154758723.54,seasonal_naive
+mungbean,Gujarat,10.93,10.8,8.71,11.43,blend
+mungbean,Karnataka,14.64,21.52,17.89,17.05,naive
+mungbean,Kerala,3.52,5.71,4.51,8.17,naive
+mungbean,Maharashtra,7.78,18.25,11.94,13.74,naive
+mungbean,Rajasthan,6.58,10.49,7.78,8.18,naive
+mungbean,Tamil Nadu,7.35,6.68,7.02,27.46,seasonal_naive
+mungbean,Telangana,11.02,16.58,13.51,8.48,prophet
+mungbean,Uttar Pradesh,4.91,3.98,4.11,5.66,seasonal_naive
+mungbean,Uttarakhand,15.67,14.13,12.31,20.92,blend
+muskmelon,All India,44.07,16.25,24.72,34.36,seasonal_naive
+muskmelon,Delhi,55.18,24.59,36.04,27.61,seasonal_naive
+muskmelon,Haryana,55.27,20.2,32.1,43.4,seasonal_naive
+muskmelon,Himachal Pradesh,29.56,21.69,25.07,25.48,seasonal_naive
+muskmelon,Jammu And Kashmir,26.6,26.74,21.42,229786054114.41,blend
+muskmelon,Karnataka,19.17,39.07,22.45,35.47,naive
+muskmelon,Madhya Pradesh,18.12,17.81,15.47,19.05,blend
+muskmelon,Maharashtra,31.69,14.86,21.94,13.31,prophet
+muskmelon,Punjab,49.73,21.8,31.94,26.68,seasonal_naive
+muskmelon,Rajasthan,46.29,26.69,29.21,35.69,seasonal_naive
+muskmelon,Telangana,34.88,40.19,34.98,50.1,naive
+muskmelon,Uttar Pradesh,37.02,15.5,25.37,33.04,seasonal_naive
+orange,All India,27.05,24.82,21.6,24.68,blend
+orange,Chhattisgarh,28.93,25.08,25.65,47.66,seasonal_naive
+orange,Delhi,27.53,25.14,21.41,20.48,prophet
+orange,Goa,8.84,10.37,9.6,15.12,naive
+orange,Gujarat,47.43,22.36,26.87,52.35,seasonal_naive
+orange,Haryana,39.69,20.6,23.27,18.15,prophet
+orange,Himachal Pradesh,33.04,19.65,20.33,148341.42,seasonal_naive
+orange,Jammu And Kashmir,22.46,19.77,16.44,79521.98,blend
+orange,Karnataka,31.61,20.43,24.69,24.51,seasonal_naive
+orange,Kerala,30.03,18.47,20.93,18.03,prophet
+orange,Madhya Pradesh,44.45,65.65,49.19,42.64,prophet
+orange,Maharashtra,41.49,12.01,21.57,11.8,prophet
+orange,Manipur,15.74,11.06,11.13,27.44,seasonal_naive
+orange,Meghalaya,102.28,30.21,63.02,71.21,seasonal_naive
+orange,Punjab,22.3,23.52,18.46,19.48,blend
+orange,Rajasthan,18.58,21.65,14.41,24.74,blend
+orange,Telangana,35.08,53.03,42.33,66.26,naive
+orange,Uttar Pradesh,50.75,35.07,37.19,44.37,seasonal_naive
+orange,Uttarakhand,19.23,14.02,13.68,31.03,blend
+orange,West Bengal,33.16,30.33,31.74,17.13,prophet
+papaya,All India,5.44,11.98,7.76,15.14,naive
+papaya,Chhattisgarh,21.14,16.64,13.18,17.79,blend
+papaya,Delhi,20.5,30.32,22.11,26.64,naive
+papaya,Goa,2.44,2.44,2.44,3.49,naive
+papaya,Gujarat,49.48,52.53,39.65,55.61,blend
+papaya,Haryana,19.5,22.92,17.64,32.44,blend
+papaya,Himachal Pradesh,8.17,11.39,7.7,11.63,blend
+papaya,Jammu And Kashmir,9.25,9.81,7.74,11.18,blend
+papaya,Karnataka,510.08,371.68,435.29,364.53,prophet
+papaya,Kerala,14.92,19.95,17.3,26.16,naive
+papaya,Madhya Pradesh,12.09,18.12,11.91,42.13,blend
+papaya,Maharashtra,21.76,13.23,11.65,11.92,blend
+papaya,Meghalaya,18.58,20.78,19.68,47.4,naive
+papaya,Nagaland,8.76,8.18,7.15,40.6,blend
+papaya,Punjab,6.05,8.54,4.72,10.48,blend
+papaya,Rajasthan,14.41,19.44,14.29,25.73,blend
+papaya,Telangana,41.05,39.77,31.1,32.98,blend
+papaya,Tripura,14.44,15.87,6.27,971.79,blend
+papaya,Uttar Pradesh,10.09,13.99,9.27,24.55,blend
+papaya,Uttarakhand,5.59,11.57,7.03,15.37,naive
+pigeonpeas,All India,24.13,33.34,28.52,33.84,naive
+pigeonpeas,Andhra Pradesh,34.83,42.27,37.22,64.23,naive
+pigeonpeas,Chhattisgarh,10.48,12.58,9.75,14.22,blend
+pigeonpeas,Delhi,28.97,30.24,28.64,94.4,blend
+pigeonpeas,Gujarat,20.78,32.21,26.07,29.74,naive
+pigeonpeas,Karnataka,28.11,31.26,28.74,37.66,naive
+pigeonpeas,Kerala,10.69,12.51,11.1,13.18,naive
+pigeonpeas,Madhya Pradesh,28.95,34.45,30.9,43.53,naive
+pigeonpeas,Maharashtra,26.49,35.3,30.79,33.35,naive
+pigeonpeas,Rajasthan,23.3,28.46,24.7,24.24,naive
+pigeonpeas,Tamil Nadu,16.96,12.09,10.03,33.74,blend
+pigeonpeas,Telangana,19.87,30.7,25.08,29.45,naive
+pigeonpeas,Uttar Pradesh,16.36,22.88,19.04,21.73,naive
+pigeonpeas,West Bengal,4.92,21.61,13.26,16.0,naive
+pomegranate,All India,14.13,21.69,17.74,29.38,naive
+pomegranate,Chandigarh,17.5,26.67,13.75,27.33,blend
+pomegranate,Chhattisgarh,5.98,15.08,9.81,28.74,naive
+pomegranate,Delhi,27.38,25.3,22.69,34.74,blend
+pomegranate,Gujarat,40.68,54.71,35.65,64.58,blend
+pomegranate,Haryana,12.49,13.79,11.89,12.38,blend
+pomegranate,Himachal Pradesh,9.33,12.54,9.41,13.2,naive
+pomegranate,Jammu And Kashmir,16.58,15.33,12.58,21.02,blend
+pomegranate,Karnataka,31.66,28.16,29.69,38.98,seasonal_naive
+pomegranate,Kerala,11.15,14.13,12.0,21.72,naive
+pomegranate,Madhya Pradesh,34.16,25.8,18.46,24.0,blend
+pomegranate,Maharashtra,24.41,18.75,17.3,16.61,prophet
+pomegranate,Punjab,10.84,10.29,7.64,18.54,blend
+pomegranate,Rajasthan,9.13,13.5,8.79,14.93,blend
+pomegranate,Telangana,27.6,34.91,31.26,604.24,naive
+pomegranate,Uttar Pradesh,8.78,10.55,9.45,15.73,naive
+pomegranate,Uttarakhand,8.09,12.32,10.01,15.25,naive
+pomegranate,West Bengal,23.2,26.65,19.96,43.82,blend
+rice,All India,4.59,3.58,3.73,3.83,seasonal_naive
+rice,Andhra Pradesh,4.29,6.2,5.24,4.28,prophet
+rice,Chhattisgarh,5.99,5.88,5.48,6.04,blend
+rice,Delhi,17.9,9.69,13.62,16.91,seasonal_naive
+rice,Gujarat,6.03,10.0,7.18,8.2,naive
+rice,Haryana,17.49,20.12,14.08,27.23,blend
+rice,Karnataka,5.43,10.41,7.19,12.57,naive
+rice,Kerala,4.36,7.09,5.62,4.37,naive
+rice,Madhya Pradesh,9.7,16.14,11.47,24.49,naive
+rice,Maharashtra,1.62,3.46,2.34,7.09,naive
+rice,Manipur,9.02,9.22,7.3,30.35,blend
+rice,Odisha,1.59,4.15,2.87,2.84,naive
+rice,Puducherry,6.87,11.89,7.49,36.35,naive
+rice,Rajasthan,13.23,17.55,14.07,18.52,naive
+rice,Tamil Nadu,4.87,4.74,4.03,6.69,blend
+rice,Telangana,1.72,4.1,2.91,1.0,prophet
+rice,Tripura,6.44,7.19,6.66,9.92,naive
+rice,Uttar Pradesh,2.41,3.85,2.96,7.36,naive
+rice,Uttarakhand,9.03,8.73,7.49,12.5,blend
+rice,West Bengal,2.18,4.07,2.92,2.22,naive
+watermelon,All India,36.29,12.89,20.33,17.45,seasonal_naive
+watermelon,Delhi,42.74,31.08,32.47,48.13,seasonal_naive
+watermelon,Goa,4.88,6.55,5.71,11.86,naive
+watermelon,Gujarat,30.42,37.87,32.17,49.53,naive
+watermelon,Haryana,51.81,16.05,29.0,20.99,seasonal_naive
+watermelon,Himachal Pradesh,53.91,19.01,30.87,33.26,seasonal_naive
+watermelon,Jammu And Kashmir,39.16,21.2,25.63,23.01,seasonal_naive
+watermelon,Karnataka,15.62,14.9,15.26,11.84,prophet
+watermelon,Kerala,38.71,29.05,30.43,31.57,seasonal_naive
+watermelon,Madhya Pradesh,29.38,21.6,15.9,18.36,blend
+watermelon,Maharashtra,27.2,20.15,21.04,22.65,seasonal_naive
+watermelon,Punjab,50.36,16.24,28.7,21.41,seasonal_naive
+watermelon,Rajasthan,39.69,10.26,21.87,18.04,seasonal_naive
+watermelon,Telangana,28.28,46.07,37.18,52.92,naive
+watermelon,Tripura,9.2,57.21,33.2,79.03,naive
+watermelon,Uttar Pradesh,51.53,11.22,27.94,17.81,seasonal_naive
+watermelon,Uttarakhand,62.24,31.98,40.71,131.08,seasonal_naive

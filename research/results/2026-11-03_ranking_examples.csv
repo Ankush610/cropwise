@@ -1,0 +1,8 @@
+crop,suitability,yield_t_ha,yield_source,price_rs_q,price_source,price_mape,revenue_rs_ha,cost_share,cost_source,net_rs_ha,near_tie,district,known_for,rank
+jute,0.919,1.44,India median,11931.0,All India,21.1,171806.0,0.55,CACP All India,76624.0,True,Raipur,rice,1
+rice,0.081,2.92,district,1924.0,Chhattisgarh,5.7,56204.0,0.5,CACP Chhattisgarh,28269.0,False,Raipur,rice,2
+cotton,1.0,0.74,district,8498.0,Maharashtra,5.8,62505.0,0.88,CACP Maharashtra,7335.0,True,Yavatmal,cotton,1
+chickpea,1.0,1.6,district,5438.0,Madhya Pradesh,10.5,87095.0,0.51,CACP Madhya Pradesh,42636.0,True,Vidisha,chickpea,1
+grapes,0.935,29.35,district,11075.0,Maharashtra,21.0,3250438.0,0.7,assumed (no CACP data; orchard set-up and years before first harvest not counted),975964.0,True,Nashik,grapes,1
+apple,0.065,,no yield data,12471.0,Maharashtra,16.5,,0.7,assumed (no CACP data; orchard set-up and years before first harvest not counted),,False,Nashik,grapes,2
+maize,1.0,3.68,district,2022.0,Punjab,18.6,74503.0,0.91,CACP Punjab,6931.0,True,Ludhiana,maize,1

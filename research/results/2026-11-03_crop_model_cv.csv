@@ -1,0 +1,9 @@
+model,features,n_features,accuracy_mean,f1_macro_mean,top3_mean,accuracy_std,f1_macro_std,top3_std,fit_seconds
+LogReg,with humidity,7,0.9709,0.9707,0.9991,0.0022,0.0023,0.0018,0.0506
+RandomForest,with humidity,7,0.995,0.995,1.0,0.0027,0.0027,0.0,0.3771
+XGBoost,with humidity,7,0.9932,0.9932,0.9991,0.0029,0.0029,0.0011,1.0453
+LightGBM,with humidity,7,0.9927,0.9927,1.0,0.003,0.0031,0.0,2.105
+LogReg,without humidity,6,0.9009,0.8971,0.9918,0.0059,0.0067,0.006,0.0418
+RandomForest,without humidity,6,0.9836,0.9837,1.0,0.0053,0.0052,0.0,0.3857
+XGBoost,without humidity,6,0.9791,0.979,0.9986,0.0086,0.0086,0.0011,1.3127
+LightGBM,without humidity,6,0.9814,0.9814,0.9982,0.0039,0.0039,0.0017,2.5855

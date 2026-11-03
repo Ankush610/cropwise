@@ -1,0 +1,230 @@
+# Build Log
+
+## Oct 29, 2026 · Phase 1 (data), day 1
+
+**Setup**
+- Python 3.12 env in `.venv/` (matches Colab). Packages in `requirements.txt`.
+- Loaders in `project/data.py`. Downloads are cached in `data/raw/`.
+- Check notebook: `notebooks/01_data_check.ipynb`.
+
+**Sources**
+| Source | Status |
+| --- | --- |
+| Kaggle | ✅ Downloaded with `kagglehub`, no account needed. 2,200 rows, 22 crops × 100. |
+| NASA POWER | ✅ Monthly API, no key. `nasa_weather(lat, lon)` returns temperature, humidity, rainfall (mm/month). |
+| CEDA prices | ⏳ Site only offers downloads through its web page. Needs a manual CSV export. |
+| ICRISAT | ⏳ `data.icrisat.org` unreachable (terminal and browser). Backup: district-wise crop production on data.gov.in. |
+
+**Finding: Kaggle's weather doesn't match real weather** (open question #1 in `architecture.md`)
+
+For 8 crops we compared Kaggle's average weather with NASA POWER at a place known for growing that crop.
+Table: `research/results/2026-10-29_weather_vs_kaggle.csv`.
+
+| Feature | Avg gap, yearly mean | Avg gap, growing season |
+| --- | --- | --- |
+| Temperature | 2.7 °C | 2.5 °C |
+| Humidity | 23 points | 19 points |
+| Rainfall | 46 mm | 79 mm |
+
+- Temperature matches well.
+- Rainfall matches the **mean monthly total over the year** for cotton, maize and apple, but not for rice, grapes or mango.
+- **Humidity doesn't match at all.** Kaggle's chickpea averages 17% humidity, while Vidisha (a chickpea area) averages 55%. Kaggle's apple is 92%, Shimla is 56%.
+  No Indian growing region looks like Kaggle's chickpea or kidney-bean rows.
+
+This is more evidence that the Kaggle weather columns are synthetic. A model trained on them and fed real weather
+can't recommend crops whose Kaggle humidity never happens in reality.
+
+**Decision**
+- App weather input = **10-year mean** (2015–2024) of temperature and humidity, and **mean monthly rainfall**. It had the smallest overall gap.
+- Phase 2 adds a test: train **with vs without humidity**, and compare cross-validation accuracy and the real-world district match.
+  Either result goes in the paper.
+
+## Oct 30, 2026 · Phase 1 (data), day 2
+
+**Prices: CEDA offline, switched to the India Data Portal mirror of Agmarknet**
+- CEDA stopped responding (browser and terminal). The India Data Portal has the same Agmarknet data as
+  "APMC Arrivals and Prices", in two zips: Old Data (3.6 GB CSV, 2021-01-01 to 2025-10-26) and
+  New Source (0.8 GB CSV, 2025-10-27 to 2026-05-31). Downloaded by hand into `data/raw/apmc/`.
+  The portal page said 2019, but the files start in 2021. That gives 65 months with no gap or overlap.
+- `mandi_prices()` in `project/data.py` streams both zips (~30 s) and writes `data/processed/prices_monthly.csv`:
+  one row per crop × state × month, with the **median modal price** (Rs/quintal) over all market-days and the row count `n`.
+- Kept only Rs/quintal rows (dropped Rs/number, Rs/bundle, Rs/unit) and prices > 0. Median, not mean, so bad entries don't skew it.
+- The two files spell some state names differently ("Jammu and Kashmir" vs "Jammu And Kashmir"), so they're title-cased. 31 states.
+
+**Crop mapping** (`APMC_NAMES`): 21 of 22 Kaggle crops have prices for all 65 months.
+Coverage table: `research/results/2026-10-30_price_coverage.csv`.
+- rice → **paddy** (what farmers sell). chickpea → Bengal gram, pigeonpeas → arhar/tur, mango → mango + mango (raw-ripe).
+- mothbeans → **Moath Dal** proxy. Only the split dal is traded, priced above whole grain. Thin: 6 states.
+- coffee is thin: 2 states, ~5k rows.
+- **kidneybeans: no price data** (no rajma in the file). Ranked by suitability only, flagged in the app.
+
+**District yield: ICRISAT still offline, switched to DES area-production-yield**
+- `data.icrisat.org` still times out. The India Data Portal has the Ministry of Agriculture's (DES) district-wise
+  "Crop Wise Area Production Yield", 1997-98 to 2022-23, 740 districts, 34 states. It downloads directly, with no sign-up.
+  It's newer than ICRISAT (which stops at 2017) and uses LGD district codes, the same codes as the APMC price data.
+- `district_yield()` writes `data/processed/district_yield.csv`: per crop and district, the mean yield (t/ha) and area (ha)
+  over that district's **last 5 reported years**, plus `last_year` so stale values are visible.
+- **Fixes in the raw data:**
+  - Some district-years have a "Total" row as well as the seasonal rows (~107k seasonal rows affected), so a plain sum double-counts.
+    We use Total when present, else the sum of seasons.
+  - Everything is labelled "Tonnes", but cotton is bales of lint (170 kg), jute is bales (180 kg) and coconut is nuts.
+    Converted to what the mandi prices: cotton → kapas (lint ÷ 34% ginning outturn), jute → tonnes,
+    coconut → tonnes at **~0.6 kg/nut (an assumption, to check)**.
+  - Zero production is treated as missing.
+- **Coverage** (`research/results/2026-10-30_yield_coverage.csv`):
+  - Good, 2022-23 data in 400–720 districts: rice, maize, chickpea, pigeonpeas, mungbean, blackgram, lentil, cotton.
+  - Usable: banana, coconut, jute, mothbeans (80–290 districts).
+  - Old: papaya, mango, orange and grapes are 70–150 districts, but the data stops between 2015 and 2019.
+  - Almost none: kidneybeans (9 districts), pomegranate (9), coffee (3).
+  - **None: watermelon, muskmelon, apple.**
+  - Horticulture isn't really in DES data. If fruit yields matter, the National Horticulture Board publishes state-level yields.
+- **District coordinates for free:** `district_coords()` takes the median lat/lon of each district's APMC markets.
+  625 of 739 districts are covered. The 114 without a market are mostly in Arunachal Pradesh, Jharkhand and the Northeast.
+  Spot-checked Nashik, Shimla, Vidisha, Raipur, Ludhiana and Thiruvananthapuram. No geocoding needed.
+- `notebooks/01_data_check.ipynb` now loads all four sources and runs end to end. **Phase 1 exit criterion met.**
+
+**Data overview doc**
+- Shared doc "Crop Recommendation Data Overview" (https://claude.ai/artifact/7YR6Zk556snNTkmJt6tTvX).
+  It has sample rows from all five tables, the file and loader for each, a data → pipeline-step diagram, and gaps per dataset.
+  Private until shared from its Share menu.
+
+## Nov 3, 2026 · Phase 2 (crop model)
+
+Two days behind plan (was due Nov 1). Notebook: `notebooks/02_crop_model.ipynb`.
+
+**Setup** (for the paper)
+- Data: Kaggle Crop Recommendation, 2,200 rows, 22 crops × 100. No duplicates, no missing values.
+- Stratified 5-fold CV, shuffled, seed 42. Metrics: accuracy, macro F1, top-3 accuracy (the app shows 3 crops).
+- Models, near-default settings, no tuning: LogReg (scaled, max_iter 2000), Random Forest (300 trees),
+  XGBoost (300 trees, lr 0.1), LightGBM (300 trees). Each run with all 7 features and without humidity.
+- Added scikit-learn 1.9.1, XGBoost 3.4.1, LightGBM 4.7.0 to `.venv` and `requirements.txt`.
+
+**Results** (`research/results/2026-11-03_crop_model_cv.csv`, figures in `research/figures/crop_*.png`)
+
+| Model | Acc. with humidity | Acc. without | Top-3 without |
+| --- | --- | --- | --- |
+| LogReg | 0.971 ± 0.002 | 0.901 ± 0.006 | 0.992 |
+| Random Forest | **0.995 ± 0.003** | **0.984 ± 0.005** | **1.000** |
+| XGBoost | 0.993 ± 0.003 | 0.979 ± 0.009 | 0.999 |
+| LightGBM | 0.993 ± 0.003 | 0.981 ± 0.004 | 0.998 |
+
+- The three tree models are within one std of each other. LogReg falls 7 points without humidity.
+- Dropping humidity costs RF 1.1 points of accuracy and nothing in top-3.
+- Errors without humidity: rice → jute (8 of 100), pigeonpeas → kidneybeans (5), and mix-ups among the pulses.
+  Feature importance: rainfall > K > P > N > temperature > pH.
+
+**Decision: the app uses Random Forest without humidity.** NASA humidity doesn't match Kaggle's (19–23 points off),
+so training on it would feed the app values the model never saw. Saved as `models/crop_model.joblib`
+(model, feature list, class names). Answers open question #1's follow-up in `architecture.md`.
+
+**Caveat:** ~98–99% mostly shows the Kaggle data is clean and well separated (likely synthetic). The Nov 5–6
+real-world check is what tests whether it works on real districts.
+
+## Nov 3, 2026 · Phase 3 (price model)
+
+Notebook: `notebooks/03_price_model.ipynb` (~10 min to run, mostly Prophet backtest fits).
+
+**Setup** (for the paper)
+- Data: `prices_monthly.csv`, Jan 2021 – May 2026. Series = crop × state monthly median price, plus an all-India
+  series per crop (market-day-weighted mean of state medians). 417 series; 296 have ≥ 24 months before a cutoff.
+- Methods: naive (last value), seasonal-naive (same month last year), blend (average of the two),
+  Prophet 1.5.0 (defaults, yearly seasonality, fit on log price).
+- Rolling-origin backtest: cutoffs May 2024, Nov 2024, May 2025, each forecasting 12 months. 8,431 forecast-months.
+  MAPE per series, then median across series. Only months where every method has a forecast.
+- **Method chosen on 4–12 months ahead**, the gap between sowing and selling.
+
+**Results** (`research/results/2026-11-03_price_backtest.csv`, figures `research/figures/price_*.png`)
+
+| Method | 1–3 mo | 4–6 mo | 7–12 mo | 4–12 mo, median MAPE |
+| --- | --- | --- | --- | --- |
+| Naive | **9.9** | 16.7 | 18.4 | 19.4 |
+| Seasonal-naive | 15.9 | 16.0 | 17.5 | **17.3** |
+| Blend | 11.4 | 15.2 | 17.1 | 17.5 |
+| Prophet | 16.4 | 18.5 | 23.7 | 22.9 |
+
+- **Prophet loses at every horizon.** On short state series it extrapolates the trend: 21 of 296 series go above 100%
+  error. Not tuned; the plan only asked for Prophet vs seasonal-naive, and it's clear.
+- Naive wins short-term but can't show seasons (it says mango pays the same in June and September).
+- **Decision: seasonal-naive** (ties with blend, simpler, it was the planned baseline).
+- Field crops forecast well (rice, cotton, lentil 2–7% all-India); fruit, pigeonpeas and coconut are 17–44%.
+
+**Output:** `data/processed/price_forecast.csv`: crop, state, month (Jun 2026 – May 2027), price (Rs/quintal),
+method, mape (that series' 4–12-month backtest error). 309 series: 21 crops all-India + 288 crop × state.
+The ranker uses the state series when it exists, else All India. kidneybeans has no price.
+Added `prophet` to `requirements.txt`. LSTM stays cut (scope cut in `plan.md`).
+
+## Nov 3, 2026 · Phase 4 (ranking + SHAP)
+
+**`project/recommend.py`**: the one place the app, agent and notebooks get recommendations from.
+- `recommend(N, P, K, ph, district, state=None, sow=None)` → (inputs, table). District name → LGD code → market
+  coordinates → NASA POWER 10-year means (cached in `data/raw/nasa_power/`) → Random Forest suitability → top 3 with
+  suitability ≥ 5% (`MIN_SUITABILITY`; the top crop always shows).
+- Expected revenue (Rs/ha) = suitability × yield (t/ha) × 10 × price (Rs/quintal).
+  - Yield: district → state median → India median; `yield_source` says which.
+  - Price: state series → All India; `price_source` and `price_mape` say which and how good.
+    Sold at sowing month + `GROW_MONTHS` (3–6 months for field crops); perennials use the 12-month mean.
+  - Crops with no yield or price stay in the table, ranked last.
+- `explain(inputs, crop)` → SHAP values (TreeExplainer) for that crop's suitability; plot with `shap.plots.waterfall`.
+- Self-check: `python project/recommend.py` (checks the ranking order and that SHAP values add up to the probability).
+- Added `shap` 0.54.1 to `requirements.txt`.
+
+**Notebook `notebooks/04_ranking.ipynb`**: 5 example farms, each with the Kaggle mean soil of its district's best-known
+crop, sown Nov 3. Table: `research/results/2026-11-03_ranking_examples.csv`, SHAP plots `research/figures/shap_*.png`.
+Only a check that the pieces fit, not a paper result.
+
+| District | Known for | Model's top pick | Ranked 1st by revenue |
+| --- | --- | --- | --- |
+| Raipur | rice | jute (rice 0%) | papaya |
+| Yavatmal | cotton | cotton | cotton |
+| Vidisha | chickpea | chickpea | papaya |
+| Nashik | grapes | grapes | grapes |
+| Ludhiana | maize | maize | maize |
+
+**Problems found**
+1. **Rice fails on real weather.** Raipur's mean rainfall is 116 mm/month; Kaggle rice rows average 236. SHAP: rainfall
+   pushes rice down by 0.11. Irrigation isn't an input. Expect this in the real-world check.
+2. **Revenue ranking favours fruit.** Papaya grosses ~Rs 9 lakh/ha vs chickpea's ~Rs 0.8 lakh, so a 24%-suitable papaya
+   beats a 62%-suitable chickpea. Revenue ignores cost, orchard set-up years and risk. **Open decision** (see below).
+
+## Nov 3, 2026 · Model research and tests
+
+User asked for literature-backed testing of all three parts. Full write-up with sources:
+`research/notes/2026-11-03_model_research.md`. Notebooks 05 (crop), 06 (price), 07 (ranking).
+
+- **Crop model:** no model or tuning beats Random Forest on clean data (5×5 CV, corrected t-test). But under the measured
+  Kaggle-vs-NASA weather gap every model falls to 72–77% accuracy. Training RF on 5 noisy copies of the rows keeps 89%
+  (top-3 99.8%) at the cost of 98.4% → 93.6% on clean rows. Isotonic calibration fixes RF's under-confident probabilities
+  (ECE 0.059 → 0.013).
+- **Price model:** median of AutoETS, AutoARIMA, AutoTheta and seasonal-naive beats seasonal-naive at 4–12 months
+  (16.5% vs 17.4% median MAPE, better on 62% of series, Wilcoxon p = 0.001). Global LightGBM is worse (19.2%).
+  Added `statsforecast` 2.1.1 to `requirements.txt`.
+- **Ranking:** downloaded CACP cost of cultivation (`data/raw/cost/cost-of-cultivation.csv`, India Data Portal, 20 states,
+  1996-2022, 9 of our crops, no fruit). A2+FL is 50–76% of gross value. Gross revenue predicts what districts grow no better
+  than random (Spearman 0.06; banana #1 by revenue in 41% of districts, by area in 0.3%). On Kaggle out-of-fold rows,
+  multiplying by revenue drops "right crop first" from 98.4% to 94.5% for no gain; using net return only among near-ties
+  (suitability ≥ 0.8 × top) keeps 98.5%.
+- The three changes were applied the same day after the user approved (next entry).
+
+## Nov 3, 2026 · Applied the three improvements
+
+User approved all three. Details and tables: `research/notes/2026-11-03_model_research.md`, section 5.
+
+- **Crop model:** Random Forest (no humidity) trained on the rows plus 5 weather-noised copies, then isotonic calibration
+  (`CalibratedClassifierCV`, `ensemble=False`, calibration folds grouped by original row). Trained and saved by
+  `notebooks/05_crop_model_tests.ipynb`, section 5. Before saving, tested the combination: 88.3% accuracy and ECE 0.038 under
+  real-sized weather noise (uncalibrated augmented: 88.9%, ECE 0.063; old model: 74.2%, 0.078). Clean Kaggle accuracy
+  drops to 93.1%; that's the price of robustness. `models/crop_model.joblib` now holds `model` (calibrated) and
+  `forest` (for SHAP).
+- **Price forecast:** `notebooks/06_price_model_tests.ipynb`, section 4, writes `data/processed/price_forecast.csv` with the
+  median of ETS, ARIMA, Theta and seasonal-naive. Same 309 series; prices moved 8.2% (median) from seasonal-naive.
+- **Ranking:** `project/recommend.py` now orders by suitability, and re-orders by net return only among crops ≥ 0.8 × the
+  top crop's suitability. New columns `cost_share`, `cost_source`, `net_rs_ha`, `near_tie`; `expected_rs_ha` is gone.
+  New loader `data.cost_shares()` (CACP A2+FL ÷ gross value, median 2017-18 to 2021-22, plus All-India rows).
+- **SHAP** now explains the forest before calibration (SHAP can't see through the calibrator). Isotonic is monotone per crop,
+  so the direction of each push holds, but the SHAP total is the forest score, not the shown suitability.
+- Notebooks 02 and 03 no longer write the app files (that would undo this if re-run); re-run 02, 03, 04, 05, 06.
+  Removed the stale `shap_raipur_papaya.png` and `shap_vidisha_papaya.png`.
+- **Example farms (04):** known crop in top 3 for 5 of 5 farms, first for 4 of 5 (was 4 and 3). Raipur picks jute over
+  rice (0.92 vs 0.08); rice was 0 before. CACP costs are large: net return for Maharashtra cotton and Punjab maize is
+  only ~Rs 7,000/ha.
+- `python project/recommend.py` self-check passes (near-ties first and sorted by net, the rest by suitability, SHAP adds up).

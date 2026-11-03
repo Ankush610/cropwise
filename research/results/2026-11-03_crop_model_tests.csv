@@ -1,0 +1,18 @@
+model,accuracy,top3,log_loss,brier,ece,test
+LogReg,0.9057,0.9915,0.3814,0.1755,0.1528,5x5 repeated CV
+RandomForest,0.9847,1.0,0.0986,0.0366,0.0593,5x5 repeated CV
+ExtraTrees,0.9788,1.0,0.166,0.0615,0.1098,5x5 repeated CV
+XGBoost,0.9784,0.9985,0.0782,0.0349,0.0152,5x5 repeated CV
+LightGBM,0.9812,0.9992,0.1043,0.032,0.0173,5x5 repeated CV
+RF + sigmoid,0.9852,1.0,0.0994,0.0276,0.0545,5x5 repeated CV
+RF + isotonic,0.9844,0.9979,0.1096,0.0264,0.0132,5x5 repeated CV
+LightGBM (tuned),0.9818,0.9986,0.1148,0.0315,0.0166,"nested CV, tuned"
+RandomForest (tuned),0.9836,1.0,0.0808,0.0346,0.0375,"nested CV, tuned"
+XGBoost (tuned),0.9791,0.9991,0.0775,0.0339,0.018,"nested CV, tuned"
+ExtraTrees,0.7668,0.973,0.716,0.3501,0.1011,weather noise x1.0
+LightGBM,0.7241,0.9486,1.9599,0.4841,0.2149,weather noise x1.0
+LightGBM + noise augmentation,0.8548,0.9948,0.8718,0.2583,0.1219,weather noise x1.0
+LogReg,0.6532,0.903,1.2358,0.4942,0.0945,weather noise x1.0
+RF + noise augmentation,0.8889,0.9975,0.3111,0.1695,0.0631,weather noise x1.0
+RandomForest,0.742,0.9475,0.9778,0.3879,0.078,weather noise x1.0
+XGBoost,0.715,0.9311,1.2777,0.4676,0.1748,weather noise x1.0

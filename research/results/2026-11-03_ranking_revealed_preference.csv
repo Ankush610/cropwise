@@ -1,0 +1,7 @@
+,districts,mean Spearman ρ,top-1 match %
+"gross revenue, all crops",586.0,0.059,13.652
+"gross revenue, field crops",571.0,0.139,17.338
+"net over A2+FL, field crops",571.0,0.043,14.011
+"net over C2, field crops",571.0,0.075,18.739
+"yield only, field crops",571.0,0.371,40.455
+"random score, field crops",571.0,-0.019,15.061

@@ -1,0 +1,12 @@
+pandas
+requests
+kagglehub
+jupyter
+matplotlib
+scikit-learn
+xgboost
+lightgbm
+joblib
+prophet
+shap
+statsforecast

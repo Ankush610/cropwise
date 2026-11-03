@@ -1,0 +1,17 @@
+# Python
+__pycache__/
+*.py[cod]
+.venv/
+.ipynb_checkpoints/
+
+# Data and models: too big for git, rebuilt by project/data.py and notebooks 05-06
+data/
+models/
+
+# Local tool settings
+.claude/settings.local.json
+
+# OS / editors
+.DS_Store
+.vscode/
+.idea/

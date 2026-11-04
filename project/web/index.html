@@ -1,0 +1,124 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <title>Fasal Salah</title>
+  <meta name="description" content="Crop advice from your Soil Health Card, district weather and mandi prices.">
+  <meta name="theme-color" content="#f3f5ee" media="(prefers-color-scheme: light)">
+  <meta name="theme-color" content="#121812" media="(prefers-color-scheme: dark)">
+  <link rel="icon" href="img/sprout.svg" type="image/svg+xml">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Mukta:wght@400;500;700&display=swap">
+  <link rel="stylesheet" href="css/tokens.css">
+  <link rel="stylesheet" href="css/base.css">
+  <link rel="stylesheet" href="css/layout.css">
+  <link rel="stylesheet" href="css/farm.css">
+  <link rel="stylesheet" href="css/chat.css">
+  <link rel="stylesheet" href="css/evidence.css">
+  <script type="module" src="js/main.js"></script>
+</head>
+<body>
+  <header class="topbar">
+    <a class="brand" href="/">
+      <svg class="brand-mark" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 21v-9"/><path d="M12 12c0-4 2.5-7 7-7 0 4.5-3 7-7 7z"/><path d="M12 15c0-3-2-5.5-6-5.5 0 3.5 2.5 5.5 6 5.5z"/></svg>
+      <span>Fasal Salah</span>
+    </a>
+    <button class="farm-toggle" id="farm-toggle" type="button" aria-controls="farm" aria-expanded="false">
+      <span class="farm-toggle-label">Your farm</span>
+      <span class="farm-toggle-value" id="farm-summary">Not set</span>
+    </button>
+    <button class="btn-quiet" id="new-chat" type="button">New chat</button>
+  </header>
+
+  <div class="shell">
+    <aside class="farm" id="farm" aria-labelledby="farm-title">
+      <form class="shc" id="farm-form" novalidate>
+        <div class="shc-head">
+          <h2 id="farm-title">Soil Health Card</h2>
+          <p>Copy the values from your card. No card? Use the typical soil of your district.</p>
+          <button class="shc-close" id="farm-close" type="button" aria-label="Close farm details">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6 6l12 12M18 6L6 18"/></svg>
+          </button>
+        </div>
+
+        <div class="shc-body">
+          <div class="field-pair">
+            <label class="field">
+              <span class="field-label">State</span>
+              <select id="state" disabled><option value="">Loading…</option></select>
+            </label>
+            <label class="field">
+              <span class="field-label">District</span>
+              <select id="district" disabled><option value="">Choose a state first</option></select>
+            </label>
+          </div>
+
+          <fieldset class="soil">
+            <legend class="field-label">Soil test results</legend>
+            <div class="soil-grid">
+              <label class="soil-cell" data-key="N">
+                <span class="soil-name">Nitrogen <abbr title="Nitrogen">N</abbr></span>
+                <span class="soil-entry"><input id="N" aria-label="Nitrogen, kg per hectare" type="number" inputmode="decimal" min="0" step="any" placeholder="–"><span class="soil-unit">kg/ha</span></span>
+                <span class="band" aria-live="polite"></span>
+              </label>
+              <label class="soil-cell" data-key="P">
+                <span class="soil-name">Phosphorus <abbr title="Phosphorus">P</abbr></span>
+                <span class="soil-entry"><input id="P" aria-label="Phosphorus, kg per hectare" type="number" inputmode="decimal" min="0" step="any" placeholder="–"><span class="soil-unit">kg/ha</span></span>
+                <span class="band" aria-live="polite"></span>
+              </label>
+              <label class="soil-cell" data-key="K">
+                <span class="soil-name">Potassium <abbr title="Potassium">K</abbr></span>
+                <span class="soil-entry"><input id="K" aria-label="Potassium, kg per hectare" type="number" inputmode="decimal" min="0" step="any" placeholder="–"><span class="soil-unit">kg/ha</span></span>
+                <span class="band" aria-live="polite"></span>
+              </label>
+              <label class="soil-cell" data-key="ph">
+                <span class="soil-name">Soil pH</span>
+                <span class="soil-entry"><input id="ph" aria-label="Soil pH" type="number" inputmode="decimal" min="3" max="10" step="0.1" placeholder="–"></span>
+                <span class="band" aria-live="polite"></span>
+              </label>
+            </div>
+            <p class="soil-source" id="soil-source" hidden></p>
+            <button class="btn-link" id="use-typical" type="button" disabled>No card? Use typical soil for my district</button>
+          </fieldset>
+
+          <label class="field">
+            <span class="field-label">Sowing month</span>
+            <select id="month"></select>
+          </label>
+          <p class="season" id="season"></p>
+
+          <button class="btn-primary" type="submit">Ask what to grow</button>
+          <p class="form-hint" id="form-hint" role="status"></p>
+        </div>
+      </form>
+    </aside>
+    <div class="scrim" id="scrim" hidden></div>
+
+    <main class="chat">
+      <div class="thread" id="thread" aria-live="polite" aria-label="Conversation">
+        <section class="welcome" id="welcome">
+          <h1>What should you grow this season?</h1>
+          <p>Fill in your soil card, or tell me your district and sowing month. Write in Hindi or English.</p>
+          <div class="suggestions">
+            <button class="chip" type="button">What should I grow this season?</button>
+            <button class="chip" type="button">मेरे पास सॉयल हेल्थ कार्ड नहीं है, क्या बोऊं?</button>
+            <button class="chip" type="button">Will onion prices go up in Maharashtra?</button>
+            <button class="chip" type="button">How much rain does my district get?</button>
+          </div>
+        </section>
+      </div>
+
+      <form class="composer" id="composer">
+        <label class="sr-only" for="message">Message</label>
+        <textarea id="message" rows="1" maxlength="2000" placeholder="Ask about crops, prices or weather" enterkeyhint="send"></textarea>
+        <button class="send" id="send" type="submit" aria-label="Send message">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 19V5M5 12l7-7 7 7"/></svg>
+        </button>
+      </form>
+      <p class="composer-note">Advice is an estimate from district soil, weather and mandi data, not a test of your field.</p>
+    </main>
+  </div>
+</body>
+</html>

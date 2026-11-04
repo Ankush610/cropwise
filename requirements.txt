@@ -13,3 +13,4 @@ statsforecast
 streamlit
 fastapi
 uvicorn[standard]
+python-dotenv

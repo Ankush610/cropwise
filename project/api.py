@@ -1,16 +1,22 @@
 """FastAPI backend: the recommend.py functions over HTTP, for the web UI and the agent.
 
-Run from the repo root: .venv/bin/uvicorn api:app --app-dir project --reload
+Run from the repo root: .venv/bin/python project/api.py (HOST and PORT from .env; self-check: add --check)
 Interactive docs: http://127.0.0.1:8000/docs
 """
 import datetime
 import json
+import os
+import sys
+from pathlib import Path
 
 import pandas as pd
+import requests
 from fastapi import FastAPI, Request
 from fastapi.responses import JSONResponse
+from fastapi.staticfiles import StaticFiles
 from pydantic import BaseModel, Field
 
+import agent
 import recommend
 
 app = FastAPI(title="Crop recommendation")
@@ -20,6 +26,12 @@ app = FastAPI(title="Crop recommendation")
 def bad_input(request: Request, err: ValueError) -> JSONResponse:
     """recommend.py raises ValueError for an unknown district or crop, or soil out of range."""
     return JSONResponse({"detail": str(err)}, status_code=400)
+
+
+@app.exception_handler(requests.RequestException)
+def llm_down(request: Request, err: requests.RequestException) -> JSONResponse:
+    return JSONResponse({"detail": f"No chat model reachable: Gemini and Ollama both failed ({err.__class__.__name__}). "
+                                   "/recommend and /explain still work."}, status_code=503)
 
 
 class Farm(BaseModel):
@@ -80,7 +92,34 @@ def explain(q: CropQuery) -> dict:
                        for f, v, p in pushes]}
 
 
-if __name__ == "__main__":
+class Message(BaseModel):
+    farmer_id: str = Field(pattern=r"^[A-Za-z0-9_-]{1,64}$", description="Keeps the farm profile between chats")
+    message: str = Field(min_length=1, max_length=2000)
+    farm: dict[str, str | float | int | None] | None = Field(None, description="Soil card values from the web UI")
+
+
+@app.post("/chat")
+def chat(m: Message) -> dict:
+    """Consultant agent: reply in the farmer's language, plus the tool calls behind every number in it."""
+    return agent.chat(m.farmer_id, m.message, m.farm)
+
+
+@app.get("/profile/{farmer_id}")
+def profile(farmer_id: str) -> dict:
+    """Saved farm values and chat text, so the web UI can restore a conversation after a reload."""
+    return agent.load_profile(farmer_id)
+
+
+# Web UI (project/web). Mounted last so the API routes above match first.
+app.mount("/", StaticFiles(directory=Path(__file__).parent / "web", html=True), name="web")
+
+
+if __name__ == "__main__" and "--check" not in sys.argv:
+    import uvicorn
+
+    uvicorn.run(app, host=os.environ.get("HOST", "127.0.0.1"), port=int(os.environ.get("PORT", 8000)))  # .env loaded by agent
+
+elif __name__ == "__main__":
     from fastapi.testclient import TestClient
 
     c = TestClient(app)
@@ -95,5 +134,10 @@ if __name__ == "__main__":
     assert c.post("/explain", json={**farm, "crop": "tomato"}).status_code == 400
     assert c.get("/soil", params={"district": "Ludhiana", "state": "Punjab"}).json()["source"].startswith("Mean of nearest")
     assert len(c.get("/districts").json()) > 500
+    agent.PROVIDERS = [("down", "http://127.0.0.1:9", "key", "m")] * 2  # nothing listens there
+    assert c.post("/chat", json={"farmer_id": "selfcheck", "message": "hi"}).status_code == 503
+    assert c.post("/chat", json={"farmer_id": "../x", "message": "hi"}).status_code == 422
+    assert c.get("/profile/nobody-yet").json()["history"] == [] and c.get("/profile/a.b").status_code == 400
+    assert "<html" in c.get("/").text and c.get("/css/tokens.css").status_code == 200
     print(top, e["reason"], sep="\n")
     print("ok")

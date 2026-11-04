@@ -1,0 +1,131 @@
+/* Conversation: welcome state, messages, waiting state, composer. */
+.thread {
+  overflow-y: auto;
+  padding: 2rem max(var(--gutter), calc((100% - var(--read)) / 2)) 1.5rem;
+  scroll-padding-top: 1rem;
+}
+
+.welcome { padding-top: clamp(1rem, 8vh, 5rem); }
+.welcome h1 {
+  max-width: 18ch;
+  font-size: var(--t-2xl);
+  line-height: 1.15;
+  letter-spacing: -0.02em;
+}
+.welcome p { max-width: 44ch; margin-top: 0.75rem; color: var(--ink-2); }
+
+.suggestions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  margin-top: 1.5rem;
+}
+
+/* Messages */
+.msg + .msg { margin-top: 1.75rem; }
+
+.msg-farmer {
+  display: flex;
+  justify-content: flex-end;
+}
+.msg-farmer p {
+  max-width: min(36rem, 85%);
+  padding: 0.6rem 1rem;
+  border-radius: var(--r-bubble) var(--r-bubble) 4px var(--r-bubble);
+  background: var(--green-soft);
+  white-space: pre-wrap;
+  overflow-wrap: anywhere;
+}
+
+.msg-advisor { display: grid; gap: 1rem; }
+
+.reply { max-width: 42rem; overflow-wrap: anywhere; }
+.reply > * + * { margin-top: 0.7rem; }
+.reply ol, .reply ul { padding-left: 1.4rem; }
+.reply li + li { margin-top: 0.35rem; }
+.reply li > ul { margin-top: 0.25rem; }
+.reply strong { font-weight: 700; }
+
+.byline { color: var(--ink-3); font-size: var(--t-xs); }
+
+/* Waiting for the advisor */
+.msg-pending { display: flex; align-items: center; gap: 0.75rem; color: var(--ink-2); font-size: var(--t-sm); }
+.dots { display: flex; gap: 0.3rem; }
+.dots i {
+  width: 0.45rem;
+  height: 0.45rem;
+  border-radius: 50%;
+  background: var(--green);
+  animation: pulse 1.2s ease-in-out infinite;
+}
+.dots i:nth-child(2) { animation-delay: 0.15s; }
+.dots i:nth-child(3) { animation-delay: 0.3s; }
+@keyframes pulse {
+  0%, 80%, 100% { opacity: 0.25; transform: scale(0.8); }
+  40% { opacity: 1; transform: none; }
+}
+
+/* Errors read as directions, with the fix next to them */
+.msg-error {
+  display: grid;
+  gap: 0.6rem;
+  padding: 0.85rem 1rem;
+  border: 1px solid var(--laterite);
+  border-radius: var(--r-card);
+  background: var(--laterite-soft);
+}
+.msg-error p { font-size: var(--t-sm); }
+.msg-error .actions { display: flex; flex-wrap: wrap; gap: 0.5rem; }
+
+/* Composer */
+.composer {
+  display: flex;
+  align-items: flex-end;
+  gap: 0.5rem;
+  margin: 0 max(var(--gutter), calc((100% - var(--read)) / 2));
+  padding: 0.4rem 0.4rem 0.4rem 1rem;
+  border: 1px solid var(--line);
+  border-radius: 1.5rem;
+  background: var(--surface);
+}
+.composer:focus-within { border-color: var(--green); }
+
+.composer textarea {
+  flex: 1;
+  min-height: 2.5rem;
+  max-height: 10rem;
+  padding: 0.45rem 0;
+  border: 0;
+  background: transparent;
+  resize: none;
+  line-height: 1.5;
+}
+.composer textarea:focus { outline: none; }
+.composer textarea::placeholder { color: var(--ink-3); }
+
+.send {
+  flex: none;
+  display: grid;
+  place-items: center;
+  width: 2.5rem;
+  height: 2.5rem;
+  border: 0;
+  border-radius: 50%;
+  background: var(--green);
+  color: var(--on-green);
+}
+.send svg { width: 1.2rem; height: 1.2rem; fill: none; stroke: currentColor; stroke-width: 2.2; stroke-linecap: round; stroke-linejoin: round; }
+.send:hover { background: var(--green-hover); }
+.send:disabled { background: var(--line); color: var(--ink-3); }
+
+.composer-note {
+  padding: 0.45rem var(--gutter) max(0.65rem, env(safe-area-inset-bottom));
+  color: var(--ink-3);
+  font-size: var(--t-xs);
+  text-align: center;
+}
+
+@media (max-width: 959px) {
+  .thread { padding-top: 1.25rem; }
+  .welcome h1 { font-size: var(--t-xl); }
+}

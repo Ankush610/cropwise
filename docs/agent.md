@@ -98,6 +98,11 @@ The LLM only routes questions and explains answers.
 | 14B+ | Qwen3-14B, Llama 70B | **Overkill.** Needs a big GPU. Extra reasoning power is wasted, since the ML models already make the decision. |
 | Hosted API | Claude Haiku 5.5 | Best quality and language support, very cheap per chat, but needs internet and an API key. Used as the **upper-bound reference**, not the main model. |
 
+**Nov 4 change:** the live app uses Gemini first (`gemini-3.5-flash`, then `gemini-2.5-flash`) and falls back to
+Qwen3-4B-Instruct on the laptop (no internet, quota). On the laptop CPU Qwen3-4B takes ~4 min per answer and added
+facts the tools never gave (a pH "optimal range") in the first real test; Gemini answers in 3–15 s. The size test
+below still compares the local models, with Gemini as the reference.
+
 ### Pick: Qwen3-4B, run locally with Ollama
 
 - Trained for tool calling, with a built-in thinking mode we can switch on for "why not X" questions and off for quick replies.
@@ -125,5 +130,27 @@ Results go in `research/` as the model-size table.
 
 ## Code
 
-`project/agent.py`: tool definitions, the agent loop (max 4 tool rounds), profile load/save.
-The Streamlit app gets a chat box that calls it. If Ollama isn't running, the app still shows the plain results.
+`project/agent.py` (built Nov 4): tool schemas, the agent loop (max 4 tool rounds, then the model must answer),
+profile load/save in `data/sessions/<farmer_id>.json`. Served by FastAPI as `POST /chat` (`project/api.py`), which
+returns the reply plus every tool call and result, so the UI can show the numbers' source and the size test can check
+grounding by script, and which model answered. If every model fails, `/chat` returns 503 and `/recommend` and
+`/explain` still work.
+
+- Providers, tried in order through their OpenAI-compatible chat endpoints (plain `requests`, no SDK): each model in
+  `GEMINI_MODEL` (comma-separated, default `gemini-3.5-flash,gemini-2.5-flash`), then `OLLAMA_MODEL` (default
+  `qwen3:4b-instruct`, Qwen3-4B-Instruct-2507). Settings and `GEMINI_API_KEY` live in `.env` (git-ignored).
+- Within one message the agent only moves *down* the list: Gemini 3 rejects tool calls made by another model (they
+  lack its thought signature), so after a fallback it never goes back up. Seen in testing: 503 on 3.8 Flash (high
+  demand), 429 (free-tier rate limit) on 3.5 Flash mid-chat.
+- Plain `qwen3:4b` on Ollama is now the thinking-only model: it reasons before every reply (~7 tokens/s on our CPU) and
+  this Fedora Ollama build ignores `think: false`, so the first test timed out. The instruct tag answers directly.
+- The web UI sends its soil card with every message (`/chat` `farm`); those values update the profile first, so the
+  card is the source of truth and the advisor doesn't ask for a district the farmer already chose.
+- The UI shows each tool result as a card under the reply, so the prompt asks for 2-4 sentences on what the result
+  means instead of repeating every number.
+- Farm values saved in the profile fill in missing tool arguments, so a follow-up like "why not wheat?" needs only the crop.
+- Language: the model replies in the language of the farmer's last message (no language field in the profile).
+- History keeps only the farmer's and the agent's text (last 10); tool results stay out, the profile carries the farm.
+- New helpers in `recommend.py` for the tools: `check_crop()` (any crop, rank among the season's crops) and
+  `price_outlook()` (12-month forecast, MSP in Punjab/Haryana).
+- Self-check `python project/agent.py` runs a scripted model (no Ollama): dispatch, profile fill-in, errors, memory.

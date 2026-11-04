@@ -1,0 +1,85 @@
+/* Colour, type and shape tokens. Each colour has one job:
+   green = actions and "helps", turmeric = suitability, laterite = losses and "holds back". */
+:root {
+  color-scheme: light;
+  --paper: #f3f5ee;
+  --surface: #ffffff;
+  --sunk: #e9ede2;
+  --ink: #1f2a1f;
+  --ink-2: #4b5848;
+  --ink-3: #6c7866;
+  --line: #d6dccd;
+  --green: #3d6b2f;
+  --green-hover: #33592a;
+  --on-green: #ffffff;
+  --green-soft: #e1eadb;
+  --turmeric: #d9a21b;
+  --turmeric-soft: #f3e5bd;
+  --laterite: #a3492c;
+  --laterite-soft: #f3ded4;
+  --scrim: rgb(20 28 20 / 0.42);
+  --shadow-sheet: 0 -10px 40px rgb(20 30 20 / 0.18);
+
+  --font: "Mukta", "Noto Sans Devanagari", "Nirmala UI", system-ui, sans-serif;
+  --t-xs: 0.8125rem;
+  --t-sm: 0.9375rem;
+  --t-md: 1.0625rem;
+  --t-lg: 1.25rem;
+  --t-xl: 1.625rem;
+  --t-2xl: 2.125rem;
+  --lh: 1.6;
+
+  --r-card: 14px;
+  --r-field: 8px;
+  --r-bubble: 18px;
+  --r-pill: 999px;
+
+  --gutter: 16px;
+  --farm-w: 22.5rem;
+  --read: 46rem;
+  --topbar-h: 3.5rem;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    color-scheme: dark;
+    --paper: #121812;
+    --surface: #1a221a;
+    --sunk: #222c21;
+    --ink: #e4eadf;
+    --ink-2: #b4beac;
+    --ink-3: #8c9786;
+    --line: #2f3a2d;
+    --green: #8dbf6c;
+    --green-hover: #a2cd85;
+    --on-green: #102010;
+    --green-soft: #243423;
+    --turmeric: #e3b43e;
+    --turmeric-soft: #3a3219;
+    --laterite: #db8262;
+    --laterite-soft: #3d241b;
+    --scrim: rgb(0 0 0 / 0.55);
+    --shadow-sheet: 0 -10px 40px rgb(0 0 0 / 0.5);
+  }
+}
+
+:root[data-theme="dark"] {
+  color-scheme: dark;
+  --paper: #121812;
+  --surface: #1a221a;
+  --sunk: #222c21;
+  --ink: #e4eadf;
+  --ink-2: #b4beac;
+  --ink-3: #8c9786;
+  --line: #2f3a2d;
+  --green: #8dbf6c;
+  --green-hover: #a2cd85;
+  --on-green: #102010;
+  --green-soft: #243423;
+  --turmeric: #e3b43e;
+  --turmeric-soft: #3a3219;
+  --laterite: #db8262;
+  --laterite-soft: #3d241b;
+  --scrim: rgb(0 0 0 / 0.55);
+  --shadow-sheet: 0 -10px 40px rgb(0 0 0 / 0.5);
+}

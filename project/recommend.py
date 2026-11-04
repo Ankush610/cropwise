@@ -244,6 +244,41 @@ def reasons(e: shap.Explanation) -> str:
     return text + (f" Held back most by: {down}." if down else "")
 
 
+def check_crop(inputs: dict, crop: str) -> dict:
+    """One crop for a farm already run through recommend(), whether or not it made the top 3: suitability, rank among
+    the crops offered that season, yield, harvest price, net return and the SHAP reason. Answers "why not X?"."""
+    e = explain(inputs, crop)  # raises on an unknown crop
+    m = _model()
+    proba = pd.Series(m["model"].predict_proba(pd.DataFrame([inputs])[m["features"]])[0], index=m["classes"])
+    offered = proba[proba.index.isin(m["season_crops"][inputs["season"]])] if "season_crops" in m else proba
+    d = find_district(inputs["district"], inputs["state"])
+    y, y_src = _yield(crop, d)
+    price, p_src, mape = _price(crop, d["state_name"], datetime.date.fromisoformat(inputs["sow"]))
+    share, c_src = _cost_share(crop, d["state_name"])
+    return {"crop": crop, "suitability": round(float(proba[crop]), 3), "season": inputs["season"],
+            "offered_this_season": crop in offered.index,
+            "rank": int((offered > proba[crop]).sum()) + 1 if crop in offered.index else None, "out_of": len(offered),
+            "yield_t_ha": round(y, 2), "yield_source": y_src, "price_rs_q": round(price, 0), "price_source": p_src,
+            "price_mape": mape, "net_rs_ha": round(y * QUINTALS_PER_TONNE * price * (1 - share), 0), "cost_source": c_src,
+            "reason": reasons(e)}
+
+
+def price_outlook(crop: str, state: str | None = None) -> dict:
+    """12-month mandi price forecast (Rs/quintal): the state's series, else All India; MSP for paddy and wheat in
+    procurement states."""
+    if crop in MSP and state in PROCUREMENT_STATES:
+        return {"crop": crop, "source": "MSP 2026-27 (fixed government price)", "price_rs_q": MSP[crop]}
+    p = _tables()[1]
+    p = p[p["crop"] == crop]
+    for source in (state, "All India"):
+        rows = p[p["state"] == source].sort_values("month")
+        if len(rows):
+            return {"crop": crop, "source": source, "forecast_error_pct": float(rows["mape"].iloc[0]),
+                    "months": [{"month": m.strftime("%b %Y"), "price_rs_q": round(float(v))}
+                               for m, v in zip(rows["month"], rows["price"])]}
+    raise ValueError(f"No price data for {crop!r}")
+
+
 if __name__ == "__main__":
     inputs, table = recommend(250, 40, 210, 6.8, "Raipur", sow=datetime.date(2026, 11, 4))  # Soil Health Card scale
     print(inputs, table, sep="\n")
@@ -255,6 +290,10 @@ if __name__ == "__main__":
     p = _model()["forest"].predict_proba(pd.DataFrame([inputs])[_model()["features"]])[0]
     assert abs(e.base_values + e.values.sum() - p[_model()["classes"].index(table["crop"].iloc[0])]) < 1e-6  # SHAP adds up
     print(pd.Series(e.values, index=e.feature_names).round(3))
+    top = check_crop(inputs, table["crop"].iloc[0])
+    assert top["suitability"] == table["suitability"].iloc[0] and top["offered_this_season"], top
+    assert check_crop(inputs, "jute")["rank"] in (None, *range(2, 28))
+    assert len(price_outlook("onion", "Maharashtra")["months"]) == 12 and "months" not in price_outlook("wheat", "Punjab")
     assert _price("rice", "Punjab", datetime.date(2026, 6, 15))[:2] == (2441.0, "MSP 2026-27")
     assert _price("rice", "Odisha", datetime.date(2026, 6, 15))[1] != "MSP 2026-27"
     assert [season(datetime.date(2026, m, 1)) for m in (1, 3, 6, 10)] == ["rabi", "summer", "kharif", "rabi"]

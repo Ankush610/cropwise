@@ -421,3 +421,67 @@ User wants the main UI to be an HTML/CSS/JS page with the AI agent, served by Fa
 - Self-check `python project/api.py` (TestClient): Raipur November → rice first, SHAP adds up, error codes right.
 - Deps: fastapi, uvicorn added to `requirements.txt` and `.venv`.
 - Next: `/chat` with the agent, then the web UI served from FastAPI.
+
+## Nov 4, 2026 · Consultant agent and /chat
+
+- `project/agent.py`: Qwen3-4B via Ollama's `/api/chat` (plain `requests`), 5 tools (`recommend_crops`, `check_crop`,
+  `get_weather`, `get_price_forecast`, `get_area_soil`), max 4 tool rounds, farm profile in `data/sessions/`.
+  Profile values fill in missing tool arguments; tool errors go back to the model as text.
+- `recommend.py`: `check_crop()` (one crop's suitability, rank among the season's crops, yield, price, net return,
+  SHAP reason) and `price_outlook()` (12-month forecast). Raipur, November: rice is shown first (near-tie broken by net
+  return) while wheat ranks 1st on suitability (0.24 vs 0.20); consistent with the near-tie rule.
+- `api.py`: `POST /chat` {farmer_id, message} → {reply, tool_calls}; 503 when Ollama is down; farmer_id checked (used
+  as a file name).
+- Self-checks pass (agent with a scripted model, recommend, api). Not yet run against a real model: Ollama is not
+  installed on this laptop (needs `sudo dnf install ollama`).
+
+## Nov 4, 2026 · Agent on Gemini, Ollama as fallback; first real chats
+
+- First real test on Ollama failed: the `qwen3:4b` tag is now Qwen3-4B-Thinking-2507 (template always opens `<think>`;
+  `think: false` ignored by Fedora's Ollama 0.12.11; `/no_think` not supported), so it reasoned for 5+ minutes. Switched
+  to `qwen3:4b-instruct` (deleted `qwen3:4b`). It works but takes ~4 min per answer on the i5 CPU, and in "why not
+  wheat?" it added a pH "optimal range" no tool gave, and called rice "not commonly grown" from the season warning.
+- User asked for Gemini first, Ollama as fallback, settings in `.env`. `agent.py` now calls OpenAI-compatible chat
+  endpoints for both (one code path); `GEMINI_MODEL` takes a comma list; within a message the agent only moves down
+  the list (Gemini 3 needs its own thought signatures on tool calls: an Ollama tool call sent to Gemini 3 gave a 400).
+  Picked 3.5 Flash then 2.5 Flash: 3.8 Flash returned 503 "high demand" twice; 2-step tool call 3.5 Flash 4 s + 9 s,
+  2.5 Flash 2 s + 1 s.
+- `.env` (git-ignored now): `GEMINI_API_KEY`, `GEMINI_MODEL`, `OLLAMA_URL`, `OLLAMA_MODEL`, `LLM_TIMEOUT`, `HOST`, `PORT`.
+  `python project/api.py` starts the server from `.env`; the self-check moved to `--check`. `/chat` also returns `model`.
+- Real chats (Gemini): English Raipur/November → `recommend_crops`, reply matches the tool numbers (6 s); "why not
+  wheat?" → `check_crop` with only the crop, soil from the profile (14 s). Hindi Vidisha/June, no card →
+  `get_area_soil` then `recommend_crops` on its own, soybean first (7 s, after a 429 on 3.5 Flash fell to 2.5 Flash);
+  soybean price → `get_price_forecast` (4 s); loan → KVK, no tool (3 s). All numbers checked by eye against tool results.
+- Seen, not fixed: the price forecast window starts Jun 2026, so a June sowing quotes a price month already past.
+
+## Nov 4, 2026 · Web UI (main app; Streamlit stays as backup)
+
+User asked for a production-grade minimal HTML/CSS/JS UI with the advisor at its centre, in separate files.
+- `project/web/`: `index.html`, `css/` (tokens, base, layout, farm, chat, evidence), `js/` ES modules (api, dom,
+  format, markdown, evidence, farm, chat, main), `img/sprout.svg`. No framework, no build step; FastAPI serves it at `/`
+  (mounted after the API routes). Name: "Fasal Salah".
+- Design: the farm panel is laid out like the Soil Health Card, with each value's class shown under it using the card's
+  limits (N 280/560, P 28/56, K 140/280 kg/ha, pH 6.5/8.2). Colours by job: paddy green = actions and "helps",
+  turmeric = suitability, laterite = losses and "holds back"; light and dark themes. Font Mukta (Latin + Devanagari),
+  so Hindi replies match. Below 960 px the panel becomes a bottom sheet behind a "Your farm" button.
+- Evidence under each reply, from the tool results: ranked crops (suitability bar, net return, yield and price with
+  source and forecast error), "Why <crop>?" opens the SHAP chart from `/explain` (diverging bars), price forecast line
+  chart (warning when the past error is > 30%), weather figures, typical soil with "Put these on my soil card".
+  Byline names the model that answered and the data it used.
+- Errors say what failed and offer "Try again"; when the chat models are down and the card is complete, "Show crops
+  without the advisor" calls `/recommend` directly. Waiting text changes after 15 s (offline model is slow).
+- Backend for the UI: `GET /profile/{farmer_id}` (restore chat text and card after a reload); `/chat` takes the card
+  (`farm`) and seeds the profile; each tool call returns the full `farm` used (for `/explain`). Prompt: don't repeat
+  every number, the cards show them; money as ₹42,193. Gemini per-call timeout 60 → 30 s (3.5 Flash hung once).
+- Checked in the browser pane: desktop dark and light, phone width (sheet, restore after reload), form → advice for
+  Raipur/November, "Why rice?" (season −16 pts), onion price chart, Hindi chip with Vidisha chosen on the card →
+  typical soil + ranking in Hindi, "Put these on my soil card". No console errors.
+- Seen, not fixed: replies restored after a reload show text only (the profile keeps text, not tool results);
+  onion Maharashtra forecast has 99% past error and ₹888–1,369/q prices, which look too low; Gemini 3.5 Flash often
+  answers 503 "high demand", so most replies come from 2.5 Flash.
+
+## Nov 4, 2026 · Ongoing issues list
+
+User asked for one file of open issues. `docs/ongoing-issues.md` collects them by area with evidence, impact and a
+possible fix, prioritised against the Nov 10 freeze. Two new from reading the test numbers: Vidisha soybean's cost
+share works out to ~0.91 (net ₹5,281 from ₹55,884 gross), and the Ollama context is 4,096 tokens.

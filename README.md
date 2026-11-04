@@ -11,6 +11,8 @@
 ## Run
 
 ```bash
-.venv/bin/uvicorn api:app --app-dir project --reload   # API, docs at http://127.0.0.1:8000/docs
+cp .env.example .env                       # then add your GEMINI_API_KEY
+ollama pull qwen3:4b-instruct              # offline fallback chat model (once)
+.venv/bin/python project/api.py            # web UI at http://HOST:PORT (from .env), API docs at /docs
 .venv/bin/streamlit run project/app.py                # backup UI
 ```

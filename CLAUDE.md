@@ -14,7 +14,7 @@ then ranks them by expected profit and explains why.
 - **Nov 10, 2026:** project complete (code, models, demo, frozen results).
 - **Nov 15, 2026:** paper and conclave.
 
-Schedule and scope cuts: `docs/plan.md`.
+Schedule and scope cuts: `docs/plan.md`. Open problems: `docs/ongoing-issues.md`.
 
 ## Folders
 
@@ -40,7 +40,7 @@ Soil Health Card (district soil; with DES area it trains the app's district crop
 3. Classifier returns the top 3 suitable crops.
 4. Price model ranks them by expected profit.
 5. SHAP explains the choice.
-6. Consultant agent (Qwen3-4B via Ollama) chats with the farmer, calling steps 2–5 as tools. See `docs/agent.md`.
+6. Consultant agent (Gemini, Qwen3-4B via Ollama as offline fallback) chats with the farmer, calling steps 2–5 as tools. See `docs/agent.md`.
 
 ## Rules
 

@@ -2,9 +2,24 @@
   "version": "0.0.1",
   "configurations": [
     {
+      "name": "web",
+      "runtimeExecutable": ".venv/bin/python",
+      "runtimeArgs": [
+        "project/api.py"
+      ],
+      "port": 8000
+    },
+    {
       "name": "demo",
       "runtimeExecutable": ".venv/bin/streamlit",
-      "runtimeArgs": ["run", "project/app.py", "--server.port", "8501", "--server.headless", "true"],
+      "runtimeArgs": [
+        "run",
+        "project/app.py",
+        "--server.port",
+        "8501",
+        "--server.headless",
+        "true"
+      ],
       "port": 8501
     }
   ]

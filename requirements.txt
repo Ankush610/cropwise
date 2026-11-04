@@ -10,3 +10,4 @@ joblib
 prophet
 shap
 statsforecast
+streamlit

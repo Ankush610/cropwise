@@ -1,14 +1,14 @@
 model · features,main crop 1st %,main crop in list %,picks grown %,area covered %,list length
-popularity (training states),50.09,76.25,95.24,61.09,3.0
-Random Forest · soil + weather (app inputs),57.7,77.92,91.74,61.57,2.84
-Random Forest · + humidity,62.15,82.37,93.6,63.57,2.83
-Random Forest · + season weather,61.97,79.78,96.26,64.15,2.71
-Random Forest · weather only,57.88,76.99,92.8,60.11,2.77
-Random Forest · soil only,46.01,71.99,88.84,55.81,2.83
-LightGBM · + season weather,61.22,80.89,98.67,62.84,2.38
-Logistic regression · soil + weather (app inputs),49.35,77.37,90.41,60.32,2.86
-Logistic regression · + humidity,57.88,80.89,92.83,62.2,2.85
-Logistic regression · + season weather,61.22,82.56,97.34,64.85,2.79
-Logistic regression · weather only,60.3,80.33,93.72,62.78,2.83
-Logistic regression · soil only,49.72,78.11,91.81,59.98,2.87
-"Random Forest · app inputs, random district folds",63.82,87.01,97.34,68.99,2.73
+popularity (training states),50.09,76.25,94.37,61.88,3.0
+Random Forest · soil + weather (app inputs),57.33,77.74,90.17,62.31,2.85
+Random Forest · + humidity,63.08,82.0,92.3,64.25,2.83
+Random Forest · + season weather,62.15,80.33,95.67,64.73,2.7
+Random Forest · weather only,57.51,76.62,92.24,61.0,2.76
+Random Forest · soil only,46.38,72.36,87.32,56.86,2.86
+LightGBM · + season weather,60.11,80.89,99.01,64.06,2.39
+Logistic regression · soil + weather (app inputs),49.54,77.55,89.08,61.09,2.86
+Logistic regression · + humidity,58.07,80.89,91.16,63.12,2.84
+Logistic regression · + season weather,61.41,82.56,96.23,65.65,2.8
+Logistic regression · weather only,60.67,80.52,91.62,63.71,2.84
+Logistic regression · soil only,49.72,78.11,90.01,60.77,2.87
+"Random Forest · app inputs, random district folds",64.94,85.34,95.83,69.07,2.73

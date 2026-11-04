@@ -281,3 +281,47 @@ User agreed the crop list needed the major crops Kaggle lacks. Committed the 16-
   in list 79.8% (76.3%). Logistic regression is 2.8 pts better on "in list" (CI 0.6–5.0); RF kept for SHAP.
   Write-up: `research/notes/2026-11-04_district_model.md`, "Update" section.
 - CACP: ragi's surveyed cost exceeds its value (share 1.12), so its net return is negative everywhere.
+
+## Nov 4, 2026 · Phase 6a (Streamlit demo)
+
+**`project/app.py`**, run from the repo root with `.venv/bin/streamlit run project/app.py` (or the `demo` entry in
+`.claude/launch.json`). Added `streamlit` 1.66.1 to `requirements.txt`.
+- Sidebar: state → district (the 625 districts with coordinates), Soil Health Card N, P, K (kg/ha) and pH, sowing date.
+  Soil boxes start at the district's SHC average (districts with ≥ 100 tests); otherwise 250 / 20 / 230 / 7.0 with a
+  note to type the card's values.
+- Main: weather (year, kharif, rabi), ranked table (suitability bar, net return, yield, price at harvest, price forecast
+  error, cost and yield source), plain-language notes (near-ties ordered by net return, negative net = CACP cost above
+  value, price error > 30% = uncertain), and one tab per crop with a SHAP waterfall and a one-line reason.
+- Tested in the browser: Vidisha → wheat, soybean, chickpea (real top 3: soybean, wheat, chickpea); Ludhiana (no SHC
+  average, not in training) → wheat, sugarcane, rice; Thanjavur → rice, coconut, potato. SHAP total matched the
+  suitability shown (Vidisha wheat 0.337).
+- Borderline third picks can flip with small input changes: Thanjavur's third crop is potato with the rounded soil
+  values in the app, blackgram with unrounded values in notebook 09 (both ~8%).
+- Not yet: the consultant agent chat box (Phase 6b, `docs/agent.md`).
+
+## Nov 4, 2026 · Spot check against public sources
+
+User asked to verify the demo's results with web search. Details and sources: `research/notes/2026-11-04_district_model.md`,
+"Spot check" section. Vidisha matches; Ludhiana gets wheat and rice right but ranks sugarcane 2nd (it grows ~2,500 ha);
+Thanjavur's potato is a stale DES row. Wheat, soybean and sugarcane prices match MSP/FRP/mandi reports; Ludhiana wheat
+and sugarcane yields match.
+**Bugs:** (1) DES rice is milled rice but prices are paddy, so rice revenue is ~1/3 low; (2) `district_yield()` keeps
+series that stopped before 2010 (1,105 of them). **Gap:** procurement states lack mandi paddy prices (MSP would fit).
+Not fixed yet.
+
+## Nov 4, 2026 · Fixes from the spot check
+
+User chose: fix both bugs and use MSP.
+- `data.py`: rice converted from milled rice to paddy (`APY_TO_TONNES["rice"] = 1/0.67`); `district_yield()` drops
+  series last reported before 2010-11 (`STALE_BEFORE`, 1,105 series). Rebuilt `district_yield.csv` (old copy in the
+  session scratchpad).
+- `recommend.py`: MSP 2026-27 for paddy (2,441) and wheat (2,585) in Punjab and Haryana (`MSP`, `PROCUREMENT_STATES`);
+  self-check asserts it. App shows a "Price source" column, "–" for the error of an MSP price, and a one-line MSP note.
+- Notebook 09 re-run: 27 crops (grapes dropped, < 20 districts once stale rows went). App model: main crop first
+  62.2%, in list 80.3% (popularity 50.1%, 76.3%); +4.1 pts over popularity, CI 0.7–7.6.
+- Notebook 07 re-run with paddy yields, outputs now dated `2026-11-04_ranking_*.csv` (Nov 3 files kept). Revenue
+  scores agree better with what districts grow but still trail yield alone; τ = 0.8 rule unchanged.
+- Re-check: Thanjavur's third crop is now blackgram (was a stale potato row); Vidisha unchanged; Ludhiana rice now at
+  MSP with paddy yield. Still wrong: sugarcane ranked high in Ludhiana and Karnal.
+- Not re-run: notebook 04 (old Kaggle model, superseded) still shows the pre-fix rice numbers.
+- Docs: `architecture.md` (yield and price rows, 27 crops), `agent.md` (rank out of 27).

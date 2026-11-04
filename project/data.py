@@ -59,10 +59,12 @@ APY_NAMES = {
 }
 # APY labels everything "Tonnes" but these are not. Factor turns them into tonnes of what the mandi prices.
 APY_TO_TONNES = {
+    "rice": 1 / 0.67,  # milled rice -> paddy, at the usual 67% outturn (Ludhiana: 4.72 t/ha rice vs 7.0 paddy reported)
     "cotton": 0.17 / 0.34,  # bales of lint (170 kg) -> kapas, at ~34% ginning outturn
     "jute": 0.18,  # bales of 180 kg
     "coconut": 0.0006,  # ponytail: nuts at ~0.6 kg each, an assumption; check against Kerala farm-gate data
 }
+STALE_BEFORE = "2010-2011"  # DES series that stop earlier are not current (1,105 of 13,150 crop-district series)
 APY_URL = (
     "https://ckandev.indiadataportal.com/dataset/f2bbc28c-6c7c-462b-9064-ea4c4213d466/resource/"
     "f980409d-49a2-42ae-9eb0-182365005c04/download/crop-wise-area-production-yield.csv"
@@ -167,7 +169,8 @@ def district_yield() -> pd.DataFrame:
     """Yield (t/ha) and area (ha) per crop and district: mean of each district's last 5 reported years.
 
     Source: DES district-wise area, production, yield 1997-98 to 2022-23 (India Data Portal), cached in data/raw/apy/.
-    last_year shows how stale a yield is: most fruits stop between 2003 and 2019.
+    Series last reported before STALE_BEFORE are dropped (e.g. Thanjavur potato, 1997-99 only); last_year shows how
+    stale the rest are: some fruits stop between 2010 and 2019.
     """
     path = PROCESSED / "district_yield.csv"
     if not path.exists():
@@ -196,6 +199,7 @@ def district_yield() -> pd.DataFrame:
             .reset_index()
             .join(names, on="district_code")
         )
+        out = out[out["last_year"] >= STALE_BEFORE]
         PROCESSED.mkdir(parents=True, exist_ok=True)
         out.to_csv(path, index=False)
     return pd.read_csv(path)

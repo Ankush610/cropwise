@@ -1,0 +1,6 @@
+rule,#1 is the true crop %,#1 is a fruit %,#1 is a fruit the row is NOT %,"mean net of #1 (Rs/ha, if it grows)"
+suitability,98.4,50.0,0.0,151323.2
+p × gross,93.1,49.0,1.0,149020.3
+p × net,92.7,49.0,1.0,149274.2
+net among near-ties (τ=0.5),98.2,50.0,0.0,151339.8
+net among near-ties (τ=0.8),98.5,50.0,0.0,151400.3

@@ -160,6 +160,24 @@ Table: `research/results/2026-11-03_ranking_revealed_preference.csv`.
 **Recommendation:** order by suitability; re-order by net return only among near-ties (τ = 0.8). Show net return for
 field crops (CACP cost share) and gross revenue for fruit, flagged "cost not known, orchards take years to bear".
 
+**Re-run Nov 4 after the rice unit fix** (DES rice is milled rice; now converted to paddy, ×1/0.67, to match paddy
+prices; see `2026-11-04_district_model.md`). Tables: `2026-11-04_ranking_revealed_preference.csv`,
+`2026-11-04_ranking_rules.csv` (the Nov 3 files above are the buggy run, kept as they were).
+
+| Score | Mean Spearman ρ with area | Top-1 match |
+| --- | --- | --- |
+| Gross revenue, all crops | 0.17 | 20.6% |
+| Gross revenue, field crops | 0.28 | 32.0% |
+| Net over A2+FL, field crops | 0.10 | 20.8% |
+| Net over C2, field crops | 0.08 | 21.7% |
+| Yield only, field crops | 0.40 | 53.4% |
+| Random score | −0.02 | 15.1% |
+
+Rice is now #1 by gross revenue in 16.8% of districts (was 7.5%; #1 by area in 66%). Revenue now beats random, but
+still matches far less often than yield alone, and net return is still worse than gross. Ranking rules: suitability
+98.4%, p × gross 93.1%, p × net 92.7%, near-ties τ = 0.5 98.2%, **τ = 0.8 98.5%** (mean net of #1 Rs 1.51 lakh/ha).
+Same conclusion: keep τ = 0.8.
+
 ## 5. Applied to the app (Nov 3)
 
 **Crop model** (`notebooks/05_crop_model_tests.ipynb`, section 5; table `research/results/2026-11-03_crop_app_model.csv`).

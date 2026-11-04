@@ -18,6 +18,8 @@ NEAR_TIE = 0.8  # net return re-orders only crops at least this suitable relativ
 GROW_MONTHS = {
     "rice": 4, "maize": 4, "chickpea": 4, "kidneybeans": 4, "lentil": 4, "jute": 4, "pigeonpeas": 6, "cotton": 6,
     "mothbeans": 3, "mungbean": 3, "blackgram": 3, "watermelon": 3, "muskmelon": 3,
+    "wheat": 5, "soybean": 4, "groundnut": 4, "bajra": 3, "jowar": 4, "mustard": 4, "sesamum": 3, "ragi": 4, "barley": 4,
+    "potato": 4, "onion": 4, "sugarcane": 12,
 }
 
 

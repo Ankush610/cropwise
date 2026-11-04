@@ -52,6 +52,9 @@ All four datasets we need are free and available. One trains the crop model, one
 - Field crops are covered well up to 2022-23. Fruits are thin and old (most stop by 2015), muskmelon is missing,
   and watermelon and apple have no usable rows. See `build-log.md`.
 
+**Nov 4:** prices, district yields and CACP costs now also cover wheat, soybean, groundnut, bajra, jowar, mustard,
+sesamum, ragi, barley, potato, onion and sugarcane (`NEW_CROPS` in `project/data.py`).
+
 ## 5. Soil: Soil Health Card (added Nov 3)
 
 - "Soil Nutrient Analysis" from the Soil Health Card scheme, India Data Portal (1.1 GB CSV, updated Feb 2026).

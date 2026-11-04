@@ -266,3 +266,18 @@ User decided: commit the real-world check (`58e221a`), then build a model on rea
   net return is negative there (Nashik rice). These are the survey's numbers, left as they are.
 - **Open question:** the crop list is still Kaggle's. Wheat, sugarcane, soybean, groundnut, mustard and bajra are not
   covered, which limits both the app and the evaluation.
+
+## Nov 4, 2026 · 12 more crops (28 in the district model)
+
+User agreed the crop list needed the major crops Kaggle lacks. Committed the 16-crop stage first (`0d2b9d9`).
+
+- **Added:** wheat, soybean, groundnut, bajra, jowar, mustard, sesamum, ragi, barley, potato, onion, sugarcane, in
+  `APMC_NAMES`, `APY_NAMES`, `CACP_NAMES` (`project/data.py`, list in `NEW_CROPS`) and `GROW_MONTHS` (`recommend.py`).
+  Sugarcane barely trades at mandis (737 rows, 2 forecast series), but its forecast (~Rs 356/quintal) sits at the FRP.
+- **Rebuilt** `prices_monthly.csv` and `district_yield.csv`, re-ran notebook 06 (469 forecast series, was 309;
+  the old 309 are unchanged). Backtest table now `research/results/2026-11-04_price_model_tests.csv`.
+- **Notebooks 07 and 08** now drop `NEW_CROPS`, so re-running them reproduces their Nov 3 results.
+- **District model (notebook 09), 28 crops, leave-one-state-out:** main crop first 62.0% (popularity 50.1%),
+  in list 79.8% (76.3%). Logistic regression is 2.8 pts better on "in list" (CI 0.6–5.0); RF kept for SHAP.
+  Write-up: `research/notes/2026-11-04_district_model.md`, "Update" section.
+- CACP: ragi's surveyed cost exceeds its value (share 1.12), so its net return is negative everywhere.

@@ -15,7 +15,7 @@ KAGGLE_DATASET = "atharvaingle/crop-recommendation-dataset"
 POWER_URL = "https://power.larc.nasa.gov/api/temporal/monthly/point"
 POWER_PARAMS = {"T2M": "temperature", "RH2M": "humidity", "PRECTOTCORR": "rainfall"}
 
-# Kaggle label -> APMC commodity names (both files' spellings). No price data for kidneybeans.
+# Crop -> APMC commodity names (both files' spellings). No price data for kidneybeans.
 APMC_NAMES = {
     "rice": ["Paddy(Dhan)(Common)", "Paddy(Common)"],  # farmers sell paddy, not milled rice
     "maize": ["Maize"],
@@ -38,14 +38,24 @@ APMC_NAMES = {
     "cotton": ["Cotton"],
     "jute": ["Jute"],
     "coffee": ["Coffee"],
+    # Added Nov 4: major crops the Kaggle list lacks
+    "wheat": ["Wheat"], "soybean": ["Soyabean"], "groundnut": ["Groundnut"], "bajra": ["Bajra(Pearl Millet/Cumbu)"],
+    "jowar": ["Jowar(Sorghum)"], "mustard": ["Mustard"], "sesamum": ["Sesamum(Sesame,Gingelly,Til)"],
+    "ragi": ["Ragi (Finger Millet)"], "barley": ["Barley (Jau)"], "potato": ["Potato"], "onion": ["Onion"],
+    "sugarcane": ["Sugarcane"],  # barely traded at mandis: cane goes to mills at the government's FRP
 }
-# Kaggle label -> DES district APY crop name. No muskmelon. Fruits stop between 2003 and 2019 and are thin.
+NEW_CROPS = ["wheat", "soybean", "groundnut", "bajra", "jowar", "mustard", "sesamum", "ragi", "barley", "potato", "onion",
+             "sugarcane"]  # not in Kaggle; notebooks 07 and 08 leave them out to stay as run on Nov 3
+# Crop -> DES district APY crop name. No muskmelon. Fruits stop between 2003 and 2019 and are thin.
 APY_NAMES = {
     "rice": "Rice", "maize": "Maize", "chickpea": "Gram", "kidneybeans": "Rajmash Kholar",
     "pigeonpeas": "Arhar/Tur", "mothbeans": "Moth", "mungbean": "Moong(Green Gram)", "blackgram": "Urad",
     "lentil": "Masoor", "pomegranate": "Pome Granet", "banana": "Banana", "mango": "Mango", "grapes": "Grapes",
     "watermelon": "Water Melon", "apple": "Apple", "orange": "Orange", "papaya": "Papaya", "coconut": "Coconut",
     "cotton": "Cotton(Lint)", "jute": "Jute", "coffee": "Coffee",
+    "wheat": "Wheat", "soybean": "Soyabean", "groundnut": "Groundnut", "bajra": "Bajra", "jowar": "Jowar",
+    "mustard": "Rapeseed &Mustard", "sesamum": "Sesamum", "ragi": "Ragi", "barley": "Barley", "potato": "Potato",
+    "onion": "Onion", "sugarcane": "Sugarcane",
 }
 # APY labels everything "Tonnes" but these are not. Factor turns them into tonnes of what the mandi prices.
 APY_TO_TONNES = {
@@ -69,10 +79,13 @@ SHC_LEVELS = {
     "Potassium": ("K", {"Low": 90, "Medium": 200, "High": 360}),
     "Soil Ph": ("ph", {"Acidic": 5.75, "Neutral": 7.0, "Alkaline": 8.25}),
 }
-# CACP cost-of-cultivation crop name -> Kaggle label. CACP surveys no fruit.
+# CACP cost-of-cultivation crop name -> crop. CACP surveys no fruit.
 CACP_NAMES = {
     "Paddy": "rice", "Maize": "maize", "Gram": "chickpea", "Tur (Arhar)": "pigeonpeas", "Moong": "mungbean",
     "Urad": "blackgram", "Lentil": "lentil", "Masur": "lentil", "Cotton": "cotton", "Jute": "jute",
+    "Wheat": "wheat", "Soyabean": "soybean", "Groundnut": "groundnut", "Bajra": "bajra", "Jowar": "jowar",
+    "Rapeseed & Mustard (Toria/Taramira)": "mustard", "Sesamum (Til)": "sesamum", "Ragi": "ragi", "Barley": "barley",
+    "Potato": "potato", "Onion": "onion", "Sugarcane": "sugarcane",
 }
 # India Data Portal mirror of Agmarknet (manual download): file, date column, commodity column
 APMC_FILES = [
@@ -123,7 +136,7 @@ def nasa_weather(lat: float, lon: float, start: int = 2015, end: int = 2024) -> 
 
 
 def mandi_prices() -> pd.DataFrame:
-    """Monthly mandi price per Kaggle crop and state: median modal price (Rs/quintal) over all market-days, n = rows.
+    """Monthly mandi price per crop and state: median modal price (Rs/quintal) over all market-days, n = rows.
 
     Built once from the APMC zips in data/raw/apmc/ (3.6 GB + 0.8 GB CSV, ~30 s), cached in data/processed/.
     """
@@ -151,7 +164,7 @@ def mandi_prices() -> pd.DataFrame:
 
 
 def district_yield() -> pd.DataFrame:
-    """Yield (t/ha) and area (ha) per Kaggle crop and district: mean of each district's last 5 reported years.
+    """Yield (t/ha) and area (ha) per crop and district: mean of each district's last 5 reported years.
 
     Source: DES district-wise area, production, yield 1997-98 to 2022-23 (India Data Portal), cached in data/raw/apy/.
     last_year shows how stale a yield is: most fruits stop between 2003 and 2019.

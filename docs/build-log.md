@@ -408,3 +408,16 @@ cane), so switched to the crop list. Notebook 11 re-run: main crop in list 76.5%
 summer 67.1% (56.7%). Web check: first 16 of 21 (was 15), in list 21 of 23. Karnal kharif still sugarcane first
 (neighbour districts in UP). New `research/paper_limitations.md` collects the gaps for the paper: arid Rajasthan
 (Bikaner), Guntur's 2022 split, Karnal's neighbours, plus the data and method limits from the notes.
+
+## Nov 4, 2026 · FastAPI backend
+
+User wants the main UI to be an HTML/CSS/JS page with the AI agent, served by FastAPI; Streamlit stays as the backup UI.
+- `project/api.py`: `GET /districts`, `GET /soil`, `GET /weather`, `POST /recommend` (N, P, K, pH, district, state,
+  sowing month), `POST /explain` (SHAP pushes for any crop the model knows, sorted by size, plus the plain reason).
+  Pydantic checks ranges (422); `recommend.py`'s ValueError (unknown district or crop) → 400. NaN → null in JSON.
+  Thin layer only: no new logic, notebooks still `import recommend`.
+- `FEATURE_NAMES` and `reasons()` moved from `app.py` to `recommend.py` (shared with the API and the agent);
+  `recommend.explain()` now rejects an unknown crop with a clear message.
+- Self-check `python project/api.py` (TestClient): Raipur November → rice first, SHAP adds up, error codes right.
+- Deps: fastapi, uvicorn added to `requirements.txt` and `.venv`.
+- Next: `/chat` with the agent, then the web UI served from FastAPI.

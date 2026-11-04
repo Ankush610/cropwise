@@ -11,3 +11,5 @@ prophet
 shap
 statsforecast
 streamlit
+fastapi
+uvicorn[standard]

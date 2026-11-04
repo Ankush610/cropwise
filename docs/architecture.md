@@ -27,7 +27,8 @@ flowchart TD
     F --> R
     CS --> R
     R --> S[SHAP: why each crop]
-    S --> OUT[Streamlit: top 3 crops + reasons]
+    S --> API[FastAPI: /recommend, /explain, /soil, /weather, /districts]
+    API --> OUT[Web UI with agent chat; Streamlit as backup]
   end
 ```
 
@@ -43,6 +44,7 @@ flowchart TD
 | 6 | Ranker | Outputs of 1, 2, 3 + CACP cost shares (`cost_shares()`) | Top 3 with suitability ≥ 5%, in suitability order; crops ≥ 0.8 × the top crop's suitability are ordered by net return = yield × price × (1 − cost share). Price is MSP 2026-27 for paddy and wheat in Punjab and Haryana (procurement states, thin mandi data) | `project/recommend.py` |
 | 7 | Explainer | SHAP on the forest (model 1) | Which inputs pushed each crop up or down; adds up to the suitability shown | App display |
 | 8 | Demo app | All of the above | Soil card + district + sowing month form (or "no card": the district's Soil Health Card average, else the mean of the 3 nearest districts with ≥ 100 tests, `recommend.area_soil`) → weather, ranked crops with net return, SHAP plot per crop (built Nov 4; agent chat still to add) | `project/app.py` |
+| 8b | API | `recommend.py` | FastAPI over HTTP: `GET /districts`, `GET /soil`, `GET /weather`, `POST /recommend`, `POST /explain` (SHAP for any crop). Bad district or crop → 400, out-of-range soil → 422. Main web UI and agent call this; Streamlit stays as backup and imports `recommend.py` directly (Nov 4) | `project/api.py` |
 | 9 | Consultant agent | Qwen3-4B via Ollama, calling 1–7 as tools | Chat in the farmer's language, remembers the farm, explains results. Never changes the ranking. See `docs/agent.md` | `project/agent.py` |
 
 The research side adds one more piece: the **real-world check**. It runs DES districts
@@ -57,7 +59,8 @@ Result (Nov 3, notebook 08): no better than random crops; see `research/notes/20
 | `data.py` | Load and clean every dataset |
 | `recommend.py` | The online pipeline: weather → predict → rank → explain |
 | `agent.py` | Consultant agent: tools, loop, farm-profile memory |
-| `app.py` | Streamlit front end, calls `recommend.py` and `agent.py` |
+| `api.py` | FastAPI backend: endpoints over `recommend.py`; will serve the HTML/CSS/JS web UI and `/chat` (agent) |
+| `app.py` | Streamlit front end (backup UI), calls `recommend.py` directly |
 
 Training happens in notebooks (crop model: 11, price forecast: 06), which save what the app reads.
 Data lives in a top-level `data/` (`raw/`, `processed/`), kept out of git.

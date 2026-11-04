@@ -7,3 +7,10 @@
 | `research/` | Draft paper, results tables and experiment records. |
 | `notebooks/` | Jupyter notebooks. |
 | `workshop/` | Workshop material. |
+
+## Run
+
+```bash
+.venv/bin/uvicorn api:app --app-dir project --reload   # API, docs at http://127.0.0.1:8000/docs
+.venv/bin/streamlit run project/app.py                # backup UI
+```

@@ -11,12 +11,7 @@ import shap
 import streamlit as st
 
 import recommend
-
-FEATURE_NAMES = {
-    "N": "Nitrogen", "P": "Phosphorus", "K": "Potassium", "ph": "Soil pH", "temperature": "Temperature (year)",
-    "humidity": "Humidity", "rainfall": "Rainfall (year)", "rain_kharif": "Kharif rainfall", "rain_rabi": "Rabi rainfall",
-    "temp_kharif": "Kharif temperature", "temp_rabi": "Rabi temperature", "season_code": "Season",
-}
+from recommend import FEATURE_NAMES, reasons
 
 
 @st.cache_data
@@ -27,15 +22,6 @@ def districts() -> pd.DataFrame:
 @st.cache_data
 def area_soil(district: str, state: str) -> tuple[dict, str]:
     return recommend.area_soil(district, state)
-
-
-def reasons(e: shap.Explanation) -> str:
-    """Plain sentence: the two inputs that pushed this crop up most, and the one that pushed it down most."""
-    s = pd.Series(e.values, index=[FEATURE_NAMES[f] for f in e.feature_names])
-    up = [f for f, v in s.nlargest(2).items() if v > 0]
-    down = s.idxmin() if s.min() < 0 else None
-    text = f"Helped most by: {', '.join(up)}." if up else "Nothing pushed this crop up much."
-    return text + (f" Held back most by: {down}." if down else "")
 
 
 st.set_page_config(page_title="Crop recommendation", layout="wide")

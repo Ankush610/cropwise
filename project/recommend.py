@@ -37,6 +37,11 @@ NEAREST = 3  # districts without one get the mean of this many nearest districts
 SEASON_MONTHS = {"kharif": (6, 7, 8, 9), "rabi": (10, 11, 12, 1), "summer": (2, 3, 4, 5)}
 QUIET_SEASON = 0.1  # below this share of the district's main-season area, the app warns that little is sown then
 
+FEATURE_NAMES = {
+    "N": "Nitrogen", "P": "Phosphorus", "K": "Potassium", "ph": "Soil pH", "temperature": "Temperature (year)",
+    "humidity": "Humidity", "rainfall": "Rainfall (year)", "rain_kharif": "Kharif rainfall", "rain_rabi": "Rabi rainfall",
+    "temp_kharif": "Kharif temperature", "temp_rabi": "Rabi temperature", "season_code": "Season",
+}
 
 MODEL_FILE = "crop_model.joblib"  # in models/; notebooks set "annual_crop_model.joblib" (09, 10) or "kaggle_crop_model.joblib" (04, 08)
 
@@ -224,8 +229,19 @@ def explain(inputs: dict, crop: str) -> shap.Explanation:
     Plot with shap.plots.waterfall(explain(inputs, crop)).
     """
     m = _model()
+    if crop not in m["classes"]:
+        raise ValueError(f"Unknown crop {crop!r}; the model knows: {', '.join(m['classes'])}")
     X = pd.DataFrame([inputs])[m["features"]]
     return _explainer()(X)[0, :, m["classes"].index(crop)]
+
+
+def reasons(e: shap.Explanation) -> str:
+    """Plain sentence: the two inputs that pushed this crop up most, and the one that pushed it down most."""
+    s = pd.Series(e.values, index=[FEATURE_NAMES[f] for f in e.feature_names])
+    up = [f for f, v in s.nlargest(2).items() if v > 0]
+    down = s.idxmin() if s.min() < 0 else None
+    text = f"Helped most by: {', '.join(up)}." if up else "Nothing pushed this crop up much."
+    return text + (f" Held back most by: {down}." if down else "")
 
 
 if __name__ == "__main__":

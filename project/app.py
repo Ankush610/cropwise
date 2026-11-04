@@ -2,6 +2,7 @@
 
 Run from the repo root: .venv/bin/streamlit run project/app.py
 """
+import calendar
 import datetime
 
 import matplotlib.pyplot as plt
@@ -14,7 +15,7 @@ import recommend
 FEATURE_NAMES = {
     "N": "Nitrogen", "P": "Phosphorus", "K": "Potassium", "ph": "Soil pH", "temperature": "Temperature (year)",
     "humidity": "Humidity", "rainfall": "Rainfall (year)", "rain_kharif": "Kharif rainfall", "rain_rabi": "Rabi rainfall",
-    "temp_kharif": "Kharif temperature", "temp_rabi": "Rabi temperature",
+    "temp_kharif": "Kharif temperature", "temp_rabi": "Rabi temperature", "season_code": "Season",
 }
 
 
@@ -61,7 +62,9 @@ with st.sidebar:
     P = st.number_input("Phosphorus, P (kg/ha)", 0.0, 500.0, float(avg["P"]), 1.0, key=f"P{key}", disabled=not card)
     K = st.number_input("Potassium, K (kg/ha)", 0.0, 2000.0, float(avg["K"]), 10.0, key=f"K{key}", disabled=not card)
     ph = st.number_input("Soil pH", 3.0, 10.0, float(avg["ph"]), 0.1, key=f"ph{key}", disabled=not card)
-    sow = st.date_input("Sowing date", datetime.date.today())
+    month = st.selectbox("Sowing month", range(1, 13), datetime.date.today().month - 1, format_func=lambda m: calendar.month_name[m])
+    sow = datetime.date(datetime.date.today().year, month, 1)  # only the month matters: season and harvest-month price
+    st.caption(f"Season: **{recommend.season(sow)}** (kharif Jun–Sep, rabi Oct–Jan, summer Feb–May)")
     go = st.button("Recommend crops", type="primary", disabled=not district, width="stretch")
 
 if go:
@@ -77,7 +80,10 @@ if "result" not in st.session_state:
     st.stop()
 
 inputs, table = st.session_state["result"]
-st.subheader(f"{inputs['district']}, {inputs['state']} · sowing {inputs['sow']}")
+st.subheader(f"{inputs['district']}, {inputs['state']} · sowing in {calendar.month_name[int(inputs['sow'][5:7])]} ({inputs['season']})")
+if inputs["season_share"] < recommend.QUIET_SEASON:
+    st.warning(f"Farmers in {inputs['district']} sow little in the {inputs['season']} season "
+               f"({inputs['season_share']:.0%} of the area of their main season), so these picks rest on other districts.")
 c = st.columns(4)
 c[0].metric("Temperature", f"{inputs['temperature']:.0f} °C")
 c[1].metric("Rain, whole year", f"{inputs['rainfall']:.0f} mm")
@@ -112,8 +118,8 @@ if table["price_source"].str.startswith("MSP").any():
                  "so it is used instead of a forecast.")
 if table["price_mape"].gt(30).any():
     notes.append("Prices with a forecast error above 30% are uncertain: the market for that crop swings a lot.")
-st.caption(" ".join(["**Suitability** is the share of farmland that districts with similar soil and weather put under "
-                     "the crop (district crop survey data). **Net return** = yield × forecast price − cultivation cost."] + notes))
+st.caption(" ".join([f"**Suitability** is the share of {inputs['season']} farmland that districts with similar soil and "
+                     "weather put under the crop (district crop survey data). **Net return** = yield × forecast price − cultivation cost."] + notes))
 
 st.subheader("Why these crops?")
 tabs = st.tabs(table["crop"].str.title().tolist())

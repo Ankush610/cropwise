@@ -35,14 +35,14 @@ flowchart TD
 
 | # | Component | Comes from | What it does | Goes to |
 | --- | --- | --- | --- | --- |
-| 1 | Crop model (district) | Soil Health Card district soil + NASA POWER weather + DES crop area (since Nov 4) | 11 inputs (card N, P, K, pH; year, kharif and rabi weather) → share of farmland that similar districts put under each of 27 crops (the Kaggle crops with DES data in ≥ 20 districts + wheat, soybean, groundnut, bajra, jowar, mustard, sesamum, ragi, barley, potato, onion, sugarcane). Random Forest, one row per district × crop weighted by area share (`notebooks/09_district_model.ipynb`). The old Kaggle model is kept as `models/kaggle_crop_model.joblib` for notebooks 04, 05, 08 | `models/crop_model.joblib` |
+| 1 | Crop model (district × season) | Soil Health Card district soil + NASA POWER weather + DES crop area by season (since Nov 4) | 12 inputs (card N, P, K, pH; year, kharif and rabi weather; season from the sowing month: Jun–Sep kharif, Oct–Jan rabi, Feb–May summer) → share of that season's farmland that similar districts put under each of 27 crops. Random Forest, one row per district × season × crop weighted by area share; year-round crops (sugarcane, coconut, fruit) split equally across seasons; crops grown that season in < 5% of districts are not offered (`notebooks/11_season_model.ipynb`). The year-round model (notebook 09) is kept as `models/annual_crop_model.joblib`, the Kaggle model as `models/kaggle_crop_model.joblib` | `models/crop_model.joblib` |
 | 2 | Price forecast | Agmarknet mandi prices (`mandi_prices()`) | Median of AutoETS, AutoARIMA, AutoTheta and seasonal-naive per crop × state and all-India, 12 months ahead, with backtest MAPE (`notebooks/06_price_model_tests.ipynb`, section 4) | `data/processed/price_forecast.csv` |
 | 3 | District yield | DES district APY (`district_yield()`) | Mean yield of each district's last 5 reported years; series that stopped before 2010-11 dropped; rice converted from milled rice to paddy (÷ 0.67) to match paddy prices | `data/processed/district_yield.csv` |
 | 4 | Weather lookup | NASA POWER API (live) | District → temperature, humidity, rainfall for the year, kharif (Jun–Sep) and rabi (Nov–Feb) | Called by the app |
 | 5 | District coordinates | Median lat/lon of each district's APMC markets (`district_coords()`) | LGD district code → latitude/longitude for NASA POWER | `data/processed/district_coords.csv` |
 | 6 | Ranker | Outputs of 1, 2, 3 + CACP cost shares (`cost_shares()`) | Top 3 with suitability ≥ 5%, in suitability order; crops ≥ 0.8 × the top crop's suitability are ordered by net return = yield × price × (1 − cost share). Price is MSP 2026-27 for paddy and wheat in Punjab and Haryana (procurement states, thin mandi data) | `project/recommend.py` |
 | 7 | Explainer | SHAP on the forest (model 1) | Which inputs pushed each crop up or down; adds up to the suitability shown | App display |
-| 8 | Demo app | All of the above | Soil card + district form (or "no card": the district's Soil Health Card average, else the mean of the 3 nearest districts with ≥ 100 tests, `recommend.area_soil`) → weather, ranked crops with net return, SHAP plot per crop (built Nov 4; agent chat still to add) | `project/app.py` |
+| 8 | Demo app | All of the above | Soil card + district + sowing month form (or "no card": the district's Soil Health Card average, else the mean of the 3 nearest districts with ≥ 100 tests, `recommend.area_soil`) → weather, ranked crops with net return, SHAP plot per crop (built Nov 4; agent chat still to add) | `project/app.py` |
 | 9 | Consultant agent | Qwen3-4B via Ollama, calling 1–7 as tools | Chat in the farmer's language, remembers the farm, explains results. Never changes the ranking. See `docs/agent.md` | `project/agent.py` |
 
 The research side adds one more piece: the **real-world check**. It runs DES districts
@@ -59,7 +59,7 @@ Result (Nov 3, notebook 08): no better than random crops; see `research/notes/20
 | `agent.py` | Consultant agent: tools, loop, farm-profile memory |
 | `app.py` | Streamlit front end, calls `recommend.py` and `agent.py` |
 
-Training happens in notebooks (crop model: 09, price forecast: 06), which save what the app reads.
+Training happens in notebooks (crop model: 11, price forecast: 06), which save what the app reads.
 Data lives in a top-level `data/` (`raw/`, `processed/`), kept out of git.
 Workshop notebooks are trimmed copies of the notebooks in `notebooks/`.
 

@@ -64,6 +64,13 @@ APY_TO_TONNES = {
     "jute": 0.18,  # bales of 180 kg
     "coconut": 0.0006,  # ponytail: nuts at ~0.6 kg each, an assumption; check against Kerala farm-gate data
 }
+SEASONS = ["kharif", "rabi", "summer"]  # by sowing month, see recommend.SEASON_MONTHS
+# DES season -> sowing season. Winter rice is aman (sown Jun-Jul) and Summer rice is boro (sown Dec-Jan); other Winter
+# crops (potato, pulses) are sown Oct-Nov.
+SEASON_OF = {"Kharif": "kharif", "Autumn": "kharif", "Winter": "rabi", "Rabi": "rabi", "Summer": "summer"}
+RICE_SEASON = {"Winter": "kharif", "Summer": "rabi"}
+# 10-12 month or perennial crops: planted in any season, so their area is split equally across SEASONS
+YEAR_ROUND = ["sugarcane", "coconut", "banana", "papaya", "mango", "orange", "grapes", "coffee", "pomegranate"]
 STALE_BEFORE = "2010-2011"  # DES series that stop earlier are not current (1,105 of 13,150 crop-district series)
 APY_URL = (
     "https://ckandev.indiadataportal.com/dataset/f2bbc28c-6c7c-462b-9064-ea4c4213d466/resource/"
@@ -167,6 +174,17 @@ def mandi_prices() -> pd.DataFrame:
     return pd.read_csv(path, parse_dates=["month"])
 
 
+def _apy_raw() -> Path:
+    """DES district APY CSV, downloaded once to data/raw/apy/."""
+    raw = RAW / "apy" / "crop-wise-area-production-yield.csv"
+    if not raw.exists():
+        r = requests.get(APY_URL, timeout=300, headers={"User-Agent": "Mozilla/5.0"})
+        r.raise_for_status()
+        raw.parent.mkdir(parents=True, exist_ok=True)
+        raw.write_bytes(r.content)
+    return raw
+
+
 def district_yield() -> pd.DataFrame:
     """Yield (t/ha) and area (ha) per crop and district: mean of each district's last 5 reported years.
 
@@ -176,13 +194,7 @@ def district_yield() -> pd.DataFrame:
     """
     path = PROCESSED / "district_yield.csv"
     if not path.exists():
-        raw = RAW / "apy" / "crop-wise-area-production-yield.csv"
-        if not raw.exists():
-            r = requests.get(APY_URL, timeout=300, headers={"User-Agent": "Mozilla/5.0"})
-            r.raise_for_status()
-            raw.parent.mkdir(parents=True, exist_ok=True)
-            raw.write_bytes(r.content)
-        df = pd.read_csv(raw)
+        df = pd.read_csv(_apy_raw())
         df["crop"] = df["crop_name"].map({v: k for k, v in APY_NAMES.items()})
         df = df[df["crop"].notna()]
         # Some years have a "Total" row as well as the seasons: use Total when present, else sum the seasons
@@ -202,6 +214,39 @@ def district_yield() -> pd.DataFrame:
             .join(names, on="district_code")
         )
         out = out[out["last_year"] >= STALE_BEFORE]
+        PROCESSED.mkdir(parents=True, exist_ok=True)
+        out.to_csv(path, index=False)
+    return pd.read_csv(path)
+
+
+def district_season_area() -> pd.DataFrame:
+    """Area (ha) per district, sowing season (kharif / rabi / summer) and crop: mean of each series' last 5 reported
+    years; series last reported before STALE_BEFORE are dropped. Columns: district_code, season, crop, area_ha.
+
+    DES seasons -> sowing season: SEASON_OF, except rice (RICE_SEASON). Year-round crops (YEAR_ROUND) are split
+    equally across the seasons whatever their DES season; other crops' "Whole Year" area goes to their main season
+    (e.g. potato -> rabi).
+    """
+    path = PROCESSED / "district_season_area.csv"
+    if not path.exists():
+        df = pd.read_csv(_apy_raw(), usecols=["district_code", "year", "season", "crop_name", "area"])
+        df["crop"] = df["crop_name"].map({v: k for k, v in APY_NAMES.items()})
+        df = df[df["crop"].notna() & (df["area"] > 0) & (df["season"] != "Total")]
+        df["sow"] = df["season"].map(SEASON_OF)
+        rice = df["crop"] == "rice"
+        df.loc[rice, "sow"] = df.loc[rice, "season"].map(RICE_SEASON).fillna(df.loc[rice, "sow"])
+        whole = df["season"] == "Whole Year"
+        main = df[~whole].groupby(["crop", "sow"])["area"].sum().groupby("crop").idxmax().str[1]
+        df.loc[whole, "sow"] = df.loc[whole, "crop"].map(main)
+        # ponytail: year-round crops split equally across seasons, whatever DES calls them (UP files sugarcane as Kharif);
+        # real planting windows differ by region (north: mostly spring), a planting calendar would sharpen this.
+        year_round = df[df["crop"].isin(YEAR_ROUND)]
+        thirds = year_round.assign(area=year_round["area"] / len(SEASONS))
+        df = pd.concat([df[~df.index.isin(year_round.index)]] + [thirds.assign(sow=x) for x in SEASONS])
+        df = df.groupby(["crop", "district_code", "sow", "year"])["area"].sum().reset_index()
+        df = df.sort_values("year").groupby(["crop", "district_code", "sow"]).tail(5)
+        out = df.groupby(["district_code", "sow", "crop"]).agg(area_ha=("area", "mean"), last_year=("year", "max")).reset_index()
+        out = out[out["last_year"] >= STALE_BEFORE].rename(columns={"sow": "season"})
         PROCESSED.mkdir(parents=True, exist_ok=True)
         out.to_csv(path, index=False)
     return pd.read_csv(path)

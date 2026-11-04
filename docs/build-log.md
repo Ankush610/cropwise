@@ -370,3 +370,41 @@ crop in list 84.5%, first 48.8%; one fixed soil 85.7% / 39.3%; popularity 60.7% 
 Kerala 92%, Rajasthan 61% (arid pulse districts: moth bean, mung bean; no SHC district like them in training).
 Web check of soil in 4 more districts. Tally of all class checks on filled districts: N 4/4, K 3/5, pH 3/6, P 1/5.
 Write-up: `research/notes/2026-11-04_soil_fill_check.md`, section 3.
+
+## Nov 4, 2026 · Season model
+
+User found that Jangoan got the same 2 crops at the same probabilities for any sowing month: the year-round model had
+no season input (the date only moved the price). Fixed with a season model.
+- `data.district_season_area()`: DES area by district, sowing season and crop (`SEASONS`, `SEASON_OF`, `RICE_SEASON`;
+  aman rice → kharif, boro rice → rabi, year-round crops in every season). `_apy_raw()` now shared with `district_yield()`.
+- Notebook 11: Random Forest on district × season × crop, + season input; season filter (crop offered only if grown
+  that season in ≥ 5% of training districts). Leave-one-state-out per district-season: main crop in list 72.4% vs
+  year-round model 55.5% and per-season popularity 60.1%; first 46.8% vs 33.2% / 44.0%. Kharif 82.7%, rabi 72.8%,
+  summer 56.7%. Saved as `models/crop_model.joblib`; the year-round model moved to `models/annual_crop_model.joblib`
+  (notebooks 09 and 10 now load it by name; not re-run).
+- `recommend`: `season()`, `season_share()`, `SEASON_MONTHS`, `QUIET_SEASON`; inputs carry season, season_code and
+  season_share; the season filter applies when the model has one. Self-check covers the month → season map.
+- App: shows the season under the date and in the header, warns when the district sows < 10% of its main-season area
+  in that season, "Season" in the SHAP labels. Tested: Jangoan Jan/Oct → rice 0.87, maize; Jun/Aug → rice 0.47,
+  cotton 0.45; Mar → sugarcane, groundnut with the summer warning.
+- Docs: architecture (model row), agent (tools take the sowing date). Write-up: `research/notes/2026-11-04_season_model.md`.
+- Follow-up (user): the app asks for the sowing **month** (dropdown, default this month) instead of a date; only the
+  month is used (season and harvest-month price). `recommend()` still takes a date (the 1st of that month).
+
+## Nov 4, 2026 · Web check of the season model
+
+User asked to compare the app with what web sources say for the same district and season. 12 districts × kharif and
+rabi (`research/notes/2026-11-04_season_model.md`, "Web check by season"): main crop first 15 of 21, in the list 21 of
+23. Misses: year-round crops counted in every season (Karnal kharif sugarcane, Thanjavur rabi coconut), arid
+Rajasthan (Bikaner: guar, moth bean, gram), Guntur's 2022 split. Not fixed yet; possible fix: split "Whole Year" area
+across the three seasons.
+
+## Nov 4, 2026 · Year-round crops split across seasons
+
+From the web check. `data.YEAR_ROUND` crops (sugarcane, coconut, banana, fruit) now have their area split equally
+across kharif, rabi and summer whatever DES calls the season (UP files sugarcane as Kharif; "Whole Year" area used to
+count in full in every season). First tried splitting only "Whole Year" rows: Thanjavur fixed, Karnal not (UP's Kharif
+cane), so switched to the crop list. Notebook 11 re-run: main crop in list 76.5% (was 72.4%), first 52.1% (46.8%);
+summer 67.1% (56.7%). Web check: first 16 of 21 (was 15), in list 21 of 23. Karnal kharif still sugarcane first
+(neighbour districts in UP). New `research/paper_limitations.md` collects the gaps for the paper: arid Rajasthan
+(Bikaner), Guntur's 2022 split, Karnal's neighbours, plus the data and method limits from the notes.

@@ -1,0 +1,13 @@
+district,season,sown in season %,app top 3,DES top 3 that season
+Jangoan,kharif,100,"rice 0.46, cotton 0.46","cotton, rice, pigeonpeas"
+Jangoan,rabi,44,"rice 0.88, maize 0.07","rice, maize, groundnut"
+Jangoan,summer,0,"sugarcane 0.35, groundnut 0.11","sugarcane, banana"
+Vidisha,kharif,99,"soybean 0.67, blackgram 0.17, rice 0.09","soybean, blackgram, rice"
+Vidisha,rabi,100,"wheat 0.61, chickpea 0.21, lentil 0.08","wheat, chickpea, lentil"
+Vidisha,summer,1,"mungbean 0.79, maize 0.08, blackgram 0.06","mungbean, maize, blackgram"
+Ludhiana,kharif,100,"rice 0.56, sugarcane 0.19, maize 0.06","rice, maize, sugarcane"
+Ludhiana,rabi,97,"wheat 0.73, sugarcane 0.12, rice 0.05","wheat, mungbean, mustard"
+Ludhiana,summer,0,"sugarcane 0.57, wheat 0.20, mungbean 0.08",sugarcane
+Thanjavur,kharif,100,"rice 0.85, coconut 0.05","rice, coconut, blackgram"
+Thanjavur,rabi,33,"rice 0.25, blackgram 0.28, coconut 0.20","blackgram, rice, coconut"
+Thanjavur,summer,7,"coconut 0.78, sugarcane 0.12, banana 0.08","coconut, sugarcane, banana"

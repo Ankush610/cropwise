@@ -36,8 +36,8 @@ Only four tools: small models choose tools more reliably from a short list.
 
 | Tool | Inputs | Returns | Answers questions like |
 | --- | --- | --- | --- |
-| `recommend_crops` | N, P, K, pH, district | Top 3: crop, suitability, expected revenue, whether price data exists | "What should I grow?" |
-| `check_crop` | crop, N, P, K, pH, district | Suitability, rank out of 27, yield, price, top SHAP reasons | "Why not cotton?" "Can I grow wheat?" |
+| `recommend_crops` | N, P, K, pH, district, sowing date (sets the season) | Top 3: crop, suitability, expected revenue, whether price data exists | "What should I grow?" |
+| `check_crop` | crop, N, P, K, pH, district, sowing date | Suitability, rank out of 27, yield, price, top SHAP reasons | "Why not cotton?" "Can I grow wheat?" |
 | `get_weather` | district | Temperature, humidity, rainfall (year, kharif, rabi) | "How much rain does my area get?" |
 | `get_price_forecast` | crop, state | Forecast price and trend | "Will onion prices go up?" |
 | `get_area_soil` | district | Typical N, P, K, pH for the area and where they came from (`recommend.area_soil`) | "I don't have a soil card" |

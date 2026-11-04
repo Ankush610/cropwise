@@ -1,0 +1,5 @@
+method,date,main crop 1st %,main crop in list %,picks grown %,area covered %
+season model + season filter (app),2026-11-04,52.11,76.48,87.66,68.44
+season model,2026-11-04,52.11,76.48,87.34,68.38
+year-round model (notebook 09),2026-11-04,34.95,57.97,59.08,49.51
+popularity per season,2026-11-04,47.39,67.12,79.22,59.34

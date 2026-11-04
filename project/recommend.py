@@ -33,7 +33,12 @@ MIN_TESTS = 100  # a district's Soil Health Card average is used only with at le
 NEAREST = 3  # districts without one get the mean of this many nearest districts that have one
 
 
-MODEL_FILE = "crop_model.joblib"  # in models/; notebooks 04 and 08 set "kaggle_crop_model.joblib" before the first call
+# Sowing month -> season (data.SEASONS). The crop model is trained on DES area by season (notebook 11).
+SEASON_MONTHS = {"kharif": (6, 7, 8, 9), "rabi": (10, 11, 12, 1), "summer": (2, 3, 4, 5)}
+QUIET_SEASON = 0.1  # below this share of the district's main-season area, the app warns that little is sown then
+
+
+MODEL_FILE = "crop_model.joblib"  # in models/; notebooks set "annual_crop_model.joblib" (09, 10) or "kaggle_crop_model.joblib" (04, 08)
 
 
 @lru_cache
@@ -88,6 +93,25 @@ def area_soil(district: str, state: str | None = None) -> tuple[dict, str]:
         source = "Mean of nearest districts with Soil Health Card data: " + ", ".join(rows["district_name"])
     v = rows[["N", "P", "K", "ph"]].mean()
     return {"N": round(float(v["N"])), "P": round(float(v["P"]), 1), "K": round(float(v["K"])), "ph": round(float(v["ph"]), 2)}, source
+
+
+def season(sow: datetime.date) -> str:
+    return next(s for s, months in SEASON_MONTHS.items() if sow.month in months)
+
+
+@lru_cache
+def _season_area() -> pd.DataFrame:
+    """Sown area (ha) per district and season, all crops."""
+    return data.district_season_area().groupby(["district_code", "season"])["area_ha"].sum().unstack(fill_value=0)
+
+
+def season_share(district_code: int, s: str) -> float:
+    """The district's area sown in season `s` as a share of its biggest season (NaN if DES has no area)."""
+    a = _season_area()
+    if district_code not in a.index:
+        return float("nan")
+    row = a.loc[district_code]
+    return float(row.get(s, 0) / row.max())
 
 
 def weather(lat: float, lon: float) -> dict:
@@ -149,22 +173,28 @@ def recommend(N: float, P: float, K: float, ph: float, district: str, state: str
     """Top `top` suitable crops (suitability >= MIN_SUITABILITY), in suitability order, except that crops within
     NEAR_TIE of the top crop's suitability are ordered by net return (gross revenue x (1 - cost share)).
 
-    N, P, K are kg/ha as printed on a Soil Health Card. Suitability is the share of farmland that districts with
-    similar soil and weather put under the crop (district model, notebook 09).
+    N, P, K are kg/ha as printed on a Soil Health Card. Suitability is the share of the season's farmland that districts
+    with similar soil and weather put under the crop; the season comes from the sowing month (season model, notebook 11).
     The model decides what fits; money only breaks near-ties (notebook 07: multiplying suitability by revenue put the
-    wrong crop first more often). Returns (inputs, table). `inputs` holds the model features plus where the weather
-    came from. A near-tie crop with no yield or price goes last among the near-ties.
+    wrong crop first more often). Returns (inputs, table). `inputs` holds the model features plus the season, how much
+    the district sows in it (season_share) and the district. A near-tie crop with no yield or price goes last among the
+    near-ties.
     """
     if min(N, P, K) < 0 or not 3 <= ph <= 10:
         raise ValueError("N, P, K must be >= 0 and pH between 3 and 10")
     sow = sow or datetime.date.today()
     d = find_district(district, state)
-    inputs = {"N": N, "P": P, "K": K, "ph": ph, **weather(d["lat"], d["lon"]),
+    s = season(sow)
+    inputs = {"N": N, "P": P, "K": K, "ph": ph, **weather(d["lat"], d["lon"]), "season_code": data.SEASONS.index(s),
+              "season": s, "season_share": season_share(int(d["district_code"]), s),
               "district": d["district_name"], "state": d["state_name"], "sow": sow.isoformat()}
 
     m = _model()
     X = pd.DataFrame([inputs])[m["features"]]
-    proba = pd.Series(m["model"].predict_proba(X)[0], index=m["classes"]).nlargest(top)
+    proba = pd.Series(m["model"].predict_proba(X)[0], index=m["classes"])
+    if "season_crops" in m:  # only crops grown that season in >= 5% of districts (notebook 11)
+        proba = proba[proba.index.isin(m["season_crops"][s])]
+    proba = proba.nlargest(top)
     proba = proba[(proba >= MIN_SUITABILITY) | (proba == proba.max())]
 
     rows = []
@@ -211,6 +241,7 @@ if __name__ == "__main__":
     print(pd.Series(e.values, index=e.feature_names).round(3))
     assert _price("rice", "Punjab", datetime.date(2026, 6, 15))[:2] == (2441.0, "MSP 2026-27")
     assert _price("rice", "Odisha", datetime.date(2026, 6, 15))[1] != "MSP 2026-27"
+    assert [season(datetime.date(2026, m, 1)) for m in (1, 3, 6, 10)] == ["rabi", "summer", "kharif", "rabi"]
     assert area_soil("Vidisha")[1].startswith("Soil Health Card average")
     soil, src = area_soil("Ludhiana", "Punjab")  # 1 SHC test only
     assert src.startswith("Mean of nearest") and 3 <= soil["ph"] <= 10, src

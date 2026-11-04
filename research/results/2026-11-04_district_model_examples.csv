@@ -1,14 +1,14 @@
 crop,suitability,yield_t_ha,yield_source,price_rs_q,price_source,price_mape,revenue_rs_ha,cost_share,cost_source,net_rs_ha,near_tie,district,N,P,K,ph,rank,actual_top3
-rice,0.933,4.36,district,1924.0,Chhattisgarh,5.7,83887.0,0.5,CACP Chhattisgarh,42193.0,True,Raipur,238.29,15.58,216.1,7.0,1,rice > wheat > mustard
-cotton,0.429,0.74,district,8498.0,Maharashtra,5.8,62505.0,0.88,CACP Maharashtra,7335.0,True,Yavatmal,216.35,27.84,300.11,7.0,1,cotton > soybean > pigeonpeas
-soybean,0.249,0.96,district,6520.0,Maharashtra,9.5,62837.0,0.71,CACP Maharashtra,18248.0,False,Yavatmal,216.35,27.84,300.11,7.0,2,cotton > soybean > pigeonpeas
-pigeonpeas,0.12,0.69,district,7351.0,Maharashtra,33.9,50390.0,0.62,CACP Maharashtra,19288.0,False,Yavatmal,216.35,27.84,300.11,7.0,3,cotton > soybean > pigeonpeas
-wheat,0.34,3.08,district,2370.0,Madhya Pradesh,10.7,73069.0,0.42,CACP Madhya Pradesh,42315.0,True,Vidisha,237.53,18.62,255.06,7.0,1,soybean > wheat > chickpea
-soybean,0.345,0.83,district,6684.0,Madhya Pradesh,9.2,55196.0,0.91,CACP Madhya Pradesh,5242.0,True,Vidisha,237.53,18.62,255.06,7.0,2,soybean > wheat > chickpea
-chickpea,0.108,1.6,district,5438.0,Madhya Pradesh,10.5,87095.0,0.51,CACP Madhya Pradesh,42636.0,False,Vidisha,237.53,18.62,255.06,7.0,3,soybean > wheat > chickpea
-maize,0.269,3.41,district,1697.0,Maharashtra,11.0,57820.0,0.6,CACP Maharashtra,22885.0,True,Nashik,263.32,18.79,281.96,7.05,1,maize > bajra > soybean
-soybean,0.121,1.48,district,6520.0,Maharashtra,9.5,96629.0,0.71,CACP Maharashtra,28062.0,False,Nashik,263.32,18.79,281.96,7.05,2,maize > bajra > soybean
-bajra,0.115,1.18,district,2310.0,Maharashtra,6.6,27227.0,0.99,CACP Maharashtra,287.0,False,Nashik,263.32,18.79,281.96,7.05,3,maize > bajra > soybean
-rice,0.679,5.35,district,1962.0,Tamil Nadu,5.7,105041.0,0.76,CACP Tamil Nadu,24859.0,True,Thanjavur,211.31,18.39,242.7,7.01,1,rice > coconut > blackgram
-coconut,0.134,9.25,district,5698.0,Tamil Nadu,46.9,527064.0,0.7,assumed (no CACP data; orchard set-up and years before first harvest not counted),158254.0,False,Thanjavur,211.31,18.39,242.7,7.01,2,rice > coconut > blackgram
-blackgram,0.09,0.86,district,7812.0,Tamil Nadu,12.8,67344.0,0.75,CACP Tamil Nadu,17049.0,False,Thanjavur,211.31,18.39,242.7,7.01,3,rice > coconut > blackgram
+rice,0.944,4.36,district,1924.0,Chhattisgarh,5.7,83887.0,0.5,CACP Chhattisgarh,42193.0,True,Raipur,238.29,37.21,223.17,7.34,1,rice > wheat > mustard
+cotton,0.428,0.74,district,8498.0,Maharashtra,5.8,62505.0,0.88,CACP Maharashtra,7335.0,True,Yavatmal,216.35,61.28,297.56,7.36,1,cotton > soybean > pigeonpeas
+soybean,0.249,0.96,district,6520.0,Maharashtra,9.5,62837.0,0.71,CACP Maharashtra,18248.0,False,Yavatmal,216.35,61.28,297.56,7.36,2,cotton > soybean > pigeonpeas
+pigeonpeas,0.12,0.69,district,7351.0,Maharashtra,33.9,50390.0,0.62,CACP Maharashtra,19288.0,False,Yavatmal,216.35,61.28,297.56,7.36,3,cotton > soybean > pigeonpeas
+wheat,0.34,3.08,district,2370.0,Madhya Pradesh,10.7,73069.0,0.42,CACP Madhya Pradesh,42315.0,True,Vidisha,237.53,44.03,258.14,7.35,1,soybean > wheat > chickpea
+soybean,0.344,0.83,district,6684.0,Madhya Pradesh,9.2,55196.0,0.91,CACP Madhya Pradesh,5242.0,True,Vidisha,237.53,44.03,258.14,7.35,2,soybean > wheat > chickpea
+chickpea,0.109,1.6,district,5438.0,Madhya Pradesh,10.5,87095.0,0.51,CACP Madhya Pradesh,42636.0,False,Vidisha,237.53,44.03,258.14,7.35,3,soybean > wheat > chickpea
+maize,0.269,3.41,district,1697.0,Maharashtra,11.0,57820.0,0.6,CACP Maharashtra,22885.0,True,Nashik,263.32,44.13,281.62,7.41,1,maize > bajra > soybean
+soybean,0.12,1.48,district,6520.0,Maharashtra,9.5,96629.0,0.71,CACP Maharashtra,28062.0,False,Nashik,263.32,44.13,281.62,7.41,2,maize > bajra > soybean
+bajra,0.115,1.18,district,2310.0,Maharashtra,6.6,27227.0,0.99,CACP Maharashtra,287.0,False,Nashik,263.32,44.13,281.62,7.41,3,maize > bajra > soybean
+rice,0.678,5.35,district,1962.0,Tamil Nadu,5.7,105041.0,0.76,CACP Tamil Nadu,24859.0,True,Thanjavur,211.31,42.0,246.08,7.36,1,rice > coconut > blackgram
+coconut,0.133,9.25,district,5698.0,Tamil Nadu,46.9,527064.0,0.7,assumed (no CACP data; orchard set-up and years before first harvest not counted),158254.0,False,Thanjavur,211.31,42.0,246.08,7.36,2,rice > coconut > blackgram
+blackgram,0.091,0.86,district,7812.0,Tamil Nadu,12.8,67344.0,0.75,CACP Tamil Nadu,17049.0,False,Thanjavur,211.31,42.0,246.08,7.36,3,rice > coconut > blackgram

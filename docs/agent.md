@@ -40,8 +40,9 @@ Only four tools: small models choose tools more reliably from a short list.
 | `check_crop` | crop, N, P, K, pH, district | Suitability, rank out of 27, yield, price, top SHAP reasons | "Why not cotton?" "Can I grow wheat?" |
 | `get_weather` | district | Temperature, humidity, rainfall (year, kharif, rabi) | "How much rain does my area get?" |
 | `get_price_forecast` | crop, state | Forecast price and trend | "Will onion prices go up?" |
+| `get_area_soil` | district | Typical N, P, K, pH for the area and where they came from (`recommend.area_soil`) | "I don't have a soil card" |
 
-Tool inputs are checked in code (crop is one of the 22, N/P/K/pH in valid ranges, district known).
+Tool inputs are checked in code (crop is one of the 27, N/P/K/pH in valid ranges, district known).
 A bad input returns an error message to the model so it can fix it or ask the farmer.
 
 ## Memory

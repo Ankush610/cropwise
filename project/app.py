@@ -9,7 +9,6 @@ import pandas as pd
 import shap
 import streamlit as st
 
-import data
 import recommend
 
 FEATURE_NAMES = {
@@ -21,9 +20,12 @@ FEATURE_NAMES = {
 
 @st.cache_data
 def districts() -> pd.DataFrame:
-    soil = data.district_soil()
-    soil = soil[soil["samples"] >= 100]
-    return recommend._tables()[2].merge(soil, on="district_code", how="left").sort_values(["state_name", "district_name"])
+    return recommend._tables()[2].sort_values(["state_name", "district_name"])
+
+
+@st.cache_data
+def area_soil(district: str, state: str) -> tuple[dict, str]:
+    return recommend.area_soil(district, state)
 
 
 def reasons(e: shap.Explanation) -> str:
@@ -46,25 +48,26 @@ with st.sidebar:
     state = st.selectbox("State", sorted(d["state_name"].unique()), index=None, placeholder="Choose a state")
     names = d.loc[d["state_name"] == state, "district_name"].tolist() if state else []
     district = st.selectbox("District", names, index=None, placeholder="Choose a district", disabled=not state)
-    row = d[(d["state_name"] == state) & (d["district_name"] == district)].iloc[0] if district else None
-    has_avg = row is not None and pd.notna(row["N"])
 
-    st.subheader("Soil (from your Soil Health Card)")
-    if row is not None:
-        st.caption("Filled in with your district's average from Soil Health Card tests. Change them to your card's values."
-                   if has_avg else "No Soil Health Card average for this district: please enter your card's values.")
-    avg = row if has_avg else {"N": 250.0, "P": 20.0, "K": 230.0, "ph": 7.0}
-    key = f"{state}|{district}"  # new defaults when the district changes
-    N = st.number_input("Nitrogen, N (kg/ha)", 0.0, 2000.0, float(round(avg["N"])), 10.0, key=f"N{key}")
-    P = st.number_input("Phosphorus, P (kg/ha)", 0.0, 500.0, float(round(avg["P"], 1)), 1.0, key=f"P{key}")
-    K = st.number_input("Potassium, K (kg/ha)", 0.0, 2000.0, float(round(avg["K"])), 10.0, key=f"K{key}")
-    ph = st.number_input("Soil pH", 3.0, 10.0, float(round(avg["ph"], 1)), 0.1, key=f"ph{key}")
+    st.subheader("Soil")
+    card = st.radio("Do you have a Soil Health Card?", ["Yes, I'll enter my card's values", "No, use typical values for my area"],
+                    disabled=not district) == "Yes, I'll enter my card's values"
+    avg, soil_source = area_soil(district, state) if district else ({"N": 250, "P": 40, "K": 210, "ph": 7.0}, "")
+    if district:
+        st.caption(f"Filled in from: {soil_source}. " + ("Change them to your card's values." if card else
+                   "An estimate for your area, not your field: a Soil Health Card test is better."))
+    key = f"{state}|{district}|{card}"  # new defaults when the district or the choice changes
+    N = st.number_input("Nitrogen, N (kg/ha)", 0.0, 2000.0, float(avg["N"]), 10.0, key=f"N{key}", disabled=not card)
+    P = st.number_input("Phosphorus, P (kg/ha)", 0.0, 500.0, float(avg["P"]), 1.0, key=f"P{key}", disabled=not card)
+    K = st.number_input("Potassium, K (kg/ha)", 0.0, 2000.0, float(avg["K"]), 10.0, key=f"K{key}", disabled=not card)
+    ph = st.number_input("Soil pH", 3.0, 10.0, float(avg["ph"]), 0.1, key=f"ph{key}", disabled=not card)
     sow = st.date_input("Sowing date", datetime.date.today())
     go = st.button("Recommend crops", type="primary", disabled=not district, width="stretch")
 
 if go:
     try:
         st.session_state["result"] = recommend.recommend(N, P, K, ph, district, state, sow=sow)
+        st.session_state["soil_note"] = "Soil: your Soil Health Card values." if card else f"Soil: estimated ({soil_source})."
     except ValueError as err:
         st.error(str(err))
         st.session_state.pop("result", None)
@@ -80,7 +83,8 @@ c[0].metric("Temperature", f"{inputs['temperature']:.0f} °C")
 c[1].metric("Rain, whole year", f"{inputs['rainfall']:.0f} mm")
 c[2].metric("Rain, kharif (Jun–Sep)", f"{inputs['rain_kharif']:.0f} mm")
 c[3].metric("Rain, rabi (Nov–Feb)", f"{inputs['rain_rabi']:.0f} mm")
-st.caption("Rain is the average per month. NASA POWER, 2015–2024 averages at your district's markets.")
+st.caption("Rain is the average per month. NASA POWER, 2015–2024 averages at your district's markets. "
+           + st.session_state.get("soil_note", ""))
 
 show = pd.DataFrame({
     "Crop": table["crop"].str.title(),

@@ -1,0 +1,253 @@
+state,district,method,picks,main,first,in list,grown
+Himachal Pradesh,Solan,fill,"wheat, maize, rice",wheat,True,True,1.0
+Himachal Pradesh,Solan,fixed default soil,"wheat, maize, rice",wheat,True,True,1.0
+Himachal Pradesh,Solan,popularity,"rice, wheat, maize",wheat,False,True,1.0
+Punjab,Amritsar,fill,"wheat, rice, sugarcane",wheat,True,True,1.0
+Punjab,Amritsar,fixed default soil,"wheat, rice, sugarcane",wheat,True,True,1.0
+Punjab,Amritsar,popularity,"rice, wheat, maize",wheat,False,True,1.0
+Punjab,Ferozepur,fill,"wheat, rice, sugarcane",wheat,True,True,1.0
+Punjab,Ferozepur,fixed default soil,"wheat, sugarcane, rice",wheat,True,True,1.0
+Punjab,Ferozepur,popularity,"rice, wheat, maize",wheat,False,True,1.0
+Punjab,Kapurthala,fill,"rice, wheat, maize",rice,True,True,1.0
+Punjab,Kapurthala,fixed default soil,"wheat, rice, sugarcane",rice,False,True,1.0
+Punjab,Kapurthala,popularity,"rice, wheat, maize",rice,True,True,1.0
+Punjab,Ludhiana,fill,"wheat, rice, sugarcane",rice,False,True,1.0
+Punjab,Ludhiana,fixed default soil,"wheat, sugarcane, rice",rice,False,True,1.0
+Punjab,Ludhiana,popularity,"rice, wheat, maize",rice,True,True,1.0
+Punjab,Mansa,fill,"wheat, rice, sugarcane",wheat,True,True,1.0
+Punjab,Mansa,fixed default soil,"wheat, sugarcane, rice",wheat,True,True,1.0
+Punjab,Mansa,popularity,"rice, wheat, maize",wheat,False,True,1.0
+Punjab,Moga,fill,"wheat, rice, sugarcane",rice,False,True,1.0
+Punjab,Moga,fixed default soil,"wheat, sugarcane, rice",rice,False,True,1.0
+Punjab,Moga,popularity,"rice, wheat, maize",rice,True,True,1.0
+Punjab,Sri Muktsar Sahib,fill,"wheat, rice, cotton",wheat,True,True,1.0
+Punjab,Sri Muktsar Sahib,fixed default soil,"wheat, rice, cotton",wheat,True,True,1.0
+Punjab,Sri Muktsar Sahib,popularity,"rice, wheat, maize",wheat,False,True,1.0
+Punjab,Rupnagar,fill,"wheat, rice, sugarcane",wheat,True,True,1.0
+Punjab,Rupnagar,fixed default soil,"wheat, rice, sugarcane",wheat,True,True,1.0
+Punjab,Rupnagar,popularity,"rice, wheat, maize",wheat,False,True,1.0
+Punjab,Sangrur,fill,"wheat, sugarcane, rice",wheat,True,True,1.0
+Punjab,Sangrur,fixed default soil,"sugarcane, wheat, rice",wheat,False,True,1.0
+Punjab,Sangrur,popularity,"rice, wheat, maize",wheat,False,True,1.0
+Haryana,Ambala,fill,"wheat, rice, maize",rice,False,True,1.0
+Haryana,Ambala,fixed default soil,"wheat, rice, maize",rice,False,True,1.0
+Haryana,Ambala,popularity,"rice, wheat, maize",rice,True,True,1.0
+Haryana,Bhiwani,fill,"wheat, bajra, mustard",mustard,False,True,1.0
+Haryana,Bhiwani,fixed default soil,"wheat, bajra, mustard",mustard,False,True,1.0
+Haryana,Bhiwani,popularity,"rice, wheat, maize",mustard,False,False,1.0
+Haryana,Faridabad,fill,"wheat, sugarcane, rice",wheat,True,True,1.0
+Haryana,Faridabad,fixed default soil,"wheat, sugarcane, rice",wheat,True,True,1.0
+Haryana,Faridabad,popularity,"rice, wheat, maize",wheat,False,True,1.0
+Haryana,Fatehabad,fill,"wheat, rice, cotton",wheat,True,True,1.0
+Haryana,Fatehabad,fixed default soil,"wheat, rice, cotton",wheat,True,True,1.0
+Haryana,Fatehabad,popularity,"rice, wheat, maize",wheat,False,True,1.0
+Haryana,Gurugram,fill,"wheat, rice, sugarcane",wheat,True,True,1.0
+Haryana,Gurugram,fixed default soil,"wheat, rice, sugarcane",wheat,True,True,1.0
+Haryana,Gurugram,popularity,"rice, wheat, maize",wheat,False,True,1.0
+Haryana,Hisar,fill,"wheat, rice, cotton",wheat,True,True,1.0
+Haryana,Hisar,fixed default soil,"wheat, rice, cotton",wheat,True,True,1.0
+Haryana,Hisar,popularity,"rice, wheat, maize",wheat,False,True,1.0
+Haryana,Jind,fill,"wheat, sugarcane, rice",wheat,True,True,1.0
+Haryana,Jind,fixed default soil,"wheat, sugarcane, rice",wheat,True,True,1.0
+Haryana,Jind,popularity,"rice, wheat, maize",wheat,False,True,1.0
+Haryana,Kaithal,fill,"sugarcane, wheat, rice",wheat,False,True,1.0
+Haryana,Kaithal,fixed default soil,"sugarcane, wheat, rice",wheat,False,True,1.0
+Haryana,Kaithal,popularity,"rice, wheat, maize",wheat,False,True,1.0
+Haryana,Karnal,fill,"sugarcane, wheat, rice",wheat,False,True,1.0
+Haryana,Karnal,fixed default soil,"sugarcane, wheat, rice",wheat,False,True,1.0
+Haryana,Karnal,popularity,"rice, wheat, maize",wheat,False,True,1.0
+Haryana,Panchkula,fill,"wheat, rice, maize",wheat,True,True,1.0
+Haryana,Panchkula,fixed default soil,"wheat, rice, maize",wheat,True,True,1.0
+Haryana,Panchkula,popularity,"rice, wheat, maize",wheat,False,True,1.0
+Haryana,Panipat,fill,"sugarcane, wheat, rice",wheat,False,True,1.0
+Haryana,Panipat,fixed default soil,"sugarcane, wheat, rice",wheat,False,True,1.0
+Haryana,Panipat,popularity,"rice, wheat, maize",wheat,False,True,1.0
+Haryana,Rewari,fill,"wheat, bajra, rice",bajra,False,True,1.0
+Haryana,Rewari,fixed default soil,"wheat, bajra, rice",bajra,False,True,1.0
+Haryana,Rewari,popularity,"rice, wheat, maize",bajra,False,False,1.0
+Haryana,Rohtak,fill,"wheat, rice, bajra",wheat,True,True,1.0
+Haryana,Rohtak,fixed default soil,"wheat, rice, sugarcane",wheat,True,True,1.0
+Haryana,Rohtak,popularity,"rice, wheat, maize",wheat,False,True,1.0
+Haryana,Sonipat,fill,"sugarcane, wheat, rice",wheat,False,True,1.0
+Haryana,Sonipat,fixed default soil,"sugarcane, wheat, rice",wheat,False,True,1.0
+Haryana,Sonipat,popularity,"rice, wheat, maize",wheat,False,True,1.0
+Haryana,Yamunanagar,fill,"wheat, rice, sugarcane",wheat,True,True,1.0
+Haryana,Yamunanagar,fixed default soil,"wheat, sugarcane, rice",wheat,True,True,1.0
+Haryana,Yamunanagar,popularity,"rice, wheat, maize",wheat,False,True,1.0
+Rajasthan,Ajmer,fill,"mustard, wheat, bajra",jowar,False,False,1.0
+Rajasthan,Ajmer,fixed default soil,"mustard, wheat, bajra",jowar,False,False,1.0
+Rajasthan,Ajmer,popularity,"rice, wheat, maize",jowar,False,False,1.0
+Rajasthan,Alwar,fill,"wheat, mustard, bajra",bajra,False,True,1.0
+Rajasthan,Alwar,fixed default soil,"wheat, bajra, mustard",bajra,False,True,1.0
+Rajasthan,Alwar,popularity,"rice, wheat, maize",bajra,False,False,1.0
+Rajasthan,Baran,fill,"wheat, soybean, blackgram",soybean,False,True,1.0
+Rajasthan,Baran,fixed default soil,"wheat, soybean, blackgram",soybean,False,True,1.0
+Rajasthan,Baran,popularity,"rice, wheat, maize",soybean,False,False,1.0
+Rajasthan,Barmer,fill,"bajra, mustard, wheat",bajra,True,True,1.0
+Rajasthan,Barmer,fixed default soil,"wheat, bajra, mustard",bajra,False,True,1.0
+Rajasthan,Barmer,popularity,"rice, wheat, maize",bajra,False,False,0.6666666666666666
+Rajasthan,Bhilwara,fill,"wheat, soybean, mustard",maize,False,False,1.0
+Rajasthan,Bhilwara,fixed default soil,"wheat, soybean, mustard",maize,False,False,1.0
+Rajasthan,Bhilwara,popularity,"rice, wheat, maize",maize,False,True,1.0
+Rajasthan,Bikaner,fill,"wheat, bajra, mustard",mothbeans,False,False,1.0
+Rajasthan,Bikaner,fixed default soil,"wheat, bajra, mustard",mothbeans,False,False,1.0
+Rajasthan,Bikaner,popularity,"rice, wheat, maize",mothbeans,False,False,1.0
+Rajasthan,Bundi,fill,"wheat, rice, blackgram",wheat,True,True,1.0
+Rajasthan,Bundi,fixed default soil,"wheat, rice, blackgram",wheat,True,True,1.0
+Rajasthan,Bundi,popularity,"rice, wheat, maize",wheat,False,True,1.0
+Rajasthan,Chittorgarh,fill,"wheat, soybean, mustard",wheat,True,True,1.0
+Rajasthan,Chittorgarh,fixed default soil,"wheat, soybean, mustard",wheat,True,True,1.0
+Rajasthan,Chittorgarh,popularity,"rice, wheat, maize",wheat,False,True,1.0
+Rajasthan,Churu,fill,"wheat, bajra, mustard",mungbean,False,False,1.0
+Rajasthan,Churu,fixed default soil,"wheat, bajra, mustard",mungbean,False,False,1.0
+Rajasthan,Churu,popularity,"rice, wheat, maize",mungbean,False,False,0.6666666666666666
+Rajasthan,Dausa,fill,"mustard, wheat, bajra",bajra,False,True,1.0
+Rajasthan,Dausa,fixed default soil,"wheat, mustard, bajra",bajra,False,True,1.0
+Rajasthan,Dausa,popularity,"rice, wheat, maize",bajra,False,False,0.6666666666666666
+Rajasthan,Dungarpur,fill,"cotton, wheat, mustard",wheat,False,True,1.0
+Rajasthan,Dungarpur,fixed default soil,"cotton, wheat, groundnut",wheat,False,True,1.0
+Rajasthan,Dungarpur,popularity,"rice, wheat, maize",wheat,False,True,1.0
+Rajasthan,Ganganagar,fill,"wheat, rice, cotton",mustard,False,False,1.0
+Rajasthan,Ganganagar,fixed default soil,"wheat, rice, cotton",mustard,False,False,1.0
+Rajasthan,Ganganagar,popularity,"rice, wheat, maize",mustard,False,False,1.0
+Rajasthan,Hanumangarh,fill,"wheat, cotton, rice",wheat,True,True,1.0
+Rajasthan,Hanumangarh,fixed default soil,"wheat, rice, cotton",wheat,True,True,1.0
+Rajasthan,Hanumangarh,popularity,"rice, wheat, maize",wheat,False,True,1.0
+Rajasthan,Jaipur,fill,"mustard, wheat, bajra",bajra,False,True,1.0
+Rajasthan,Jaipur,fixed default soil,"wheat, mustard, bajra",bajra,False,True,1.0
+Rajasthan,Jaipur,popularity,"rice, wheat, maize",bajra,False,False,0.6666666666666666
+Rajasthan,Jaisalmer,fill,"mustard, wheat, bajra",chickpea,False,False,1.0
+Rajasthan,Jaisalmer,fixed default soil,"wheat, bajra, cotton",chickpea,False,False,1.0
+Rajasthan,Jaisalmer,popularity,"rice, wheat, maize",chickpea,False,False,0.3333333333333333
+Rajasthan,Jhalawar,fill,"wheat, soybean, blackgram",soybean,False,True,1.0
+Rajasthan,Jhalawar,fixed default soil,"wheat, soybean, chickpea",soybean,False,True,1.0
+Rajasthan,Jhalawar,popularity,"rice, wheat, maize",soybean,False,False,1.0
+Rajasthan,Jhunjhunu,fill,"mustard, wheat, bajra",bajra,False,True,1.0
+Rajasthan,Jhunjhunu,fixed default soil,"mustard, wheat, bajra",bajra,False,True,1.0
+Rajasthan,Jhunjhunu,popularity,"rice, wheat, maize",bajra,False,False,0.6666666666666666
+Rajasthan,Jodhpur,fill,"mustard, wheat, bajra",bajra,False,True,1.0
+Rajasthan,Jodhpur,fixed default soil,"wheat, bajra, mustard",bajra,False,True,1.0
+Rajasthan,Jodhpur,popularity,"rice, wheat, maize",bajra,False,False,0.6666666666666666
+Rajasthan,Karauli,fill,"mustard, wheat, bajra",bajra,False,True,1.0
+Rajasthan,Karauli,fixed default soil,"wheat, bajra, mustard",bajra,False,True,1.0
+Rajasthan,Karauli,popularity,"rice, wheat, maize",bajra,False,False,1.0
+Rajasthan,Kota,fill,"wheat, blackgram, rice",soybean,False,False,1.0
+Rajasthan,Kota,fixed default soil,"wheat, blackgram, soybean",soybean,False,True,1.0
+Rajasthan,Kota,popularity,"rice, wheat, maize",soybean,False,False,1.0
+Rajasthan,Nagaur,fill,"mustard, wheat, bajra",mungbean,False,False,1.0
+Rajasthan,Nagaur,fixed default soil,"wheat, bajra, mustard",mungbean,False,False,1.0
+Rajasthan,Nagaur,popularity,"rice, wheat, maize",mungbean,False,False,1.0
+Rajasthan,Pali,fill,"wheat, bajra, mustard",mungbean,False,False,1.0
+Rajasthan,Pali,fixed default soil,"wheat, bajra, mustard",mungbean,False,False,1.0
+Rajasthan,Pali,popularity,"rice, wheat, maize",mungbean,False,False,0.6666666666666666
+Rajasthan,Rajsamand,fill,"wheat, soybean, mustard",maize,False,False,1.0
+Rajasthan,Rajsamand,fixed default soil,"wheat, soybean, mustard",maize,False,False,1.0
+Rajasthan,Rajsamand,popularity,"rice, wheat, maize",maize,False,True,1.0
+Rajasthan,Sawai Madhopur,fill,"wheat, mustard, bajra",mustard,False,True,1.0
+Rajasthan,Sawai Madhopur,fixed default soil,"wheat, mustard, rice",mustard,False,True,1.0
+Rajasthan,Sawai Madhopur,popularity,"rice, wheat, maize",mustard,False,False,1.0
+Rajasthan,Sikar,fill,"mustard, wheat, bajra",bajra,False,True,1.0
+Rajasthan,Sikar,fixed default soil,"mustard, wheat, bajra",bajra,False,True,1.0
+Rajasthan,Sikar,popularity,"rice, wheat, maize",bajra,False,False,0.6666666666666666
+Rajasthan,Sirohi,fill,"wheat, soybean, bajra",wheat,True,True,1.0
+Rajasthan,Sirohi,fixed default soil,"wheat, soybean, bajra",wheat,True,True,1.0
+Rajasthan,Sirohi,popularity,"rice, wheat, maize",wheat,False,True,1.0
+Rajasthan,Udaipur,fill,"wheat, soybean, chickpea",maize,False,False,1.0
+Rajasthan,Udaipur,fixed default soil,"wheat, soybean, chickpea",maize,False,False,1.0
+Rajasthan,Udaipur,popularity,"rice, wheat, maize",maize,False,True,1.0
+Nagaland,Dimapur,fill,"rice, mustard, maize",rice,True,True,1.0
+Nagaland,Dimapur,fixed default soil,"rice, wheat, maize",rice,True,True,1.0
+Nagaland,Dimapur,popularity,"rice, wheat, maize",rice,True,True,1.0
+Kerala,Palakkad,fill,"coconut, rice, maize",rice,False,True,1.0
+Kerala,Palakkad,fixed default soil,"coconut, rice, maize",rice,False,True,1.0
+Kerala,Palakkad,popularity,"rice, wheat, maize",rice,True,True,0.6666666666666666
+Haryana,Nuh,fill,"wheat, bajra, rice",wheat,True,True,1.0
+Haryana,Nuh,fixed default soil,"wheat, bajra, rice",wheat,True,True,1.0
+Haryana,Nuh,popularity,"rice, wheat, maize",wheat,False,True,1.0
+Punjab,S.A.S Nagar,fill,"wheat, rice, maize",wheat,True,True,1.0
+Punjab,S.A.S Nagar,fixed default soil,"wheat, rice, maize",wheat,True,True,1.0
+Punjab,S.A.S Nagar,popularity,"rice, wheat, maize",wheat,False,True,1.0
+Haryana,Palwal,fill,"wheat, bajra, rice",wheat,True,True,1.0
+Haryana,Palwal,fixed default soil,"wheat, bajra, rice",wheat,True,True,1.0
+Haryana,Palwal,popularity,"rice, wheat, maize",wheat,False,True,1.0
+Rajasthan,Pratapgarh,fill,"soybean, wheat, chickpea",soybean,True,True,1.0
+Rajasthan,Pratapgarh,fixed default soil,"soybean, wheat, chickpea",soybean,True,True,1.0
+Rajasthan,Pratapgarh,popularity,"rice, wheat, maize",soybean,False,False,1.0
+Punjab,Fazilka,fill,"wheat, rice, cotton",wheat,True,True,1.0
+Punjab,Fazilka,fixed default soil,"wheat, rice, cotton",wheat,True,True,1.0
+Punjab,Fazilka,popularity,"rice, wheat, maize",wheat,False,True,1.0
+Haryana,Charkhi Dadri,fill,"wheat, bajra, rice",mustard,False,False,1.0
+Haryana,Charkhi Dadri,fixed default soil,"wheat, rice, bajra",mustard,False,False,1.0
+Haryana,Charkhi Dadri,popularity,"rice, wheat, maize",mustard,False,False,1.0
+Manipur,Bishnupur,fill,"rice, maize, mustard",rice,True,True,1.0
+Manipur,Bishnupur,fixed default soil,"rice, wheat, maize",rice,True,True,1.0
+Manipur,Bishnupur,popularity,"rice, wheat, maize",rice,True,True,1.0
+Manipur,Imphal East,fill,"rice, maize",rice,True,True,1.0
+Manipur,Imphal East,fixed default soil,"rice, maize, wheat",rice,True,True,1.0
+Manipur,Imphal East,popularity,"rice, wheat, maize",rice,True,True,1.0
+Manipur,Imphal West,fill,"rice, maize",rice,True,True,1.0
+Manipur,Imphal West,fixed default soil,"rice, maize, wheat",rice,True,True,1.0
+Manipur,Imphal West,popularity,"rice, wheat, maize",rice,True,True,1.0
+Manipur,Thoubal,fill,"rice, maize, mustard",rice,True,True,1.0
+Manipur,Thoubal,fixed default soil,"rice, wheat, maize",rice,True,True,1.0
+Manipur,Thoubal,popularity,"rice, wheat, maize",rice,True,True,1.0
+Kerala,Alappuzha,fill,"coconut, rice, banana",rice,False,True,1.0
+Kerala,Alappuzha,fixed default soil,"rice, coconut",rice,True,True,1.0
+Kerala,Alappuzha,popularity,"rice, wheat, maize",rice,True,True,0.6666666666666666
+Kerala,Ernakulam,fill,"coconut, rice, banana",coconut,True,True,1.0
+Kerala,Ernakulam,fixed default soil,"rice, coconut",coconut,False,True,1.0
+Kerala,Ernakulam,popularity,"rice, wheat, maize",coconut,False,False,0.6666666666666666
+Kerala,Kannur,fill,"rice, coconut, maize",coconut,False,True,1.0
+Kerala,Kannur,fixed default soil,"rice, coconut, maize",coconut,False,True,1.0
+Kerala,Kannur,popularity,"rice, wheat, maize",coconut,False,False,0.6666666666666666
+Kerala,Kasaragod,fill,"coconut, rice",coconut,True,True,1.0
+Kerala,Kasaragod,fixed default soil,"rice, coconut",coconut,False,True,1.0
+Kerala,Kasaragod,popularity,"rice, wheat, maize",coconut,False,False,0.6666666666666666
+Kerala,Kollam,fill,"coconut, rice",coconut,True,True,1.0
+Kerala,Kollam,fixed default soil,"rice, coconut, maize",coconut,False,True,0.6666666666666666
+Kerala,Kollam,popularity,"rice, wheat, maize",coconut,False,False,0.3333333333333333
+Kerala,Kottayam,fill,"coconut, rice, banana",coconut,True,True,1.0
+Kerala,Kottayam,fixed default soil,"rice, coconut",coconut,False,True,1.0
+Kerala,Kottayam,popularity,"rice, wheat, maize",coconut,False,False,0.3333333333333333
+Kerala,Kozhikode,fill,"rice, coconut",coconut,False,True,1.0
+Kerala,Kozhikode,fixed default soil,"rice, coconut",coconut,False,True,1.0
+Kerala,Kozhikode,popularity,"rice, wheat, maize",coconut,False,False,0.3333333333333333
+Kerala,Pathanamthitta,fill,"coconut, rice, mango",coconut,True,True,1.0
+Kerala,Pathanamthitta,fixed default soil,"rice, coconut, maize",coconut,False,True,1.0
+Kerala,Pathanamthitta,popularity,"rice, wheat, maize",coconut,False,False,0.6666666666666666
+Kerala,Thiruvananthapuram,fill,"coconut, rice",coconut,True,True,1.0
+Kerala,Thiruvananthapuram,fixed default soil,"rice, coconut",coconut,False,True,1.0
+Kerala,Thiruvananthapuram,popularity,"rice, wheat, maize",coconut,False,False,0.6666666666666666
+Kerala,Thrissur,fill,"rice, coconut, banana",coconut,False,True,1.0
+Kerala,Thrissur,fixed default soil,"rice, coconut",coconut,False,True,1.0
+Kerala,Thrissur,popularity,"rice, wheat, maize",coconut,False,False,0.3333333333333333
+Kerala,Wayanad,fill,"coconut, rice, maize",banana,False,False,1.0
+Kerala,Wayanad,fixed default soil,"coconut, rice, maize",banana,False,False,1.0
+Kerala,Wayanad,popularity,"rice, wheat, maize",banana,False,False,0.6666666666666666
+Punjab,Faridkot,fill,"wheat, rice, sugarcane",rice,False,True,0.6666666666666666
+Punjab,Faridkot,fixed default soil,"wheat, sugarcane, rice",rice,False,True,0.6666666666666666
+Punjab,Faridkot,popularity,"rice, wheat, maize",rice,True,True,1.0
+Punjab,Fatehgarh Sahib,fill,"wheat, rice, sugarcane",rice,False,True,1.0
+Punjab,Fatehgarh Sahib,fixed default soil,"wheat, sugarcane, rice",rice,False,True,1.0
+Punjab,Fatehgarh Sahib,popularity,"rice, wheat, maize",rice,True,True,1.0
+Punjab,Jalandhar,fill,"wheat, rice, sugarcane",rice,False,True,1.0
+Punjab,Jalandhar,fixed default soil,"wheat, sugarcane, rice",rice,False,True,1.0
+Punjab,Jalandhar,popularity,"rice, wheat, maize",rice,True,True,1.0
+Punjab,Patiala,fill,"wheat, rice, sugarcane",rice,False,True,1.0
+Punjab,Patiala,fixed default soil,"wheat, sugarcane, rice",rice,False,True,1.0
+Punjab,Patiala,popularity,"rice, wheat, maize",rice,True,True,1.0
+Punjab,Barnala,fill,"wheat, rice, sugarcane",rice,False,True,1.0
+Punjab,Barnala,fixed default soil,"sugarcane, wheat, rice",rice,False,True,1.0
+Punjab,Barnala,popularity,"rice, wheat, maize",rice,True,True,1.0
+Punjab,Pathankot,fill,"wheat, rice, maize",wheat,True,True,1.0
+Punjab,Pathankot,fixed default soil,"wheat, maize, rice",wheat,True,True,1.0
+Punjab,Pathankot,popularity,"rice, wheat, maize",wheat,False,True,1.0
+Punjab,Gurdaspur,fill,"wheat, rice, maize",wheat,True,True,1.0
+Punjab,Gurdaspur,fixed default soil,"wheat, rice, maize",wheat,True,True,1.0
+Punjab,Gurdaspur,popularity,"rice, wheat, maize",wheat,False,True,1.0
+Punjab,Hoshiarpur,fill,"wheat, rice, maize",wheat,True,True,1.0
+Punjab,Hoshiarpur,fixed default soil,"wheat, rice, sugarcane",wheat,True,True,1.0
+Punjab,Hoshiarpur,popularity,"rice, wheat, maize",wheat,False,True,1.0
+Chandigarh,Chandigarh,fill,"wheat, rice, maize",wheat,True,True,1.0
+Chandigarh,Chandigarh,fixed default soil,"wheat, rice, maize",wheat,True,True,1.0
+Chandigarh,Chandigarh,popularity,"rice, wheat, maize",wheat,False,True,1.0

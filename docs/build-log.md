@@ -325,3 +325,48 @@ User chose: fix both bugs and use MSP.
   MSP with paddy yield. Still wrong: sugarcane ranked high in Ludhiana and Karnal.
 - Not re-run: notebook 04 (old Kaggle model, superseded) still shows the pre-fix rice numbers.
 - Docs: `architecture.md` (yield and price rows, 27 crops), `agent.md` (rank out of 27).
+
+## Nov 4, 2026 · Soil values for farmers without a card
+
+Discussed with the user: an ML model predicting soil from location would only learn district averages (we have no
+field-level SHC data), would help pH but hardly N, P, K, and would add nothing the crop model doesn't already get from
+weather. Chosen instead: nearest districts.
+- `recommend.area_soil(district)`: the district's SHC average if it has ≥ 100 tests (as in training), else the mean of
+  the 3 nearest such districts (flat-earth distance between market-centroid coordinates). Self-check covers both.
+- App: "Do you have a Soil Health Card?" Yes → soil boxes prefilled with the area values, editable. No → the same values,
+  locked, captioned as an estimate for the area with their source. The results caption says which soil was used.
+  The old fixed default (250 / 20 / 230 / 7.0) is gone.
+- Ludhiana (1 SHC test) now gets SBS Nagar, Una and Bathinda's mean → wheat 44%, rice 33%, sugarcane 15% (was wheat,
+  sugarcane, rice with the fixed default): closer to what it grows. Amritsar: wheat, rice, sugarcane. Karnal still puts
+  sugarcane first (neighbours Kurukshetra, Shamli, Saharanpur; the last two are UP cane districts).
+
+## Nov 4, 2026 · How good is the soil fill?
+
+Notebook 10 (`10_soil_fill_check.ipynb`), write-up `research/notes/2026-11-04_soil_fill_check.md`.
+- Leave one district out over 539 districts: 3 nearest districts cut the error of a single India-wide value by 41% (N),
+  27% (P), 32% (K), 56% (pH); same card class 74–93%. State mean or same-state neighbours are level; kept 3 nearest.
+- Filled districts are farther from data (median 87 vs 56 km) and sit in Rajasthan, Punjab, Haryana, Kerala.
+- Web check: Ludhiana pH matches a 2020 study; Karnal N and K in the right class, P borderline, pH too low (8.1–8.4
+  reported); Thiruvananthapuram pH 6.9 vs 5.48 reported.
+- Open question: SHC labels 86% of India's pH samples "Neutral" (Sirsa 91%), so our pH values may be compressed;
+  class limits in `data.SHC_LEVELS` need checking. Nothing changed in code.
+
+## Nov 4, 2026 · Soil Health Card class limits fixed
+
+User asked to check the pH classes. The card template in the SHC Operational Guidelines (2015) and District Manual
+(2017) rates pH Acidic < 6.5, Normal 6.5–8.2, Alkaline > 8.2, and prints P 28/56, K 140/280 kg/ha. The code had assumed
+pH 6.5/7.5, P 10/25, K 120/280 (the SHC dashboard and dataset pages give no limits; the portal assigns classes on its server).
+- `data.SHC_LEVELS`: pH 5.75 / 7.35 / 8.95, P 14 / 42 / 70, K 105 / 210 / 350. Rebuilt `district_soil.csv`.
+- Notebook 09 re-run: within 1 point everywhere (app model first 62.5%, in list 80.5%). Notebook 10 re-run: same skill.
+- `area_soil` keeps pH to 2 decimals: rounding 7.35 → 7.3 flipped Vidisha's third crop (the forest has a step at the
+  7.35 "all Normal" value). Self-check and app placeholder soil moved to the card scale (P 40, K 210).
+- Notebook 08 (Kaggle check) not re-run; its Nov 3 results stay on the old scale.
+- Docs: Datasets doc (SHC class limits), research notes (district model "Soil class fix", soil fill check).
+
+## Nov 4, 2026 · Re-check of the soil fill after the class fix
+
+Notebook 10, section 2 (new): crop picks in the 84 filled districts (none in training) vs DES main crop. Fill: main
+crop in list 84.5%, first 48.8%; one fixed soil 85.7% / 39.3%; popularity 60.7% / 19.0%. Punjab 100%, Haryana 94%,
+Kerala 92%, Rajasthan 61% (arid pulse districts: moth bean, mung bean; no SHC district like them in training).
+Web check of soil in 4 more districts. Tally of all class checks on filled districts: N 4/4, K 3/5, pH 3/6, P 1/5.
+Write-up: `research/notes/2026-11-04_soil_fill_check.md`, section 3.

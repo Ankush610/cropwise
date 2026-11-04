@@ -61,7 +61,12 @@ sesamum, ragi, barley, potato, onion and sugarcane (`NEW_CROPS` in `project/data
 - 2023-24 and 2024-25, 738 districts, down to village level.
 - Only counts of samples per class: N, P, K, organic carbon Low/Medium/High, pH Acidic/Neutral/Alkaline, EC, micronutrients.
   No measured values, so district values are estimated from class midpoints (`district_soil()` in `project/data.py`).
-- Use: district soil for the real-world check (`notebooks/08_real_world_check.ipynb`).
+- Class limits (card template, SHC Operational Guidelines 2015 and District Manual 2017): pH Acidic < 6.5, Normal
+  6.5–8.2, Alkaline > 8.2 (the file calls Normal "Neutral"); P 28/56 and K 140/280 kg/ha; N 280/560 kg/ha (ICAR).
+  86% of India's pH samples are Normal, so district pH varies little. Until Nov 4 the code assumed pH 6.5/7.5,
+  P 10/25, K 120/280 (`research/notes/2026-11-04_soil_fill_check.md`).
+- Use: district soil for the real-world check (notebook 08), the district crop model (notebook 09) and the app's
+  "no card" soil fill (`recommend.area_soil`, notebook 10).
 - Finding: these soil test values are on a different scale from Kaggle's N, P, K (see `build-log.md`, Nov 3).
 
 ## One honest gap

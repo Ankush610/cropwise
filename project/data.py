@@ -73,13 +73,15 @@ SHC_URL = (
     "https://ckandev.indiadataportal.com/dataset/9f3010cc-1d5b-48ec-83f0-62d78238523c/resource/"
     "024cf507-4281-4c89-a40e-37b5add3a4df/download/soil-nutrient-analysis.csv"
 )
-# Soil Health Card class -> representative value. Class limits: ICAR Harit Dhara (N 280/560, P 10/25, K 120/280 kg/ha,
-# pH 6.5/7.5). ponytail: midpoints, open-ended classes assumed as wide as the middle one; the card's own numbers aren't published.
+# Soil Health Card class -> representative value, on the scale printed on the card. Class limits from the card template
+# (SHC Operational Guidelines 2015, District Manual 2017): pH 6.5/8.2 ("Normal" in between), P 28/56, K 140/280 kg/ha;
+# N 280/560 kg/ha (ICAR Harit Dhara, not on the template). ponytail: middle classes at their midpoint, open-ended ones a
+# fixed step beyond the limit; the file gives only class counts, so district values are estimates.
 SHC_LEVELS = {
     "Nitrogen": ("N", {"Low": 210, "Medium": 420, "High": 700}),
-    "Phosphorus": ("P", {"Low": 5, "Medium": 17.5, "High": 32.5}),
-    "Potassium": ("K", {"Low": 90, "Medium": 200, "High": 360}),
-    "Soil Ph": ("ph", {"Acidic": 5.75, "Neutral": 7.0, "Alkaline": 8.25}),
+    "Phosphorus": ("P", {"Low": 14, "Medium": 42, "High": 70}),
+    "Potassium": ("K", {"Low": 105, "Medium": 210, "High": 350}),
+    "Soil Ph": ("ph", {"Acidic": 5.75, "Neutral": 7.35, "Alkaline": 8.95}),
 }
 # CACP cost-of-cultivation crop name -> crop. CACP surveys no fruit.
 CACP_NAMES = {

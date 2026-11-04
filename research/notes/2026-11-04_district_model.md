@@ -182,3 +182,24 @@ Ranking tests (notebook 07) re-run with paddy yields: see `2026-11-03_model_rese
 Still open: sugarcane is over-ranked in Punjab and Haryana (their nearest districts in weather are western UP cane
 belts; neither has ≥ 100 SHC tests, so the default soil is used). Tamil Nadu paddy is priced from mandis (Rs 1,962),
 below MSP, though TN also procures; only Punjab and Haryana use MSP.
+
+## Soil class fix (Nov 4)
+
+SHC gives only class counts; `data.SHC_LEVELS` turns them into values. The class limits had been assumed (pH 6.5/7.5,
+P 10/25, K 120/280 kg/ha). The Soil Health Card template (Operational Guidelines 2015, District Manual 2017) uses pH
+Acidic < 6.5, Normal 6.5–8.2, Alkaline > 8.2, P 28/56 and K 140/280 kg/ha. That explains why 86% of India's pH samples
+(91% in Sirsa, an alkaline district) are "Neutral". New class values: pH 5.75 / 7.35 / 8.95, P 14 / 42 / 70,
+K 105 / 210 / 350 (N unchanged, 210 / 420 / 700). District pH now spans 5.8–8.8 (was 5.8–7.5), on the card's scale.
+
+Notebook 09 re-run (same settings): app model main crop first 62.5%, in list 80.5% (popularity 50.1%, 76.3%);
++4.3 pts in list, CI 0.7–7.8. All rows moved by under 1 point. pH values are an affine change of the old ones, so the
+change matters for the app's inputs, not the model's skill: a farmer's card value is now on the scale the model saw
+(a pH 8.4 card was outside the old 5.8–7.5 range).
+
+Limit found: half the districts are 100% "Normal", so their pH is exactly 7.35, and the forest learns a step there.
+Vidisha with pH 7.35–8.0 gets wheat, soybean, chickpea; with 6.9–7.3 rice replaces chickpea (≈ 0.11 each) and soybean
+drops from 0.34 to 0.26. The app's soil fill keeps pH to 2 decimals so district values are not moved off 7.35. For the
+paper: pH from class counts carries "share of acidic/alkaline samples", not a measured pH, and the model's response
+to a farmer's exact pH within 6.5–8.2 is not meaningful.
+
+Not re-run: notebook 08 (Kaggle real-world check, Nov 3) keeps its recorded results on the old soil scale.

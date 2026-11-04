@@ -42,7 +42,7 @@ flowchart TD
 | 5 | District coordinates | Median lat/lon of each district's APMC markets (`district_coords()`) | LGD district code → latitude/longitude for NASA POWER | `data/processed/district_coords.csv` |
 | 6 | Ranker | Outputs of 1, 2, 3 + CACP cost shares (`cost_shares()`) | Top 3 with suitability ≥ 5%, in suitability order; crops ≥ 0.8 × the top crop's suitability are ordered by net return = yield × price × (1 − cost share). Price is MSP 2026-27 for paddy and wheat in Punjab and Haryana (procurement states, thin mandi data) | `project/recommend.py` |
 | 7 | Explainer | SHAP on the forest (model 1) | Which inputs pushed each crop up or down; adds up to the suitability shown | App display |
-| 8 | Demo app | All of the above | Soil card + district form → weather, ranked crops with net return, SHAP plot per crop (built Nov 4; agent chat still to add) | `project/app.py` |
+| 8 | Demo app | All of the above | Soil card + district form (or "no card": the district's Soil Health Card average, else the mean of the 3 nearest districts with ≥ 100 tests, `recommend.area_soil`) → weather, ranked crops with net return, SHAP plot per crop (built Nov 4; agent chat still to add) | `project/app.py` |
 | 9 | Consultant agent | Qwen3-4B via Ollama, calling 1–7 as tools | Chat in the farmer's language, remembers the farm, explains results. Never changes the ranking. See `docs/agent.md` | `project/agent.py` |
 
 The research side adds one more piece: the **real-world check**. It runs DES districts

@@ -6,6 +6,7 @@ import datetime
 from functools import lru_cache
 
 import joblib
+import numpy as np
 import pandas as pd
 import shap
 
@@ -26,6 +27,10 @@ GROW_MONTHS = {
 # most of the crop at MSP, so mandi data is thin (Punjab paddy: 20 months) and MSP is what farmers get.
 MSP = {"rice": 2441, "wheat": 2585}
 PROCUREMENT_STATES = {"Punjab", "Haryana"}
+
+
+MIN_TESTS = 100  # a district's Soil Health Card average is used only with at least this many tests (as in training)
+NEAREST = 3  # districts without one get the mean of this many nearest districts that have one
 
 
 MODEL_FILE = "crop_model.joblib"  # in models/; notebooks 04 and 08 set "kaggle_crop_model.joblib" before the first call
@@ -61,6 +66,28 @@ def find_district(name: str, state: str | None = None) -> pd.Series:
         found = (hit["district_name"] + ", " + hit["state_name"]).tolist()
         raise ValueError(f"District {name!r}: {'ambiguous, pass state: ' + str(found) if found else 'not found or has no coordinates'}")
     return hit.iloc[0]
+
+
+@lru_cache
+def _soil() -> pd.DataFrame:
+    soil = data.district_soil()
+    return _tables()[2].merge(soil[soil["samples"] >= MIN_TESTS], on="district_code")
+
+
+def area_soil(district: str, state: str | None = None) -> tuple[dict, str]:
+    """Typical N, P, K (kg/ha) and pH for a farmer without a Soil Health Card, and where they came from: the district's
+    card average, else the mean of the NEAREST closest districts that have one. An estimate for the area, not the field."""
+    d = find_district(district, state)
+    soil = _soil()
+    own = soil[soil["district_code"] == d["district_code"]]
+    if len(own):
+        rows, source = own, f"Soil Health Card average for {d['district_name']}"
+    else:  # ponytail: flat-earth distance, fine at district scale
+        dist = ((soil["lat"] - d["lat"]) ** 2 + ((soil["lon"] - d["lon"]) * np.cos(np.radians(d["lat"]))) ** 2) ** 0.5
+        rows = soil.loc[dist.nsmallest(NEAREST).index]
+        source = "Mean of nearest districts with Soil Health Card data: " + ", ".join(rows["district_name"])
+    v = rows[["N", "P", "K", "ph"]].mean()
+    return {"N": round(float(v["N"])), "P": round(float(v["P"]), 1), "K": round(float(v["K"])), "ph": round(float(v["ph"]), 2)}, source
 
 
 def weather(lat: float, lon: float) -> dict:
@@ -172,7 +199,7 @@ def explain(inputs: dict, crop: str) -> shap.Explanation:
 
 
 if __name__ == "__main__":
-    inputs, table = recommend(250, 20, 230, 6.8, "Raipur", sow=datetime.date(2026, 11, 4))  # Soil Health Card scale
+    inputs, table = recommend(250, 40, 210, 6.8, "Raipur", sow=datetime.date(2026, 11, 4))  # Soil Health Card scale
     print(inputs, table, sep="\n")
     assert 1 <= len(table) <= 3 and table["suitability"].between(0, 1).all()
     near, rest = table[table["near_tie"]], table[~table["near_tie"]]
@@ -184,4 +211,8 @@ if __name__ == "__main__":
     print(pd.Series(e.values, index=e.feature_names).round(3))
     assert _price("rice", "Punjab", datetime.date(2026, 6, 15))[:2] == (2441.0, "MSP 2026-27")
     assert _price("rice", "Odisha", datetime.date(2026, 6, 15))[1] != "MSP 2026-27"
+    assert area_soil("Vidisha")[1].startswith("Soil Health Card average")
+    soil, src = area_soil("Ludhiana", "Punjab")  # 1 SHC test only
+    assert src.startswith("Mean of nearest") and 3 <= soil["ph"] <= 10, src
+    print(soil, src)
     print("ok")

@@ -57,6 +57,18 @@ APY_URL = (
     "https://ckandev.indiadataportal.com/dataset/f2bbc28c-6c7c-462b-9064-ea4c4213d466/resource/"
     "f980409d-49a2-42ae-9eb0-182365005c04/download/crop-wise-area-production-yield.csv"
 )
+SHC_URL = (
+    "https://ckandev.indiadataportal.com/dataset/9f3010cc-1d5b-48ec-83f0-62d78238523c/resource/"
+    "024cf507-4281-4c89-a40e-37b5add3a4df/download/soil-nutrient-analysis.csv"
+)
+# Soil Health Card class -> representative value. Class limits: ICAR Harit Dhara (N 280/560, P 10/25, K 120/280 kg/ha,
+# pH 6.5/7.5). ponytail: midpoints, open-ended classes assumed as wide as the middle one; the card's own numbers aren't published.
+SHC_LEVELS = {
+    "Nitrogen": ("N", {"Low": 210, "Medium": 420, "High": 700}),
+    "Phosphorus": ("P", {"Low": 5, "Medium": 17.5, "High": 32.5}),
+    "Potassium": ("K", {"Low": 90, "Medium": 200, "High": 360}),
+    "Soil Ph": ("ph", {"Acidic": 5.75, "Neutral": 7.0, "Alkaline": 8.25}),
+}
 # CACP cost-of-cultivation crop name -> Kaggle label. CACP surveys no fruit.
 CACP_NAMES = {
     "Paddy": "rice", "Maize": "maize", "Gram": "chickpea", "Tur (Arhar)": "pigeonpeas", "Moong": "mungbean",
@@ -189,6 +201,38 @@ def district_coords() -> pd.DataFrame:
         m = pd.concat(parts).drop_duplicates()
         m = m[m["latitude"].between(6, 38) & m["longitude"].between(68, 98)]  # drop points outside India
         out = m.groupby("district_code").agg(lat=("latitude", "median"), lon=("longitude", "median"), markets=("latitude", "size"))
+        PROCESSED.mkdir(parents=True, exist_ok=True)
+        out.to_csv(path)
+    return pd.read_csv(path)
+
+
+def district_soil() -> pd.DataFrame:
+    """Estimated mean N, P, K (kg/ha) and pH per LGD district from Soil Health Card tests, all years pooled.
+
+    The SHC file only counts samples per class (Low/Medium/High), so each district's value is the count-weighted mean
+    of the SHC_LEVELS class values. These are soil test values: not the same scale as Kaggle's N, P, K (notebook 08).
+    Built once from the 1.1 GB CSV in data/raw/shc/ (India Data Portal), cached in data/processed/. samples = N tests.
+    """
+    path = PROCESSED / "district_soil.csv"
+    if not path.exists():
+        raw = RAW / "shc" / "soil-nutrient-analysis.csv"
+        if not raw.exists():
+            raw.parent.mkdir(parents=True, exist_ok=True)
+            with requests.get(SHC_URL, stream=True, timeout=600, headers={"User-Agent": "Mozilla/5.0"}) as r:
+                r.raise_for_status()
+                with open(raw, "wb") as f:
+                    shutil.copyfileobj(r.raw, f)
+        cols = ["district_code", "nutrient_name", "nutrient_level", "value"]
+        parts = [ch[ch["nutrient_name"].isin(SHC_LEVELS)].groupby(cols[:3])["value"].sum()
+                 for ch in pd.read_csv(raw, usecols=cols, chunksize=2_000_000)]
+        n = pd.concat(parts).groupby(level=[0, 1, 2]).sum().reset_index()
+        n["level_value"] = [SHC_LEVELS[k][1].get(lv) for k, lv in zip(n["nutrient_name"], n["nutrient_level"])]
+        n = n.dropna(subset=["level_value"]).astype({"level_value": float})
+        n["weighted"] = n["level_value"] * n["value"]
+        g = n.groupby(["district_code", "nutrient_name"])[["weighted", "value"]].sum()
+        out = (g["weighted"] / g["value"]).unstack().rename(columns={k: v[0] for k, v in SHC_LEVELS.items()})
+        out["samples"] = g["value"].xs("Nitrogen", level=1)
+        out = out[out["samples"] > 0].round(2)
         PROCESSED.mkdir(parents=True, exist_ok=True)
         out.to_csv(path)
     return pd.read_csv(path)

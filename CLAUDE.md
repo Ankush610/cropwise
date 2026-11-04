@@ -30,7 +30,8 @@ Schedule and scope cuts: `docs/plan.md`.
 
 See `docs/Crop Recommendation System Datasets.md`. In short:
 Kaggle Crop Recommendation (training), Agmarknet / CEDA (prices),
-NASA POWER (weather), DES district area-production-yield (district yield and real-world test; replaces ICRISAT, which is offline).
+NASA POWER (weather), DES district area-production-yield (district yield and real-world test; replaces ICRISAT, which is offline),
+Soil Health Card (district soil for the real-world test).
 
 ## Pipeline
 

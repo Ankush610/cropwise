@@ -1,0 +1,6 @@
+method,districts,main crop 1st %,main crop in list %,picks grown %,list length
+SHC raw,539.0,6.31,7.79,29.72,2.99
+SHC mapped,539.0,3.53,13.17,37.45,1.99
+Kaggle mean soil,539.0,0.0,1.67,1.58,1.03
+random 3 crops,539.0,5.01,15.96,35.06,3.0
+"popularity (rice, cotton, maize)",539.0,69.57,87.57,83.86,3.0

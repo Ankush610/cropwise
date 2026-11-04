@@ -45,6 +45,7 @@ flowchart TD
 The research side adds one more piece: the **real-world check**. It runs DES districts
 (with Soil Health Card soil averages + NASA POWER weather) through the classifier and compares
 the picks with what each district actually grows. Its tables go to `research/`. It is not part of the app.
+Result (Nov 3, notebook 08): no better than random crops; see `research/notes/2026-11-03_real_world_check.md`.
 
 ## Planned code (in `project/`)
 

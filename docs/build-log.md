@@ -228,3 +228,21 @@ User approved all three. Details and tables: `research/notes/2026-11-03_model_re
   rice (0.92 vs 0.08); rice was 0 before. CACP costs are large: net return for Maharashtra cotton and Punjab maize is
   only ~Rs 7,000/ha.
 - `python project/recommend.py` self-check passes (near-ties first and sorted by net, the rest by suitability, SHAP adds up).
+
+## Nov 3, 2026 · Phase 5 (real-world check)
+
+User chose Soil Health Card district soil over Kaggle crop-mean soil (which would leak the answer).
+Full write-up: `research/notes/2026-11-03_real_world_check.md`. Notebook `notebooks/08_real_world_check.ipynb`.
+
+- **New data:** Soil Health Card "Soil Nutrient Analysis" (India Data Portal, 1.1 GB, 2023-24 and 2024-25,
+  738 districts) in `data/raw/shc/`. It only has sample counts per class (N, P, K Low/Medium/High, pH Acidic/Neutral/Alkaline),
+  not values. New loader `data.district_soil()`: count-weighted mean of class midpoints (ICAR limits), cached in
+  `data/processed/district_soil.csv` (717 districts). Cached NASA POWER weather for all 625 districts with coordinates.
+- **Result: no better than chance.** 539 districts with soil, coordinates and DES area. Main crop in the top 3:
+  SHC raw 7.8%, SHC mapped to Kaggle scale 13.2%, random 3 crops 16.0%, always "rice, cotton, maize" 87.6%.
+- **Why:** Kaggle N, P, K are not soil test values (SHC N is 210–650 kg/ha everywhere, Kaggle N is 0–140; Kaggle's
+  per-crop means look like fertiliser doses). Season-matched rainfall doesn't help. Given the Kaggle soil of each
+  district's own main crop, the model gets it in the top 3 for ~100% of districts. So the model reads the crop off
+  Kaggle's N-P-K clusters, and real soil never falls in them.
+- **App impact:** a farmer typing their Soil Health Card values gets chickpea in 89% of districts. **Open decision**
+  before the demo: keep the Kaggle model and report the failure, or train a district-level model on real data.

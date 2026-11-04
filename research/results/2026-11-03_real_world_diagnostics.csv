@@ -1,0 +1,6 @@
+setting,main crop 1st %,main crop in top 3 %,rice 1st in rice districts %,median rainfall mm/month
+"SHC mapped, annual",3.53,15.03,1.07,95.78
+"SHC mapped, kharif Jun-Sep",4.45,16.51,2.93,224.56
+"SHC mapped, rabi Nov-Feb",4.82,14.29,2.67,11.36
+"oracle soil, annual",30.43,99.63,2.4,95.78
+"oracle soil, kharif Jun-Sep",33.02,100.0,5.87,224.56

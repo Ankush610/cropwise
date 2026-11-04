@@ -52,6 +52,15 @@ All four datasets we need are free and available. One trains the crop model, one
 - Field crops are covered well up to 2022-23. Fruits are thin and old (most stop by 2015), muskmelon is missing,
   and watermelon and apple have no usable rows. See `build-log.md`.
 
+## 5. Soil: Soil Health Card (added Nov 3)
+
+- "Soil Nutrient Analysis" from the Soil Health Card scheme, India Data Portal (1.1 GB CSV, updated Feb 2026).
+- 2023-24 and 2024-25, 738 districts, down to village level.
+- Only counts of samples per class: N, P, K, organic carbon Low/Medium/High, pH Acidic/Neutral/Alkaline, EC, micronutrients.
+  No measured values, so district values are estimated from class midpoints (`district_soil()` in `project/data.py`).
+- Use: district soil for the real-world check (`notebooks/08_real_world_check.ipynb`).
+- Finding: these soil test values are on a different scale from Kaggle's N, P, K (see `build-log.md`, Nov 3).
+
 ## One honest gap
 
 No single dataset has soil, crop and price for the same farm. The Kaggle data also has no location column. So we join datasets by crop name and district, and state this as a limitation in the paper.

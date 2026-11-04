@@ -246,3 +246,23 @@ Full write-up: `research/notes/2026-11-03_real_world_check.md`. Notebook `notebo
   Kaggle's N-P-K clusters, and real soil never falls in them.
 - **App impact:** a farmer typing their Soil Health Card values gets chickpea in 89% of districts. **Open decision**
   before the demo: keep the Kaggle model and report the failure, or train a district-level model on real data.
+
+## Nov 4, 2026 · District crop model replaces the Kaggle model
+
+User decided: commit the real-world check (`58e221a`), then build a model on real data. Write-up:
+`research/notes/2026-11-04_district_model.md`. Notebook `notebooks/09_district_model.ipynb` (~20 min to run).
+
+- **Kaggle model kept, not deleted:** renamed to `models/kaggle_crop_model.joblib`. Notebook 05 now saves to that name;
+  notebooks 04 and 08 set `recommend.MODEL_FILE` to it, so re-running them reproduces their Kaggle results.
+- **District model** (`models/crop_model.joblib`): Random Forest on 539 districts, Soil Health Card soil + NASA weather,
+  target = DES area share of 16 crops (one row per district × crop, weighted by share). No calibration step.
+- **Leave-one-state-out:** main crop in the list 89.8% (Kaggle model 7.8%, "3 most common crops" 82.6%); first 68.3%
+  (popularity 69.0%). Gain over popularity +7.2 pts (95% CI 3.9–10.4). Season weather +3.9 pts (CI 1.1–6.5), so adopted.
+  RF and logistic regression are level; LightGBM worse.
+- **App changes** (`project/recommend.py`): `weather()` also returns kharif (Jun–Sep) and rabi (Nov–Feb) rainfall and
+  temperature; `recommend()` takes N, P, K in kg/ha as on a Soil Health Card; SHAP now adds up to the suitability shown.
+  Self-check uses card-scale soil (Raipur → rice 0.97).
+- **Known data quirk:** CACP A2+FL cost exceeds gross value for 9 crop × state pairs (e.g. Maharashtra paddy 1.47), so
+  net return is negative there (Nashik rice). These are the survey's numbers, left as they are.
+- **Open question:** the crop list is still Kaggle's. Wheat, sugarcane, soybean, groundnut, mustard and bajra are not
+  covered, which limits both the app and the evaluation.

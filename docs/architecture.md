@@ -10,13 +10,16 @@ Oct 29, 2026. Scope of what we build, where each piece comes from, and where it 
 ```mermaid
 flowchart TD
   subgraph Offline
-    K[Kaggle CSV] --> C1[Clean] --> CM[Train crop classifier] --> M1[(crop_model.joblib)]
+    SH[Soil Health Card] --> DS[District soil] --> CM[Train district crop model]
+    NP[NASA POWER] --> CM
+    I --> CM
+    CM --> M1[(crop_model.joblib)]
     P[Agmarknet mandi prices] --> C2[Monthly price per crop] --> PM[Median of ETS, ARIMA, Theta, seasonal-naive] --> F[(price_forecast.csv)]
     I[DES district area-production-yield] --> Y[(district_yield.csv)]
     CC[CACP cost of cultivation] --> CS[(cost share per crop × state)]
   end
   subgraph Online app
-    U[Farmer: N, P, K, pH, district] --> W[NASA POWER API: temp, humidity, rainfall]
+    U[Farmer: N, P, K, pH from Soil Health Card, district] --> W[NASA POWER API: temp, humidity, rainfall, year + kharif + rabi]
     W --> PR[Classifier: suitability per crop]
     M1 --> PR
     PR --> R[Rank: suitability order, net return breaks near-ties]
@@ -32,13 +35,13 @@ flowchart TD
 
 | # | Component | Comes from | What it does | Goes to |
 | --- | --- | --- | --- | --- |
-| 1 | Crop classifier | Kaggle data | 6 inputs (no humidity) → calibrated probability for each of the 22 crops. Random Forest trained on the rows plus 5 weather-noised copies, then isotonic calibration (`notebooks/05_crop_model_tests.ipynb`, section 5) | `models/crop_model.joblib` |
+| 1 | Crop model (district) | Soil Health Card district soil + NASA POWER weather + DES crop area (since Nov 4) | 11 inputs (card N, P, K, pH; year, kharif and rabi weather) → share of farmland that similar districts put under each of 16 crops. Random Forest, one row per district × crop weighted by area share (`notebooks/09_district_model.ipynb`). The old Kaggle model is kept as `models/kaggle_crop_model.joblib` for notebooks 04, 05, 08 | `models/crop_model.joblib` |
 | 2 | Price forecast | Agmarknet mandi prices (`mandi_prices()`) | Median of AutoETS, AutoARIMA, AutoTheta and seasonal-naive per crop × state and all-India, 12 months ahead, with backtest MAPE (`notebooks/06_price_model_tests.ipynb`, section 4) | `data/processed/price_forecast.csv` |
 | 3 | District yield | DES district APY (`district_yield()`) | Mean yield of each district's last 5 reported years | `data/processed/district_yield.csv` |
-| 4 | Weather lookup | NASA POWER API (live) | District → temperature, humidity, rainfall | Called by the app |
+| 4 | Weather lookup | NASA POWER API (live) | District → temperature, humidity, rainfall for the year, kharif (Jun–Sep) and rabi (Nov–Feb) | Called by the app |
 | 5 | District coordinates | Median lat/lon of each district's APMC markets (`district_coords()`) | LGD district code → latitude/longitude for NASA POWER | `data/processed/district_coords.csv` |
 | 6 | Ranker | Outputs of 1, 2, 3 + CACP cost shares (`cost_shares()`) | Top 3 with suitability ≥ 5%, in suitability order; crops ≥ 0.8 × the top crop's suitability are ordered by net return = yield × price × (1 − cost share) | `project/recommend.py` |
-| 7 | Explainer | SHAP on the forest inside model 1 (before calibration) | Which inputs pushed each crop up or down | App display |
+| 7 | Explainer | SHAP on the forest (model 1) | Which inputs pushed each crop up or down; adds up to the suitability shown | App display |
 | 8 | Demo app | All of the above | Input form → ranked crops + explanation plots | `project/app.py` |
 | 9 | Consultant agent | Qwen3-4B via Ollama, calling 1–7 as tools | Chat in the farmer's language, remembers the farm, explains results. Never changes the ranking. See `docs/agent.md` | `project/agent.py` |
 
@@ -56,7 +59,7 @@ Result (Nov 3, notebook 08): no better than random crops; see `research/notes/20
 | `agent.py` | Consultant agent: tools, loop, farm-profile memory |
 | `app.py` | Streamlit front end, calls `recommend.py` and `agent.py` |
 
-Training happens in notebooks (crop model: 05, price forecast: 06), which save what the app reads.
+Training happens in notebooks (crop model: 09, price forecast: 06), which save what the app reads.
 Data lives in a top-level `data/` (`raw/`, `processed/`), kept out of git.
 Workshop notebooks are trimmed copies of the notebooks in `notebooks/`.
 

@@ -21,9 +21,12 @@ GROW_MONTHS = {
 }
 
 
+MODEL_FILE = "crop_model.joblib"  # in models/; notebooks 04 and 08 set "kaggle_crop_model.joblib" before the first call
+
+
 @lru_cache
 def _model() -> dict:
-    return joblib.load(data.ROOT / "models" / "crop_model.joblib")
+    return joblib.load(data.ROOT / "models" / MODEL_FILE)
 
 
 @lru_cache
@@ -54,9 +57,14 @@ def find_district(name: str, state: str | None = None) -> pd.Series:
 
 
 def weather(lat: float, lon: float) -> dict:
-    """NASA POWER 2015-2024: mean temperature (°C), humidity (%) and mean monthly rainfall (mm), as decided Oct 29."""
-    w = data.nasa_weather(round(lat, 2), round(lon, 2)).mean()
-    return {k: round(float(w[k]), 1) for k in ("temperature", "humidity", "rainfall")}
+    """NASA POWER 2015-2024: mean temperature (°C), humidity (%) and mean monthly rainfall (mm), for the whole year
+    and for kharif (Jun-Sep) and rabi (Nov-Feb). The season values help the district model (notebook 09)."""
+    w = data.nasa_weather(round(lat, 2), round(lon, 2))
+    kharif, rabi = w[w.index.month.isin([6, 7, 8, 9])].mean(), w[w.index.month.isin([11, 12, 1, 2])].mean()
+    out = {**w.mean()[["temperature", "humidity", "rainfall"]],
+           "rain_kharif": kharif["rainfall"], "rain_rabi": rabi["rainfall"],
+           "temp_kharif": kharif["temperature"], "temp_rabi": rabi["temperature"]}
+    return {k: round(float(v), 1) for k, v in out.items()}
 
 
 def _yield(crop: str, district: pd.Series) -> tuple[float, str]:
@@ -104,6 +112,8 @@ def recommend(N: float, P: float, K: float, ph: float, district: str, state: str
     """Top `top` suitable crops (suitability >= MIN_SUITABILITY), in suitability order, except that crops within
     NEAR_TIE of the top crop's suitability are ordered by net return (gross revenue x (1 - cost share)).
 
+    N, P, K are kg/ha as printed on a Soil Health Card. Suitability is the share of farmland that districts with
+    similar soil and weather put under the crop (district model, notebook 09).
     The model decides what fits; money only breaks near-ties (notebook 07: multiplying suitability by revenue put the
     wrong crop first more often). Returns (inputs, table). `inputs` holds the model features plus where the weather
     came from. A near-tie crop with no yield or price goes last among the near-ties.
@@ -142,8 +152,8 @@ def recommend(N: float, P: float, K: float, ph: float, district: str, state: str
 def explain(inputs: dict, crop: str) -> shap.Explanation:
     """SHAP values for one crop: how much each input pushed it up or down from the average.
 
-    SHAP needs the forest itself, so this explains the forest's raw probability; the suitability shown is that score
-    after isotonic calibration, which is monotone per crop, so the pushes point the same way.
+    The district model has no calibration step, so the values add up to the suitability shown. (The Kaggle model, kept
+    for notebooks 04 and 08, explains its forest before isotonic calibration; the pushes point the same way.)
     Plot with shap.plots.waterfall(explain(inputs, crop)).
     """
     m = _model()
@@ -152,7 +162,7 @@ def explain(inputs: dict, crop: str) -> shap.Explanation:
 
 
 if __name__ == "__main__":
-    inputs, table = recommend(90, 42, 43, 6.5, "Raipur", sow=datetime.date(2026, 11, 3))
+    inputs, table = recommend(250, 20, 230, 6.8, "Raipur", sow=datetime.date(2026, 11, 4))  # Soil Health Card scale
     print(inputs, table, sep="\n")
     assert 1 <= len(table) <= 3 and table["suitability"].between(0, 1).all()
     near, rest = table[table["near_tie"]], table[~table["near_tie"]]

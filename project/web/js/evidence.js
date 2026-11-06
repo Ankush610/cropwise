@@ -27,7 +27,8 @@ export function cropList(r, farm) {
     head(`Best crops for ${r.district}, ${r.season} season`,
       "Ranked by how well each crop fits your soil and weather. Close calls go to the crop that earns more."),
     h("ol", { class: "crops" }, r.crops.map((c, i) => cropRow(c, i + 1, farm))),
-    r.warning && h("p", { class: "ev-note" }, r.warning));
+    r.warning && h("p", { class: "ev-note" }, r.warning),
+    r.note && h("p", { class: "ev-note" }, r.note));
 }
 
 function cropCheck(r, farm) {
@@ -41,7 +42,7 @@ function cropCheck(r, farm) {
 }
 
 function cropRow(c, rank, farm) {
-  const hasMoney = c.net_rs_ha != null;
+  const hasMoney = c.net_rs_acre != null;
   return h("li", { class: "crop" },
     h("span", { class: "crop-rank", "aria-hidden": "true" }, String(rank)),
     h("div", { class: "crop-main" },
@@ -51,16 +52,18 @@ function cropRow(c, rank, farm) {
         h("span", { class: "suit-track", "aria-hidden": "true" },
           h("span", { class: "suit-fill", style: `width:${Math.max(2, c.suitability * 100).toFixed(1)}%` }))),
       h("p", { class: "crop-facts" }, facts(c))),
-    h("div", { class: `crop-money${hasMoney && c.net_rs_ha < 0 ? " is-loss" : ""}` },
-      h("strong", {}, hasMoney ? money(c.net_rs_ha) : "–"),
-      h("span", {}, hasMoney ? "net per hectare" : "no price data")),
+    h("div", { class: `crop-money${hasMoney && c.net_rs_acre < 0 ? " is-loss" : ""}` },
+      h("strong", {}, hasMoney ? money(c.net_rs_acre) : "–"),
+      h("span", {}, hasMoney ? "net per acre" : "no price data"),
+      hasMoney && h("span", { class: "crop-month" },
+        `≈ ${money(c.net_rs_acre_month)} a month · ${c.grow_months ? `${c.grow_months}-month crop` : "yearly crop"}`)),
     whyToggle(c.crop, farm));
 }
 
 function facts(c) {
   const parts = [];
-  if (c.yield_t_ha != null) {
-    parts.push(`Yield ${number(c.yield_t_ha, 2)} t/ha${c.yield_source ? ` (${YIELD_SOURCE[c.yield_source] ?? c.yield_source})` : ""}.`);
+  if (c.yield_q_acre != null) {
+    parts.push(`Yield ${number(c.yield_q_acre, 1)} quintals an acre${c.yield_source ? ` (${YIELD_SOURCE[c.yield_source] ?? c.yield_source})` : ""}.`);
   }
   if (c.price_rs_q != null) {
     const error = c.price_mape != null ? `, usually within ±${Math.round(c.price_mape)}%` : "";

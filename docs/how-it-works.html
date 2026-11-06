@@ -1,0 +1,613 @@
+<title>How Fasal Salah Works</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Mukta:wght@400;500;700;800&family=IBM+Plex+Mono:wght@400;500&display=swap">
+<style>
+/* Layout: one reading column, figures break slightly wider; colours reuse the app's own tokens
+   (green = actions/helps, turmeric = suitability, laterite = holds back / warnings). */
+:root {
+  --paper: #f3f5ee; --surface: #ffffff; --sunk: #e9ede2;
+  --ink: #1f2a1f; --ink-2: #4b5848; --ink-3: #6c7866; --line: #d6dccd;
+  --green: #3d6b2f; --green-soft: #e1eadb;
+  --turmeric: #b9860f; --turmeric-bar: #d9a21b; --turmeric-soft: #f3e5bd;
+  --laterite: #a3492c; --laterite-soft: #f3ded4;
+  --sky: #2f6582; --sky-soft: #dbe8ee;
+  --font: "Mukta", "Noto Sans Devanagari", system-ui, sans-serif;
+  --mono: "IBM Plex Mono", ui-monospace, "SFMono-Regular", Menlo, monospace;
+  --read: 46rem; --wide: 60rem;
+}
+@media (prefers-color-scheme: dark) { :root:not([data-theme="light"]) {
+  color-scheme: dark;
+  --paper: #121812; --surface: #1a221a; --sunk: #222c21;
+  --ink: #e4eadf; --ink-2: #b4beac; --ink-3: #8c9786; --line: #2f3a2d;
+  --green: #8dbf6c; --green-soft: #243423;
+  --turmeric: #e3b43e; --turmeric-bar: #e3b43e; --turmeric-soft: #3a3219;
+  --laterite: #db8262; --laterite-soft: #3d241b;
+  --sky: #82b6d1; --sky-soft: #1d2d36;
+} }
+:root[data-theme="dark"] {
+  color-scheme: dark;
+  --paper: #121812; --surface: #1a221a; --sunk: #222c21;
+  --ink: #e4eadf; --ink-2: #b4beac; --ink-3: #8c9786; --line: #2f3a2d;
+  --green: #8dbf6c; --green-soft: #243423;
+  --turmeric: #e3b43e; --turmeric-bar: #e3b43e; --turmeric-soft: #3a3219;
+  --laterite: #db8262; --laterite-soft: #3d241b;
+  --sky: #82b6d1; --sky-soft: #1d2d36;
+}
+
+* { box-sizing: border-box; }
+body {
+  background: var(--paper); color: var(--ink);
+  font: 400 1.0625rem/1.6 var(--font);
+  padding-left: max(16px, env(safe-area-inset-left, 0px));
+  padding-right: max(16px, env(safe-area-inset-right, 0px));
+  padding-block: 0 4rem;
+}
+main { max-width: var(--wide); margin: 0 auto; display: grid; gap: 3.5rem; }
+section { display: grid; gap: 1rem; min-width: 0; }
+section > p, section > ul, section > h2, section > h3, section > .eyebrow { max-width: var(--read); }
+h1, h2, h3 { line-height: 1.15; text-wrap: balance; margin: 0; }
+h1 { font-size: clamp(2.1rem, 6vw, 3.4rem); font-weight: 800; letter-spacing: -0.02em; }
+h2 { font-size: clamp(1.5rem, 3.5vw, 2rem); font-weight: 700; }
+h3 { font-size: 1.2rem; font-weight: 700; }
+p, ul { margin: 0; }
+ul { padding-left: 1.2rem; display: grid; gap: .35rem; }
+code, .mono { font-family: var(--mono); font-size: .86em; }
+code { background: var(--sunk); padding: .05em .35em; border-radius: 4px; }
+a { color: var(--green); }
+.eyebrow { font-size: .8rem; font-weight: 700; letter-spacing: .1em; text-transform: uppercase; color: var(--ink-3); }
+.muted { color: var(--ink-2); }
+.small { font-size: .9rem; }
+.num { font-variant-numeric: tabular-nums; }
+
+/* Hero */
+.hero { padding-block: 3rem 0; display: grid; gap: 1.1rem; }
+.hero .lede { font-size: 1.25rem; color: var(--ink-2); max-width: 40rem; }
+.toc { display: flex; flex-wrap: wrap; gap: .5rem; margin-top: .5rem; }
+.toc a { text-decoration: none; color: var(--ink); background: var(--surface); border: 1px solid var(--line);
+  padding: .25rem .75rem; border-radius: 999px; font-size: .92rem; }
+.toc a:hover, .toc a:focus-visible { border-color: var(--green); color: var(--green); outline: none; }
+
+/* The one-line idea */
+.idea { display: grid; grid-template-columns: repeat(auto-fit, minmax(10.5rem, 1fr)); gap: .6rem; }
+.idea div { background: var(--surface); border: 1px solid var(--line); border-radius: 12px; padding: .8rem 1rem; display: grid; gap: .15rem; }
+.idea b { font-size: 1.05rem; }
+.idea span { color: var(--ink-2); font-size: .92rem; line-height: 1.4; }
+
+/* Pipeline */
+.pipe { list-style: none; padding: 0; margin: 0; display: grid; gap: 0; counter-reset: step; }
+.pipe li { display: grid; grid-template-columns: 2.6rem 1fr; gap: .9rem; position: relative; padding-bottom: 1.1rem; }
+.pipe li::before { counter-increment: step; content: counter(step); width: 2.6rem; height: 2.6rem; border-radius: 50%;
+  display: grid; place-items: center; font-weight: 800; background: var(--green); color: var(--paper); z-index: 1; }
+.pipe li:not(:last-child)::after { content: ""; position: absolute; left: 1.25rem; top: 2.6rem; bottom: 0; width: 2px; background: var(--line); }
+.pipe .box { background: var(--surface); border: 1px solid var(--line); border-radius: 12px; padding: .75rem 1rem; display: grid; gap: .2rem; min-width: 0; }
+.pipe .box b { font-size: 1.05rem; }
+.pipe .tag { display: inline-block; font-size: .75rem; font-weight: 700; letter-spacing: .06em; text-transform: uppercase;
+  padding: .05rem .5rem; border-radius: 999px; margin-left: .4rem; vertical-align: 2px; }
+.t-ml { background: var(--turmeric-soft); color: var(--turmeric); }
+.t-data { background: var(--sky-soft); color: var(--sky); }
+.t-rule { background: var(--green-soft); color: var(--green); }
+.t-llm { background: var(--laterite-soft); color: var(--laterite); }
+
+/* Offline / online split */
+.split { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; }
+.half { border-radius: 14px; padding: 1.1rem; display: grid; gap: .7rem; align-content: start; min-width: 0; }
+.half.off { background: var(--sky-soft); }
+.half.on { background: var(--green-soft); }
+.half h3 { display: flex; justify-content: space-between; gap: .5rem; flex-wrap: wrap; align-items: baseline; }
+.half h3 small { font-weight: 500; font-size: .85rem; color: var(--ink-2); }
+.flow { display: grid; gap: .4rem; }
+.flow .row { display: grid; grid-template-columns: 1fr auto 1fr; gap: .4rem; align-items: center; }
+.flow .chip { background: var(--surface); border-radius: 8px; padding: .4rem .6rem; font-size: .9rem; line-height: 1.3; min-width: 0; }
+.flow .arrow { color: var(--ink-3); font-weight: 700; }
+.flow .file { font-family: var(--mono); font-size: .78rem; }
+
+/* Data cards */
+.cards { display: grid; grid-template-columns: repeat(auto-fit, minmax(16rem, 1fr)); gap: .8rem; }
+.card { background: var(--surface); border: 1px solid var(--line); border-radius: 12px; padding: 1rem; display: grid; gap: .45rem; align-content: start; }
+.card h3 { font-size: 1.08rem; }
+.card .what { color: var(--ink-2); font-size: .95rem; line-height: 1.45; }
+.card dl { margin: 0; display: grid; grid-template-columns: auto 1fr; gap: .2rem .7rem; font-size: .9rem; }
+.card dt { color: var(--ink-3); }
+.card dd { margin: 0; }
+.card.retired { background: transparent; border-style: dashed; }
+
+/* Model block */
+.model { background: var(--surface); border: 1px solid var(--line); border-radius: 16px; padding: 1.3rem; display: grid; gap: 1rem; }
+.model-head { display: flex; justify-content: space-between; gap: .75rem; flex-wrap: wrap; align-items: baseline; }
+.facts { display: grid; grid-template-columns: repeat(auto-fit, minmax(13rem, 1fr)); gap: .6rem; }
+.fact { background: var(--sunk); border-radius: 10px; padding: .7rem .85rem; display: grid; gap: .15rem; }
+.fact .k { font-size: .78rem; font-weight: 700; letter-spacing: .07em; text-transform: uppercase; color: var(--ink-3); }
+.fact .v { line-height: 1.4; font-size: .95rem; }
+.inputs { display: flex; flex-wrap: wrap; gap: .35rem; }
+.inputs span { font-size: .85rem; padding: .15rem .55rem; border-radius: 999px; border: 1px solid var(--line); background: var(--paper); }
+.inputs .soil { border-color: color-mix(in srgb, var(--turmeric) 45%, transparent); }
+.inputs .wx { border-color: color-mix(in srgb, var(--sky) 45%, transparent); }
+.inputs .ssn { border-color: var(--green); font-weight: 700; }
+
+/* Timeline of crop models */
+.timeline { display: grid; grid-template-columns: repeat(3, 1fr); gap: .8rem; }
+.stage { border-radius: 12px; padding: 1rem; display: grid; gap: .4rem; align-content: start; border: 1px solid var(--line); background: var(--surface); }
+.stage .when { font-family: var(--mono); font-size: .78rem; color: var(--ink-3); }
+.stage.fail { background: var(--laterite-soft); border-color: transparent; }
+.stage.now { border: 2px solid var(--green); }
+.stage .verdict { font-weight: 700; font-size: .92rem; }
+.stage.fail .verdict { color: var(--laterite); }
+.stage.now .verdict { color: var(--green); }
+
+/* Bar charts */
+.chart { display: grid; gap: .55rem; }
+.chart-title { font-weight: 700; font-size: .95rem; }
+.bar-row { display: grid; grid-template-columns: 11rem 1fr 3.4rem; gap: .6rem; align-items: center; font-size: .9rem; }
+.bar-track { height: 1.1rem; background: var(--sunk); border-radius: 4px; overflow: hidden; }
+.bar { height: 100%; border-radius: 4px; background: var(--ink-3); }
+.bar.hi { background: var(--turmeric-bar); }
+.bar.bad { background: var(--laterite); }
+.bar-row .val { text-align: right; font-variant-numeric: tabular-nums; font-weight: 500; }
+.charts2 { display: grid; grid-template-columns: 1fr 1fr; gap: 1.5rem; }
+
+/* Tables */
+.tbl-wrap { overflow-x: auto; border: 1px solid var(--line); border-radius: 12px; background: var(--surface); }
+table { border-collapse: collapse; width: 100%; font-size: .93rem; }
+th, td { text-align: left; padding: .55rem .8rem; border-bottom: 1px solid var(--line); vertical-align: top; }
+th { font-size: .78rem; letter-spacing: .07em; text-transform: uppercase; color: var(--ink-3); font-weight: 700; background: var(--sunk); }
+tr:last-child td { border-bottom: 0; }
+td.n { text-align: right; font-variant-numeric: tabular-nums; white-space: nowrap; }
+tr.win td { background: var(--green-soft); }
+tr.dim td { color: var(--ink-3); }
+
+/* Callouts */
+.note { border-radius: 12px; padding: .9rem 1.1rem; background: var(--turmeric-soft); max-width: var(--read); display: grid; gap: .3rem; }
+.note.warn { background: var(--laterite-soft); }
+.note.ok { background: var(--green-soft); }
+.note b:first-child { font-size: .95rem; }
+
+/* Ranker example */
+.rank { display: grid; gap: .5rem; }
+.rank-row { display: grid; grid-template-columns: 2rem 7rem 1fr 7.5rem; gap: .7rem; align-items: center; font-size: .93rem; }
+.rank-row .pos { font-weight: 800; font-size: 1.2rem; color: var(--ink-3); }
+.rank-row .crop { font-weight: 700; }
+.rank-row .net { text-align: right; font-variant-numeric: tabular-nums; }
+.zone { position: relative; height: 1.4rem; background: var(--sunk); border-radius: 4px; }
+.zone .fill { position: absolute; inset: 0 auto 0 0; background: var(--turmeric-bar); border-radius: 4px; }
+.zone .cut { position: absolute; top: -4px; bottom: -4px; width: 2px; background: var(--green); }
+.zone .lbl { position: absolute; left: .45rem; top: 0; line-height: 1.4rem; font-size: .8rem; font-weight: 700; color: var(--ink); font-variant-numeric: tabular-nums; }
+
+/* SHAP waterfall */
+.wf { display: grid; gap: .3rem; }
+.wf-row { display: grid; grid-template-columns: 10rem 1fr 3.8rem; gap: .6rem; align-items: center; font-size: .88rem; }
+.wf-track { position: relative; height: 1rem; }
+.wf-bar { position: absolute; top: 0; height: 100%; border-radius: 3px; }
+.wf-bar.up { background: var(--green); }
+.wf-bar.down { background: var(--laterite); }
+.wf-bar.base { background: var(--ink-3); }
+.wf-bar.total { background: var(--turmeric-bar); }
+.wf-row .val { text-align: right; font-variant-numeric: tabular-nums; }
+.wf-row.edge { font-weight: 700; }
+
+/* Agent */
+.agent { display: grid; grid-template-columns: 1.1fr 1fr; gap: 1rem; align-items: start; }
+.loop { background: var(--surface); border: 1px solid var(--line); border-radius: 14px; padding: 1rem; display: grid; gap: .5rem; }
+.loop .step { border-radius: 8px; padding: .5rem .75rem; background: var(--sunk); font-size: .93rem; line-height: 1.35; }
+.loop .step.llm { background: var(--laterite-soft); }
+.loop .step.tool { background: var(--turmeric-soft); }
+.loop .down { text-align: center; color: var(--ink-3); line-height: 1; font-weight: 700; }
+.chain { display: flex; flex-wrap: wrap; gap: .4rem; align-items: center; font-size: .92rem; }
+.chain span.m { background: var(--surface); border: 1px solid var(--line); border-radius: 8px; padding: .25rem .6rem; }
+.chain span.ar { color: var(--ink-3); }
+
+/* UI mock */
+.ui { display: grid; grid-template-columns: 15rem 1fr; border: 1px solid var(--line); border-radius: 14px; overflow: hidden; background: var(--surface); }
+.ui-farm { background: var(--sunk); padding: 1rem; display: grid; gap: .55rem; align-content: start; font-size: .88rem; }
+.ui-farm .f { background: var(--surface); border-radius: 6px; padding: .35rem .55rem; display: flex; justify-content: space-between; gap: .5rem; }
+.ui-farm .f i { font-style: normal; color: var(--ink-3); }
+.ui-farm .btn { background: var(--green); color: var(--paper); text-align: center; border-radius: 8px; padding: .45rem; font-weight: 700; }
+.ui-farm .lnk { color: var(--green); font-size: .82rem; }
+.ui-chat { padding: 1rem; display: grid; gap: .7rem; align-content: start; min-width: 0; }
+.bubble { border-radius: 14px; padding: .55rem .85rem; font-size: .92rem; max-width: 85%; line-height: 1.45; }
+.bubble.me { background: var(--green); color: var(--paper); justify-self: end; }
+.bubble.ai { background: var(--sunk); }
+.ev { border: 1px solid var(--line); border-radius: 10px; padding: .6rem .8rem; display: grid; gap: .35rem; font-size: .85rem; }
+.ev-row { display: grid; grid-template-columns: 5.5rem 1fr auto; gap: .5rem; align-items: center; }
+.ev-row .zone { height: .7rem; }
+.ev .why { color: var(--green); font-weight: 700; }
+.legend { display: flex; flex-wrap: wrap; gap: .4rem 1rem; font-size: .85rem; color: var(--ink-2); }
+.legend i { display: inline-block; width: .75rem; height: .75rem; border-radius: 3px; margin-right: .35rem; vertical-align: -1px; }
+
+.foot { border-top: 1px solid var(--line); padding-top: 1.2rem; color: var(--ink-3); font-size: .88rem; max-width: var(--read); }
+
+@media (max-width: 760px) {
+  .split, .agent, .charts2, .timeline, .ui { grid-template-columns: 1fr; }
+  .bar-row { grid-template-columns: 7.5rem 1fr 3rem; }
+  .wf-row { grid-template-columns: 7.5rem 1fr 3.2rem; }
+  .rank-row { grid-template-columns: 1.4rem 5rem 1fr; }
+  .rank-row .net { grid-column: 2 / -1; text-align: left; }
+  .flow .row { grid-template-columns: 1fr; }
+  .flow .arrow { transform: rotate(90deg); justify-self: center; }
+}
+@media (prefers-reduced-motion: no-preference) { html { scroll-behavior: smooth; } }
+</style>
+
+<main>
+
+<header class="hero">
+  <span class="eyebrow">Crop Recommendation System · team guide · Nov 6, 2026</span>
+  <h1>How Fasal Salah works</h1>
+  <p class="lede">A farmer gives their soil card values, district and sowing month. The system says which crops fit, ranks them by the money they can make, explains why, and lets the farmer ask follow-up questions in Hindi or English.</p>
+  <nav class="toc" aria-label="Sections">
+    <a href="#flow">The flow</a><a href="#data">Datasets</a><a href="#crop">Crop model</a><a href="#price">Price model</a>
+    <a href="#rank">Ranking</a><a href="#shap">SHAP</a><a href="#agent">Agent</a><a href="#api">API</a><a href="#ui">Web app</a><a href="#limits">Limits</a>
+  </nav>
+</header>
+
+<section>
+  <span class="eyebrow">In one breath</span>
+  <div class="idea">
+    <div><b>Input</b><span>N, P, K, pH (kg/ha, from the Soil Health Card), district, sowing month</span></div>
+    <div><b>Fit</b><span>A Random Forest says which crops suit this soil, weather and season</span></div>
+    <div><b>Money</b><span>Yield × forecast price − cost decides between crops that fit about equally</span></div>
+    <div><b>Why</b><span>SHAP shows which inputs pushed each crop up or down</span></div>
+    <div><b>Talk</b><span>An LLM chats with the farmer, but only repeats numbers the tools gave it</span></div>
+  </div>
+  <p class="note"><b>The one rule to remember</b><span>The ML models decide. The LLM only explains. Every crop, price, yield or rainfall number the chat says comes from a tool result.</span></p>
+</section>
+
+<!-- ================= FLOW ================= -->
+<section id="flow">
+  <span class="eyebrow">Big picture</span>
+  <h2>Two halves: build once, answer every time</h2>
+  <p>Some work runs <b>once, ahead of time</b> in the notebooks: clean the data, train the models, save files. The app then <b>loads those files</b> and answers each farmer in a second or two.</p>
+
+  <div class="split">
+    <div class="half off">
+      <h3>Offline <small>notebooks, run once</small></h3>
+      <div class="flow">
+        <div class="row"><span class="chip">Soil Health Card + NASA POWER + DES area by season</span><span class="arrow">→</span><span class="chip">Crop model <span class="file">crop_model.joblib</span></span></div>
+        <div class="row"><span class="chip">Agmarknet mandi prices</span><span class="arrow">→</span><span class="chip">12-month forecast <span class="file">price_forecast.csv</span></span></div>
+        <div class="row"><span class="chip">DES area-production-yield</span><span class="arrow">→</span><span class="chip">District yield <span class="file">district_yield.csv</span></span></div>
+        <div class="row"><span class="chip">CACP cost of cultivation</span><span class="arrow">→</span><span class="chip">Cost share per crop × state</span></div>
+        <div class="row"><span class="chip">APMC market locations</span><span class="arrow">→</span><span class="chip">District lat/lon <span class="file">district_coords.csv</span></span></div>
+      </div>
+    </div>
+    <div class="half on">
+      <h3>Online <small>every farmer request</small></h3>
+      <ol class="pipe">
+        <li><div class="box"><b>Farmer fills the form <span class="tag t-data">input</span></b><span class="muted small">Or clicks "No card?" to use the district's typical soil</span></div></li>
+        <li><div class="box"><b>Weather lookup <span class="tag t-data">NASA POWER</span></b><span class="muted small">10-year temperature, humidity, rain for year, kharif, rabi</span></div></li>
+        <li><div class="box"><b>Crop model <span class="tag t-ml">ML</span></b><span class="muted small">Suitability for each crop this season</span></div></li>
+        <li><div class="box"><b>Ranker <span class="tag t-rule">rule</span></b><span class="muted small">Top 3, money breaks near-ties</span></div></li>
+        <li><div class="box"><b>SHAP <span class="tag t-ml">ML</span></b><span class="muted small">Why each crop scored what it did</span></div></li>
+        <li><div class="box"><b>Agent + web app <span class="tag t-llm">LLM</span></b><span class="muted small">Chat reply plus evidence cards</span></div></li>
+      </ol>
+    </div>
+  </div>
+  <p class="muted small">Code map: <code>data.py</code> loads and cleans every dataset · <code>recommend.py</code> is the online pipeline · <code>agent.py</code> is the chat · <code>api.py</code> serves it all over HTTP · <code>web/</code> is the main UI · <code>app.py</code> is the Streamlit backup UI.</p>
+</section>
+
+<!-- ================= DATA ================= -->
+<section id="data">
+  <span class="eyebrow">Ingredients</span>
+  <h2>The datasets and what each one is for</h2>
+  <p>No single public dataset has soil, crop and price for the same farm. So we join them at the <b>district</b> level: 539 districts in 28 states have enough soil tests to use.</p>
+  <div class="cards">
+    <article class="card">
+      <h3>Soil Health Card</h3>
+      <p class="what">Government soil tests, 2023–25. We get counts of Low/Medium/High per district and turn them into a district average N, P, K, pH.</p>
+      <dl><dt>Used for</dt><dd>Crop model input; "No card?" fill</dd><dt>Rule</dt><dd>District needs ≥ 100 tests</dd></dl>
+    </article>
+    <article class="card">
+      <h3>NASA POWER</h3>
+      <p class="what">Free satellite weather API. We take 2015–2024 monthly temperature, humidity and rainfall at the district's location.</p>
+      <dl><dt>Used for</dt><dd>Crop model input, live in the app</dd><dt>Gives</dt><dd>Year, kharif (Jun–Sep), rabi (Nov–Feb)</dd></dl>
+    </article>
+    <article class="card">
+      <h3>DES area-production-yield</h3>
+      <p class="what">How many hectares each district sows under each crop, by season, and how much it harvests.</p>
+      <dl><dt>Used for</dt><dd>What the crop model learns to predict; yield per hectare</dd><dt>Window</dt><dd>Last 5 reported years</dd></dl>
+    </article>
+    <article class="card">
+      <h3>Agmarknet mandi prices</h3>
+      <p class="what">Monthly wholesale prices at APMC markets, per crop and state.</p>
+      <dl><dt>Used for</dt><dd>Price forecast; market locations give district lat/lon</dd><dt>Special case</dt><dd>MSP for paddy and wheat in Punjab and Haryana</dd></dl>
+    </article>
+    <article class="card">
+      <h3>CACP cost of cultivation</h3>
+      <p class="what">What it costs to grow a crop, as a share of what it sells for (A2+FL cost).</p>
+      <dl><dt>Used for</dt><dd>Net return = revenue × (1 − cost share)</dd><dt>Gap</dt><dd>No fruit costs; we assume the median</dd></dl>
+    </article>
+    <article class="card retired">
+      <h3>Kaggle Crop Recommendation</h3>
+      <p class="what">2,200 rows of N, P, K, temperature, humidity, pH, rainfall → 22 crops. Probably synthetic, no location. Our first model; kept only to compare.</p>
+      <dl><dt>Status</dt><dd>Retired from the app (see below)</dd></dl>
+    </article>
+  </div>
+</section>
+
+<!-- ================= CROP MODEL ================= -->
+<section id="crop">
+  <span class="eyebrow">Model 1 · the decider</span>
+  <h2>The crop suitability model</h2>
+  <p>This is the model that actually picks crops. It learns from <b>what real districts sow</b>: if districts with soil and weather like yours put half their rabi farmland under wheat, wheat gets a suitability near 0.5.</p>
+
+  <div class="model">
+    <div class="model-head"><h3>Season model (in the app since Nov 4)</h3><code>models/crop_model.joblib</code> <span class="muted small">trained in notebook 11</span></div>
+    <div class="facts">
+      <div class="fact"><span class="k">Algorithm</span><span class="v">Random Forest, 500 trees, min 3 samples per leaf, seed 42</span></div>
+      <div class="fact"><span class="k">Trained on</span><span class="v">539 districts × 3 seasons ≈ 1,400 rows; target = DES area by season</span></div>
+      <div class="fact"><span class="k">Output</span><span class="v">Share of that season's farmland similar districts give each of 27 crops</span></div>
+      <div class="fact"><span class="k">Trick</span><span class="v">Each district-crop row weighted by its area share, so the forest's probability ≈ area share</span></div>
+    </div>
+    <div class="grid" style="display:grid;gap:.4rem">
+      <span class="small muted">The 12 inputs (<span style="color:var(--turmeric)">soil</span>, <span style="color:var(--sky)">weather</span>, <b>season</b>):</span>
+      <div class="inputs">
+        <span class="soil">N</span><span class="soil">P</span><span class="soil">K</span><span class="soil">pH</span>
+        <span class="wx">temperature (year)</span><span class="wx">humidity</span><span class="wx">rainfall (year)</span>
+        <span class="wx">kharif rain</span><span class="wx">rabi rain</span><span class="wx">kharif temp</span><span class="wx">rabi temp</span>
+        <span class="ssn">season</span>
+      </div>
+      <span class="small muted">Season comes from the sowing month: Jun–Sep kharif, Oct–Jan rabi, Feb–May summer. A crop is only offered in a season if ≥ 5% of districts grow it then. Sugarcane, coconut and fruit trees are split equally across the 3 seasons.</span>
+    </div>
+  </div>
+
+  <h3>How we got here: three models</h3>
+  <div class="timeline">
+    <div class="stage fail">
+      <span class="when">Oct 31 – Nov 3</span>
+      <b>Kaggle model</b>
+      <span class="small">RF on the Kaggle data. 98% accuracy on its own test split. Looked great.</span>
+      <span class="verdict">Failed on real districts: main crop in its list 7.8%, worse than 3 random crops (16%)</span>
+    </div>
+    <div class="stage">
+      <span class="when">Nov 4 (morning)</span>
+      <b>District model, year-round</b>
+      <span class="small">Same idea, but trained on real Soil Health Card soil + DES area. 28 crops.</span>
+      <span class="verdict">Worked, but ignored the sowing month: Jangoan got the same answer in Jan and Jun</span>
+    </div>
+    <div class="stage now">
+      <span class="when">Nov 4 (evening) → now</span>
+      <b>Season model</b>
+      <span class="small">Adds season as an input and learns from area by season.</span>
+      <span class="verdict">In the app. Biggest single gain so far</span>
+    </div>
+  </div>
+  <p class="note warn"><b>Why Kaggle failed</b><span>Its N-P-K numbers are on a different scale from real Soil Health Cards. Fed real soil, it picked chickpea first in 89% of districts. High test accuracy on clean data said nothing about the real world. That is a key story for the paper.</span></p>
+
+  <h3>How good is it?</h3>
+  <p class="small muted">Leave-one-state-out test: train on 27 states, predict the 28th, repeat. "Main crop" = the crop with the most area that season in DES. "Popularity" = just suggest the most common crops of that season.</p>
+  <div class="charts2">
+    <div class="chart" role="img" aria-label="Main crop in top-3 list: season model 76.5%, popularity 67.1%, year-round model 58.0%">
+      <span class="chart-title">Main crop is in the top-3 list</span>
+      <div class="bar-row"><span>Season model (app)</span><div class="bar-track"><div class="bar hi" style="width:76.5%"></div></div><span class="val">76.5%</span></div>
+      <div class="bar-row"><span>Popularity per season</span><div class="bar-track"><div class="bar" style="width:67.1%"></div></div><span class="val">67.1%</span></div>
+      <div class="bar-row"><span>Year-round model</span><div class="bar-track"><div class="bar" style="width:58%"></div></div><span class="val">58.0%</span></div>
+    </div>
+    <div class="chart" role="img" aria-label="Main crop ranked first: season model 52.1%, popularity 47.4%, year-round model 35.0%">
+      <span class="chart-title">Main crop is ranked first</span>
+      <div class="bar-row"><span>Season model (app)</span><div class="bar-track"><div class="bar hi" style="width:52.1%"></div></div><span class="val">52.1%</span></div>
+      <div class="bar-row"><span>Popularity per season</span><div class="bar-track"><div class="bar" style="width:47.4%"></div></div><span class="val">47.4%</span></div>
+      <div class="bar-row"><span>Year-round model</span><div class="bar-track"><div class="bar" style="width:35%"></div></div><span class="val">35.0%</span></div>
+    </div>
+  </div>
+  <p class="small muted">By season (in list): kharif 83.8%, rabi 75.1%, summer 67.1%. Hand-checked against news and district reports for 12 districts: main crop first 16 of 21, in list 21 of 23. Source: <code>research/notes/2026-11-04_season_model.md</code>.</p>
+</section>
+
+<!-- ================= PRICE MODEL ================= -->
+<section id="price">
+  <span class="eyebrow">Model 2 · the money side</span>
+  <h2>The price forecast</h2>
+  <p>A crop sown in November is sold months later. So we forecast the mandi price for the <b>harvest month</b>, 12 months ahead, for each crop in each state (and All India as a fallback).</p>
+  <div class="model">
+    <div class="model-head"><h3>Median of four forecasters</h3><code>data/processed/price_forecast.csv</code> <span class="muted small">notebook 06</span></div>
+    <div class="facts">
+      <div class="fact"><span class="k">The four</span><span class="v">AutoETS, AutoARIMA, AutoTheta, seasonal-naive (= same month last year)</span></div>
+      <div class="fact"><span class="k">Combine</span><span class="v">Take the middle value each month. One bad model can't drag it off</span></div>
+      <div class="fact"><span class="k">Trained on</span><span class="v">Monthly Agmarknet price per crop × state; 452 backtest series</span></div>
+      <div class="fact"><span class="k">Harvest month</span><span class="v">Sowing month + grow time (wheat 5, rice 4, cotton 6…); trees use the 12-month mean</span></div>
+    </div>
+    <div class="chart" role="img" aria-label="Median forecast error 4 to 12 months ahead: median of four 16.4%, seasonal-naive 17.9%">
+      <span class="chart-title">Typical error, 4–12 months ahead (MAPE, lower is better)</span>
+      <div class="bar-row"><span>Median of four (app)</span><div class="bar-track"><div class="bar hi" style="width:54.7%"></div></div><span class="val">16.4%</span></div>
+      <div class="bar-row"><span>Seasonal-naive alone</span><div class="bar-track"><div class="bar" style="width:59.7%"></div></div><span class="val">17.9%</span></div>
+      <span class="small muted">Bar scale 0–30%. The median beats seasonal-naive on 67% of series. Prophet was tried first and lost to seasonal-naive.</span>
+    </div>
+    <p class="small">Steady crops forecast well (wheat 8.6%, mustard 8.7%, soybean 9.2%). Onion (62%) and potato (41%) swing wildly, so the app shows each crop's error next to its price.</p>
+  </div>
+  <p class="note"><b>Not models, just lookups</b><span><b>Yield</b>: the district's average of its last 5 years (else the state median, else India). <b>Cost share</b>: CACP for that state (else All India, else assumed). <b>MSP</b>: paddy ₹2,441 and wheat ₹2,585 per quintal in Punjab and Haryana, where the government buys most of the crop.</span></p>
+</section>
+
+<!-- ================= RANKING ================= -->
+<section id="rank">
+  <span class="eyebrow">Putting it together</span>
+  <h2>The ranker: fit first, money breaks ties</h2>
+  <p>Our first idea was suitability × revenue. That made a barely-suitable fruit beat a well-suited field crop, because fruit earns about 10× per hectare. The rule we kept (notebook 07):</p>
+  <ul>
+    <li>Keep crops with suitability ≥ 5%, best first, up to 3 (farmer can ask for up to 10).</li>
+    <li>Crops within <b>0.8 × the top crop's suitability</b> are near-ties. Only these get re-ordered, by <b>net return</b>.</li>
+    <li>Net return per hectare = yield (t/ha) × 10 × price (₹/quintal) × (1 − cost share).</li>
+  </ul>
+
+  <div class="model">
+    <div class="model-head"><h3>Real example: Vidisha, MP · sown 1 Nov (rabi)</h3><span class="muted small">N 250, P 40, K 210, pH 6.8 · run through <code>recommend()</code> today</span></div>
+    <div class="rank" role="img" aria-label="Wheat suitability 0.495, chickpea 0.154, mustard 0.100. Near-tie line at 0.396.">
+      <div class="rank-row"><span class="pos">1</span><span class="crop">Wheat</span><div class="zone"><div class="fill" style="width:99%"></div><div class="cut" style="left:79.2%"></div><span class="lbl">0.495</span></div><span class="net">₹42,315 /ha</span></div>
+      <div class="rank-row"><span class="pos">2</span><span class="crop">Chickpea</span><div class="zone"><div class="fill" style="width:30.8%"></div><div class="cut" style="left:79.2%"></div><span class="lbl">0.154</span></div><span class="net">₹42,636 /ha</span></div>
+      <div class="rank-row"><span class="pos">3</span><span class="crop">Mustard</span><div class="zone"><div class="fill" style="width:20%"></div><div class="cut" style="left:79.2%"></div><span class="lbl">0.100</span></div><span class="net">₹49,108 /ha</span></div>
+    </div>
+    <div class="legend"><span><i style="background:var(--turmeric-bar)"></i>suitability (bar scale 0–0.5)</span><span><i style="background:var(--green)"></i>near-tie line = 0.8 × 0.495 = 0.396</span></div>
+    <p class="small">Mustard earns the most per hectare, yet stays third. Only wheat is past the green line, so there is no near-tie and money changes nothing. The model's view of fit wins. If chickpea had scored 0.42, it would have been compared with wheat on net return.</p>
+  </div>
+</section>
+
+<!-- ================= SHAP ================= -->
+<section id="shap">
+  <span class="eyebrow">Explanations</span>
+  <h2>SHAP: why did wheat get 0.495?</h2>
+  <p>SHAP splits one prediction into pushes. It starts from the model's <b>average</b> for wheat across all inputs, then adds how much each of the 12 inputs pushed it up (green) or down (red). The pushes add up exactly to the score shown.</p>
+  <div class="model">
+    <div class="wf" id="wf" role="img" aria-label="SHAP for wheat in Vidisha: average 0.124, season +0.241, humidity +0.118, rabi temperature +0.063, rainfall +0.018, other small pushes, soil pH -0.054, kharif temperature -0.025, total 0.495"></div>
+    <div class="legend"><span><i style="background:var(--green)"></i>pushed up</span><span><i style="background:var(--laterite)"></i>pushed down</span><span><i style="background:var(--turmeric-bar)"></i>final suitability</span></div>
+    <p class="small">The app turns this into a sentence: <i>"Helped most by: Season, Humidity. Held back most by: Soil pH."</i> Season dominates, which matches the model overall: season is its most important input (0.32), and soil values matter much less (0.04–0.05 each).</p>
+  </div>
+</section>
+
+<!-- ================= AGENT ================= -->
+<section id="agent">
+  <span class="eyebrow">The conversation</span>
+  <h2>The consultant agent</h2>
+  <p>A chat model talks to the farmer. It has no crop knowledge of its own that we trust. It calls our pipeline as <b>tools</b>, then explains the result in 2–4 short sentences, in the language the farmer wrote in.</p>
+  <div class="agent">
+    <div class="loop" aria-label="Agent loop">
+      <div class="step">Farmer: "गेहूं क्यों नहीं?" (why not wheat?)</div>
+      <div class="down">↓</div>
+      <div class="step">System prompt + saved farm profile + last 10 messages</div>
+      <div class="down">↓</div>
+      <div class="step llm"><b>LLM decides:</b> answer now, or call a tool?</div>
+      <div class="down">↓ tool call (up to 4 rounds)</div>
+      <div class="step tool"><code>check_crop(crop="wheat")</code> → missing soil/district filled from the profile → <code>recommend.py</code></div>
+      <div class="down">↓ tool result back to LLM</div>
+      <div class="step llm">Short reply in Hindi, quoting only the tool's numbers</div>
+      <div class="down">↓</div>
+      <div class="step">UI shows the reply + a card for each tool result</div>
+    </div>
+    <div style="display:grid;gap:1rem;min-width:0">
+      <div class="tbl-wrap"><table>
+        <thead><tr><th>Tool</th><th>Answers</th></tr></thead>
+        <tbody>
+          <tr><td><code>recommend_crops</code></td><td>"What should I grow?"</td></tr>
+          <tr><td><code>check_crop</code></td><td>"Why not cotton?" Rank among the season's crops + SHAP reason</td></tr>
+          <tr><td><code>get_weather</code></td><td>"How much rain does my area get?"</td></tr>
+          <tr><td><code>get_price_forecast</code></td><td>"Will onion prices go up?"</td></tr>
+          <tr><td><code>get_area_soil</code></td><td>"I don't have a soil card"</td></tr>
+        </tbody>
+      </table></div>
+      <div style="display:grid;gap:.4rem">
+        <b>Which model answers</b>
+        <div class="chain"><span class="m">Gemini 3.5 Flash</span><span class="ar">→ busy?</span><span class="m">Gemini 2.5 Flash</span><span class="ar">→ offline?</span><span class="m">Qwen3-4B on the laptop (Ollama)</span></div>
+        <span class="small muted">Gemini answers in 3–15 s. Qwen3-4B runs with no internet but takes about 4 minutes on our CPU. If all fail, chat returns 503 and the plain recommendation still works.</span>
+      </div>
+      <div style="display:grid;gap:.4rem">
+        <b>Memory</b>
+        <span class="small">The farm profile (district, N, P, K, pH, month, last result) is saved by code to <code>data/sessions/&lt;farmer_id&gt;.json</code> and put in the prompt every turn. The small model never has to remember the farm.</span>
+      </div>
+    </div>
+  </div>
+  <p class="note ok"><b>Guard rails in the prompt</b><span>Never guess a number. Don't change the ranking. Ask if soil or district is missing. Send pesticide, loan and disease questions to the local Krishi Vigyan Kendra. Refuse non-farming questions.</span></p>
+</section>
+
+<!-- ================= API ================= -->
+<section id="api">
+  <span class="eyebrow">Backend</span>
+  <h2>The API (FastAPI, <code>project/api.py</code>)</h2>
+  <p>A thin HTTP layer over <code>recommend.py</code> and <code>agent.py</code>. The web app and the agent both go through it. Interactive docs at <code>/docs</code> when it runs.</p>
+  <div class="tbl-wrap"><table>
+    <thead><tr><th>Endpoint</th><th>Send</th><th>Get back</th></tr></thead>
+    <tbody>
+      <tr><td><code>GET /districts</code></td><td>nothing</td><td>All 500+ states and districts for the dropdowns</td></tr>
+      <tr><td><code>GET /soil</code></td><td>district</td><td>Typical N, P, K, pH and where they came from</td></tr>
+      <tr><td><code>GET /weather</code></td><td>district</td><td>Temperature, humidity, rainfall (year, kharif, rabi)</td></tr>
+      <tr><td><code>POST /recommend</code></td><td>N, P, K, pH, district, month, top</td><td>Ranked crops with suitability, yield, price, error, net return and every source</td></tr>
+      <tr><td><code>POST /explain</code></td><td>same + crop</td><td>SHAP pushes for any crop, not only the top 3</td></tr>
+      <tr><td><code>POST /chat</code></td><td>farmer_id, message, soil card</td><td>Reply + every tool call and result + which model answered</td></tr>
+      <tr><td><code>GET /profile/{id}</code></td><td>farmer_id</td><td>Saved farm and chat, to restore after a reload</td></tr>
+    </tbody>
+  </table></div>
+  <p class="small muted">Bad district or crop → 400. Soil out of range (pH outside 3–10) → 422. No chat model reachable → 503. It also serves the web app from <code>project/web/</code>. Run: <code>.venv/bin/python project/api.py</code> · self-check: add <code>--check</code>.</p>
+</section>
+
+<!-- ================= UI ================= -->
+<section id="ui">
+  <span class="eyebrow">Front end</span>
+  <h2>The web app</h2>
+  <p>Plain HTML, CSS and JavaScript modules in <code>project/web/</code>, no build step. Soil card on the left, advisor chat on the right. On a phone the soil card slides up as a sheet.</p>
+  <div class="ui" aria-label="Sketch of the web app layout">
+    <div class="ui-farm">
+      <b>Soil Health Card</b>
+      <div class="f"><span>District</span><i>Vidisha, MP</i></div>
+      <div class="f"><span>Nitrogen</span><i>250 kg/ha · Low</i></div>
+      <div class="f"><span>Phosphorus</span><i>40 · Medium</i></div>
+      <div class="f"><span>Potassium</span><i>210 · Medium</i></div>
+      <div class="f"><span>pH</span><i>6.8</i></div>
+      <span class="lnk">No card? Use typical soil for my district</span>
+      <div class="f"><span>Sowing month</span><i>November → rabi</i></div>
+      <div class="btn">Ask what to grow</div>
+    </div>
+    <div class="ui-chat">
+      <div class="bubble me">What should I grow this season?</div>
+      <div class="bubble ai"><span class="small muted">(example reply)</span> Wheat fits your farm best this rabi. Mustard earns a little more per hectare, but similar districts sow far less of it.</div>
+      <div class="ev">
+        <div class="ev-row"><b>Wheat</b><div class="zone"><div class="fill" style="width:99%"></div></div><span class="num">₹42,315</span></div>
+        <div class="ev-row"><b>Chickpea</b><div class="zone"><div class="fill" style="width:30.8%"></div></div><span class="num">₹42,636</span></div>
+        <div class="ev-row"><b>Mustard</b><div class="zone"><div class="fill" style="width:20%"></div></div><span class="num">₹49,108</span></div>
+        <span class="why">Why? ▸ opens the SHAP chart</span>
+      </div>
+    </div>
+  </div>
+  <div class="cards">
+    <div class="card"><h3>Soil card form</h3><p class="what">State → district dropdowns. Each N, P, K shows a Low / Medium / High band as you type. Choosing the sowing month shows the season.</p></div>
+    <div class="card"><h3>No card? button</h3><p class="what">Fills the district's Soil Health Card average, or the mean of the 3 nearest districts with data, and marks the values as estimated.</p></div>
+    <div class="card"><h3>Evidence cards</h3><p class="what">Every tool result becomes a card: crop list with suitability and net return, weather, soil source, 12-month price line chart.</p></div>
+    <div class="card"><h3>Why? toggle</h3><p class="what">Calls <code>/explain</code> and draws the SHAP push chart for that crop.</p></div>
+    <div class="card"><h3>Hindi or English</h3><p class="what">Starter chips in both. The agent replies in whatever language the farmer last used.</p></div>
+    <div class="card"><h3>Works without chat</h3><p class="what">If no LLM is reachable, the form still gets a ranked list straight from <code>/recommend</code>. Chat restores after reload.</p></div>
+  </div>
+  <p class="small muted">Backup UI: <code>project/app.py</code> (Streamlit) calls <code>recommend.py</code> directly, in case the web app breaks on demo day.</p>
+</section>
+
+<!-- ================= LIMITS ================= -->
+<section id="limits">
+  <span class="eyebrow">Be honest about</span>
+  <h2>What it can't do (yet)</h2>
+  <ul>
+    <li><b>Revealed preference, not agronomy.</b> The model learns what similar districts sow, which mixes in irrigation, markets and habit. It does not know what grows best in theory.</li>
+    <li><b>District level, not your field.</b> It was trained on district averages. One farm's card can fall outside that range.</li>
+    <li><b>Soil from class counts.</b> Soil Health Card files give Low/Medium/High counts, so district values are class midpoints.</li>
+    <li><b>Yield and price are not seasonal.</b> Rabi rice gets the district's annual rice yield.</li>
+    <li><b>Known misses.</b> Arid Rajasthan (guar and moth bean country, guar not in our 27 crops), Guntur after its 2022 split, districts whose neighbours farm differently.</li>
+    <li><b>Fruit.</b> No CACP cost, old area data, orchard set-up years not counted.</li>
+  </ul>
+  <p class="small muted">Full list for the paper: <code>research/paper_limitations.md</code>. Open problems: <code>docs/ongoing-issues.md</code>.</p>
+</section>
+
+<section>
+  <span class="eyebrow">Words you'll hear</span>
+  <h2>Mini glossary</h2>
+  <div class="tbl-wrap"><table><tbody>
+    <tr><td><b>Kharif / rabi / summer</b></td><td>Monsoon season (sow Jun–Sep), winter season (Oct–Jan), and the hot dry season (Feb–May)</td></tr>
+    <tr><td><b>Suitability</b></td><td>Share of that season's farmland that districts like yours put under the crop (0 to 1)</td></tr>
+    <tr><td><b>Random Forest</b></td><td>Hundreds of decision trees vote; good on small tabular data, and SHAP explains it exactly</td></tr>
+    <tr><td><b>Leave-one-state-out</b></td><td>Test on a state the model never saw; stops it from cheating with neighbouring districts (cheating adds about 5 points)</td></tr>
+    <tr><td><b>MAPE</b></td><td>Average forecast error as a percent of the real price</td></tr>
+    <tr><td><b>MSP</b></td><td>Minimum support price: the price the government pays for some crops</td></tr>
+    <tr><td><b>SHAP</b></td><td>Splits one prediction into how much each input pushed it up or down</td></tr>
+    <tr><td><b>Tool call</b></td><td>The LLM asks our Python code to run a function and reads the result</td></tr>
+  </tbody></table></div>
+</section>
+
+<p class="foot">Built from <code>docs/architecture.md</code>, <code>docs/agent.md</code>, <code>project/*.py</code> and the research notes of Nov 3–4, 2026. The Vidisha numbers come from a live run of <code>recommend()</code> on Nov 6.</p>
+
+</main>
+
+<script>
+// SHAP waterfall for wheat, Vidisha rabi (live run of recommend.explain on Nov 6). Scale 0..0.55.
+(function () {
+  const base = 0.124, pushes = [
+    ["Season", 0.241], ["Humidity", 0.118], ["Rabi temperature", 0.063], ["Rainfall (year)", 0.018],
+    ["5 small pushes", 0.015], ["Soil pH", -0.054], ["Kharif temperature", -0.025], ["Potassium", -0.005]
+  ];
+  // "5 small pushes" = temperature (year) .007, rabi rain .004, N .002, kharif rain .002, P .000
+  const max = 0.55, pct = v => (v / max * 100).toFixed(2) + "%";
+  const wf = document.getElementById("wf");
+  const row = (label, left, width, cls, val, edge) => {
+    const r = document.createElement("div");
+    r.className = "wf-row" + (edge ? " edge" : "");
+    r.innerHTML = `<span>${label}</span><div class="wf-track"><div class="wf-bar ${cls}" style="left:${pct(left)};width:${pct(Math.max(width, 0.002))}"></div></div><span class="val">${val}</span>`;
+    wf.appendChild(r);
+  };
+  row("Average for wheat", 0, base, "base", base.toFixed(3), true);
+  let at = base;
+  for (const [label, v] of pushes) {
+    row(label, v >= 0 ? at : at + v, Math.abs(v), v >= 0 ? "up" : "down", (v >= 0 ? "+" : "−") + Math.abs(v).toFixed(3));
+    at += v;
+  }
+  row("Suitability", 0, at, "total", at.toFixed(3), true);
+})();
+</script>

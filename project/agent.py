@@ -46,22 +46,29 @@ Rules:
 - Reply in the same language as the farmer's last message. Keep it short and simple.
 - The app shows each tool result as a card under your reply. Don't list every number again: say in 2-4 short
   sentences what the result means for this farmer, quoting only the numbers that matter. Write money like ₹42,193.
+- Talk in acres: quote net_rs_acre, net_rs_acre_month and yield_q_acre, never the per-hectare fields. A crop that
+  takes fewer months (grow_months) frees the land sooner; no grow_months means a yearly crop.
 - For pesticides, loans or disease, suggest the local Krishi Vigyan Kendra.
 - If a question is not about farming, say you can only help with crops."""
 
 
-def _run(N, P, K, ph, district, state=None, month=None) -> tuple[dict, pd.DataFrame]:
+def _run(N, P, K, ph, district, state=None, month=None, top=3) -> tuple[dict, pd.DataFrame]:
     sow = datetime.date(datetime.date.today().year, int(month or datetime.date.today().month), 1)
-    return recommend.recommend(float(N), float(P), float(K), float(ph), district, state, sow=sow)
+    return recommend.recommend(float(N), float(P), float(K), float(ph), district, state, sow=sow, top=top)
 
 
 def recommend_crops(**farm) -> dict:
     inputs, table = _run(**farm)
     out = {k: inputs[k] for k in ("district", "state", "season", "temperature", "rainfall")}
-    out["crops"] = table[["crop", "suitability", "yield_t_ha", "price_rs_q", "price_source", "price_mape", "net_rs_ha"]] \
+    out["crops"] = table[["crop", "suitability", "yield_q_acre", "price_rs_q", "price_source", "price_mape",
+                      "net_rs_acre", "grow_months", "net_rs_acre_month"]] \
         .to_dict("records")
     if inputs["season_share"] < recommend.QUIET_SEASON:
         out["warning"] = f"Little is sown in {inputs['district']} in the {inputs['season']} season; picks rest on other districts."
+    asked = min(int(farm.get("top") or 3), recommend.MAX_TOP)
+    if len(table) < asked:
+        out["note"] = (f"Only {len(table)} of the {asked} crops asked for are shown: the others are below "
+                       f"{recommend.MIN_SUITABILITY:.0%} suitability, too poor a fit to suggest.")
     return out
 
 
@@ -104,8 +111,10 @@ def tools() -> list[dict]:
                 "parameters": {"type": "object", "properties": props, "required": list(required)}}}
 
     return [
-        tool("recommend_crops", "Top 3 crops for the farm with suitability, yield, harvest price and net return. "
-             "For 'what should I grow?'", farm),
+        tool("recommend_crops", "Top crops for the farm with suitability, yield, harvest price and net return. "
+             "For 'what should I grow?'",
+             {**farm, "top": {"type": "integer", "description": f"How many crops, 1-{recommend.MAX_TOP}. Default 3; "
+                              "set it only when the farmer asks for more or fewer"}}),
         tool("check_crop", "One crop for the farm: suitability, rank, yield, price, net return and why. "
              "For 'why not X?' or 'can I grow X?'", {"crop": crop, **farm}, ["crop"]),
         tool("get_weather", "Average temperature, humidity and monthly rainfall for the district (year, kharif, rabi)",

@@ -13,8 +13,10 @@ import shap
 import data
 
 QUINTALS_PER_TONNE = 10
+ACRES_PER_HECTARE = 2.471  # the app shows farmers acres; the models and paper stay in hectares
 MIN_SUITABILITY = 0.05  # below this a crop isn't shown, unless it's the only one
 NEAR_TIE = 0.8  # net return re-orders only crops at least this suitable relative to the top crop (notebook 07)
+MAX_TOP = 10  # most crops a farmer can ask for; the quietest season (summer) offers 17, and past ~10 most fall below MIN_SUITABILITY
 # Months from sowing to sale. Crops not listed are perennial: they sell every year, so they get the 12-month mean price.
 GROW_MONTHS = {
     "rice": 4, "maize": 4, "chickpea": 4, "kidneybeans": 4, "lentil": 4, "jute": 4, "pigeonpeas": 6, "cotton": 6,
@@ -173,9 +175,18 @@ def _cost_share(crop: str, state: str) -> tuple[float, str]:
     return assumed, "assumed (no CACP data; orchard set-up and years before first harvest not counted)"
 
 
+def per_acre(crop: str, yield_t_ha: float, net_rs_ha: float) -> dict:
+    """Farmer units: yield in quintals an acre, net return an acre, and that net spread over the crop's months in the
+    field (grow_months; None for a perennial, spread over a year), so short and long crops compare fairly."""
+    months = GROW_MONTHS.get(crop)
+    net = net_rs_ha / ACRES_PER_HECTARE
+    return {"grow_months": months, "yield_q_acre": round(yield_t_ha * QUINTALS_PER_TONNE / ACRES_PER_HECTARE, 1),
+            "net_rs_acre": round(net, 0), "net_rs_acre_month": round(net / (months or 12), 0)}
+
+
 def recommend(N: float, P: float, K: float, ph: float, district: str, state: str | None = None,
               sow: datetime.date | None = None, top: int = 3) -> tuple[dict, pd.DataFrame]:
-    """Top `top` suitable crops (suitability >= MIN_SUITABILITY), in suitability order, except that crops within
+    """Top `top` (clamped to 1..MAX_TOP) suitable crops (suitability >= MIN_SUITABILITY), in suitability order, except that crops within
     NEAR_TIE of the top crop's suitability are ordered by net return (gross revenue x (1 - cost share)).
 
     N, P, K are kg/ha as printed on a Soil Health Card. Suitability is the share of the season's farmland that districts
@@ -199,7 +210,7 @@ def recommend(N: float, P: float, K: float, ph: float, district: str, state: str
     proba = pd.Series(m["model"].predict_proba(X)[0], index=m["classes"])
     if "season_crops" in m:  # only crops grown that season in >= 5% of districts (notebook 11)
         proba = proba[proba.index.isin(m["season_crops"][s])]
-    proba = proba.nlargest(top)
+    proba = proba.nlargest(min(max(int(top), 1), MAX_TOP))
     proba = proba[(proba >= MIN_SUITABILITY) | (proba == proba.max())]
 
     rows = []
@@ -210,7 +221,8 @@ def recommend(N: float, P: float, K: float, ph: float, district: str, state: str
         share, c_src = _cost_share(crop, d["state_name"])
         rows.append({"crop": crop, "suitability": p, "yield_t_ha": y, "yield_source": y_src,
                      "price_rs_q": price, "price_source": p_src, "price_mape": mape, "revenue_rs_ha": revenue,
-                     "cost_share": share, "cost_source": c_src, "net_rs_ha": revenue * (1 - share)})
+                     "cost_share": share, "cost_source": c_src, "net_rs_ha": revenue * (1 - share),
+                     **per_acre(crop, y, revenue * (1 - share))})
     table = pd.DataFrame(rows)  # already in suitability order
     near = table["suitability"] >= NEAR_TIE * table["suitability"].iloc[0]
     table["near_tie"] = near
@@ -260,7 +272,7 @@ def check_crop(inputs: dict, crop: str) -> dict:
             "rank": int((offered > proba[crop]).sum()) + 1 if crop in offered.index else None, "out_of": len(offered),
             "yield_t_ha": round(y, 2), "yield_source": y_src, "price_rs_q": round(price, 0), "price_source": p_src,
             "price_mape": mape, "net_rs_ha": round(y * QUINTALS_PER_TONNE * price * (1 - share), 0), "cost_source": c_src,
-            "reason": reasons(e)}
+            **per_acre(crop, y, y * QUINTALS_PER_TONNE * price * (1 - share)), "reason": reasons(e)}
 
 
 def price_outlook(crop: str, state: str | None = None) -> dict:
@@ -286,6 +298,8 @@ if __name__ == "__main__":
     near, rest = table[table["near_tie"]], table[~table["near_tie"]]
     assert table["near_tie"].is_monotonic_decreasing and len(near)  # near-ties first, top crop always one
     assert near["net_rs_ha"].dropna().is_monotonic_decreasing and rest["suitability"].is_monotonic_decreasing
+    assert per_acre("rice", 2.471, 24710) == {"grow_months": 4, "yield_q_acre": 10.0, "net_rs_acre": 10000, "net_rs_acre_month": 2500}
+    assert per_acre("mango", 1, 2471 * 12)["net_rs_acre_month"] == 1000  # perennial: a year
     e = explain(inputs, table["crop"].iloc[0])
     p = _model()["forest"].predict_proba(pd.DataFrame([inputs])[_model()["features"]])[0]
     assert abs(e.base_values + e.values.sum() - p[_model()["classes"].index(table["crop"].iloc[0])]) < 1e-6  # SHAP adds up
@@ -301,4 +315,7 @@ if __name__ == "__main__":
     soil, src = area_soil("Ludhiana", "Punjab")  # 1 SHC test only
     assert src.startswith("Mean of nearest") and 3 <= soil["ph"] <= 10, src
     print(soil, src)
+    many = recommend(250, 40, 210, 6.8, "Raipur", sow=datetime.date(2026, 11, 4), top=99)[1]
+    assert len(table) <= len(many) <= MAX_TOP and many["crop"].iloc[0] == table["crop"].iloc[0], many
+    assert len(recommend(250, 40, 210, 6.8, "Raipur", sow=datetime.date(2026, 11, 4), top=1)[1]) == 1
     print("ok")

@@ -130,7 +130,10 @@ function withoutChat() {
       const warning = inputs.season_share < 0.1
         ? `Little is sown in ${inputs.district} in the ${inputs.season} season, so these picks rest on other districts.`
         : null;
-      const card = cropList({ district: inputs.district, season: inputs.season, crops, warning }, values);
+      const note = crops.length < values.top
+        ? `Only ${crops.length} of the ${values.top} crops asked for are shown: the others are below 5% suitability, too poor a fit to suggest.`
+        : null;
+      const card = cropList({ district: inputs.district, season: inputs.season, crops, warning, note }, values);
       const msg = h("article", { class: "msg msg-advisor" }, card,
         h("p", { class: "byline" }, "From the app's crop ranking, without the advisor."));
       button.closest(".msg").after(msg);

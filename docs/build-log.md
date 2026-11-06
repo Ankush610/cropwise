@@ -497,3 +497,52 @@ User noticed the models weren't on GitHub. `data/` and `models/` were git-ignore
 - Checked: a copy holding only the files git tracks gives the same top 3 and SHAP reasons as the working repo
   (Pune, kharif). NASA POWER weather is fetched on first use.
 - Each retrain now adds ~40 MB to git history. Fine until the Nov 10 freeze; move models to a Release if it grows.
+
+## Nov 6, 2026 · Farmer picks how many crops to see
+
+User asked for top N instead of a fixed top 3. `recommend()` already took `top`; it is now clamped to 1..`MAX_TOP` = 10
+and passed through everywhere: `/recommend` (`top`, 422 above 10), the agent's `recommend_crops` tool (optional `top`,
+set only when the farmer asks), a "Crops to show" select in the web UI and a slider in Streamlit. Default stays 3.
+- Why 10: the summer season offers only 17 crops and the 5% suitability floor already cuts most past ~9
+  (Pune, Nov, `top=10` → 9 crops; Jun → 4). So asking for 10 often returns fewer; the UI says so.
+- Checked: `recommend.py` and `api.py --check` self-checks pass (new asserts for top=1, top=99 clamp, top=11 → 422);
+  web UI select renders and `/recommend` with `top=7` returns 7 crops. Agent picking `top` from a chat message not
+  tested against a live LLM.
+
+## Nov 6, 2026 · Plain-language system guide
+
+User asked for a simple, visual walkthrough of the whole tool. Wrote `docs/how-it-works.html` (also published as a
+private Artifact): offline vs online flow, the datasets, crop model history (Kaggle → district → season) with
+leave-one-state-out scores, price forecast, ranking rule, SHAP, agent loop and tools, API endpoints, web app features,
+limits, glossary. Numbers come from `docs/architecture.md`, `docs/agent.md` and the Nov 3–4 research notes; the worked
+example is a live `recommend()` run (Vidisha, N 250 P 40 K 210 pH 6.8, sown Nov 1): wheat 0.495, chickpea 0.154,
+mustard 0.100. Mustard has the highest net return (₹49,108/ha) but stays third because only wheat clears the 0.8
+near-tie line. Good teaching example for the talk and workshop.
+
+## Nov 6, 2026 · "Top 6" in chat acted oddly
+
+User asked the advisor for the top 6 crops. Two causes:
+- The server on port 8000 was started before the `top` change, so the tool had no `top`. Gemini first gave 3, then
+  on "give me top 6 results" called `check_crop` on extra crops and listed 6 by net return (sugarcane, potato,
+  onion, ...), which breaks the "the tools decide the ranking" rule. Fix: restart `project/api.py`.
+- With the new code, `top=6` for Jalgaon in November returns 4 (the others are under 5% suitability), and the tool didn't
+  say why. `recommend_crops` now adds a `note` when it returns fewer crops than asked for, and the crop card shows it (also the
+  "without the advisor" card).
+- Checked live (Gemini 3.5 / 2.5 Flash, Jalgaon, Nov): the reply names the 4 crops and says the rest are below the
+  threshold. When the farmer then insisted "give me 2 more", the advisor refused and kept the tool's ranking.
+
+## Nov 6, 2026 · Acres and net per month in the app
+
+User asked for (1) acres instead of hectares and (2) a per-month figure under the net return, since a 3-month crop and a
+12-month crop shouldn't be compared on the total alone.
+- `recommend.per_acre()` adds `grow_months` (from `GROW_MONTHS`, None for perennials), `yield_q_acre`, `net_rs_acre`
+  and `net_rs_acre_month` (net per acre ÷ months; perennials ÷ 12) to every `recommend()` row and to `check_crop()`.
+  1 ha = 2.471 acres. Models, ranking and the paper stay in hectares; this is display only, so ranking is unchanged.
+- Web card: "₹17,075 net per acre", below it "≈ ₹4,269 a month · 4-month crop" (or "yearly crop"); yield in quintals
+  an acre. Streamlit table switched to the same columns. Soil N/P/K stay kg/ha, as printed on the Soil Health Card.
+- Agent: `recommend_crops` now returns the acre fields instead of the hectare ones, and the system prompt says to
+  talk in acres and mention that a shorter crop frees the land sooner.
+- Limit: `GROW_MONTHS` are rough all-India durations (variety and region change them); the UI says "≈".
+- Checked: `recommend.py` self-check (new asserts for `per_acre`, incl. a perennial) and `api.py --check` pass; card
+  renders on desktop and at 375 px (Raipur, Nov: rice ₹17,075/acre, ₹4,269 a month). Agent replies with acre
+  numbers not tested against a live LLM.

@@ -23,6 +23,7 @@ farm.init({
   state: $("state"),
   district: $("district"),
   month: $("month"),
+  top: $("top"),
   season: $("season"),
   useTypical: $("use-typical"),
   source: $("soil-source"),

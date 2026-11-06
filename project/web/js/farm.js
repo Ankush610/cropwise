@@ -130,6 +130,7 @@ export function values() {
   return {
     N: read("N"), P: read("P"), K: read("K"), ph: read("ph"),
     district: els.district.value || null, state: els.state.value || null, month: Number(els.month.value),
+    top: Number(els.top.value),
   };
 }
 
@@ -166,7 +167,8 @@ function submit(event) {
   handlers.onAsk(
     `My farm is in ${v.district}, ${v.state}. ` +
     (estimated ? `I don't have a soil card, so use typical soil for my district: ${soil}. ` : `My soil card says ${soil}. `) +
-    `I will sow in ${MONTHS[v.month - 1]}. What should I grow?`);
+    `I will sow in ${MONTHS[v.month - 1]}. ` +
+    (v.top === 3 ? "What should I grow?" : `Show me the top ${v.top} crops I could grow.`));
 }
 
 // Fill the card from what the advisor saved (profile farm, or a tool call's farm values)

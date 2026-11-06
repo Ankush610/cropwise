@@ -42,6 +42,8 @@ class Farm(BaseModel):
     district: str
     state: str | None = Field(None, description="Needed only when the district name is in two states")
     month: int = Field(default_factory=lambda: datetime.date.today().month, ge=1, le=12, description="Sowing month")
+    top: int = Field(3, ge=1, le=recommend.MAX_TOP, description="How many crops /recommend returns (fewer if the rest "
+                                                                  "fall below the suitability floor)")
 
 
 class CropQuery(Farm):
@@ -50,7 +52,7 @@ class CropQuery(Farm):
 
 def _run(f: Farm) -> tuple[dict, pd.DataFrame]:
     sow = datetime.date(datetime.date.today().year, f.month, 1)  # only the month matters: season and harvest-month price
-    return recommend.recommend(f.N, f.P, f.K, f.ph, f.district, f.state, sow=sow)
+    return recommend.recommend(f.N, f.P, f.K, f.ph, f.district, f.state, sow=sow, top=f.top)
 
 
 @app.get("/districts")
@@ -74,7 +76,7 @@ def weather(district: str, state: str | None = None) -> dict:
 
 @app.post("/recommend")
 def recommend_crops(f: Farm) -> dict:
-    """Top 3 crops with suitability, yield, price, net return and their sources."""
+    """Top crops (3 unless `top` says otherwise) with suitability, yield, price, net return and their sources."""
     inputs, table = _run(f)
     # to_json turns NaN (no price, no yield) into null; FastAPI's encoder rejects NaN
     return {"inputs": json.loads(pd.Series(inputs).to_json()), "crops": json.loads(table.to_json(orient="records"))}
@@ -126,6 +128,8 @@ elif __name__ == "__main__":
     farm = {"N": 250, "P": 40, "K": 210, "ph": 6.8, "district": "Raipur", "month": 11}
     r = c.post("/recommend", json=farm).json()
     assert 1 <= len(r["crops"]) <= 3, r
+    assert len(r["crops"]) <= len(c.post("/recommend", json={**farm, "top": 10}).json()["crops"]) <= 10
+    assert c.post("/recommend", json={**farm, "top": 11}).status_code == 422
     top = r["crops"][0]
     e = c.post("/explain", json={**farm, "crop": top["crop"]}).json()
     assert abs(e["suitability"] - top["suitability"]) < 2e-3, (e, top)  # SHAP adds up to the suitability shown

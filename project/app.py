@@ -26,7 +26,7 @@ def area_soil(district: str, state: str) -> tuple[dict, str]:
 
 st.set_page_config(page_title="Crop recommendation", layout="wide")
 st.title("Crop recommendation")
-st.caption("Enter your Soil Health Card values and district. The model suggests up to 3 crops, ranked, with the "
+st.caption("Enter your Soil Health Card values and district. The model suggests the most suitable crops, ranked, with the "
            "expected net return and the reasons.")
 
 d = districts()
@@ -51,11 +51,12 @@ with st.sidebar:
     month = st.selectbox("Sowing month", range(1, 13), datetime.date.today().month - 1, format_func=lambda m: calendar.month_name[m])
     sow = datetime.date(datetime.date.today().year, month, 1)  # only the month matters: season and harvest-month price
     st.caption(f"Season: **{recommend.season(sow)}** (kharif Jun–Sep, rabi Oct–Jan, summer Feb–May)")
+    top = st.slider("Crops to show", 1, recommend.MAX_TOP, 3, help="Fewer may show: crops below 5% suitability are left out.")
     go = st.button("Recommend crops", type="primary", disabled=not district, width="stretch")
 
 if go:
     try:
-        st.session_state["result"] = recommend.recommend(N, P, K, ph, district, state, sow=sow)
+        st.session_state["result"] = recommend.recommend(N, P, K, ph, district, state, sow=sow, top=top)
         st.session_state["soil_note"] = "Soil: your Soil Health Card values." if card else f"Soil: estimated ({soil_source})."
     except ValueError as err:
         st.error(str(err))
@@ -81,8 +82,10 @@ st.caption("Rain is the average per month. NASA POWER, 2015–2024 averages at y
 show = pd.DataFrame({
     "Crop": table["crop"].str.title(),
     "Suitability": table["suitability"],
-    "Net return (Rs/ha)": table["net_rs_ha"],
-    "Yield (t/ha)": table["yield_t_ha"],
+    "Net return (Rs/acre)": table["net_rs_acre"],
+    "Net a month (Rs/acre)": table["net_rs_acre_month"],
+    "Months to harvest": table["grow_months"].map(lambda m: f"{m:.0f}" if pd.notna(m) else "yearly"),
+    "Yield (quintal/acre)": table["yield_q_acre"],
     "Price at harvest (Rs/quintal)": table["price_rs_q"],
     "Price forecast error": table["price_mape"].map(lambda m: f"{m:.0f}%" if pd.notna(m) else "–"),
     "Price source": table["price_source"],
@@ -91,7 +94,8 @@ show = pd.DataFrame({
 }, index=table.index)
 st.dataframe(show, width="stretch", column_config={
     "Suitability": st.column_config.ProgressColumn(format="percent", min_value=0, max_value=1),
-    "Net return (Rs/ha)": st.column_config.NumberColumn(format="localized"),
+    "Net return (Rs/acre)": st.column_config.NumberColumn(format="localized"),
+    "Net a month (Rs/acre)": st.column_config.NumberColumn(format="localized"),
     "Price at harvest (Rs/quintal)": st.column_config.NumberColumn(format="localized"),
 })
 notes = []

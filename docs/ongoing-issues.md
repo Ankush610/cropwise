@@ -9,21 +9,6 @@ Priority is against the Nov 10 freeze: **High** = wrong advice or a broken demo,
 
 ## Prices and money
 
-### Onion forecast for Maharashtra looks wrong · High
-- **Seen:** web UI, Nov 4. `get_price_forecast(onion, Maharashtra)` gives ₹888–1,369 a quintal for Jun 2026 – May 2027,
-  with a backtest error (MAPE) of 98.6%.
-- **Why it matters:** onion in Maharashtra mandis usually trades well above this, and a 99% error means the forecast
-  carries no information. The advisor quotes it anyway.
-- **Check:** the Maharashtra onion series in `mandi_prices()` (units, outlier months, missing data) and notebook 06.
-  Other crops with MAPE > 30% likely have the same problem; list them.
-- **Done so far:** the web UI warns on any forecast with past error > 30%.
-
-### Price forecast window starts in the past · High
-- **Seen:** Nov 4. `price_forecast.csv` covers Jun 2026 – May 2027. Today is Nov 2026, so a June sowing (or any
-  harvest before November) gets a price for a month that has already happened, and "next 12 months" is really 7.
-- **Fix:** re-run the price forecast (notebook 06, section 4) from the latest mandi data, so it starts next month.
-  Needs the data.gov.in API key for live prices (still open in `plan.md`).
-
 ### Soybean net return in Vidisha looks too low · Medium
 - **Seen:** Hindi chat, Nov 4. Soybean: yield 0.83 t/ha × ₹6,733/q = ₹55,884 gross, but net ₹5,281/ha, so the cost
   share is ~0.91. Rice in the same district: cost share ~0.56.

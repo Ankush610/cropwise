@@ -546,3 +546,53 @@ User asked for (1) acres instead of hectares and (2) a per-month figure under th
 - Checked: `recommend.py` self-check (new asserts for `per_acre`, incl. a perennial) and `api.py --check` pass; card
   renders on desktop and at 375 px (Raipur, Nov: rice ₹17,075/acre, ₹4,269 a month). Agent replies with acre
   numbers not tested against a live LLM.
+
+## Nov 6, 2026 · data.gov.in API key
+
+Got a free data.gov.in key; it lives in `.env` as `DATA_GOV_IN_KEY` (git-ignored; `.env.example` lists it empty).
+Checked against the mandi resource `9ef84268-d588-465a-a308-a864a43d0070`: Maharashtra onion returns today's
+(Nov 6) prices, modal ₹2,700 (Pune), ₹3,400 (Mumbai), ₹4,750 (Chandrapur) a quintal. Our forecast says ₹888–1,369,
+so the onion forecast issue is confirmed by live data. The API gives current daily prices only (no history), so it
+will top up the existing price series before the forecast re-run.
+
+## Nov 6, 2026 · Price fixes, part 1 (forecast re-run still to do)
+
+Looked into the Maharashtra onion forecast (₹888–1,369 vs ₹2,700–4,750 live today).
+- **Not a data bug.** The monthly series is sane (units fine, ~1,300 market-days a month), and onion really was cheap
+  from Mar 2025 to May 2026 (₹900–1,450). The forecast follows its data; the data stops in May 2026, and prices rose since.
+  The 98.6% backtest error comes from the 2024 spike (₹4,100 in Nov 2024) and the crash after it, which no monthly
+  model foresees.
+- **Error over 30%:** 102 of 469 forecast series (26 have no backtest). Mostly onion (25 states) and potato (23), then
+  mango 9, watermelon 7, orange, coconut and pigeonpeas 6 each. All-India series: onion 57.6%, potato 40.5%,
+  pigeonpeas 31.0%, every other crop under 25%.
+- **Fix 1, state vs All India:** `recommend._series()` now uses whichever of the state and All-India forecasts
+  backtested better (it used the state's whenever one existed). Maharashtra onion now uses All India (57.6% vs 98.6%).
+  Used by both `_price()` (ranking) and `price_outlook()` (agent tool, web chart); `source` says which.
+- **Fix 2, unit slips:** `mandi_prices()` drops monthly values more than 5× off their series median: 54 of 26,003 rows,
+  mostly coconut (Goa ₹14 = a single nut, Rajasthan, Andaman) and a few small-market fruit months. Takes effect when
+  notebook 06 is re-run.
+- **Live top-up code:** `data.daily_prices(start, end)` fetches data.gov.in's "Variety-wise daily market prices"
+  (resource `35985678-…`, history up to yesterday, ~22k rows a day, CSV is ~10× faster than JSON) into
+  `data/raw/apmc/daily/` and caches the monthly result in `data/processed/prices_monthly_live.csv`; `mandi_prices()`
+  appends months after the APMC zips end (May 2026). Commodity names match ours, case aside (Arhar).
+  **Blocked:** the API answers `python-requests`' default User-Agent with a 502 after 60 s (curl works in 2 s), so the
+  fetch hasn't run. Jun–Nov 2026 not yet in.
+- CACP cost shares above 1 (Maharashtra rice 1.47, 17 crop-states) are real survey numbers (MH paddy A2+FL ₹80k/ha vs
+  ₹55k output, family labour imputed), not a code bug; left as is for now.
+- Checked: `recommend.py` self-check passes (new assert: Maharashtra onion → All India).
+
+## Nov 6, 2026 · Price fixes, part 2: forecast now Dec 2026 – Nov 2027
+
+User approved fetching with a curl User-Agent (`fetch_daily` sends `curl/8`; the API 502s `python-requests`).
+- Fetched all 189 days May 1 – Nov 5, 2026 (11 min, 2 workers, 385 MB in `data/raw/apmc/daily/`, git-ignored). Monthly
+  result `data/processed/prices_monthly_live.csv` (124 KB) is committed so a clone has it.
+- May 2026 is in both sources: 98% of 387 series agree within ±10%, median difference 0 for big series. Same feed.
+- Re-ran notebook 06 in full (2 min 18 s). Backtest winner unchanged (median of ETS, ARIMA, Theta, seasonal-naive,
+  16.40% median MAPE); results saved as `research/results/2026-11-06_price_model_tests.csv` (Nov 4 file kept).
+  App forecast: Dec 2026 – Nov 2027, 467 series, 97 with MAPE > 30%.
+- Maharashtra onion now ₹4,325 for Dec 2026 (All India series, MAPE 57.8%), in line with live ₹2,700–4,750.
+- Both "Prices and money" High issues closed in `ongoing-issues.md`; onion/potato volatility added to
+  `research/paper_limitations.md`. Record: `research/notes/2026-11-06_price_refresh.md`.
+- Checked: `recommend.py` and `api.py --check` self-checks pass; Pune (Jun), Vidisha and Nashik (Nov) give sensible
+  prices. Web UI price chart not opened (same data shape).
+- To refresh later: `data.daily_prices(start, end)` for the new days, then re-run notebook 06.

@@ -28,4 +28,4 @@ Started Oct 29, 2026. **Project done by Nov 10.** Conclave and paper on Nov 15.
 ## Needed today
 
 - Kaggle account (to download the dataset).
-- data.gov.in API key (for live mandi prices).
+- ~~data.gov.in API key (for live mandi prices).~~ ✅ Nov 6, in `.env`.

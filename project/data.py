@@ -1,7 +1,12 @@
 """Load the project datasets. Downloads are cached in data/raw so each source is fetched once."""
+import datetime
+import io
 import json
+import os
 import shutil
+import time
 import zipfile
+from concurrent.futures import ThreadPoolExecutor
 from pathlib import Path
 
 import pandas as pd
@@ -103,6 +108,8 @@ APMC_FILES = [
     ("APMC_Arrivals_And_Prices__Old_Data_download.zip", "report_date", "commodity"),  # 2021-01-01 .. 2025-10-26
     ("APMC_Arrivals_And_Prices__New_Source_download.zip", "date", "commodity_name"),  # 2025-10-27 .. 2026-05-31
 ]
+# data.gov.in "Variety-wise daily market prices" (Agmarknet, Rs/quintal, history to yesterday). Tops up the APMC zips.
+DAILY_URL = "https://api.data.gov.in/resource/35985678-0d79-46b4-9ed6-6f13308a1d24"
 
 
 def kaggle_crops() -> pd.DataFrame:
@@ -171,7 +178,60 @@ def mandi_prices() -> pd.DataFrame:
         out = df.groupby(["crop", "state", "month"])["price"].agg(price="median", n="size").reset_index()
         PROCESSED.mkdir(parents=True, exist_ok=True)
         out.to_csv(path, index=False)
-    return pd.read_csv(path, parse_dates=["month"])
+    zips = pd.read_csv(path, parse_dates=["month"])
+    live = daily_prices()
+    df = pd.concat([zips, live[live["month"] > zips["month"].max()]], ignore_index=True) if len(live) else zips
+    med = df.groupby(["crop", "state"])["price"].transform("median")
+    return df[df["price"].between(med / 5, med * 5)].reset_index(drop=True)  # unit slips, e.g. Goa coconut at Rs 14 (a nut)
+
+
+def fetch_daily(day: datetime.date) -> Path:
+    """One day of all-India mandi prices from data.gov.in (~22k rows), cached in data/raw/apmc/daily/.
+    CSV, not JSON: a 10k-row page takes ~2 s instead of ~23 s."""
+    path = RAW / "apmc" / "daily" / f"{day}.csv"
+    if not path.exists():
+        params = {"api-key": os.environ["DATA_GOV_IN_KEY"], "format": "csv", "limit": 10000,
+                  "filters[Arrival_Date]": day.strftime("%d/%m/%Y")}
+        pages = []
+        while not pages or len(pages[-1]) == params["limit"]:
+            for attempt in range(4):
+                try:
+                    r = requests.get(DAILY_URL, params={**params, "offset": sum(map(len, pages))}, timeout=120,
+                                     headers={"User-Agent": "curl/8"})  # python-requests' own agent gets a 502 after 60 s
+                    r.raise_for_status()
+                    pages.append(pd.read_csv(io.StringIO(r.text)))
+                    break
+                except (requests.RequestException, pd.errors.ParserError):
+                    if attempt == 3:
+                        raise
+                    time.sleep(10 * 2**attempt)  # the API gives 502s now and then
+        path.parent.mkdir(parents=True, exist_ok=True)
+        pd.concat(pages).to_csv(path, index=False)
+    return path
+
+
+def daily_prices(start: datetime.date | None = None, end: datetime.date | None = None) -> pd.DataFrame:
+    """Monthly prices (same columns as mandi_prices) from the data.gov.in daily files; with start/end, fetches those
+    days first (needs DATA_GOV_IN_KEY). Cached in data/processed/prices_monthly_live.csv so a clone runs without them."""
+    path = PROCESSED / "prices_monthly_live.csv"
+    if start:
+        from dotenv import load_dotenv
+
+        load_dotenv(ROOT / ".env")
+        days = [start + datetime.timedelta(d) for d in range((end - start).days + 1)]
+        with ThreadPoolExecutor(2) as pool:
+            list(pool.map(fetch_daily, days))
+    files = sorted((RAW / "apmc" / "daily").glob("*.csv"))
+    if files:
+        names = {n.replace(" ", "").lower(): crop for crop, ns in APMC_NAMES.items() for n in ns}
+        df = pd.concat(pd.read_csv(f, usecols=["Arrival_Date", "Commodity", "State", "Modal_Price"]) for f in files)
+        df["crop"] = df["Commodity"].str.replace(" ", "").str.lower().map(names)
+        df = df[df["crop"].notna() & (df["Modal_Price"] > 0)]
+        df["month"] = pd.to_datetime(df["Arrival_Date"], format="%d/%m/%Y").dt.to_period("M").dt.to_timestamp()
+        out = (df.assign(state=df["State"].str.title()).groupby(["crop", "state", "month"])["Modal_Price"]
+               .agg(price="median", n="size").reset_index())
+        out.to_csv(path, index=False)
+    return pd.read_csv(path, parse_dates=["month"]) if path.exists() else pd.DataFrame(columns=["crop", "state", "month", "price", "n"])
 
 
 def _apy_raw() -> Path:

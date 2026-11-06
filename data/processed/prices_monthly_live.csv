@@ -1,0 +1,3097 @@
+crop,state,month,price,n
+apple,Assam,2026-05-01,17000.0,8
+apple,Assam,2026-06-01,20000.0,12
+apple,Assam,2026-07-01,21000.0,7
+apple,Assam,2026-08-01,15000.0,8
+apple,Assam,2026-09-01,12100.0,9
+apple,Assam,2026-10-01,12700.0,9
+apple,Assam,2026-11-01,12500.0,1
+apple,Bihar,2026-06-01,22500.0,1
+apple,Bihar,2026-09-01,8250.0,2
+apple,Bihar,2026-10-01,10500.0,51
+apple,Bihar,2026-11-01,10500.0,14
+apple,Chandigarh,2026-05-01,10000.0,4
+apple,Chandigarh,2026-06-01,12000.0,15
+apple,Chandigarh,2026-07-01,22500.0,16
+apple,Chandigarh,2026-08-01,16500.0,24
+apple,Chandigarh,2026-09-01,19000.0,24
+apple,Chandigarh,2026-10-01,15000.0,25
+apple,Chandigarh,2026-11-01,15000.0,3
+apple,Chattisgarh,2026-05-01,17500.0,69
+apple,Chattisgarh,2026-06-01,18000.0,64
+apple,Chattisgarh,2026-07-01,18000.0,68
+apple,Chattisgarh,2026-08-01,17500.0,65
+apple,Chattisgarh,2026-09-01,13000.0,64
+apple,Chattisgarh,2026-10-01,14000.0,66
+apple,Chattisgarh,2026-11-01,13500.0,12
+apple,Goa,2026-05-01,12000.0,20
+apple,Goa,2026-06-01,12000.0,21
+apple,Goa,2026-07-01,12500.0,26
+apple,Goa,2026-08-01,15000.0,34
+apple,Goa,2026-09-01,15000.0,22
+apple,Goa,2026-10-01,15000.0,27
+apple,Goa,2026-11-01,14000.0,3
+apple,Gujarat,2026-05-01,15000.0,98
+apple,Gujarat,2026-06-01,14000.0,97
+apple,Gujarat,2026-07-01,14000.0,82
+apple,Gujarat,2026-08-01,10375.0,104
+apple,Gujarat,2026-09-01,7000.0,114
+apple,Gujarat,2026-10-01,6250.0,128
+apple,Gujarat,2026-11-01,5750.0,22
+apple,Haryana,2026-05-01,11000.0,568
+apple,Haryana,2026-06-01,12000.0,490
+apple,Haryana,2026-07-01,13000.0,631
+apple,Haryana,2026-08-01,10000.0,913
+apple,Haryana,2026-09-01,8000.0,943
+apple,Haryana,2026-10-01,7500.0,854
+apple,Haryana,2026-11-01,7000.0,124
+apple,Himachal Pradesh,2026-05-01,14000.0,382
+apple,Himachal Pradesh,2026-06-01,15000.0,365
+apple,Himachal Pradesh,2026-07-01,14000.0,619
+apple,Himachal Pradesh,2026-08-01,10000.0,713
+apple,Himachal Pradesh,2026-09-01,8000.0,741
+apple,Himachal Pradesh,2026-10-01,8500.0,582
+apple,Himachal Pradesh,2026-11-01,9500.0,79
+apple,Jammu And Kashmir,2026-05-01,11000.0,94
+apple,Jammu And Kashmir,2026-06-01,9000.0,86
+apple,Jammu And Kashmir,2026-07-01,10000.0,210
+apple,Jammu And Kashmir,2026-08-01,8000.0,438
+apple,Jammu And Kashmir,2026-09-01,6250.0,530
+apple,Jammu And Kashmir,2026-10-01,5612.5,700
+apple,Jammu And Kashmir,2026-11-01,5625.0,86
+apple,Karnataka,2026-05-01,13000.0,119
+apple,Karnataka,2026-06-01,15000.0,101
+apple,Karnataka,2026-07-01,14000.0,111
+apple,Karnataka,2026-08-01,14000.0,87
+apple,Karnataka,2026-09-01,14000.0,105
+apple,Karnataka,2026-10-01,10000.0,86
+apple,Karnataka,2026-11-01,10000.0,11
+apple,Kerala,2026-05-01,22400.0,123
+apple,Keralam,2026-05-01,23000.0,180
+apple,Keralam,2026-06-01,24000.0,189
+apple,Keralam,2026-07-01,24250.0,208
+apple,Keralam,2026-08-01,21000.0,175
+apple,Keralam,2026-09-01,19700.0,174
+apple,Keralam,2026-10-01,21650.0,178
+apple,Keralam,2026-11-01,22000.0,22
+apple,Madhya Pradesh,2026-05-01,7000.0,74
+apple,Madhya Pradesh,2026-06-01,8000.0,58
+apple,Madhya Pradesh,2026-07-01,8000.0,83
+apple,Madhya Pradesh,2026-08-01,6225.335,208
+apple,Madhya Pradesh,2026-09-01,6000.0,306
+apple,Madhya Pradesh,2026-10-01,5000.0,331
+apple,Madhya Pradesh,2026-11-01,4875.0,50
+apple,Maharashtra,2026-05-01,12500.0,181
+apple,Maharashtra,2026-06-01,12500.0,190
+apple,Maharashtra,2026-07-01,15000.0,202
+apple,Maharashtra,2026-08-01,12500.0,542
+apple,Maharashtra,2026-09-01,12500.0,344
+apple,Maharashtra,2026-10-01,10500.0,287
+apple,Maharashtra,2026-11-01,9500.0,46
+apple,Nct Of Delhi,2026-05-01,11500.0,126
+apple,Nct Of Delhi,2026-06-01,13000.0,83
+apple,Nct Of Delhi,2026-07-01,13500.0,68
+apple,Nct Of Delhi,2026-08-01,11000.0,87
+apple,Nct Of Delhi,2026-09-01,6531.5,94
+apple,Nct Of Delhi,2026-10-01,7500.0,97
+apple,Nct Of Delhi,2026-11-01,6500.0,16
+apple,Odisha,2026-06-01,12544.0,1
+apple,Odisha,2026-07-01,12662.5,2
+apple,Odisha,2026-08-01,12800.0,1
+apple,Punjab,2026-05-01,9500.0,632
+apple,Punjab,2026-06-01,10000.0,672
+apple,Punjab,2026-07-01,10000.0,750
+apple,Punjab,2026-08-01,8600.0,1104
+apple,Punjab,2026-09-01,8000.0,1177
+apple,Punjab,2026-10-01,7200.0,1213
+apple,Punjab,2026-11-01,7000.0,163
+apple,Rajasthan,2026-05-01,10350.0,138
+apple,Rajasthan,2026-06-01,11000.0,121
+apple,Rajasthan,2026-07-01,11000.0,155
+apple,Rajasthan,2026-08-01,7800.0,169
+apple,Rajasthan,2026-09-01,7000.0,158
+apple,Rajasthan,2026-10-01,6000.0,171
+apple,Rajasthan,2026-11-01,5500.0,23
+apple,Tamil Nadu,2026-05-01,22000.0,897
+apple,Tamil Nadu,2026-06-01,23000.0,858
+apple,Tamil Nadu,2026-07-01,23500.0,892
+apple,Tamil Nadu,2026-08-01,24000.0,825
+apple,Tamil Nadu,2026-09-01,20000.0,1008
+apple,Tamil Nadu,2026-10-01,18000.0,953
+apple,Tamil Nadu,2026-11-01,18000.0,140
+apple,Telangana,2026-05-01,9666.6669,42
+apple,Telangana,2026-06-01,10000.0005,53
+apple,Telangana,2026-07-01,10000.0005,61
+apple,Telangana,2026-08-01,12000.0006,73
+apple,Telangana,2026-09-01,11666.666949999999,64
+apple,Telangana,2026-10-01,10000.0,69
+apple,Telangana,2026-11-01,8000.0,13
+apple,Tripura,2026-05-01,14250.0,17
+apple,Tripura,2026-06-01,14500.0,24
+apple,Tripura,2026-07-01,14250.0,28
+apple,Tripura,2026-08-01,9500.0,26
+apple,Tripura,2026-09-01,12500.0,24
+apple,Tripura,2026-10-01,11000.0,9
+apple,Uttar Pradesh,2026-05-01,9150.0,238
+apple,Uttar Pradesh,2026-06-01,10110.0,169
+apple,Uttar Pradesh,2026-07-01,9000.0,165
+apple,Uttar Pradesh,2026-08-01,8935.0,220
+apple,Uttar Pradesh,2026-09-01,7000.0,215
+apple,Uttar Pradesh,2026-10-01,7600.0,209
+apple,Uttar Pradesh,2026-11-01,7812.5,28
+apple,Uttarakhand,2026-05-01,9000.0,146
+apple,Uttarakhand,2026-06-01,8800.0,140
+apple,Uttarakhand,2026-07-01,8500.0,167
+apple,Uttarakhand,2026-08-01,6100.0,219
+apple,Uttarakhand,2026-09-01,6000.0,276
+apple,Uttarakhand,2026-10-01,5800.0,262
+apple,Uttarakhand,2026-11-01,6000.0,46
+apple,West Bengal,2026-05-01,17000.0,31
+apple,West Bengal,2026-06-01,17425.0,30
+apple,West Bengal,2026-07-01,17900.0,30
+apple,West Bengal,2026-08-01,19000.0,29
+apple,West Bengal,2026-09-01,18600.0,30
+apple,West Bengal,2026-10-01,16000.0,29
+apple,West Bengal,2026-11-01,15600.0,4
+bajra,Andhra Pradesh,2026-05-01,1762.0,2
+bajra,Andhra Pradesh,2026-06-01,2074.0,2
+bajra,Andhra Pradesh,2026-07-01,2550.0,21
+bajra,Andhra Pradesh,2026-08-01,2550.0,54
+bajra,Andhra Pradesh,2026-09-01,2750.0,51
+bajra,Andhra Pradesh,2026-10-01,2900.0,48
+bajra,Andhra Pradesh,2026-11-01,2900.0,9
+bajra,Chattisgarh,2026-05-01,2480.0,1
+bajra,Chattisgarh,2026-06-01,2470.0,1
+bajra,Chattisgarh,2026-07-01,2498.0,1
+bajra,Chattisgarh,2026-08-01,2698.0,1
+bajra,Chattisgarh,2026-09-01,2721.0,1
+bajra,Chattisgarh,2026-10-01,3376.5,2
+bajra,Gujarat,2026-05-01,2230.0,1042
+bajra,Gujarat,2026-06-01,2225.0,1213
+bajra,Gujarat,2026-07-01,2350.0,1006
+bajra,Gujarat,2026-08-01,2320.0,903
+bajra,Gujarat,2026-09-01,2297.25,804
+bajra,Gujarat,2026-10-01,2400.0,1013
+bajra,Gujarat,2026-11-01,2647.5,146
+bajra,Haryana,2026-05-01,1900.0,9
+bajra,Haryana,2026-06-01,1900.0,3
+bajra,Haryana,2026-07-01,2150.0,10
+bajra,Haryana,2026-08-01,2170.0,18
+bajra,Haryana,2026-09-01,2215.0,165
+bajra,Haryana,2026-10-01,2301.0,508
+bajra,Haryana,2026-11-01,2350.0,81
+bajra,Karnataka,2026-05-01,2182.5,330
+bajra,Karnataka,2026-06-01,2320.5,186
+bajra,Karnataka,2026-07-01,2500.0,199
+bajra,Karnataka,2026-08-01,2550.0,184
+bajra,Karnataka,2026-09-01,2548.5,338
+bajra,Karnataka,2026-10-01,2746.5,360
+bajra,Karnataka,2026-11-01,3200.0,34
+bajra,Madhya Pradesh,2026-05-01,1970.0,187
+bajra,Madhya Pradesh,2026-06-01,1968.0,141
+bajra,Madhya Pradesh,2026-07-01,2039.0,102
+bajra,Madhya Pradesh,2026-08-01,2084.5,82
+bajra,Madhya Pradesh,2026-09-01,2128.0,135
+bajra,Madhya Pradesh,2026-10-01,2347.0,635
+bajra,Madhya Pradesh,2026-11-01,2520.0,143
+bajra,Maharashtra,2026-05-01,2212.0,1066
+bajra,Maharashtra,2026-06-01,2300.0,934
+bajra,Maharashtra,2026-07-01,2450.0,859
+bajra,Maharashtra,2026-08-01,2450.0,1726
+bajra,Maharashtra,2026-09-01,2500.0,1047
+bajra,Maharashtra,2026-10-01,2800.0,1043
+bajra,Maharashtra,2026-11-01,3100.0,161
+bajra,Nct Of Delhi,2026-05-01,2276.0,14
+bajra,Nct Of Delhi,2026-06-01,2200.0,21
+bajra,Nct Of Delhi,2026-07-01,2160.0,7
+bajra,Nct Of Delhi,2026-08-01,2200.0,7
+bajra,Nct Of Delhi,2026-09-01,2351.0,9
+bajra,Nct Of Delhi,2026-10-01,2425.0,22
+bajra,Nct Of Delhi,2026-11-01,2610.0,5
+bajra,Punjab,2026-10-01,2515.0,1
+bajra,Rajasthan,2026-05-01,1973.0,583
+bajra,Rajasthan,2026-06-01,1975.0,580
+bajra,Rajasthan,2026-07-01,2058.0,550
+bajra,Rajasthan,2026-08-01,2085.0,520
+bajra,Rajasthan,2026-09-01,2132.0,824
+bajra,Rajasthan,2026-10-01,2400.0,1314
+bajra,Rajasthan,2026-11-01,2600.0,160
+bajra,Tamil Nadu,2026-05-01,4978.5,119
+bajra,Tamil Nadu,2026-06-01,4380.0,123
+bajra,Tamil Nadu,2026-07-01,4146.5,114
+bajra,Tamil Nadu,2026-08-01,2909.0,89
+bajra,Tamil Nadu,2026-09-01,4319.5,316
+bajra,Tamil Nadu,2026-10-01,2875.0,110
+bajra,Tamil Nadu,2026-11-01,3150.0,2
+bajra,Telangana,2026-05-01,1850.0,8
+bajra,Telangana,2026-06-01,1870.0,3
+bajra,Telangana,2026-07-01,2032.5,2
+bajra,Telangana,2026-08-01,1750.0,3
+bajra,Uttar Pradesh,2026-05-01,1850.0,595
+bajra,Uttar Pradesh,2026-06-01,1900.0,544
+bajra,Uttar Pradesh,2026-07-01,1951.685,502
+bajra,Uttar Pradesh,2026-08-01,2000.0,381
+bajra,Uttar Pradesh,2026-09-01,2050.0,437
+bajra,Uttar Pradesh,2026-10-01,2200.0,642
+bajra,Uttar Pradesh,2026-11-01,2400.0,38
+banana,Andaman And Nicobar,2026-05-01,4500.0,44
+banana,Andaman And Nicobar,2026-06-01,4500.0,60
+banana,Andaman And Nicobar,2026-07-01,4500.0,50
+banana,Andaman And Nicobar,2026-08-01,4500.0,47
+banana,Andaman And Nicobar,2026-09-01,4500.0,51
+banana,Andaman And Nicobar,2026-10-01,3500.0,44
+banana,Andaman And Nicobar,2026-11-01,3500.0,8
+banana,Andhra Pradesh,2026-05-01,2900.0,379
+banana,Andhra Pradesh,2026-06-01,2200.0,214
+banana,Andhra Pradesh,2026-07-01,2400.0,257
+banana,Andhra Pradesh,2026-08-01,2200.0,336
+banana,Andhra Pradesh,2026-09-01,1900.0,315
+banana,Andhra Pradesh,2026-10-01,2200.0,316
+banana,Andhra Pradesh,2026-11-01,2300.0,47
+banana,Bihar,2026-10-01,4800.0,5
+banana,Bihar,2026-11-01,3500.0,1
+banana,Chattisgarh,2026-05-01,2200.0,87
+banana,Chattisgarh,2026-06-01,2400.0,72
+banana,Chattisgarh,2026-07-01,2450.0,66
+banana,Chattisgarh,2026-08-01,2300.0,69
+banana,Chattisgarh,2026-09-01,2500.0,80
+banana,Chattisgarh,2026-10-01,1850.0,84
+banana,Chattisgarh,2026-11-01,2000.0,14
+banana,Goa,2026-05-01,3250.0,28
+banana,Goa,2026-06-01,3250.0,25
+banana,Goa,2026-07-01,3250.0,32
+banana,Goa,2026-08-01,5000.0,35
+banana,Goa,2026-09-01,5000.0,31
+banana,Goa,2026-10-01,5000.0,31
+banana,Goa,2026-11-01,4500.0,4
+banana,Gujarat,2026-05-01,2000.0,198
+banana,Gujarat,2026-06-01,2250.0,196
+banana,Gujarat,2026-07-01,2300.0,212
+banana,Gujarat,2026-08-01,2175.0,205
+banana,Gujarat,2026-09-01,1912.5,216
+banana,Gujarat,2026-10-01,2050.0,215
+banana,Gujarat,2026-11-01,2000.0,41
+banana,Haryana,2026-05-01,2500.0,759
+banana,Haryana,2026-06-01,2600.0,749
+banana,Haryana,2026-07-01,2750.0,897
+banana,Haryana,2026-08-01,2600.0,966
+banana,Haryana,2026-09-01,2700.0,879
+banana,Haryana,2026-10-01,2600.0,783
+banana,Haryana,2026-11-01,2500.0,112
+banana,Himachal Pradesh,2026-05-01,4000.0,501
+banana,Himachal Pradesh,2026-06-01,4100.0,467
+banana,Himachal Pradesh,2026-07-01,4250.0,523
+banana,Himachal Pradesh,2026-08-01,4200.0,479
+banana,Himachal Pradesh,2026-09-01,4250.0,517
+banana,Himachal Pradesh,2026-10-01,4250.0,472
+banana,Himachal Pradesh,2026-11-01,4200.0,80
+banana,Jammu And Kashmir,2026-05-01,4200.0,227
+banana,Jammu And Kashmir,2026-06-01,4500.0,116
+banana,Jammu And Kashmir,2026-07-01,4600.0,160
+banana,Jammu And Kashmir,2026-08-01,4400.0,119
+banana,Jammu And Kashmir,2026-09-01,4400.0,121
+banana,Jammu And Kashmir,2026-10-01,4250.0,134
+banana,Jammu And Kashmir,2026-11-01,4350.0,22
+banana,Karnataka,2026-05-01,1750.0,294
+banana,Karnataka,2026-06-01,1800.0,249
+banana,Karnataka,2026-07-01,2050.0,257
+banana,Karnataka,2026-08-01,2200.0,178
+banana,Karnataka,2026-09-01,2250.0,201
+banana,Karnataka,2026-10-01,2200.0,177
+banana,Karnataka,2026-11-01,2000.0,25
+banana,Kerala,2026-05-01,4000.0,4588
+banana,Keralam,2026-05-01,4100.0,6738
+banana,Keralam,2026-06-01,4400.0,6594
+banana,Keralam,2026-07-01,4400.0,6660
+banana,Keralam,2026-08-01,5700.0,6244
+banana,Keralam,2026-09-01,5200.0,6493
+banana,Keralam,2026-10-01,5900.0,6224
+banana,Keralam,2026-11-01,6200.0,897
+banana,Madhya Pradesh,2026-05-01,1500.0,154
+banana,Madhya Pradesh,2026-06-01,1700.0,219
+banana,Madhya Pradesh,2026-07-01,1600.0,248
+banana,Madhya Pradesh,2026-08-01,2000.0,413
+banana,Madhya Pradesh,2026-09-01,1600.0,449
+banana,Madhya Pradesh,2026-10-01,1600.0,428
+banana,Madhya Pradesh,2026-11-01,1500.0,54
+banana,Maharashtra,2026-05-01,1810.0,147
+banana,Maharashtra,2026-06-01,2000.0,137
+banana,Maharashtra,2026-07-01,1760.0,143
+banana,Maharashtra,2026-08-01,1700.0,344
+banana,Maharashtra,2026-09-01,1700.0,173
+banana,Maharashtra,2026-10-01,1500.0,162
+banana,Maharashtra,2026-11-01,1400.0,23
+banana,Manipur,2026-05-01,4750.0,118
+banana,Manipur,2026-06-01,4750.0,114
+banana,Manipur,2026-07-01,5500.0,107
+banana,Manipur,2026-08-01,5500.0,85
+banana,Manipur,2026-09-01,4750.0,88
+banana,Manipur,2026-10-01,4750.0,64
+banana,Manipur,2026-11-01,4750.0,20
+banana,Meghalaya,2026-05-01,4000.0,32
+banana,Meghalaya,2026-06-01,4000.0,38
+banana,Meghalaya,2026-07-01,4000.0,46
+banana,Meghalaya,2026-08-01,4000.0,47
+banana,Meghalaya,2026-09-01,4500.0,55
+banana,Meghalaya,2026-10-01,4000.0,46
+banana,Meghalaya,2026-11-01,4000.0,7
+banana,Nagaland,2026-05-01,6800.0,14
+banana,Nagaland,2026-06-01,3675.0,14
+banana,Nagaland,2026-07-01,3820.0,23
+banana,Nagaland,2026-08-01,3500.0,25
+banana,Nagaland,2026-09-01,3520.0,27
+banana,Nagaland,2026-10-01,5200.0,20
+banana,Nagaland,2026-11-01,5695.0,4
+banana,Nct Of Delhi,2026-05-01,1900.0,98
+banana,Nct Of Delhi,2026-06-01,2325.0,68
+banana,Nct Of Delhi,2026-07-01,1900.0,50
+banana,Nct Of Delhi,2026-08-01,2500.0,49
+banana,Nct Of Delhi,2026-09-01,2350.0,50
+banana,Nct Of Delhi,2026-10-01,2900.0,51
+banana,Nct Of Delhi,2026-11-01,1900.0,7
+banana,Odisha,2026-05-01,1900.0,7
+banana,Odisha,2026-06-01,1900.0,14
+banana,Odisha,2026-07-01,1900.0,12
+banana,Odisha,2026-08-01,2300.0,11
+banana,Odisha,2026-09-01,2400.0,13
+banana,Odisha,2026-10-01,1900.0,17
+banana,Odisha,2026-11-01,1900.0,2
+banana,Punjab,2026-05-01,2800.0,683
+banana,Punjab,2026-06-01,2800.0,750
+banana,Punjab,2026-07-01,3000.0,880
+banana,Punjab,2026-08-01,2900.0,1099
+banana,Punjab,2026-09-01,3000.0,1045
+banana,Punjab,2026-10-01,3000.0,1011
+banana,Punjab,2026-11-01,2900.0,132
+banana,Rajasthan,2026-05-01,2000.0,144
+banana,Rajasthan,2026-06-01,2500.0,139
+banana,Rajasthan,2026-07-01,2500.0,147
+banana,Rajasthan,2026-08-01,2500.0,151
+banana,Rajasthan,2026-09-01,2100.0,141
+banana,Rajasthan,2026-10-01,2400.0,151
+banana,Rajasthan,2026-11-01,2200.0,17
+banana,Tamil Nadu,2026-05-01,4500.0,5176
+banana,Tamil Nadu,2026-06-01,4500.0,5005
+banana,Tamil Nadu,2026-07-01,5250.0,5231
+banana,Tamil Nadu,2026-08-01,5500.0,5098
+banana,Tamil Nadu,2026-09-01,5500.0,6337
+banana,Tamil Nadu,2026-10-01,5500.0,5621
+banana,Tamil Nadu,2026-11-01,5500.0,833
+banana,Telangana,2026-05-01,1800.0,1
+banana,Telangana,2026-06-01,2000.0,10
+banana,Telangana,2026-07-01,3500.0,17
+banana,Telangana,2026-08-01,3000.0,20
+banana,Telangana,2026-09-01,2000.0001,18
+banana,Telangana,2026-10-01,2000.0001,22
+banana,Telangana,2026-11-01,2000.0001,4
+banana,Tripura,2026-05-01,2600.0,53
+banana,Tripura,2026-06-01,2700.0,63
+banana,Tripura,2026-07-01,2700.0,47
+banana,Tripura,2026-08-01,2700.0,51
+banana,Tripura,2026-09-01,2800.0,57
+banana,Tripura,2026-10-01,2800.0,39
+banana,Tripura,2026-11-01,2800.0,7
+banana,Uttar Pradesh,2026-05-01,2100.0,177
+banana,Uttar Pradesh,2026-06-01,2450.0,131
+banana,Uttar Pradesh,2026-07-01,2200.0,110
+banana,Uttar Pradesh,2026-08-01,2200.0,135
+banana,Uttar Pradesh,2026-09-01,2100.0,142
+banana,Uttar Pradesh,2026-10-01,1900.0,94
+banana,Uttar Pradesh,2026-11-01,2000.0,10
+banana,Uttarakhand,2026-05-01,1600.0,252
+banana,Uttarakhand,2026-06-01,1500.0,260
+banana,Uttarakhand,2026-07-01,1500.0,268
+banana,Uttarakhand,2026-08-01,1450.0,283
+banana,Uttarakhand,2026-09-01,1425.0,312
+banana,Uttarakhand,2026-10-01,1500.0,292
+banana,Uttarakhand,2026-11-01,1500.0,55
+banana,West Bengal,2026-05-01,2100.0,31
+banana,West Bengal,2026-06-01,2100.0,30
+banana,West Bengal,2026-07-01,2200.0,30
+banana,West Bengal,2026-08-01,2200.0,31
+banana,West Bengal,2026-09-01,2200.0,29
+banana,West Bengal,2026-10-01,2200.0,31
+banana,West Bengal,2026-11-01,2200.0,5
+barley,Chattisgarh,2026-05-01,2150.0,3
+barley,Chattisgarh,2026-06-01,2150.0,2
+barley,Chattisgarh,2026-07-01,2150.0,3
+barley,Chattisgarh,2026-08-01,2075.0,4
+barley,Chattisgarh,2026-09-01,2150.0,3
+barley,Chattisgarh,2026-10-01,1500.0,3
+barley,Chattisgarh,2026-11-01,1500.0,1
+barley,Gujarat,2026-05-01,2250.0,29
+barley,Gujarat,2026-06-01,2302.5,22
+barley,Gujarat,2026-07-01,2350.0,11
+barley,Gujarat,2026-08-01,2385.0,8
+barley,Gujarat,2026-09-01,2655.0,5
+barley,Gujarat,2026-10-01,3300.0,5
+barley,Gujarat,2026-11-01,2500.0,1
+barley,Haryana,2026-05-01,2200.0,26
+barley,Haryana,2026-06-01,2320.0,1
+barley,Haryana,2026-07-01,2100.0,1
+barley,Haryana,2026-10-01,2301.0,1
+barley,Karnataka,2026-07-01,4400.0,1
+barley,Karnataka,2026-09-01,6535.0,1
+barley,Karnataka,2026-10-01,6285.0,2
+barley,Madhya Pradesh,2026-05-01,2225.0,423
+barley,Madhya Pradesh,2026-06-01,2235.0,344
+barley,Madhya Pradesh,2026-07-01,2340.5,312
+barley,Madhya Pradesh,2026-08-01,2552.0,199
+barley,Madhya Pradesh,2026-09-01,2590.0,221
+barley,Madhya Pradesh,2026-10-01,2710.0,239
+barley,Madhya Pradesh,2026-11-01,2800.0,31
+barley,Nct Of Delhi,2026-05-01,2250.0,48
+barley,Nct Of Delhi,2026-06-01,2200.0,15
+barley,Nct Of Delhi,2026-07-01,2400.0,7
+barley,Nct Of Delhi,2026-08-01,2275.0,6
+barley,Nct Of Delhi,2026-09-01,2500.0,12
+barley,Nct Of Delhi,2026-10-01,2200.0,5
+barley,Rajasthan,2026-05-01,2180.0,933
+barley,Rajasthan,2026-06-01,2221.0,655
+barley,Rajasthan,2026-07-01,2300.0,488
+barley,Rajasthan,2026-08-01,2460.0,332
+barley,Rajasthan,2026-09-01,2535.0,248
+barley,Rajasthan,2026-10-01,2817.5,260
+barley,Rajasthan,2026-11-01,2850.0,24
+barley,Uttar Pradesh,2026-05-01,2200.0,269
+barley,Uttar Pradesh,2026-06-01,2200.0,184
+barley,Uttar Pradesh,2026-07-01,2200.0,149
+barley,Uttar Pradesh,2026-08-01,2202.715,132
+barley,Uttar Pradesh,2026-09-01,2319.89,136
+barley,Uttar Pradesh,2026-10-01,2500.0,97
+blackgram,Andaman And Nicobar,2026-05-01,9500.0,48
+blackgram,Andaman And Nicobar,2026-06-01,9500.0,39
+blackgram,Andaman And Nicobar,2026-07-01,9500.0,27
+blackgram,Andaman And Nicobar,2026-08-01,9500.0,24
+blackgram,Andaman And Nicobar,2026-09-01,9500.0,26
+blackgram,Andaman And Nicobar,2026-10-01,9500.0,25
+blackgram,Andaman And Nicobar,2026-11-01,9500.0,4
+blackgram,Andhra Pradesh,2026-05-01,7640.0,23
+blackgram,Andhra Pradesh,2026-06-01,7500.0,46
+blackgram,Andhra Pradesh,2026-07-01,8250.0,129
+blackgram,Andhra Pradesh,2026-08-01,8500.0,263
+blackgram,Andhra Pradesh,2026-09-01,8500.0,269
+blackgram,Andhra Pradesh,2026-10-01,8900.0,295
+blackgram,Andhra Pradesh,2026-11-01,9000.0,41
+blackgram,Chattisgarh,2026-05-01,5881.5,12
+blackgram,Chattisgarh,2026-06-01,7225.0,36
+blackgram,Chattisgarh,2026-07-01,7826.0,31
+blackgram,Chattisgarh,2026-08-01,8261.0,21
+blackgram,Chattisgarh,2026-09-01,8100.0,17
+blackgram,Chattisgarh,2026-10-01,7900.0,23
+blackgram,Chattisgarh,2026-11-01,7301.0,3
+blackgram,Gujarat,2026-05-01,7250.0,362
+blackgram,Gujarat,2026-06-01,7575.0,437
+blackgram,Gujarat,2026-07-01,8182.5,280
+blackgram,Gujarat,2026-08-01,8000.0,173
+blackgram,Gujarat,2026-09-01,7965.0,180
+blackgram,Gujarat,2026-10-01,8975.0,803
+blackgram,Gujarat,2026-11-01,8750.0,139
+blackgram,Haryana,2026-05-01,5637.5,6
+blackgram,Haryana,2026-06-01,5479.0,1
+blackgram,Karnataka,2026-05-01,6011.0,218
+blackgram,Karnataka,2026-06-01,6009.0,209
+blackgram,Karnataka,2026-07-01,7100.0,209
+blackgram,Karnataka,2026-08-01,8063.5,236
+blackgram,Karnataka,2026-09-01,8200.0,489
+blackgram,Karnataka,2026-10-01,9328.0,316
+blackgram,Karnataka,2026-11-01,9200.0,27
+blackgram,Kerala,2026-05-01,12300.0,61
+blackgram,Keralam,2026-05-01,12300.0,81
+blackgram,Keralam,2026-06-01,12500.0,87
+blackgram,Keralam,2026-07-01,13200.0,96
+blackgram,Keralam,2026-08-01,13150.0,84
+blackgram,Keralam,2026-09-01,12600.0,90
+blackgram,Keralam,2026-10-01,13300.0,87
+blackgram,Keralam,2026-11-01,13400.0,13
+blackgram,Madhya Pradesh,2026-05-01,7400.0,705
+blackgram,Madhya Pradesh,2026-06-01,7400.0,1062
+blackgram,Madhya Pradesh,2026-07-01,8251.0,1005
+blackgram,Madhya Pradesh,2026-08-01,8000.0,632
+blackgram,Madhya Pradesh,2026-09-01,7001.0,1124
+blackgram,Madhya Pradesh,2026-10-01,7255.0,2643
+blackgram,Madhya Pradesh,2026-11-01,6905.0,443
+blackgram,Maharashtra,2026-05-01,6800.0,422
+blackgram,Maharashtra,2026-06-01,6875.0,406
+blackgram,Maharashtra,2026-07-01,6800.5,366
+blackgram,Maharashtra,2026-08-01,7901.0,730
+blackgram,Maharashtra,2026-09-01,8300.0,1225
+blackgram,Maharashtra,2026-10-01,9200.0,1218
+blackgram,Maharashtra,2026-11-01,8950.0,135
+blackgram,Manipur,2026-05-01,13750.0,25
+blackgram,Manipur,2026-06-01,14750.0,22
+blackgram,Manipur,2026-07-01,14750.0,21
+blackgram,Manipur,2026-08-01,14750.0,16
+blackgram,Manipur,2026-09-01,14750.0,17
+blackgram,Manipur,2026-10-01,14750.0,11
+blackgram,Manipur,2026-11-01,14750.0,4
+blackgram,Nct Of Delhi,2026-06-01,6600.0,3
+blackgram,Nct Of Delhi,2026-07-01,9075.0,4
+blackgram,Nct Of Delhi,2026-08-01,6850.0,1
+blackgram,Nct Of Delhi,2026-09-01,10600.0,3
+blackgram,Nct Of Delhi,2026-10-01,6850.0,1
+blackgram,Pondicherry,2026-05-01,8000.0,18
+blackgram,Pondicherry,2026-06-01,7700.0,15
+blackgram,Pondicherry,2026-07-01,8419.5,16
+blackgram,Pondicherry,2026-08-01,8000.0,7
+blackgram,Pondicherry,2026-09-01,8709.0,3
+blackgram,Pondicherry,2026-10-01,3903.0,3
+blackgram,Pondicherry,2026-11-01,8829.0,3
+blackgram,Rajasthan,2026-05-01,5551.0,191
+blackgram,Rajasthan,2026-06-01,6332.5,244
+blackgram,Rajasthan,2026-07-01,6500.0,219
+blackgram,Rajasthan,2026-08-01,6200.0,147
+blackgram,Rajasthan,2026-09-01,6906.0,332
+blackgram,Rajasthan,2026-10-01,7400.0,595
+blackgram,Rajasthan,2026-11-01,7200.0,67
+blackgram,Telangana,2026-05-01,6769.0,31
+blackgram,Telangana,2026-06-01,6578.0,48
+blackgram,Telangana,2026-07-01,5413.0,27
+blackgram,Telangana,2026-08-01,6511.0,17
+blackgram,Telangana,2026-09-01,8412.0,85
+blackgram,Telangana,2026-10-01,9021.0,77
+blackgram,Telangana,2026-11-01,8122.5,8
+blackgram,Uttar Pradesh,2026-06-01,7010.0,3
+blackgram,Uttar Pradesh,2026-07-01,8900.0,1
+blackgram,Uttarakhand,2026-05-01,11510.0,1
+blackgram,Uttarakhand,2026-06-01,8900.0,2
+blackgram,Uttarakhand,2026-07-01,12250.0,1
+blackgram,Uttarakhand,2026-08-01,9340.0,2
+blackgram,Uttarakhand,2026-10-01,10300.0,2
+blackgram,Uttarakhand,2026-11-01,8507.0,1
+chickpea,Andhra Pradesh,2026-05-01,5379.0,21
+chickpea,Andhra Pradesh,2026-06-01,5540.0,20
+chickpea,Andhra Pradesh,2026-07-01,6000.0,141
+chickpea,Andhra Pradesh,2026-08-01,5900.0,403
+chickpea,Andhra Pradesh,2026-09-01,6000.0,362
+chickpea,Andhra Pradesh,2026-10-01,6050.0,348
+chickpea,Andhra Pradesh,2026-11-01,7000.0,55
+chickpea,Chattisgarh,2026-05-01,5255.5,112
+chickpea,Chattisgarh,2026-06-01,5530.0,100
+chickpea,Chattisgarh,2026-07-01,5600.0,86
+chickpea,Chattisgarh,2026-08-01,6000.0,71
+chickpea,Chattisgarh,2026-09-01,5860.0,77
+chickpea,Chattisgarh,2026-10-01,6622.5,88
+chickpea,Chattisgarh,2026-11-01,6601.0,13
+chickpea,Gujarat,2026-05-01,5235.0,681
+chickpea,Gujarat,2026-06-01,5600.0,669
+chickpea,Gujarat,2026-07-01,5625.0,551
+chickpea,Gujarat,2026-08-01,5875.0,449
+chickpea,Gujarat,2026-09-01,6105.0,397
+chickpea,Gujarat,2026-10-01,6775.0,571
+chickpea,Gujarat,2026-11-01,6845.0,93
+chickpea,Haryana,2026-05-01,5252.5,48
+chickpea,Haryana,2026-06-01,5518.0,34
+chickpea,Haryana,2026-07-01,5590.0,31
+chickpea,Haryana,2026-08-01,5830.0,17
+chickpea,Haryana,2026-09-01,6178.5,12
+chickpea,Haryana,2026-10-01,6721.0,4
+chickpea,Haryana,2026-11-01,6871.0,1
+chickpea,Karnataka,2026-05-01,5574.5,934
+chickpea,Karnataka,2026-06-01,5792.5,628
+chickpea,Karnataka,2026-07-01,5988.5,518
+chickpea,Karnataka,2026-08-01,6100.0,415
+chickpea,Karnataka,2026-09-01,6395.0,411
+chickpea,Karnataka,2026-10-01,7200.0,395
+chickpea,Karnataka,2026-11-01,7400.0,41
+chickpea,Kerala,2026-05-01,8100.0,31
+chickpea,Keralam,2026-05-01,8100.0,43
+chickpea,Keralam,2026-06-01,8300.0,45
+chickpea,Keralam,2026-07-01,8300.0,49
+chickpea,Keralam,2026-08-01,7900.0,44
+chickpea,Keralam,2026-09-01,8300.0,47
+chickpea,Keralam,2026-10-01,9100.0,45
+chickpea,Keralam,2026-11-01,9600.0,6
+chickpea,Madhya Pradesh,2026-05-01,5400.0,5228
+chickpea,Madhya Pradesh,2026-06-01,5550.0,4411
+chickpea,Madhya Pradesh,2026-07-01,5649.0,3919
+chickpea,Madhya Pradesh,2026-08-01,5970.0,2792
+chickpea,Madhya Pradesh,2026-09-01,6091.0,2869
+chickpea,Madhya Pradesh,2026-10-01,6850.0,3128
+chickpea,Madhya Pradesh,2026-11-01,6703.0,616
+chickpea,Maharashtra,2026-05-01,5310.0,2725
+chickpea,Maharashtra,2026-06-01,5500.0,2512
+chickpea,Maharashtra,2026-07-01,5600.0,2394
+chickpea,Maharashtra,2026-08-01,5890.0,3884
+chickpea,Maharashtra,2026-09-01,6000.0,1818
+chickpea,Maharashtra,2026-10-01,6855.0,1738
+chickpea,Maharashtra,2026-11-01,6850.0,301
+chickpea,Manipur,2026-05-01,8750.0,118
+chickpea,Manipur,2026-06-01,8750.0,114
+chickpea,Manipur,2026-07-01,8750.0,106
+chickpea,Manipur,2026-08-01,8750.0,85
+chickpea,Manipur,2026-09-01,8750.0,87
+chickpea,Manipur,2026-10-01,8750.0,58
+chickpea,Manipur,2026-11-01,9500.0,20
+chickpea,Nct Of Delhi,2026-05-01,5900.0,12
+chickpea,Nct Of Delhi,2026-06-01,6000.0,10
+chickpea,Nct Of Delhi,2026-07-01,6000.0,9
+chickpea,Nct Of Delhi,2026-08-01,6200.0,3
+chickpea,Nct Of Delhi,2026-09-01,7100.0,11
+chickpea,Nct Of Delhi,2026-10-01,8100.0,7
+chickpea,Punjab,2026-05-01,5075.0,3
+chickpea,Punjab,2026-06-01,5110.0,11
+chickpea,Punjab,2026-07-01,5295.0,3
+chickpea,Punjab,2026-08-01,5630.0,2
+chickpea,Punjab,2026-09-01,5722.5,4
+chickpea,Rajasthan,2026-05-01,5213.0,1314
+chickpea,Rajasthan,2026-06-01,5400.0,1275
+chickpea,Rajasthan,2026-07-01,5425.0,1096
+chickpea,Rajasthan,2026-08-01,5701.0,834
+chickpea,Rajasthan,2026-09-01,5881.0,649
+chickpea,Rajasthan,2026-10-01,6620.0,627
+chickpea,Rajasthan,2026-11-01,6681.0,104
+chickpea,Telangana,2026-05-01,5759.0,63
+chickpea,Telangana,2026-06-01,5822.5,90
+chickpea,Telangana,2026-07-01,5368.0,36
+chickpea,Telangana,2026-08-01,5854.0,16
+chickpea,Telangana,2026-09-01,6002.0,25
+chickpea,Telangana,2026-10-01,6666.0,29
+chickpea,Telangana,2026-11-01,7109.0,5
+chickpea,Uttar Pradesh,2026-05-01,5875.0,158
+chickpea,Uttar Pradesh,2026-06-01,6025.0,114
+chickpea,Uttar Pradesh,2026-07-01,6300.75,81
+chickpea,Uttar Pradesh,2026-08-01,7399.54,68
+chickpea,Uttar Pradesh,2026-09-01,7000.0,15
+chickpea,Uttarakhand,2026-05-01,8114.0,1
+chickpea,Uttarakhand,2026-07-01,7131.5,2
+chickpea,Uttarakhand,2026-08-01,8000.0,1
+chickpea,Uttarakhand,2026-10-01,8331.0,2
+coconut,Andaman And Nicobar,2026-06-01,30.0,15
+coconut,Andaman And Nicobar,2026-07-01,30.0,27
+coconut,Andaman And Nicobar,2026-08-01,30.0,24
+coconut,Andaman And Nicobar,2026-09-01,30.0,29
+coconut,Andaman And Nicobar,2026-10-01,30.0,43
+coconut,Andaman And Nicobar,2026-11-01,765.0,8
+coconut,Andhra Pradesh,2026-06-01,14260.0,7
+coconut,Andhra Pradesh,2026-07-01,15400.0,38
+coconut,Andhra Pradesh,2026-08-01,15400.0,63
+coconut,Andhra Pradesh,2026-09-01,17250.0,58
+coconut,Andhra Pradesh,2026-10-01,17000.0,54
+coconut,Andhra Pradesh,2026-11-01,15750.0,6
+coconut,Goa,2026-05-01,17.0,21
+coconut,Goa,2026-06-01,17.0,100
+coconut,Goa,2026-07-01,17.0,132
+coconut,Goa,2026-08-01,20.0,130
+coconut,Goa,2026-09-01,20.0,94
+coconut,Goa,2026-10-01,19.0,133
+coconut,Goa,2026-11-01,18.625,14
+coconut,Karnataka,2026-05-01,20000.0,146
+coconut,Karnataka,2026-06-01,19000.0,325
+coconut,Karnataka,2026-07-01,20000.0,557
+coconut,Karnataka,2026-08-01,21424.5,598
+coconut,Karnataka,2026-09-01,22000.0,602
+coconut,Karnataka,2026-10-01,22000.0,501
+coconut,Karnataka,2026-11-01,23000.0,47
+coconut,Kerala,2026-05-01,5200.0,221
+coconut,Keralam,2026-05-01,5200.0,314
+coconut,Keralam,2026-06-01,4600.0,315
+coconut,Keralam,2026-07-01,5200.0,321
+coconut,Keralam,2026-08-01,6000.0,310
+coconut,Keralam,2026-09-01,5900.0,301
+coconut,Keralam,2026-10-01,5600.0,293
+coconut,Keralam,2026-11-01,5700.0,40
+coconut,Maharashtra,2026-05-01,4860.0,22
+coconut,Maharashtra,2026-06-01,4520.0,24
+coconut,Maharashtra,2026-07-01,4385.0,26
+coconut,Maharashtra,2026-08-01,3610.0,46
+coconut,Maharashtra,2026-09-01,4015.0,22
+coconut,Maharashtra,2026-10-01,4015.0,26
+coconut,Maharashtra,2026-11-01,4010.0,4
+coconut,Odisha,2026-05-01,19300.0,24
+coconut,Odisha,2026-06-01,16500.0,20
+coconut,Odisha,2026-07-01,17700.0,20
+coconut,Odisha,2026-08-01,20600.0,23
+coconut,Odisha,2026-09-01,24000.0,22
+coconut,Odisha,2026-10-01,24000.0,22
+coconut,Odisha,2026-11-01,24650.0,4
+coconut,Tamil Nadu,2026-05-01,5000.0,5597
+coconut,Tamil Nadu,2026-06-01,4650.0,5432
+coconut,Tamil Nadu,2026-07-01,4900.0,5568
+coconut,Tamil Nadu,2026-08-01,5750.0,5593
+coconut,Tamil Nadu,2026-09-01,5750.0,6775
+coconut,Tamil Nadu,2026-10-01,5750.0,6196
+coconut,Tamil Nadu,2026-11-01,5750.0,904
+coffee,Kerala,2026-05-01,20300.0,66
+coffee,Keralam,2026-05-01,20300.0,98
+coffee,Keralam,2026-06-01,20300.0,97
+coffee,Keralam,2026-07-01,21400.0,100
+coffee,Keralam,2026-08-01,22000.0,95
+coffee,Keralam,2026-09-01,21300.0,88
+coffee,Keralam,2026-10-01,21200.0,93
+coffee,Keralam,2026-11-01,21300.0,14
+cotton,Andhra Pradesh,2026-05-01,9165.5,26
+cotton,Andhra Pradesh,2026-06-01,6975.0,42
+cotton,Andhra Pradesh,2026-07-01,7800.0,201
+cotton,Andhra Pradesh,2026-08-01,8100.0,446
+cotton,Andhra Pradesh,2026-09-01,8100.0,461
+cotton,Andhra Pradesh,2026-10-01,8200.0,441
+cotton,Andhra Pradesh,2026-11-01,8200.0,76
+cotton,Gujarat,2026-05-01,8200.0,634
+cotton,Gujarat,2026-06-01,8145.0,479
+cotton,Gujarat,2026-07-01,8250.0,343
+cotton,Gujarat,2026-08-01,9250.0,252
+cotton,Gujarat,2026-09-01,9000.0,634
+cotton,Gujarat,2026-10-01,9175.0,1261
+cotton,Gujarat,2026-11-01,9000.0,199
+cotton,Haryana,2026-05-01,8200.0,58
+cotton,Haryana,2026-06-01,7194.0,43
+cotton,Haryana,2026-07-01,7125.0,23
+cotton,Haryana,2026-08-01,7601.0,51
+cotton,Haryana,2026-09-01,8650.0,327
+cotton,Haryana,2026-10-01,8600.0,307
+cotton,Haryana,2026-11-01,8680.0,33
+cotton,Karnataka,2026-05-01,8664.0,172
+cotton,Karnataka,2026-06-01,8350.0,20
+cotton,Karnataka,2026-07-01,8972.5,206
+cotton,Karnataka,2026-08-01,9300.0,247
+cotton,Karnataka,2026-09-01,9434.5,406
+cotton,Karnataka,2026-10-01,9300.0,572
+cotton,Karnataka,2026-11-01,9240.0,60
+cotton,Madhya Pradesh,2026-05-01,8100.0,318
+cotton,Madhya Pradesh,2026-06-01,7800.0,84
+cotton,Madhya Pradesh,2026-07-01,8350.0,8
+cotton,Madhya Pradesh,2026-08-01,9012.5,26
+cotton,Madhya Pradesh,2026-09-01,7500.0,443
+cotton,Madhya Pradesh,2026-10-01,8790.0,877
+cotton,Madhya Pradesh,2026-11-01,8700.0,201
+cotton,Maharashtra,2026-05-01,8500.0,427
+cotton,Maharashtra,2026-06-01,8420.07,114
+cotton,Maharashtra,2026-07-01,9025.0,28
+cotton,Maharashtra,2026-08-01,9325.0,7
+cotton,Maharashtra,2026-09-01,8000.0,38
+cotton,Maharashtra,2026-10-01,9200.0,335
+cotton,Maharashtra,2026-11-01,8970.0,129
+cotton,Pondicherry,2026-06-01,9178.0,1
+cotton,Pondicherry,2026-07-01,9207.5,4
+cotton,Pondicherry,2026-08-01,9312.0,3
+cotton,Punjab,2026-09-01,8500.0,78
+cotton,Punjab,2026-10-01,8642.5,150
+cotton,Punjab,2026-11-01,8600.0,19
+cotton,Rajasthan,2026-05-01,7909.0,2
+cotton,Rajasthan,2026-06-01,5353.0,1
+cotton,Rajasthan,2026-07-01,7000.0,1
+cotton,Rajasthan,2026-08-01,7400.0,12
+cotton,Rajasthan,2026-09-01,8500.0,369
+cotton,Rajasthan,2026-10-01,8725.0,896
+cotton,Rajasthan,2026-11-01,8665.5,126
+cotton,Telangana,2026-05-01,7250.0,56
+cotton,Telangana,2026-06-01,7000.0,67
+cotton,Telangana,2026-07-01,7600.0,75
+cotton,Telangana,2026-08-01,8500.0,76
+cotton,Telangana,2026-09-01,8275.0,80
+cotton,Telangana,2026-10-01,8700.0,250
+cotton,Telangana,2026-11-01,8700.0,83
+cotton,Uttar Pradesh,2026-05-01,11505.89,13
+cotton,Uttar Pradesh,2026-06-01,10930.445,18
+cotton,Uttar Pradesh,2026-07-01,9354.845000000001,20
+cotton,Uttar Pradesh,2026-08-01,8027.75,32
+cotton,Uttar Pradesh,2026-09-01,7918.764999999999,100
+cotton,Uttar Pradesh,2026-10-01,8512.14,65
+cotton,Uttar Pradesh,2026-11-01,7730.055,2
+grapes,Assam,2026-06-01,18000.0,3
+grapes,Chattisgarh,2026-05-01,8000.0,51
+grapes,Chattisgarh,2026-06-01,10000.0,33
+grapes,Chattisgarh,2026-07-01,11000.0,11
+grapes,Chattisgarh,2026-09-01,7200.0,1
+grapes,Goa,2026-05-01,4000.0,7
+grapes,Gujarat,2026-05-01,8500.0,37
+grapes,Gujarat,2026-06-01,19250.0,12
+grapes,Gujarat,2026-07-01,39000.0,11
+grapes,Gujarat,2026-08-01,25500.0,18
+grapes,Gujarat,2026-09-01,32000.0,20
+grapes,Gujarat,2026-10-01,22500.0,25
+grapes,Gujarat,2026-11-01,20000.0,5
+grapes,Haryana,2026-05-01,9000.0,186
+grapes,Haryana,2026-06-01,10000.0,51
+grapes,Haryana,2026-07-01,14000.0,13
+grapes,Haryana,2026-08-01,10000.0,44
+grapes,Haryana,2026-09-01,11000.0,50
+grapes,Haryana,2026-10-01,14000.0,70
+grapes,Haryana,2026-11-01,14000.0,16
+grapes,Himachal Pradesh,2026-05-01,12500.0,224
+grapes,Himachal Pradesh,2026-06-01,14000.0,79
+grapes,Himachal Pradesh,2026-07-01,16000.0,51
+grapes,Himachal Pradesh,2026-08-01,16000.0,2
+grapes,Himachal Pradesh,2026-09-01,17000.0,3
+grapes,Himachal Pradesh,2026-10-01,24000.0,3
+grapes,Himachal Pradesh,2026-11-01,9800.0,1
+grapes,Jammu And Kashmir,2026-05-01,10000.0,71
+grapes,Jammu And Kashmir,2026-06-01,17000.0,43
+grapes,Jammu And Kashmir,2026-07-01,26875.0,32
+grapes,Jammu And Kashmir,2026-08-01,22250.0,18
+grapes,Jammu And Kashmir,2026-09-01,24850.0,21
+grapes,Jammu And Kashmir,2026-10-01,17725.0,28
+grapes,Jammu And Kashmir,2026-11-01,23000.0,3
+grapes,Karnataka,2026-05-01,4500.0,162
+grapes,Karnataka,2026-06-01,4000.0,128
+grapes,Karnataka,2026-07-01,4000.0,111
+grapes,Karnataka,2026-08-01,4000.0,66
+grapes,Karnataka,2026-09-01,4000.0,70
+grapes,Karnataka,2026-10-01,5000.0,64
+grapes,Karnataka,2026-11-01,4000.0,7
+grapes,Kerala,2026-05-01,10000.0,115
+grapes,Keralam,2026-05-01,10500.0,157
+grapes,Keralam,2026-06-01,9000.0,171
+grapes,Keralam,2026-07-01,8800.0,159
+grapes,Keralam,2026-08-01,10000.0,141
+grapes,Keralam,2026-09-01,10000.0,146
+grapes,Keralam,2026-10-01,10000.0,150
+grapes,Keralam,2026-11-01,9500.0,14
+grapes,Madhya Pradesh,2026-05-01,3800.0,52
+grapes,Madhya Pradesh,2026-06-01,6000.0,17
+grapes,Madhya Pradesh,2026-07-01,6000.0,1
+grapes,Madhya Pradesh,2026-09-01,9000.0,3
+grapes,Madhya Pradesh,2026-10-01,9500.0,5
+grapes,Maharashtra,2026-05-01,7000.0,101
+grapes,Maharashtra,2026-06-01,7750.0,44
+grapes,Maharashtra,2026-07-01,8500.0,42
+grapes,Maharashtra,2026-08-01,9000.0,74
+grapes,Maharashtra,2026-09-01,6750.0,36
+grapes,Maharashtra,2026-10-01,8500.0,35
+grapes,Maharashtra,2026-11-01,9250.0,8
+grapes,Nct Of Delhi,2026-05-01,9000.0,104
+grapes,Nct Of Delhi,2026-06-01,9833.5,46
+grapes,Nct Of Delhi,2026-07-01,10000.0,21
+grapes,Nct Of Delhi,2026-08-01,10000.0,7
+grapes,Nct Of Delhi,2026-09-01,10400.0,3
+grapes,Nct Of Delhi,2026-10-01,15500.0,11
+grapes,Nct Of Delhi,2026-11-01,15500.0,4
+grapes,Odisha,2026-07-01,7350.0,1
+grapes,Odisha,2026-08-01,8900.0,1
+grapes,Punjab,2026-05-01,8000.0,446
+grapes,Punjab,2026-06-01,7075.0,204
+grapes,Punjab,2026-07-01,7300.0,76
+grapes,Punjab,2026-08-01,7800.0,66
+grapes,Punjab,2026-09-01,8200.0,81
+grapes,Punjab,2026-10-01,5200.0,97
+grapes,Punjab,2026-11-01,7600.0,17
+grapes,Rajasthan,2026-05-01,8500.0,99
+grapes,Rajasthan,2026-06-01,9000.0,65
+grapes,Rajasthan,2026-07-01,11000.0,42
+grapes,Rajasthan,2026-08-01,9500.0,50
+grapes,Rajasthan,2026-09-01,11000.0,35
+grapes,Rajasthan,2026-10-01,8500.0,45
+grapes,Rajasthan,2026-11-01,13500.0,4
+grapes,Tamil Nadu,2026-05-01,10000.0,779
+grapes,Tamil Nadu,2026-06-01,9500.0,742
+grapes,Tamil Nadu,2026-07-01,9750.0,743
+grapes,Tamil Nadu,2026-08-01,10500.0,717
+grapes,Tamil Nadu,2026-09-01,11000.0,875
+grapes,Tamil Nadu,2026-10-01,11000.0,838
+grapes,Tamil Nadu,2026-11-01,10125.0,116
+grapes,Telangana,2026-05-01,4375.0,70
+grapes,Telangana,2026-06-01,2500.0,85
+grapes,Telangana,2026-07-01,5000.0,84
+grapes,Telangana,2026-08-01,5000.0,76
+grapes,Telangana,2026-09-01,7000.0,65
+grapes,Telangana,2026-10-01,7500.0,66
+grapes,Telangana,2026-11-01,7500.0,12
+grapes,Tripura,2026-06-01,19950.0,1
+grapes,Uttar Pradesh,2026-05-01,4905.0,27
+grapes,Uttar Pradesh,2026-06-01,4710.0,20
+grapes,Uttar Pradesh,2026-07-01,4440.0,24
+grapes,Uttar Pradesh,2026-08-01,4250.0,22
+grapes,Uttar Pradesh,2026-09-01,4105.0,21
+grapes,Uttar Pradesh,2026-10-01,3750.0,19
+grapes,Uttar Pradesh,2026-11-01,3707.5,4
+grapes,Uttarakhand,2026-05-01,4600.0,43
+grapes,Uttarakhand,2026-06-01,4600.0,4
+groundnut,Andhra Pradesh,2026-05-01,6888.0,87
+groundnut,Andhra Pradesh,2026-06-01,6500.0,190
+groundnut,Andhra Pradesh,2026-07-01,7200.0,370
+groundnut,Andhra Pradesh,2026-08-01,7250.0,525
+groundnut,Andhra Pradesh,2026-09-01,7399.0,501
+groundnut,Andhra Pradesh,2026-10-01,7500.0,500
+groundnut,Andhra Pradesh,2026-11-01,7500.0,74
+groundnut,Chattisgarh,2026-05-01,7000.0,39
+groundnut,Chattisgarh,2026-06-01,4500.0,71
+groundnut,Chattisgarh,2026-07-01,5125.0,32
+groundnut,Chattisgarh,2026-08-01,5500.0,16
+groundnut,Chattisgarh,2026-09-01,5000.0,16
+groundnut,Chattisgarh,2026-10-01,7000.0,42
+groundnut,Gujarat,2026-05-01,6697.5,830
+groundnut,Gujarat,2026-06-01,6825.0,1018
+groundnut,Gujarat,2026-07-01,6625.0,653
+groundnut,Gujarat,2026-08-01,6600.0,433
+groundnut,Gujarat,2026-09-01,6625.0,481
+groundnut,Gujarat,2026-10-01,7500.0,1295
+groundnut,Gujarat,2026-11-01,7525.0,205
+groundnut,Haryana,2026-08-01,6790.0,3
+groundnut,Haryana,2026-09-01,6830.0,36
+groundnut,Haryana,2026-10-01,6300.0,55
+groundnut,Haryana,2026-11-01,6150.0,5
+groundnut,Karnataka,2026-05-01,6625.0,523
+groundnut,Karnataka,2026-06-01,6893.0,307
+groundnut,Karnataka,2026-07-01,7125.0,251
+groundnut,Karnataka,2026-08-01,6489.0,215
+groundnut,Karnataka,2026-09-01,7220.5,308
+groundnut,Karnataka,2026-10-01,7234.0,285
+groundnut,Karnataka,2026-11-01,8153.5,32
+groundnut,Madhya Pradesh,2026-05-01,7200.0,415
+groundnut,Madhya Pradesh,2026-06-01,7101.0,389
+groundnut,Madhya Pradesh,2026-07-01,7100.0,266
+groundnut,Madhya Pradesh,2026-08-01,7300.0,129
+groundnut,Madhya Pradesh,2026-09-01,7090.5,182
+groundnut,Madhya Pradesh,2026-10-01,6400.0,800
+groundnut,Madhya Pradesh,2026-11-01,6500.0,213
+groundnut,Maharashtra,2026-05-01,7000.0,493
+groundnut,Maharashtra,2026-06-01,7258.0,490
+groundnut,Maharashtra,2026-07-01,7500.0,276
+groundnut,Maharashtra,2026-08-01,7250.0,387
+groundnut,Maharashtra,2026-09-01,6600.0,167
+groundnut,Maharashtra,2026-10-01,7000.0,147
+groundnut,Maharashtra,2026-11-01,9141.0,13
+groundnut,Pondicherry,2026-05-01,10073.75,5
+groundnut,Pondicherry,2026-06-01,11250.0,1
+groundnut,Pondicherry,2026-07-01,11262.5,1
+groundnut,Pondicherry,2026-08-01,12000.0,1
+groundnut,Pondicherry,2026-09-01,9761.875,2
+groundnut,Rajasthan,2026-05-01,7311.0,65
+groundnut,Rajasthan,2026-06-01,6700.0,63
+groundnut,Rajasthan,2026-07-01,6700.0,103
+groundnut,Rajasthan,2026-08-01,6475.0,65
+groundnut,Rajasthan,2026-09-01,7200.0,110
+groundnut,Rajasthan,2026-10-01,6800.0,415
+groundnut,Rajasthan,2026-11-01,7000.0,69
+groundnut,Tamil Nadu,2026-05-01,6750.0,1596
+groundnut,Tamil Nadu,2026-06-01,7000.0,1374
+groundnut,Tamil Nadu,2026-07-01,7000.0,1520
+groundnut,Tamil Nadu,2026-08-01,7000.0,1500
+groundnut,Tamil Nadu,2026-09-01,7000.0,1855
+groundnut,Tamil Nadu,2026-10-01,7000.0,1787
+groundnut,Tamil Nadu,2026-11-01,7000.0,274
+groundnut,Telangana,2026-05-01,7210.0,165
+groundnut,Telangana,2026-06-01,7000.0,163
+groundnut,Telangana,2026-07-01,6105.0,72
+groundnut,Telangana,2026-08-01,6399.0,59
+groundnut,Telangana,2026-09-01,6750.0,99
+groundnut,Telangana,2026-10-01,6539.0,115
+groundnut,Telangana,2026-11-01,7169.0,23
+groundnut,Uttar Pradesh,2026-05-01,9093.285,146
+groundnut,Uttar Pradesh,2026-06-01,6726.24,406
+groundnut,Uttar Pradesh,2026-07-01,7000.0,557
+groundnut,Uttar Pradesh,2026-08-01,6882.93,410
+groundnut,Uttar Pradesh,2026-09-01,7000.0,315
+groundnut,Uttar Pradesh,2026-10-01,7233.675,378
+groundnut,Uttar Pradesh,2026-11-01,7000.0,12
+groundnut,Uttarakhand,2026-06-01,14000.0,1
+groundnut,West Bengal,2026-08-01,9900.0,6
+jowar,Andhra Pradesh,2026-06-01,3727.5,30
+jowar,Andhra Pradesh,2026-07-01,3720.0,54
+jowar,Andhra Pradesh,2026-08-01,3400.0,116
+jowar,Andhra Pradesh,2026-09-01,3400.0,108
+jowar,Andhra Pradesh,2026-10-01,3475.0,114
+jowar,Andhra Pradesh,2026-11-01,3700.0,19
+jowar,Chattisgarh,2026-05-01,2601.0,1
+jowar,Chattisgarh,2026-06-01,1700.0,3
+jowar,Chattisgarh,2026-07-01,1681.0,1
+jowar,Chattisgarh,2026-08-01,2129.0,2
+jowar,Chattisgarh,2026-10-01,4308.0,2
+jowar,Gujarat,2026-05-01,4100.0,587
+jowar,Gujarat,2026-06-01,5000.0,694
+jowar,Gujarat,2026-07-01,5575.0,525
+jowar,Gujarat,2026-08-01,5650.0,419
+jowar,Gujarat,2026-09-01,6110.0,271
+jowar,Gujarat,2026-10-01,6237.5,314
+jowar,Gujarat,2026-11-01,6140.0,45
+jowar,Karnataka,2026-05-01,3190.0,459
+jowar,Karnataka,2026-06-01,3607.0,335
+jowar,Karnataka,2026-07-01,3500.0,379
+jowar,Karnataka,2026-08-01,3087.0,349
+jowar,Karnataka,2026-09-01,2659.0,446
+jowar,Karnataka,2026-10-01,3258.0,396
+jowar,Karnataka,2026-11-01,3750.0,43
+jowar,Madhya Pradesh,2026-05-01,2105.0,57
+jowar,Madhya Pradesh,2026-06-01,2145.5,46
+jowar,Madhya Pradesh,2026-07-01,2200.5,26
+jowar,Madhya Pradesh,2026-08-01,2205.0,12
+jowar,Madhya Pradesh,2026-09-01,2401.0,3
+jowar,Madhya Pradesh,2026-10-01,2515.0,73
+jowar,Madhya Pradesh,2026-11-01,2651.0,45
+jowar,Maharashtra,2026-05-01,2500.0,1753
+jowar,Maharashtra,2026-06-01,2600.0,1701
+jowar,Maharashtra,2026-07-01,2765.0,1598
+jowar,Maharashtra,2026-08-01,2801.0,3018
+jowar,Maharashtra,2026-09-01,3000.5,1778
+jowar,Maharashtra,2026-10-01,4000.0,1518
+jowar,Maharashtra,2026-11-01,4512.0,211
+jowar,Nct Of Delhi,2026-05-01,2900.0,10
+jowar,Nct Of Delhi,2026-06-01,3200.0,3
+jowar,Nct Of Delhi,2026-07-01,2875.0,6
+jowar,Nct Of Delhi,2026-08-01,2800.0,5
+jowar,Nct Of Delhi,2026-09-01,2850.0,7
+jowar,Nct Of Delhi,2026-10-01,2800.0,5
+jowar,Nct Of Delhi,2026-11-01,2800.0,3
+jowar,Rajasthan,2026-05-01,2900.0,32
+jowar,Rajasthan,2026-06-01,3205.5,66
+jowar,Rajasthan,2026-07-01,2700.0,38
+jowar,Rajasthan,2026-08-01,2699.0,27
+jowar,Rajasthan,2026-09-01,2700.0,47
+jowar,Rajasthan,2026-10-01,2850.0,229
+jowar,Rajasthan,2026-11-01,3500.0,43
+jowar,Tamil Nadu,2026-05-01,3200.0,33
+jowar,Tamil Nadu,2026-06-01,3150.0,30
+jowar,Tamil Nadu,2026-07-01,3350.0,33
+jowar,Tamil Nadu,2026-08-01,3050.0,27
+jowar,Tamil Nadu,2026-09-01,3600.0,66
+jowar,Tamil Nadu,2026-10-01,3500.0,37
+jowar,Tamil Nadu,2026-11-01,7050.0,1
+jowar,Telangana,2026-05-01,2305.0,99
+jowar,Telangana,2026-06-01,2591.0,173
+jowar,Telangana,2026-07-01,2213.0,46
+jowar,Telangana,2026-08-01,2352.0,29
+jowar,Telangana,2026-09-01,2337.0,34
+jowar,Telangana,2026-10-01,2626.0,39
+jowar,Telangana,2026-11-01,2489.0,8
+jowar,Uttar Pradesh,2026-05-01,2002.66,87
+jowar,Uttar Pradesh,2026-06-01,1800.0,60
+jowar,Uttar Pradesh,2026-07-01,2502.5,66
+jowar,Uttar Pradesh,2026-08-01,3042.38,21
+jowar,Uttar Pradesh,2026-09-01,2151.885,32
+jowar,Uttar Pradesh,2026-10-01,3025.0,13
+jute,Assam,2026-07-01,9087.5,2
+jute,Assam,2026-08-01,9000.0,3
+jute,Assam,2026-09-01,10650.0,2
+jute,Odisha,2026-10-01,5900.0,2
+jute,Uttar Pradesh,2026-09-01,400.0,1
+jute,Uttar Pradesh,2026-10-01,1750.0,2
+jute,West Bengal,2026-05-01,11300.0,111
+jute,West Bengal,2026-06-01,14600.0,203
+jute,West Bengal,2026-07-01,14500.0,274
+jute,West Bengal,2026-08-01,12000.0,352
+jute,West Bengal,2026-09-01,12300.0,343
+jute,West Bengal,2026-10-01,13600.0,317
+jute,West Bengal,2026-11-01,14000.0,35
+lentil,Assam,2026-05-01,7100.0,75
+lentil,Assam,2026-06-01,7200.0,75
+lentil,Assam,2026-07-01,7320.0,81
+lentil,Assam,2026-08-01,8700.0,78
+lentil,Assam,2026-09-01,8700.0,78
+lentil,Assam,2026-10-01,10800.0,81
+lentil,Assam,2026-11-01,10830.0,12
+lentil,Gujarat,2026-10-01,5400.0,1
+lentil,Madhya Pradesh,2026-05-01,6400.0,2221
+lentil,Madhya Pradesh,2026-06-01,6211.0,1791
+lentil,Madhya Pradesh,2026-07-01,6290.0,1763
+lentil,Madhya Pradesh,2026-08-01,6290.0,1134
+lentil,Madhya Pradesh,2026-09-01,6255.0,1188
+lentil,Madhya Pradesh,2026-10-01,6200.0,1326
+lentil,Madhya Pradesh,2026-11-01,5970.0,299
+lentil,Maharashtra,2026-05-01,7350.0,54
+lentil,Maharashtra,2026-06-01,7450.0,55
+lentil,Maharashtra,2026-07-01,7475.0,54
+lentil,Maharashtra,2026-08-01,7200.0,108
+lentil,Maharashtra,2026-09-01,7150.0,57
+lentil,Maharashtra,2026-10-01,7500.0,50
+lentil,Maharashtra,2026-11-01,7600.0,7
+lentil,Rajasthan,2026-05-01,8335.5,160
+lentil,Rajasthan,2026-06-01,7544.0,121
+lentil,Rajasthan,2026-07-01,7500.0,87
+lentil,Rajasthan,2026-08-01,7133.5,38
+lentil,Rajasthan,2026-09-01,7045.5,30
+lentil,Rajasthan,2026-10-01,7109.0,28
+lentil,Rajasthan,2026-11-01,6058.0,4
+lentil,Tripura,2026-05-01,9000.0,1
+lentil,Uttar Pradesh,2026-05-01,7040.0,43
+lentil,Uttar Pradesh,2026-06-01,7040.0,30
+lentil,Uttar Pradesh,2026-07-01,7050.0,23
+lentil,Uttar Pradesh,2026-08-01,8150.0,22
+lentil,Uttar Pradesh,2026-09-01,9445.0,28
+lentil,Uttar Pradesh,2026-10-01,8150.0,26
+lentil,Uttar Pradesh,2026-11-01,8140.0,3
+lentil,Uttarakhand,2026-06-01,7000.0,2
+lentil,Uttarakhand,2026-07-01,7366.5,2
+lentil,Uttarakhand,2026-08-01,5250.0,1
+lentil,West Bengal,2026-05-01,6500.0,30
+lentil,West Bengal,2026-06-01,6500.0,29
+lentil,West Bengal,2026-07-01,6500.0,30
+lentil,West Bengal,2026-08-01,7500.0,31
+lentil,West Bengal,2026-09-01,7500.0,29
+lentil,West Bengal,2026-10-01,7500.0,31
+lentil,West Bengal,2026-11-01,7500.0,4
+maize,Andhra Pradesh,2026-05-01,1860.0,43
+maize,Andhra Pradesh,2026-06-01,2100.0,285
+maize,Andhra Pradesh,2026-07-01,2400.0,605
+maize,Andhra Pradesh,2026-08-01,2400.0,1136
+maize,Andhra Pradesh,2026-09-01,2400.0,1089
+maize,Andhra Pradesh,2026-10-01,2410.0,1115
+maize,Andhra Pradesh,2026-11-01,2410.0,175
+maize,Arunachal Pradesh,2026-05-01,2150.0,10
+maize,Arunachal Pradesh,2026-06-01,1200.0,12
+maize,Arunachal Pradesh,2026-07-01,1200.0,19
+maize,Arunachal Pradesh,2026-08-01,1200.0,8
+maize,Arunachal Pradesh,2026-10-01,2000.0,1
+maize,Assam,2026-05-01,1800.0,4
+maize,Assam,2026-06-01,1700.0,4
+maize,Assam,2026-07-01,1850.0,8
+maize,Assam,2026-08-01,1987.5,4
+maize,Assam,2026-09-01,1850.0,1
+maize,Assam,2026-10-01,1850.0,1
+maize,Bihar,2026-06-01,1950.0,36
+maize,Bihar,2026-08-01,2262.5,20
+maize,Bihar,2026-09-01,2350.0,3
+maize,Bihar,2026-10-01,2200.0,15
+maize,Bihar,2026-11-01,2380.0,3
+maize,Chattisgarh,2026-05-01,1725.0,485
+maize,Chattisgarh,2026-06-01,1750.0,552
+maize,Chattisgarh,2026-07-01,1850.0,401
+maize,Chattisgarh,2026-08-01,2000.0,333
+maize,Chattisgarh,2026-09-01,2000.0,215
+maize,Chattisgarh,2026-10-01,2200.0,224
+maize,Chattisgarh,2026-11-01,2400.0,61
+maize,Gujarat,2026-05-01,2000.0,482
+maize,Gujarat,2026-06-01,2100.0,408
+maize,Gujarat,2026-07-01,2350.0,292
+maize,Gujarat,2026-08-01,2400.0,230
+maize,Gujarat,2026-09-01,2450.0,214
+maize,Gujarat,2026-10-01,2500.0,356
+maize,Gujarat,2026-11-01,2550.0,81
+maize,Haryana,2026-05-01,1908.0,10
+maize,Haryana,2026-06-01,1575.0,301
+maize,Haryana,2026-07-01,1560.0,161
+maize,Haryana,2026-08-01,2000.0,10
+maize,Haryana,2026-09-01,2200.0,18
+maize,Karnataka,2026-05-01,1910.0,1809
+maize,Karnataka,2026-06-01,2104.0,1019
+maize,Karnataka,2026-07-01,2400.0,871
+maize,Karnataka,2026-08-01,2482.0,742
+maize,Karnataka,2026-09-01,2531.5,1066
+maize,Karnataka,2026-10-01,2590.0,1458
+maize,Karnataka,2026-11-01,3031.0,169
+maize,Madhya Pradesh,2026-05-01,1895.0,3078
+maize,Madhya Pradesh,2026-06-01,1951.0,2045
+maize,Madhya Pradesh,2026-07-01,2150.0,1687
+maize,Madhya Pradesh,2026-08-01,2200.0,1202
+maize,Madhya Pradesh,2026-09-01,2076.0,1614
+maize,Madhya Pradesh,2026-10-01,2300.0,6140
+maize,Madhya Pradesh,2026-11-01,2585.0,1499
+maize,Maharashtra,2026-05-01,1821.0,1358
+maize,Maharashtra,2026-06-01,2001.0,1149
+maize,Maharashtra,2026-07-01,2200.5,1002
+maize,Maharashtra,2026-08-01,2260.0,1718
+maize,Maharashtra,2026-09-01,2350.0,1052
+maize,Maharashtra,2026-10-01,2430.0,1680
+maize,Maharashtra,2026-11-01,2711.0,283
+maize,Nagaland,2026-05-01,2550.0,1
+maize,Nagaland,2026-06-01,2300.0,1
+maize,Nagaland,2026-07-01,3000.0,1
+maize,Nagaland,2026-09-01,2250.0,1
+maize,Nct Of Delhi,2026-05-01,2200.0,6
+maize,Nct Of Delhi,2026-06-01,1700.0,35
+maize,Nct Of Delhi,2026-07-01,1623.5,14
+maize,Nct Of Delhi,2026-08-01,2200.0,8
+maize,Nct Of Delhi,2026-09-01,2347.5,14
+maize,Nct Of Delhi,2026-10-01,2379.5,24
+maize,Nct Of Delhi,2026-11-01,2490.5,4
+maize,Odisha,2026-05-01,2000.0,29
+maize,Odisha,2026-06-01,2000.0,17
+maize,Odisha,2026-07-01,2180.0,18
+maize,Odisha,2026-08-01,2085.0,26
+maize,Odisha,2026-09-01,2185.0,21
+maize,Odisha,2026-10-01,2200.0,14
+maize,Pondicherry,2026-06-01,2256.0,1
+maize,Punjab,2026-05-01,2000.0,1
+maize,Punjab,2026-06-01,1940.0,239
+maize,Punjab,2026-07-01,1932.5,290
+maize,Punjab,2026-08-01,2092.5,86
+maize,Punjab,2026-09-01,2300.0,32
+maize,Punjab,2026-10-01,1750.0,18
+maize,Punjab,2026-11-01,1725.0,4
+maize,Rajasthan,2026-05-01,1856.0,329
+maize,Rajasthan,2026-06-01,1875.0,302
+maize,Rajasthan,2026-07-01,2025.0,281
+maize,Rajasthan,2026-08-01,2150.0,165
+maize,Rajasthan,2026-09-01,2100.0,225
+maize,Rajasthan,2026-10-01,2208.0,686
+maize,Rajasthan,2026-11-01,2528.5,112
+maize,Tamil Nadu,2026-05-01,1978.0,278
+maize,Tamil Nadu,2026-06-01,2105.5,402
+maize,Tamil Nadu,2026-07-01,2460.0,359
+maize,Tamil Nadu,2026-08-01,2568.25,300
+maize,Tamil Nadu,2026-09-01,2636.0,580
+maize,Tamil Nadu,2026-10-01,2594.25,256
+maize,Tamil Nadu,2026-11-01,2800.0,10
+maize,Telangana,2026-05-01,2000.0,621
+maize,Telangana,2026-06-01,2025.0,653
+maize,Telangana,2026-07-01,2276.0,259
+maize,Telangana,2026-08-01,2354.5,198
+maize,Telangana,2026-09-01,2372.0,253
+maize,Telangana,2026-10-01,2580.0,549
+maize,Telangana,2026-11-01,2924.0,94
+maize,Uttar Pradesh,2026-05-01,1824.74,909
+maize,Uttar Pradesh,2026-06-01,1850.0,2817
+maize,Uttar Pradesh,2026-07-01,1931.84,2795
+maize,Uttar Pradesh,2026-08-01,2000.0,2192
+maize,Uttar Pradesh,2026-09-01,2128.57,1587
+maize,Uttar Pradesh,2026-10-01,2200.0,889
+maize,Uttar Pradesh,2026-11-01,2300.0,22
+maize,Uttarakhand,2026-05-01,2500.0,1
+maize,Uttarakhand,2026-06-01,1500.0,8
+maize,Uttarakhand,2026-07-01,1500.0,23
+maize,Uttarakhand,2026-08-01,1400.0,27
+maize,Uttarakhand,2026-09-01,1500.0,19
+maize,Uttarakhand,2026-10-01,1700.0,2
+maize,West Bengal,2026-05-01,2450.0,22
+maize,West Bengal,2026-06-01,2450.0,25
+maize,West Bengal,2026-07-01,2450.0,27
+maize,West Bengal,2026-08-01,2550.0,28
+maize,West Bengal,2026-09-01,2550.0,25
+maize,West Bengal,2026-10-01,2500.0,26
+maize,West Bengal,2026-11-01,2475.0,5
+mango,Andaman And Nicobar,2026-05-01,3000.0,13
+mango,Andhra Pradesh,2026-05-01,1600.0,320
+mango,Andhra Pradesh,2026-06-01,1750.0,341
+mango,Andhra Pradesh,2026-07-01,1700.0,148
+mango,Andhra Pradesh,2026-08-01,2450.0,66
+mango,Andhra Pradesh,2026-09-01,1150.0,68
+mango,Andhra Pradesh,2026-10-01,1150.0,65
+mango,Andhra Pradesh,2026-11-01,1150.0,10
+mango,Assam,2026-06-01,5600.0,4
+mango,Bihar,2026-06-01,3650.0,12
+mango,Bihar,2026-07-01,6200.0,26
+mango,Bihar,2026-08-01,8800.0,8
+mango,Chandigarh,2026-05-01,9500.0,4
+mango,Chandigarh,2026-06-01,5000.0,15
+mango,Chandigarh,2026-07-01,6000.0,24
+mango,Chandigarh,2026-08-01,7000.0,24
+mango,Chandigarh,2026-09-01,9000.0,1
+mango,Chattisgarh,2026-05-01,6000.0,50
+mango,Chattisgarh,2026-06-01,4200.0,54
+mango,Chattisgarh,2026-07-01,6000.0,52
+mango,Chattisgarh,2026-08-01,6000.0,66
+mango,Chattisgarh,2026-09-01,6800.0,19
+mango,Goa,2026-05-01,5500.0,21
+mango,Goa,2026-06-01,5500.0,25
+mango,Goa,2026-07-01,5000.0,31
+mango,Goa,2026-08-01,5000.0,18
+mango,Goa,2026-09-01,5000.0,1
+mango,Goa,2026-10-01,6000.0,2
+mango,Goa,2026-11-01,7000.0,1
+mango,Gujarat,2026-05-01,5300.0,562
+mango,Gujarat,2026-06-01,4500.0,441
+mango,Gujarat,2026-07-01,3000.0,183
+mango,Gujarat,2026-08-01,6000.0,43
+mango,Gujarat,2026-09-01,15625.0,30
+mango,Gujarat,2026-10-01,9850.0,53
+mango,Gujarat,2026-11-01,7500.0,11
+mango,Haryana,2026-05-01,5000.0,829
+mango,Haryana,2026-06-01,4000.0,969
+mango,Haryana,2026-07-01,4000.0,1101
+mango,Haryana,2026-08-01,6000.0,473
+mango,Haryana,2026-09-01,11000.0,18
+mango,Haryana,2026-10-01,15000.0,15
+mango,Haryana,2026-11-01,20000.0,2
+mango,Himachal Pradesh,2026-05-01,6500.0,447
+mango,Himachal Pradesh,2026-06-01,6000.0,501
+mango,Himachal Pradesh,2026-07-01,6500.0,582
+mango,Himachal Pradesh,2026-08-01,9500.0,221
+mango,Himachal Pradesh,2026-09-01,23500.0,5
+mango,Himachal Pradesh,2026-10-01,8000.0,1
+mango,Jammu And Kashmir,2026-05-01,6000.0,238
+mango,Jammu And Kashmir,2026-06-01,5000.0,187
+mango,Jammu And Kashmir,2026-07-01,6250.0,261
+mango,Jammu And Kashmir,2026-08-01,8500.0,51
+mango,Karnataka,2026-05-01,2500.0,646
+mango,Karnataka,2026-06-01,2000.0,344
+mango,Karnataka,2026-07-01,1200.0,251
+mango,Karnataka,2026-08-01,3000.0,55
+mango,Karnataka,2026-09-01,5750.0,2
+mango,Karnataka,2026-10-01,6250.0,12
+mango,Kerala,2026-05-01,3600.0,493
+mango,Keralam,2026-05-01,3500.0,689
+mango,Keralam,2026-06-01,3500.0,698
+mango,Keralam,2026-07-01,4000.0,697
+mango,Keralam,2026-08-01,6000.0,590
+mango,Keralam,2026-09-01,8000.0,523
+mango,Keralam,2026-10-01,9200.0,505
+mango,Keralam,2026-11-01,7800.0,75
+mango,Madhya Pradesh,2026-05-01,3000.0,289
+mango,Madhya Pradesh,2026-06-01,2500.0,418
+mango,Madhya Pradesh,2026-07-01,3000.0,356
+mango,Madhya Pradesh,2026-08-01,4500.0,70
+mango,Madhya Pradesh,2026-09-01,4000.0,2
+mango,Madhya Pradesh,2026-10-01,5000.0,2
+mango,Maharashtra,2026-05-01,3000.0,1075
+mango,Maharashtra,2026-06-01,3250.0,848
+mango,Maharashtra,2026-07-01,3000.0,543
+mango,Maharashtra,2026-08-01,4200.0,290
+mango,Maharashtra,2026-09-01,4500.0,54
+mango,Maharashtra,2026-10-01,6500.0,53
+mango,Maharashtra,2026-11-01,5000.0,13
+mango,Meghalaya,2026-06-01,4000.0,1
+mango,Mizoram,2026-06-01,2500.0,1
+mango,Mizoram,2026-07-01,4500.0,1
+mango,Nagaland,2026-07-01,2800.0,1
+mango,Nct Of Delhi,2026-05-01,4000.0,439
+mango,Nct Of Delhi,2026-06-01,3714.0,312
+mango,Nct Of Delhi,2026-07-01,3714.0,301
+mango,Nct Of Delhi,2026-08-01,6100.0,164
+mango,Nct Of Delhi,2026-09-01,8375.0,80
+mango,Nct Of Delhi,2026-10-01,8036.0,74
+mango,Nct Of Delhi,2026-11-01,8036.0,9
+mango,Odisha,2026-05-01,3500.0,163
+mango,Odisha,2026-06-01,2500.0,169
+mango,Odisha,2026-07-01,3000.0,81
+mango,Odisha,2026-08-01,4000.0,24
+mango,Punjab,2026-05-01,6000.0,707
+mango,Punjab,2026-06-01,5300.0,955
+mango,Punjab,2026-07-01,4800.0,1171
+mango,Punjab,2026-08-01,5500.0,688
+mango,Punjab,2026-09-01,5000.0,33
+mango,Punjab,2026-10-01,5200.0,9
+mango,Punjab,2026-11-01,5100.0,4
+mango,Rajasthan,2026-05-01,4000.0,365
+mango,Rajasthan,2026-06-01,3000.0,367
+mango,Rajasthan,2026-07-01,3500.0,270
+mango,Rajasthan,2026-08-01,6500.0,150
+mango,Rajasthan,2026-09-01,9000.0,16
+mango,Rajasthan,2026-10-01,11000.0,13
+mango,Tamil Nadu,2026-05-01,2750.0,7304
+mango,Tamil Nadu,2026-06-01,2750.0,7791
+mango,Tamil Nadu,2026-07-01,3000.0,7552
+mango,Tamil Nadu,2026-08-01,5500.0,5146
+mango,Tamil Nadu,2026-09-01,9000.0,3425
+mango,Tamil Nadu,2026-10-01,9500.0,2885
+mango,Tamil Nadu,2026-11-01,7000.0,491
+mango,Telangana,2026-05-01,2400.0,452
+mango,Telangana,2026-06-01,2000.0,462
+mango,Telangana,2026-07-01,2777.8,228
+mango,Telangana,2026-08-01,3000.0,71
+mango,Telangana,2026-09-01,2600.0,27
+mango,Telangana,2026-10-01,4000.0,29
+mango,Telangana,2026-11-01,4000.0,8
+mango,Tripura,2026-05-01,7950.0,2
+mango,Tripura,2026-06-01,4450.0,2
+mango,Uttar Pradesh,2026-05-01,3800.0,21
+mango,Uttar Pradesh,2026-06-01,2550.0,137
+mango,Uttar Pradesh,2026-07-01,2500.0,250
+mango,Uttar Pradesh,2026-08-01,2943.5,66
+mango,Uttarakhand,2026-05-01,4500.0,160
+mango,Uttarakhand,2026-06-01,2200.0,325
+mango,Uttarakhand,2026-07-01,2062.0,470
+mango,Uttarakhand,2026-08-01,2700.0,184
+mango,Uttarakhand,2026-09-01,2750.0,2
+mango,West Bengal,2026-06-01,4000.0,27
+mango,West Bengal,2026-07-01,5600.0,29
+mango,West Bengal,2026-08-01,7800.0,29
+mango,West Bengal,2026-09-01,8700.0,4
+mungbean,Andaman And Nicobar,2026-05-01,9500.0,48
+mungbean,Andaman And Nicobar,2026-06-01,9500.0,39
+mungbean,Andaman And Nicobar,2026-07-01,9500.0,27
+mungbean,Andaman And Nicobar,2026-08-01,9500.0,24
+mungbean,Andaman And Nicobar,2026-09-01,9500.0,26
+mungbean,Andaman And Nicobar,2026-10-01,9500.0,23
+mungbean,Andaman And Nicobar,2026-11-01,9500.0,4
+mungbean,Andhra Pradesh,2026-07-01,7000.0,34
+mungbean,Andhra Pradesh,2026-08-01,7000.0,72
+mungbean,Andhra Pradesh,2026-09-01,7500.0,67
+mungbean,Andhra Pradesh,2026-10-01,8000.0,64
+mungbean,Andhra Pradesh,2026-11-01,8500.0,9
+mungbean,Chattisgarh,2026-05-01,5928.5,14
+mungbean,Chattisgarh,2026-06-01,6060.0,57
+mungbean,Chattisgarh,2026-07-01,6112.0,67
+mungbean,Chattisgarh,2026-08-01,6080.0,25
+mungbean,Chattisgarh,2026-09-01,6500.0,23
+mungbean,Chattisgarh,2026-10-01,6890.0,23
+mungbean,Chattisgarh,2026-11-01,6750.0,2
+mungbean,Gujarat,2026-05-01,8000.0,532
+mungbean,Gujarat,2026-06-01,7825.0,696
+mungbean,Gujarat,2026-07-01,7600.0,469
+mungbean,Gujarat,2026-08-01,7242.5,292
+mungbean,Gujarat,2026-09-01,7250.0,217
+mungbean,Gujarat,2026-10-01,7775.0,361
+mungbean,Gujarat,2026-11-01,7787.5,62
+mungbean,Haryana,2026-06-01,7000.0,20
+mungbean,Haryana,2026-07-01,6500.0,64
+mungbean,Haryana,2026-08-01,6500.0,7
+mungbean,Haryana,2026-09-01,7470.0,39
+mungbean,Haryana,2026-10-01,7860.5,22
+mungbean,Haryana,2026-11-01,7457.5,2
+mungbean,Karnataka,2026-05-01,6400.0,295
+mungbean,Karnataka,2026-06-01,5670.0,223
+mungbean,Karnataka,2026-07-01,6302.5,254
+mungbean,Karnataka,2026-08-01,8196.5,494
+mungbean,Karnataka,2026-09-01,8188.0,597
+mungbean,Karnataka,2026-10-01,8349.0,423
+mungbean,Karnataka,2026-11-01,8215.5,30
+mungbean,Kerala,2026-05-01,12300.0,48
+mungbean,Keralam,2026-05-01,12300.0,66
+mungbean,Keralam,2026-06-01,12500.0,67
+mungbean,Keralam,2026-07-01,12400.0,73
+mungbean,Keralam,2026-08-01,12100.0,66
+mungbean,Keralam,2026-09-01,11800.0,70
+mungbean,Keralam,2026-10-01,12100.0,67
+mungbean,Keralam,2026-11-01,11800.0,10
+mungbean,Madhya Pradesh,2026-05-01,7200.0,1860
+mungbean,Madhya Pradesh,2026-06-01,6895.0,2966
+mungbean,Madhya Pradesh,2026-07-01,6750.0,2829
+mungbean,Madhya Pradesh,2026-08-01,6740.0,1791
+mungbean,Madhya Pradesh,2026-09-01,7105.0,1486
+mungbean,Madhya Pradesh,2026-10-01,7551.0,1169
+mungbean,Madhya Pradesh,2026-11-01,7400.0,200
+mungbean,Maharashtra,2026-05-01,7200.0,649
+mungbean,Maharashtra,2026-06-01,6800.0,673
+mungbean,Maharashtra,2026-07-01,6702.0,439
+mungbean,Maharashtra,2026-08-01,7025.0,1062
+mungbean,Maharashtra,2026-09-01,8900.0,1858
+mungbean,Maharashtra,2026-10-01,9000.0,1327
+mungbean,Maharashtra,2026-11-01,8720.0,134
+mungbean,Manipur,2026-05-01,14500.0,1
+mungbean,Nct Of Delhi,2026-05-01,5000.0,6
+mungbean,Nct Of Delhi,2026-06-01,6500.0,19
+mungbean,Nct Of Delhi,2026-07-01,6100.0,29
+mungbean,Nct Of Delhi,2026-08-01,5681.0,17
+mungbean,Nct Of Delhi,2026-09-01,5900.0,10
+mungbean,Nct Of Delhi,2026-10-01,9150.0,2
+mungbean,Pondicherry,2026-05-01,6334.5,10
+mungbean,Pondicherry,2026-06-01,6119.0,10
+mungbean,Pondicherry,2026-07-01,6259.0,5
+mungbean,Pondicherry,2026-08-01,6369.0,1
+mungbean,Pondicherry,2026-10-01,8310.0,1
+mungbean,Pondicherry,2026-11-01,8019.0,1
+mungbean,Punjab,2026-05-01,7400.0,3
+mungbean,Punjab,2026-06-01,7600.0,23
+mungbean,Punjab,2026-07-01,6615.0,26
+mungbean,Punjab,2026-08-01,5700.0,14
+mungbean,Punjab,2026-09-01,7090.0,10
+mungbean,Punjab,2026-10-01,6115.0,2
+mungbean,Rajasthan,2026-05-01,6781.0,318
+mungbean,Rajasthan,2026-06-01,6750.0,512
+mungbean,Rajasthan,2026-07-01,6500.0,548
+mungbean,Rajasthan,2026-08-01,6440.0,428
+mungbean,Rajasthan,2026-09-01,7600.0,846
+mungbean,Rajasthan,2026-10-01,8088.335,1006
+mungbean,Rajasthan,2026-11-01,8000.0,128
+mungbean,Telangana,2026-05-01,7053.5,38
+mungbean,Telangana,2026-06-01,7096.0,78
+mungbean,Telangana,2026-07-01,6850.5,46
+mungbean,Telangana,2026-08-01,7373.5,92
+mungbean,Telangana,2026-09-01,6869.0,179
+mungbean,Telangana,2026-10-01,7247.0,147
+mungbean,Telangana,2026-11-01,6725.5,20
+mungbean,Uttar Pradesh,2026-05-01,7000.0,365
+mungbean,Uttar Pradesh,2026-06-01,6700.0,991
+mungbean,Uttar Pradesh,2026-07-01,6750.0,671
+mungbean,Uttar Pradesh,2026-08-01,8768.0,867
+mungbean,Uttar Pradesh,2026-09-01,8768.0,833
+mungbean,Uttar Pradesh,2026-10-01,7605.13,203
+mungbean,Uttarakhand,2026-08-01,6900.0,1
+mungbean,Uttarakhand,2026-10-01,8500.0,1
+mungbean,West Bengal,2026-06-01,9700.0,1
+muskmelon,Chattisgarh,2026-05-01,2000.0,52
+muskmelon,Chattisgarh,2026-06-01,2000.0,26
+muskmelon,Gujarat,2026-05-01,1200.0,69
+muskmelon,Gujarat,2026-06-01,1325.0,20
+muskmelon,Gujarat,2026-07-01,2250.0,2
+muskmelon,Gujarat,2026-08-01,2000.0,1
+muskmelon,Haryana,2026-05-01,1500.0,609
+muskmelon,Haryana,2026-06-01,1750.0,383
+muskmelon,Haryana,2026-07-01,3000.0,18
+muskmelon,Haryana,2026-08-01,4500.0,6
+muskmelon,Haryana,2026-09-01,4500.0,18
+muskmelon,Haryana,2026-10-01,5500.0,13
+muskmelon,Haryana,2026-11-01,5500.0,2
+muskmelon,Himachal Pradesh,2026-05-01,2500.0,443
+muskmelon,Himachal Pradesh,2026-06-01,2750.0,369
+muskmelon,Himachal Pradesh,2026-07-01,3700.0,100
+muskmelon,Himachal Pradesh,2026-08-01,7500.0,45
+muskmelon,Himachal Pradesh,2026-09-01,9250.0,20
+muskmelon,Himachal Pradesh,2026-10-01,10000.0,14
+muskmelon,Himachal Pradesh,2026-11-01,7750.0,2
+muskmelon,Jammu And Kashmir,2026-05-01,2875.0,148
+muskmelon,Jammu And Kashmir,2026-06-01,3000.0,77
+muskmelon,Jammu And Kashmir,2026-07-01,5450.0,46
+muskmelon,Jammu And Kashmir,2026-08-01,4650.0,18
+muskmelon,Jammu And Kashmir,2026-09-01,6575.0,14
+muskmelon,Jammu And Kashmir,2026-10-01,9500.0,19
+muskmelon,Jammu And Kashmir,2026-11-01,3625.0,2
+muskmelon,Karnataka,2026-05-01,2275.0,118
+muskmelon,Karnataka,2026-06-01,1800.0,83
+muskmelon,Karnataka,2026-07-01,1500.0,97
+muskmelon,Karnataka,2026-08-01,1500.0,63
+muskmelon,Karnataka,2026-09-01,1600.0,63
+muskmelon,Karnataka,2026-10-01,2500.0,56
+muskmelon,Karnataka,2026-11-01,2475.0,8
+muskmelon,Madhya Pradesh,2026-05-01,1200.0,263
+muskmelon,Madhya Pradesh,2026-06-01,1200.0,122
+muskmelon,Madhya Pradesh,2026-07-01,1600.0,9
+muskmelon,Madhya Pradesh,2026-08-01,1600.0,4
+muskmelon,Madhya Pradesh,2026-09-01,2500.0,11
+muskmelon,Madhya Pradesh,2026-10-01,2500.0,5
+muskmelon,Maharashtra,2026-05-01,1900.0,247
+muskmelon,Maharashtra,2026-06-01,2250.0,61
+muskmelon,Maharashtra,2026-07-01,2650.0,57
+muskmelon,Maharashtra,2026-08-01,2250.0,72
+muskmelon,Maharashtra,2026-09-01,2750.0,36
+muskmelon,Maharashtra,2026-10-01,2500.0,83
+muskmelon,Maharashtra,2026-11-01,2000.0,15
+muskmelon,Meghalaya,2026-06-01,3200.0,1
+muskmelon,Meghalaya,2026-07-01,3200.0,6
+muskmelon,Meghalaya,2026-08-01,3600.0,4
+muskmelon,Nct Of Delhi,2026-05-01,2980.0,90
+muskmelon,Nct Of Delhi,2026-06-01,2540.0,57
+muskmelon,Nct Of Delhi,2026-07-01,3758.5,26
+muskmelon,Nct Of Delhi,2026-08-01,4885.0,22
+muskmelon,Nct Of Delhi,2026-09-01,4635.0,24
+muskmelon,Nct Of Delhi,2026-10-01,3849.0,25
+muskmelon,Nct Of Delhi,2026-11-01,3815.5,4
+muskmelon,Punjab,2026-05-01,1600.0,682
+muskmelon,Punjab,2026-06-01,1500.0,558
+muskmelon,Punjab,2026-07-01,2300.0,47
+muskmelon,Punjab,2026-08-01,2870.0,32
+muskmelon,Punjab,2026-09-01,3250.0,19
+muskmelon,Punjab,2026-10-01,3030.0,17
+muskmelon,Punjab,2026-11-01,2600.0,12
+muskmelon,Rajasthan,2026-05-01,1400.0,162
+muskmelon,Rajasthan,2026-06-01,1700.0,112
+muskmelon,Rajasthan,2026-07-01,1750.0,33
+muskmelon,Rajasthan,2026-08-01,2000.0,22
+muskmelon,Rajasthan,2026-09-01,2000.0,24
+muskmelon,Rajasthan,2026-10-01,2125.0,30
+muskmelon,Rajasthan,2026-11-01,2500.0,4
+muskmelon,Tamil Nadu,2026-05-01,2750.0,678
+muskmelon,Tamil Nadu,2026-06-01,3250.0,386
+muskmelon,Tamil Nadu,2026-07-01,3500.0,284
+muskmelon,Tamil Nadu,2026-08-01,4000.0,243
+muskmelon,Tamil Nadu,2026-09-01,4750.0,322
+muskmelon,Tamil Nadu,2026-10-01,4750.0,271
+muskmelon,Tamil Nadu,2026-11-01,4750.0,36
+muskmelon,Telangana,2026-05-01,800.0,31
+muskmelon,Telangana,2026-06-01,800.0,53
+muskmelon,Telangana,2026-07-01,800.0,36
+muskmelon,Telangana,2026-08-01,600.0,31
+muskmelon,Telangana,2026-09-01,600.0,32
+muskmelon,Telangana,2026-10-01,600.0,35
+muskmelon,Telangana,2026-11-01,600.0,5
+muskmelon,Uttar Pradesh,2026-05-01,1700.0,205
+muskmelon,Uttar Pradesh,2026-06-01,1415.0,85
+muskmelon,Uttar Pradesh,2026-07-01,1950.0,7
+muskmelon,Uttarakhand,2026-05-01,1400.0,302
+muskmelon,Uttarakhand,2026-06-01,1100.0,130
+muskmelon,Uttarakhand,2026-07-01,1500.0,12
+mustard,Assam,2026-05-01,6200.0,1
+mustard,Assam,2026-07-01,6832.5,4
+mustard,Assam,2026-09-01,7150.0,1
+mustard,Assam,2026-10-01,6200.0,3
+mustard,Assam,2026-11-01,6200.0,1
+mustard,Bihar,2026-10-01,6175.0,4
+mustard,Chattisgarh,2026-05-01,6150.0,35
+mustard,Chattisgarh,2026-06-01,6552.0,33
+mustard,Chattisgarh,2026-07-01,6691.0,28
+mustard,Chattisgarh,2026-08-01,6925.0,27
+mustard,Chattisgarh,2026-09-01,6841.5,24
+mustard,Chattisgarh,2026-10-01,7300.0,28
+mustard,Chattisgarh,2026-11-01,7730.0,4
+mustard,Gujarat,2026-05-01,6532.0,751
+mustard,Gujarat,2026-06-01,6917.0,673
+mustard,Gujarat,2026-07-01,7185.0,504
+mustard,Gujarat,2026-08-01,7500.0,440
+mustard,Gujarat,2026-09-01,7522.5,334
+mustard,Gujarat,2026-10-01,8075.0,409
+mustard,Gujarat,2026-11-01,8375.0,47
+mustard,Haryana,2026-05-01,6600.0,319
+mustard,Haryana,2026-06-01,7200.0,227
+mustard,Haryana,2026-07-01,7300.0,218
+mustard,Haryana,2026-08-01,7600.0,178
+mustard,Haryana,2026-09-01,7694.0,148
+mustard,Haryana,2026-10-01,8200.0,97
+mustard,Haryana,2026-11-01,8500.0,16
+mustard,Karnataka,2026-05-01,10000.0,77
+mustard,Karnataka,2026-06-01,6648.0,50
+mustard,Karnataka,2026-07-01,8800.0,51
+mustard,Karnataka,2026-08-01,8129.0,50
+mustard,Karnataka,2026-09-01,8712.5,48
+mustard,Karnataka,2026-10-01,7643.0,49
+mustard,Karnataka,2026-11-01,9809.5,6
+mustard,Madhya Pradesh,2026-05-01,6800.0,3729
+mustard,Madhya Pradesh,2026-06-01,7120.0,3012
+mustard,Madhya Pradesh,2026-07-01,7213.0,2637
+mustard,Madhya Pradesh,2026-08-01,7400.0,1756
+mustard,Madhya Pradesh,2026-09-01,7359.0,1961
+mustard,Madhya Pradesh,2026-10-01,7853.5,2034
+mustard,Madhya Pradesh,2026-11-01,8081.0,361
+mustard,Maharashtra,2026-05-01,6552.0,122
+mustard,Maharashtra,2026-06-01,6803.0,122
+mustard,Maharashtra,2026-07-01,7150.0,102
+mustard,Maharashtra,2026-08-01,7000.0,165
+mustard,Maharashtra,2026-09-01,7300.0,60
+mustard,Maharashtra,2026-10-01,8500.0,59
+mustard,Maharashtra,2026-11-01,9425.0,8
+mustard,Mizoram,2026-06-01,6000.0,2
+mustard,Nct Of Delhi,2026-05-01,6571.0,66
+mustard,Nct Of Delhi,2026-06-01,7200.0,35
+mustard,Nct Of Delhi,2026-07-01,7275.0,22
+mustard,Nct Of Delhi,2026-08-01,7462.0,19
+mustard,Nct Of Delhi,2026-09-01,7600.0,25
+mustard,Nct Of Delhi,2026-10-01,7950.0,19
+mustard,Nct Of Delhi,2026-11-01,8150.0,3
+mustard,Punjab,2026-05-01,6910.5,8
+mustard,Punjab,2026-06-01,7135.0,14
+mustard,Punjab,2026-07-01,7015.0,7
+mustard,Punjab,2026-08-01,7557.0,10
+mustard,Punjab,2026-09-01,7561.0,9
+mustard,Punjab,2026-10-01,7690.0,3
+mustard,Rajasthan,2026-05-01,6802.0,2333
+mustard,Rajasthan,2026-06-01,7250.0,2228
+mustard,Rajasthan,2026-07-01,7430.0,2096
+mustard,Rajasthan,2026-08-01,7639.0,1728
+mustard,Rajasthan,2026-09-01,7650.0,1533
+mustard,Rajasthan,2026-10-01,8190.0,1498
+mustard,Rajasthan,2026-11-01,8582.0,198
+mustard,Telangana,2026-05-01,5555.0,1
+mustard,Telangana,2026-06-01,6455.0,1
+mustard,Uttar Pradesh,2026-05-01,6400.0,1217
+mustard,Uttar Pradesh,2026-06-01,6866.125,934
+mustard,Uttar Pradesh,2026-07-01,7000.0,891
+mustard,Uttar Pradesh,2026-08-01,7025.95,777
+mustard,Uttar Pradesh,2026-09-01,7096.62,782
+mustard,Uttar Pradesh,2026-10-01,7500.0,746
+mustard,Uttar Pradesh,2026-11-01,7844.72,13
+mustard,Uttarakhand,2026-06-01,7000.0,1
+mustard,Uttarakhand,2026-08-01,6500.0,1
+mustard,Uttarakhand,2026-10-01,7000.0,1
+mustard,West Bengal,2026-05-01,6400.0,278
+mustard,West Bengal,2026-06-01,6400.0,298
+mustard,West Bengal,2026-07-01,6400.0,328
+mustard,West Bengal,2026-08-01,6450.0,318
+mustard,West Bengal,2026-09-01,6442.5,304
+mustard,West Bengal,2026-10-01,6500.0,301
+mustard,West Bengal,2026-11-01,6550.0,46
+onion,Andaman And Nicobar,2026-08-01,4500.0,1
+onion,Andaman And Nicobar,2026-09-01,5000.0,1
+onion,Andhra Pradesh,2026-05-01,847.0,9
+onion,Andhra Pradesh,2026-07-01,2800.0,13
+onion,Andhra Pradesh,2026-08-01,2800.0,49
+onion,Andhra Pradesh,2026-09-01,3200.0,53
+onion,Andhra Pradesh,2026-10-01,3200.0,53
+onion,Andhra Pradesh,2026-11-01,3200.0,9
+onion,Assam,2026-05-01,2400.0,107
+onion,Assam,2026-06-01,2600.0,150
+onion,Assam,2026-07-01,3300.0,183
+onion,Assam,2026-08-01,3800.0,170
+onion,Assam,2026-09-01,5200.0,131
+onion,Assam,2026-10-01,5200.0,133
+onion,Assam,2026-11-01,5350.0,20
+onion,Bihar,2026-06-01,1800.0,411
+onion,Bihar,2026-07-01,2600.0,431
+onion,Bihar,2026-08-01,2900.0,424
+onion,Bihar,2026-09-01,4560.0,354
+onion,Bihar,2026-10-01,4400.0,531
+onion,Bihar,2026-11-01,4560.0,123
+onion,Chandigarh,2026-05-01,1200.0,48
+onion,Chandigarh,2026-06-01,1800.0,29
+onion,Chandigarh,2026-07-01,2000.0,24
+onion,Chandigarh,2026-08-01,2550.0,24
+onion,Chandigarh,2026-09-01,4200.0,23
+onion,Chandigarh,2026-10-01,4000.0,25
+onion,Chandigarh,2026-11-01,4200.0,3
+onion,Chattisgarh,2026-05-01,1200.0,95
+onion,Chattisgarh,2026-06-01,1400.0,82
+onion,Chattisgarh,2026-07-01,2000.0,82
+onion,Chattisgarh,2026-08-01,2800.0,83
+onion,Chattisgarh,2026-09-01,3800.0,81
+onion,Chattisgarh,2026-10-01,3900.0,83
+onion,Chattisgarh,2026-11-01,4500.0,13
+onion,Goa,2026-05-01,1150.0,26
+onion,Goa,2026-06-01,1350.0,27
+onion,Goa,2026-07-01,1600.0,30
+onion,Goa,2026-08-01,2000.0,32
+onion,Goa,2026-09-01,2600.0,34
+onion,Goa,2026-10-01,3000.0,31
+onion,Goa,2026-11-01,3200.0,5
+onion,Gujarat,2026-05-01,1200.0,600
+onion,Gujarat,2026-06-01,1550.0,571
+onion,Gujarat,2026-07-01,2000.0,610
+onion,Gujarat,2026-08-01,2500.0,597
+onion,Gujarat,2026-09-01,3912.5,592
+onion,Gujarat,2026-10-01,3750.0,642
+onion,Gujarat,2026-11-01,4000.0,107
+onion,Haryana,2026-05-01,1300.0,1478
+onion,Haryana,2026-06-01,1600.0,1370
+onion,Haryana,2026-07-01,2300.0,1589
+onion,Haryana,2026-08-01,2600.0,1475
+onion,Haryana,2026-09-01,4000.0,1444
+onion,Haryana,2026-10-01,4000.0,1273
+onion,Haryana,2026-11-01,4100.0,193
+onion,Himachal Pradesh,2026-05-01,1900.0,554
+onion,Himachal Pradesh,2026-06-01,2300.0,545
+onion,Himachal Pradesh,2026-07-01,3000.0,592
+onion,Himachal Pradesh,2026-08-01,3400.0,540
+onion,Himachal Pradesh,2026-09-01,4900.0,554
+onion,Himachal Pradesh,2026-10-01,4700.0,522
+onion,Himachal Pradesh,2026-11-01,4800.0,82
+onion,Jammu And Kashmir,2026-05-01,2100.0,175
+onion,Jammu And Kashmir,2026-06-01,2250.0,90
+onion,Jammu And Kashmir,2026-07-01,2900.0,121
+onion,Jammu And Kashmir,2026-08-01,3300.0,92
+onion,Jammu And Kashmir,2026-09-01,5075.0,94
+onion,Jammu And Kashmir,2026-10-01,5100.0,105
+onion,Jammu And Kashmir,2026-11-01,5175.0,16
+onion,Karnataka,2026-05-01,1404.0,767
+onion,Karnataka,2026-06-01,1700.0,509
+onion,Karnataka,2026-07-01,2400.0,536
+onion,Karnataka,2026-08-01,2750.0,494
+onion,Karnataka,2026-09-01,4078.5,554
+onion,Karnataka,2026-10-01,4000.0,526
+onion,Karnataka,2026-11-01,4100.0,57
+onion,Kerala,2026-05-01,2600.0,1155
+onion,Keralam,2026-05-01,2600.0,1664
+onion,Keralam,2026-06-01,2900.0,1691
+onion,Keralam,2026-07-01,3500.0,1714
+onion,Keralam,2026-08-01,4500.0,1645
+onion,Keralam,2026-09-01,6000.0,1784
+onion,Keralam,2026-10-01,5800.0,1670
+onion,Keralam,2026-11-01,6000.0,241
+onion,Madhya Pradesh,2026-05-01,905.0,1475
+onion,Madhya Pradesh,2026-06-01,1100.0,1667
+onion,Madhya Pradesh,2026-07-01,1651.5,1970
+onion,Madhya Pradesh,2026-08-01,2100.0,2096
+onion,Madhya Pradesh,2026-09-01,3018.0,2160
+onion,Madhya Pradesh,2026-10-01,3000.0,2028
+onion,Madhya Pradesh,2026-11-01,3251.0,333
+onion,Maharashtra,2026-05-01,900.0,1916
+onion,Maharashtra,2026-06-01,1400.0,1781
+onion,Maharashtra,2026-07-01,2000.0,1891
+onion,Maharashtra,2026-08-01,2525.0,3428
+onion,Maharashtra,2026-09-01,3875.0,1829
+onion,Maharashtra,2026-10-01,3600.0,1814
+onion,Maharashtra,2026-11-01,3775.0,312
+onion,Manipur,2026-05-01,3150.0,109
+onion,Manipur,2026-06-01,4750.0,114
+onion,Manipur,2026-07-01,4750.0,106
+onion,Manipur,2026-08-01,6750.0,84
+onion,Manipur,2026-09-01,6750.0,87
+onion,Manipur,2026-10-01,6750.0,61
+onion,Manipur,2026-11-01,6750.0,20
+onion,Meghalaya,2026-05-01,5000.0,1
+onion,Meghalaya,2026-06-01,3580.0,4
+onion,Meghalaya,2026-07-01,4550.0,20
+onion,Meghalaya,2026-08-01,4500.0,25
+onion,Meghalaya,2026-09-01,6400.0,20
+onion,Meghalaya,2026-10-01,6275.0,14
+onion,Meghalaya,2026-11-01,6150.0,4
+onion,Nagaland,2026-07-01,2500.0,1
+onion,Nagaland,2026-08-01,3500.0,5
+onion,Nagaland,2026-09-01,4000.0,3
+onion,Nagaland,2026-10-01,3850.0,4
+onion,Nct Of Delhi,2026-05-01,1250.0,127
+onion,Nct Of Delhi,2026-06-01,1700.0,92
+onion,Nct Of Delhi,2026-07-01,2400.0,77
+onion,Nct Of Delhi,2026-08-01,2900.0,102
+onion,Nct Of Delhi,2026-09-01,4200.0,90
+onion,Nct Of Delhi,2026-10-01,4000.0,75
+onion,Nct Of Delhi,2026-11-01,4109.5,10
+onion,Odisha,2026-05-01,2000.0,526
+onion,Odisha,2026-06-01,2000.0,540
+onion,Odisha,2026-07-01,2500.0,507
+onion,Odisha,2026-08-01,3500.0,514
+onion,Odisha,2026-09-01,5000.0,494
+onion,Odisha,2026-10-01,4800.0,457
+onion,Odisha,2026-11-01,5000.0,96
+onion,Punjab,2026-05-01,1500.0,1222
+onion,Punjab,2026-06-01,1800.0,1316
+onion,Punjab,2026-07-01,2500.0,1463
+onion,Punjab,2026-08-01,2800.0,1777
+onion,Punjab,2026-09-01,4100.0,1786
+onion,Punjab,2026-10-01,4125.0,1656
+onion,Punjab,2026-11-01,4150.0,243
+onion,Rajasthan,2026-05-01,1100.0,604
+onion,Rajasthan,2026-06-01,1500.0,600
+onion,Rajasthan,2026-07-01,2000.0,618
+onion,Rajasthan,2026-08-01,2260.0,595
+onion,Rajasthan,2026-09-01,3250.0,568
+onion,Rajasthan,2026-10-01,3250.0,567
+onion,Rajasthan,2026-11-01,3275.0,84
+onion,Tamil Nadu,2026-05-01,2600.0,5396
+onion,Tamil Nadu,2026-06-01,2900.0,5222
+onion,Tamil Nadu,2026-07-01,3700.0,5287
+onion,Tamil Nadu,2026-08-01,4200.0,5298
+onion,Tamil Nadu,2026-09-01,6000.0,6534
+onion,Tamil Nadu,2026-10-01,5800.0,5871
+onion,Tamil Nadu,2026-11-01,6200.0,861
+onion,Telangana,2026-05-01,1000.0,243
+onion,Telangana,2026-06-01,1613.0,531
+onion,Telangana,2026-07-01,2400.0,369
+onion,Telangana,2026-08-01,3400.0,426
+onion,Telangana,2026-09-01,4000.0,420
+onion,Telangana,2026-10-01,4000.0,385
+onion,Telangana,2026-11-01,4000.0,65
+onion,Tripura,2026-05-01,2450.0,264
+onion,Tripura,2026-06-01,2600.0,242
+onion,Tripura,2026-07-01,3000.0,261
+onion,Tripura,2026-08-01,3800.0,300
+onion,Tripura,2026-09-01,5100.0,273
+onion,Tripura,2026-10-01,5600.0,217
+onion,Tripura,2026-11-01,5500.0,39
+onion,Uttar Pradesh,2026-05-01,1100.0,2382
+onion,Uttar Pradesh,2026-06-01,1100.0,2167
+onion,Uttar Pradesh,2026-07-01,1550.0,1431
+onion,Uttar Pradesh,2026-08-01,1927.825,1438
+onion,Uttar Pradesh,2026-09-01,3000.0,1379
+onion,Uttar Pradesh,2026-10-01,3088.37,835
+onion,Uttar Pradesh,2026-11-01,3000.0,35
+onion,Uttarakhand,2026-05-01,1275.0,280
+onion,Uttarakhand,2026-06-01,1400.0,253
+onion,Uttarakhand,2026-07-01,1800.0,252
+onion,Uttarakhand,2026-08-01,2200.0,259
+onion,Uttarakhand,2026-09-01,3500.0,257
+onion,Uttarakhand,2026-10-01,3500.0,253
+onion,Uttarakhand,2026-11-01,3100.0,55
+onion,West Bengal,2026-05-01,1800.0,1194
+onion,West Bengal,2026-06-01,1850.0,1213
+onion,West Bengal,2026-07-01,2750.0,1278
+onion,West Bengal,2026-08-01,3200.0,1350
+onion,West Bengal,2026-09-01,4700.0,1388
+onion,West Bengal,2026-10-01,4500.0,1136
+onion,West Bengal,2026-11-01,4700.0,202
+orange,Assam,2026-06-01,15500.0,2
+orange,Chandigarh,2026-05-01,7000.0,2
+orange,Chandigarh,2026-09-01,9000.0,11
+orange,Chandigarh,2026-10-01,9000.0,24
+orange,Chandigarh,2026-11-01,8000.0,3
+orange,Chattisgarh,2026-05-01,6000.0,58
+orange,Chattisgarh,2026-06-01,6000.0,37
+orange,Chattisgarh,2026-07-01,9200.0,21
+orange,Chattisgarh,2026-08-01,9100.0,16
+orange,Chattisgarh,2026-09-01,7450.0,22
+orange,Chattisgarh,2026-10-01,5000.0,59
+orange,Chattisgarh,2026-11-01,4100.0,12
+orange,Goa,2026-05-01,5500.0,19
+orange,Goa,2026-06-01,5500.0,17
+orange,Goa,2026-07-01,5500.0,23
+orange,Goa,2026-08-01,5750.0,16
+orange,Goa,2026-09-01,6000.0,6
+orange,Goa,2026-10-01,6000.0,23
+orange,Goa,2026-11-01,6000.0,4
+orange,Gujarat,2026-05-01,11000.0,56
+orange,Gujarat,2026-06-01,9662.5,60
+orange,Gujarat,2026-07-01,9000.0,51
+orange,Gujarat,2026-08-01,9750.0,42
+orange,Gujarat,2026-09-01,15000.0,36
+orange,Gujarat,2026-10-01,7500.0,63
+orange,Gujarat,2026-11-01,6662.5,12
+orange,Haryana,2026-05-01,9000.0,27
+orange,Haryana,2026-06-01,11000.0,15
+orange,Haryana,2026-07-01,11000.0,20
+orange,Haryana,2026-08-01,11250.0,12
+orange,Haryana,2026-09-01,8000.0,75
+orange,Haryana,2026-10-01,6000.0,238
+orange,Haryana,2026-11-01,6000.0,43
+orange,Himachal Pradesh,2026-05-01,12500.0,71
+orange,Himachal Pradesh,2026-06-01,15000.0,39
+orange,Himachal Pradesh,2026-07-01,14500.0,47
+orange,Himachal Pradesh,2026-08-01,18500.0,46
+orange,Himachal Pradesh,2026-09-01,10500.0,87
+orange,Himachal Pradesh,2026-10-01,8500.0,217
+orange,Himachal Pradesh,2026-11-01,7500.0,46
+orange,Jammu And Kashmir,2026-05-01,7750.0,2
+orange,Jammu And Kashmir,2026-09-01,8500.0,7
+orange,Jammu And Kashmir,2026-10-01,8500.0,83
+orange,Jammu And Kashmir,2026-11-01,7250.0,14
+orange,Karnataka,2026-05-01,4000.0,42
+orange,Karnataka,2026-06-01,4000.0,35
+orange,Karnataka,2026-07-01,5000.0,48
+orange,Karnataka,2026-08-01,3750.0,34
+orange,Karnataka,2026-09-01,3800.0,56
+orange,Karnataka,2026-10-01,3800.0,67
+orange,Karnataka,2026-11-01,3600.0,10
+orange,Kerala,2026-05-01,12500.0,50
+orange,Keralam,2026-05-01,12500.0,78
+orange,Keralam,2026-06-01,14000.0,61
+orange,Keralam,2026-07-01,14500.0,54
+orange,Keralam,2026-08-01,14000.0,45
+orange,Keralam,2026-09-01,8700.0,83
+orange,Keralam,2026-10-01,7500.0,74
+orange,Keralam,2026-11-01,7500.0,11
+orange,Madhya Pradesh,2026-05-01,5000.0,5
+orange,Madhya Pradesh,2026-06-01,1600.0,2
+orange,Madhya Pradesh,2026-07-01,3700.0,2
+orange,Madhya Pradesh,2026-08-01,4850.0,2
+orange,Madhya Pradesh,2026-09-01,6000.0,10
+orange,Madhya Pradesh,2026-10-01,3000.0,43
+orange,Madhya Pradesh,2026-11-01,3500.0,8
+orange,Maharashtra,2026-05-01,6500.0,114
+orange,Maharashtra,2026-06-01,6750.0,91
+orange,Maharashtra,2026-07-01,7000.0,87
+orange,Maharashtra,2026-08-01,5250.0,228
+orange,Maharashtra,2026-09-01,4500.0,162
+orange,Maharashtra,2026-10-01,3500.0,246
+orange,Maharashtra,2026-11-01,3500.0,40
+orange,Manipur,2026-05-01,17500.0,3
+orange,Manipur,2026-08-01,4750.0,1
+orange,Meghalaya,2026-10-01,8200.0,6
+orange,Meghalaya,2026-11-01,9250.0,2
+orange,Nagaland,2026-10-01,6100.0,2
+orange,Nagaland,2026-11-01,7000.0,1
+orange,Nct Of Delhi,2026-07-01,14000.0,1
+orange,Nct Of Delhi,2026-09-01,7125.0,17
+orange,Nct Of Delhi,2026-10-01,6000.0,37
+orange,Nct Of Delhi,2026-11-01,5200.0,7
+orange,Odisha,2026-07-01,8962.5,2
+orange,Odisha,2026-08-01,7350.0,1
+orange,Punjab,2026-05-01,4000.0,27
+orange,Punjab,2026-06-01,3600.0,35
+orange,Punjab,2026-07-01,3200.0,33
+orange,Punjab,2026-08-01,3700.0,32
+orange,Punjab,2026-09-01,5000.0,49
+orange,Punjab,2026-10-01,5500.0,226
+orange,Punjab,2026-11-01,6465.5,46
+orange,Rajasthan,2026-05-01,7500.0,47
+orange,Rajasthan,2026-06-01,5500.0,43
+orange,Rajasthan,2026-07-01,5500.0,35
+orange,Rajasthan,2026-08-01,5500.0,37
+orange,Rajasthan,2026-09-01,5500.0,49
+orange,Rajasthan,2026-10-01,4500.0,111
+orange,Rajasthan,2026-11-01,3875.0,18
+orange,Tamil Nadu,2026-05-01,12500.0,693
+orange,Tamil Nadu,2026-06-01,14000.0,649
+orange,Tamil Nadu,2026-07-01,13000.0,604
+orange,Tamil Nadu,2026-08-01,13500.0,618
+orange,Tamil Nadu,2026-09-01,14000.0,753
+orange,Tamil Nadu,2026-10-01,9500.0,719
+orange,Tamil Nadu,2026-11-01,9000.0,115
+orange,Telangana,2026-05-01,10000.0,25
+orange,Telangana,2026-06-01,9000.0,46
+orange,Telangana,2026-07-01,9500.0,34
+orange,Telangana,2026-08-01,12000.0,30
+orange,Telangana,2026-09-01,2777.8,56
+orange,Telangana,2026-10-01,2500.0,82
+orange,Telangana,2026-11-01,2222.24,15
+orange,Uttar Pradesh,2026-05-01,6850.0,1
+orange,Uttar Pradesh,2026-08-01,10556.0,1
+orange,Uttarakhand,2026-05-01,2500.0,18
+orange,Uttarakhand,2026-06-01,4500.0,3
+orange,Uttarakhand,2026-09-01,4000.0,5
+orange,Uttarakhand,2026-10-01,4500.0,41
+orange,Uttarakhand,2026-11-01,4000.0,18
+papaya,Andaman And Nicobar,2026-05-01,4500.0,47
+papaya,Andaman And Nicobar,2026-06-01,5000.0,51
+papaya,Andaman And Nicobar,2026-07-01,6000.0,19
+papaya,Andaman And Nicobar,2026-08-01,6000.0,23
+papaya,Andaman And Nicobar,2026-09-01,5000.0,24
+papaya,Andaman And Nicobar,2026-10-01,3500.0,21
+papaya,Andaman And Nicobar,2026-11-01,4000.0,4
+papaya,Andhra Pradesh,2026-07-01,1500.0,23
+papaya,Andhra Pradesh,2026-08-01,1600.0,77
+papaya,Andhra Pradesh,2026-09-01,1550.0,78
+papaya,Andhra Pradesh,2026-10-01,1500.0,83
+papaya,Andhra Pradesh,2026-11-01,1500.0,10
+papaya,Bihar,2026-06-01,2400.0,3
+papaya,Bihar,2026-10-01,2700.0,3
+papaya,Chattisgarh,2026-05-01,2000.0,37
+papaya,Chattisgarh,2026-06-01,1600.0,42
+papaya,Chattisgarh,2026-07-01,2000.0,43
+papaya,Chattisgarh,2026-08-01,2000.0,35
+papaya,Chattisgarh,2026-09-01,2050.0,66
+papaya,Chattisgarh,2026-10-01,2600.0,47
+papaya,Chattisgarh,2026-11-01,2750.0,6
+papaya,Goa,2026-05-01,1200.0,1
+papaya,Goa,2026-06-01,12.0,12
+papaya,Goa,2026-07-01,12.0,28
+papaya,Goa,2026-08-01,15.0,32
+papaya,Goa,2026-09-01,15.0,27
+papaya,Goa,2026-10-01,15.0,30
+papaya,Goa,2026-11-01,15.0,5
+papaya,Gujarat,2026-05-01,1375.0,68
+papaya,Gujarat,2026-06-01,1250.0,68
+papaya,Gujarat,2026-07-01,2000.0,51
+papaya,Gujarat,2026-08-01,2750.0,65
+papaya,Gujarat,2026-09-01,2750.0,72
+papaya,Gujarat,2026-10-01,2750.0,75
+papaya,Gujarat,2026-11-01,3500.0,12
+papaya,Haryana,2026-05-01,3250.0,28
+papaya,Haryana,2026-06-01,3500.0,29
+papaya,Haryana,2026-07-01,4250.0,36
+papaya,Haryana,2026-08-01,3500.0,53
+papaya,Haryana,2026-09-01,3200.0,71
+papaya,Haryana,2026-10-01,4500.0,60
+papaya,Haryana,2026-11-01,3975.0,8
+papaya,Himachal Pradesh,2026-05-01,4450.0,417
+papaya,Himachal Pradesh,2026-06-01,4800.0,393
+papaya,Himachal Pradesh,2026-07-01,5175.0,440
+papaya,Himachal Pradesh,2026-08-01,5000.0,424
+papaya,Himachal Pradesh,2026-09-01,5000.0,439
+papaya,Himachal Pradesh,2026-10-01,5200.0,392
+papaya,Himachal Pradesh,2026-11-01,5200.0,69
+papaya,Jammu And Kashmir,2026-05-01,4750.0,157
+papaya,Jammu And Kashmir,2026-06-01,5000.0,100
+papaya,Jammu And Kashmir,2026-07-01,5000.0,128
+papaya,Jammu And Kashmir,2026-08-01,4750.0,74
+papaya,Jammu And Kashmir,2026-09-01,4975.0,86
+papaya,Jammu And Kashmir,2026-10-01,5250.0,97
+papaya,Jammu And Kashmir,2026-11-01,5400.0,15
+papaya,Karnataka,2026-05-01,1500.0,121
+papaya,Karnataka,2026-06-01,1200.0,109
+papaya,Karnataka,2026-07-01,1400.0,104
+papaya,Karnataka,2026-08-01,1500.0,71
+papaya,Karnataka,2026-09-01,1500.0,91
+papaya,Karnataka,2026-10-01,2500.0,75
+papaya,Karnataka,2026-11-01,1500.0,9
+papaya,Kerala,2026-05-01,2700.0,41
+papaya,Keralam,2026-05-01,2700.0,59
+papaya,Keralam,2026-06-01,3000.0,76
+papaya,Keralam,2026-07-01,2800.0,75
+papaya,Keralam,2026-08-01,3500.0,70
+papaya,Keralam,2026-09-01,4000.0,72
+papaya,Keralam,2026-10-01,4300.0,59
+papaya,Keralam,2026-11-01,4700.0,9
+papaya,Madhya Pradesh,2026-05-01,1200.0,106
+papaya,Madhya Pradesh,2026-06-01,1400.0,146
+papaya,Madhya Pradesh,2026-07-01,1600.0,139
+papaya,Madhya Pradesh,2026-08-01,2500.0,226
+papaya,Madhya Pradesh,2026-09-01,2800.0,216
+papaya,Madhya Pradesh,2026-10-01,2500.0,214
+papaya,Madhya Pradesh,2026-11-01,2500.0,41
+papaya,Maharashtra,2026-05-01,1500.0,276
+papaya,Maharashtra,2026-06-01,1500.0,272
+papaya,Maharashtra,2026-07-01,1800.0,270
+papaya,Maharashtra,2026-08-01,2400.0,554
+papaya,Maharashtra,2026-09-01,2600.0,294
+papaya,Maharashtra,2026-10-01,2500.0,306
+papaya,Maharashtra,2026-11-01,2150.0,55
+papaya,Meghalaya,2026-05-01,6000.0,1
+papaya,Meghalaya,2026-07-01,3000.0,1
+papaya,Meghalaya,2026-09-01,3500.0,1
+papaya,Meghalaya,2026-10-01,3100.0,1
+papaya,Nagaland,2026-05-01,5500.0,6
+papaya,Nagaland,2026-06-01,4360.0,4
+papaya,Nagaland,2026-07-01,3250.0,13
+papaya,Nagaland,2026-08-01,4000.0,11
+papaya,Nagaland,2026-09-01,4000.0,17
+papaya,Nagaland,2026-10-01,3750.0,18
+papaya,Nagaland,2026-11-01,3700.0,1
+papaya,Nct Of Delhi,2026-05-01,1875.0,90
+papaya,Nct Of Delhi,2026-06-01,1875.0,53
+papaya,Nct Of Delhi,2026-07-01,2250.0,36
+papaya,Nct Of Delhi,2026-08-01,2250.0,46
+papaya,Nct Of Delhi,2026-09-01,2250.0,41
+papaya,Nct Of Delhi,2026-10-01,3000.0,39
+papaya,Nct Of Delhi,2026-11-01,3000.0,6
+papaya,Odisha,2026-05-01,1800.0,1
+papaya,Odisha,2026-06-01,2900.0,1
+papaya,Odisha,2026-08-01,3150.0,2
+papaya,Odisha,2026-09-01,4000.0,2
+papaya,Punjab,2026-05-01,3000.0,490
+papaya,Punjab,2026-06-01,3000.0,467
+papaya,Punjab,2026-07-01,3100.0,519
+papaya,Punjab,2026-08-01,3150.0,715
+papaya,Punjab,2026-09-01,3300.0,691
+papaya,Punjab,2026-10-01,3500.0,663
+papaya,Punjab,2026-11-01,3400.0,95
+papaya,Rajasthan,2026-05-01,2000.0,157
+papaya,Rajasthan,2026-06-01,2000.0,148
+papaya,Rajasthan,2026-07-01,2500.0,144
+papaya,Rajasthan,2026-08-01,2500.0,138
+papaya,Rajasthan,2026-09-01,2750.0,137
+papaya,Rajasthan,2026-10-01,3000.0,145
+papaya,Rajasthan,2026-11-01,2500.0,18
+papaya,Tamil Nadu,2026-05-01,3000.0,4427
+papaya,Tamil Nadu,2026-06-01,3000.0,4341
+papaya,Tamil Nadu,2026-07-01,3250.0,4369
+papaya,Tamil Nadu,2026-08-01,3400.0,4263
+papaya,Tamil Nadu,2026-09-01,3750.0,5180
+papaya,Tamil Nadu,2026-10-01,3750.0,4670
+papaya,Tamil Nadu,2026-11-01,3750.0,685
+papaya,Telangana,2026-05-01,800.0,31
+papaya,Telangana,2026-06-01,1150.0,56
+papaya,Telangana,2026-07-01,2000.0,47
+papaya,Telangana,2026-08-01,2100.0,46
+papaya,Telangana,2026-09-01,2100.0,43
+papaya,Telangana,2026-10-01,2050.0,42
+papaya,Telangana,2026-11-01,800.0,8
+papaya,Uttar Pradesh,2026-05-01,2400.0,143
+papaya,Uttar Pradesh,2026-06-01,2500.0,69
+papaya,Uttar Pradesh,2026-07-01,1950.0,56
+papaya,Uttar Pradesh,2026-08-01,1850.0,74
+papaya,Uttar Pradesh,2026-09-01,1510.0,74
+papaya,Uttar Pradesh,2026-10-01,1450.0,63
+papaya,Uttar Pradesh,2026-11-01,1200.0,9
+papaya,Uttarakhand,2026-05-01,2000.0,141
+papaya,Uttarakhand,2026-06-01,2000.0,101
+papaya,Uttarakhand,2026-07-01,1800.0,128
+papaya,Uttarakhand,2026-08-01,2000.0,123
+papaya,Uttarakhand,2026-09-01,2000.0,163
+papaya,Uttarakhand,2026-10-01,2000.0,143
+papaya,Uttarakhand,2026-11-01,2000.0,28
+pigeonpeas,Andhra Pradesh,2026-05-01,7615.0,30
+pigeonpeas,Andhra Pradesh,2026-06-01,7554.5,28
+pigeonpeas,Andhra Pradesh,2026-07-01,7800.0,100
+pigeonpeas,Andhra Pradesh,2026-08-01,8000.0,217
+pigeonpeas,Andhra Pradesh,2026-09-01,8200.0,194
+pigeonpeas,Andhra Pradesh,2026-10-01,8350.0,207
+pigeonpeas,Andhra Pradesh,2026-11-01,8475.0,32
+pigeonpeas,Bihar,2026-06-01,9500.0,4
+pigeonpeas,Gujarat,2026-05-01,6425.0,557
+pigeonpeas,Gujarat,2026-06-01,6500.0,435
+pigeonpeas,Gujarat,2026-07-01,6550.0,359
+pigeonpeas,Gujarat,2026-08-01,6528.5,292
+pigeonpeas,Gujarat,2026-09-01,7250.0,244
+pigeonpeas,Gujarat,2026-10-01,8155.0,297
+pigeonpeas,Gujarat,2026-11-01,7800.0,41
+pigeonpeas,Karnataka,2026-05-01,7283.5,752
+pigeonpeas,Karnataka,2026-06-01,7348.5,480
+pigeonpeas,Karnataka,2026-07-01,7598.5,450
+pigeonpeas,Karnataka,2026-08-01,7600.0,391
+pigeonpeas,Karnataka,2026-09-01,8284.0,393
+pigeonpeas,Karnataka,2026-10-01,9360.0,313
+pigeonpeas,Karnataka,2026-11-01,9466.0,31
+pigeonpeas,Kerala,2026-05-01,12800.0,37
+pigeonpeas,Keralam,2026-05-01,12650.0,38
+pigeonpeas,Keralam,2026-06-01,12600.0,42
+pigeonpeas,Keralam,2026-07-01,12300.0,47
+pigeonpeas,Keralam,2026-08-01,12950.0,40
+pigeonpeas,Keralam,2026-09-01,14100.0,41
+pigeonpeas,Keralam,2026-10-01,14400.0,44
+pigeonpeas,Keralam,2026-11-01,14600.0,7
+pigeonpeas,Madhya Pradesh,2026-05-01,6800.0,1195
+pigeonpeas,Madhya Pradesh,2026-06-01,6700.0,936
+pigeonpeas,Madhya Pradesh,2026-07-01,6811.0,959
+pigeonpeas,Madhya Pradesh,2026-08-01,6830.0,711
+pigeonpeas,Madhya Pradesh,2026-09-01,7331.0,663
+pigeonpeas,Madhya Pradesh,2026-10-01,8500.0,511
+pigeonpeas,Madhya Pradesh,2026-11-01,8600.0,69
+pigeonpeas,Maharashtra,2026-05-01,7225.0,2297
+pigeonpeas,Maharashtra,2026-06-01,7250.0,2008
+pigeonpeas,Maharashtra,2026-07-01,7500.0,2073
+pigeonpeas,Maharashtra,2026-08-01,7562.0,3261
+pigeonpeas,Maharashtra,2026-09-01,8250.0,1782
+pigeonpeas,Maharashtra,2026-10-01,9550.0,1471
+pigeonpeas,Maharashtra,2026-11-01,9600.0,206
+pigeonpeas,Manipur,2026-05-01,14750.0,1
+pigeonpeas,Nct Of Delhi,2026-05-01,5701.0,7
+pigeonpeas,Nct Of Delhi,2026-06-01,5750.0,11
+pigeonpeas,Nct Of Delhi,2026-07-01,5000.0,7
+pigeonpeas,Nct Of Delhi,2026-08-01,6000.0,2
+pigeonpeas,Nct Of Delhi,2026-09-01,9950.0,2
+pigeonpeas,Nct Of Delhi,2026-10-01,8500.0,1
+pigeonpeas,Nct Of Delhi,2026-11-01,5700.0,1
+pigeonpeas,Rajasthan,2026-05-01,5300.0,51
+pigeonpeas,Rajasthan,2026-06-01,5440.0,34
+pigeonpeas,Rajasthan,2026-07-01,5547.5,28
+pigeonpeas,Rajasthan,2026-08-01,5650.0,13
+pigeonpeas,Rajasthan,2026-09-01,4900.0,9
+pigeonpeas,Rajasthan,2026-10-01,6280.0,5
+pigeonpeas,Tamil Nadu,2026-05-01,4750.0,10
+pigeonpeas,Tamil Nadu,2026-06-01,5625.0,4
+pigeonpeas,Tamil Nadu,2026-07-01,5000.0,1
+pigeonpeas,Tamil Nadu,2026-09-01,5075.0,2
+pigeonpeas,Tamil Nadu,2026-10-01,6750.0,13
+pigeonpeas,Tamil Nadu,2026-11-01,6500.0,5
+pigeonpeas,Telangana,2026-05-01,7281.0,161
+pigeonpeas,Telangana,2026-06-01,7361.0,241
+pigeonpeas,Telangana,2026-07-01,7528.5,122
+pigeonpeas,Telangana,2026-08-01,7623.5,104
+pigeonpeas,Telangana,2026-09-01,8027.0,114
+pigeonpeas,Telangana,2026-10-01,9550.0,91
+pigeonpeas,Telangana,2026-11-01,9133.0,12
+pigeonpeas,Uttar Pradesh,2026-05-01,7000.0,233
+pigeonpeas,Uttar Pradesh,2026-06-01,7890.14,137
+pigeonpeas,Uttar Pradesh,2026-07-01,6885.905000000001,116
+pigeonpeas,Uttar Pradesh,2026-08-01,7000.0,71
+pigeonpeas,Uttar Pradesh,2026-09-01,7000.0,92
+pigeonpeas,Uttar Pradesh,2026-10-01,7300.0,69
+pigeonpeas,Uttarakhand,2026-05-01,13000.0,1
+pigeonpeas,Uttarakhand,2026-06-01,9318.0,2
+pigeonpeas,Uttarakhand,2026-07-01,10980.0,3
+pigeonpeas,Uttarakhand,2026-08-01,8250.0,3
+pigeonpeas,Uttarakhand,2026-09-01,11000.0,1
+pigeonpeas,Uttarakhand,2026-10-01,13742.0,1
+pomegranate,Chandigarh,2026-05-01,12000.0,4
+pomegranate,Chandigarh,2026-06-01,13000.0,15
+pomegranate,Chandigarh,2026-07-01,13000.0,24
+pomegranate,Chandigarh,2026-08-01,10000.0,24
+pomegranate,Chandigarh,2026-09-01,10000.0,25
+pomegranate,Chandigarh,2026-10-01,17000.0,25
+pomegranate,Chandigarh,2026-11-01,20000.0,3
+pomegranate,Chattisgarh,2026-05-01,16000.0,75
+pomegranate,Chattisgarh,2026-06-01,15500.0,63
+pomegranate,Chattisgarh,2026-07-01,16000.0,66
+pomegranate,Chattisgarh,2026-08-01,15050.0,66
+pomegranate,Chattisgarh,2026-09-01,14000.0,68
+pomegranate,Chattisgarh,2026-10-01,15000.0,68
+pomegranate,Chattisgarh,2026-11-01,15000.0,12
+pomegranate,Gujarat,2026-05-01,5000.0,29
+pomegranate,Gujarat,2026-06-01,7500.0,41
+pomegranate,Gujarat,2026-07-01,7000.0,45
+pomegranate,Gujarat,2026-08-01,5250.0,72
+pomegranate,Gujarat,2026-09-01,7000.0,88
+pomegranate,Gujarat,2026-10-01,9000.0,72
+pomegranate,Gujarat,2026-11-01,11500.0,9
+pomegranate,Haryana,2026-05-01,11000.0,361
+pomegranate,Haryana,2026-06-01,12000.0,348
+pomegranate,Haryana,2026-07-01,12000.0,462
+pomegranate,Haryana,2026-08-01,9000.0,569
+pomegranate,Haryana,2026-09-01,9000.0,593
+pomegranate,Haryana,2026-10-01,12000.0,466
+pomegranate,Haryana,2026-11-01,14000.0,62
+pomegranate,Himachal Pradesh,2026-05-01,15000.0,338
+pomegranate,Himachal Pradesh,2026-06-01,16500.0,303
+pomegranate,Himachal Pradesh,2026-07-01,15000.0,375
+pomegranate,Himachal Pradesh,2026-08-01,11500.0,393
+pomegranate,Himachal Pradesh,2026-09-01,10000.0,503
+pomegranate,Himachal Pradesh,2026-10-01,13000.0,439
+pomegranate,Himachal Pradesh,2026-11-01,14750.0,70
+pomegranate,Jammu And Kashmir,2026-05-01,15000.0,147
+pomegranate,Jammu And Kashmir,2026-06-01,19500.0,91
+pomegranate,Jammu And Kashmir,2026-07-01,15000.0,134
+pomegranate,Jammu And Kashmir,2026-08-01,12000.0,87
+pomegranate,Jammu And Kashmir,2026-09-01,12500.0,99
+pomegranate,Jammu And Kashmir,2026-10-01,17000.0,108
+pomegranate,Jammu And Kashmir,2026-11-01,19000.0,17
+pomegranate,Karnataka,2026-05-01,10500.0,177
+pomegranate,Karnataka,2026-06-01,11666.0,107
+pomegranate,Karnataka,2026-07-01,11146.5,126
+pomegranate,Karnataka,2026-08-01,10500.0,98
+pomegranate,Karnataka,2026-09-01,9500.0,105
+pomegranate,Karnataka,2026-10-01,10000.0,90
+pomegranate,Karnataka,2026-11-01,7000.0,11
+pomegranate,Kerala,2026-05-01,12000.0,3
+pomegranate,Keralam,2026-05-01,10900.0,4
+pomegranate,Keralam,2026-06-01,12000.0,4
+pomegranate,Keralam,2026-07-01,12500.0,4
+pomegranate,Keralam,2026-08-01,12000.0,3
+pomegranate,Keralam,2026-09-01,8500.0,3
+pomegranate,Keralam,2026-10-01,10250.0,2
+pomegranate,Keralam,2026-11-01,15000.0,1
+pomegranate,Madhya Pradesh,2026-05-01,7000.0,62
+pomegranate,Madhya Pradesh,2026-06-01,7000.0,83
+pomegranate,Madhya Pradesh,2026-07-01,7000.0,87
+pomegranate,Madhya Pradesh,2026-08-01,6000.0,137
+pomegranate,Madhya Pradesh,2026-09-01,5500.0,182
+pomegranate,Madhya Pradesh,2026-10-01,7000.0,142
+pomegranate,Madhya Pradesh,2026-11-01,7000.0,23
+pomegranate,Maharashtra,2026-05-01,9500.0,422
+pomegranate,Maharashtra,2026-06-01,9875.0,417
+pomegranate,Maharashtra,2026-07-01,9000.0,530
+pomegranate,Maharashtra,2026-08-01,7000.0,1124
+pomegranate,Maharashtra,2026-09-01,8000.0,609
+pomegranate,Maharashtra,2026-10-01,9200.0,534
+pomegranate,Maharashtra,2026-11-01,8200.0,77
+pomegranate,Nct Of Delhi,2026-05-01,6800.0,50
+pomegranate,Nct Of Delhi,2026-06-01,6700.0,30
+pomegranate,Nct Of Delhi,2026-07-01,6700.0,24
+pomegranate,Nct Of Delhi,2026-08-01,7600.0,24
+pomegranate,Nct Of Delhi,2026-09-01,6240.0,29
+pomegranate,Nct Of Delhi,2026-10-01,7436.0,36
+pomegranate,Nct Of Delhi,2026-11-01,7557.0,5
+pomegranate,Punjab,2026-05-01,11000.0,345
+pomegranate,Punjab,2026-06-01,11000.0,280
+pomegranate,Punjab,2026-07-01,10000.0,323
+pomegranate,Punjab,2026-08-01,10000.0,526
+pomegranate,Punjab,2026-09-01,9300.0,553
+pomegranate,Punjab,2026-10-01,10000.0,539
+pomegranate,Punjab,2026-11-01,10750.0,60
+pomegranate,Rajasthan,2026-05-01,11000.0,151
+pomegranate,Rajasthan,2026-06-01,11000.0,129
+pomegranate,Rajasthan,2026-07-01,10000.0,143
+pomegranate,Rajasthan,2026-08-01,8000.0,168
+pomegranate,Rajasthan,2026-09-01,8500.0,154
+pomegranate,Rajasthan,2026-10-01,10250.0,170
+pomegranate,Rajasthan,2026-11-01,12000.0,21
+pomegranate,Tamil Nadu,2026-05-01,22000.0,948
+pomegranate,Tamil Nadu,2026-06-01,22000.0,880
+pomegranate,Tamil Nadu,2026-07-01,21000.0,881
+pomegranate,Tamil Nadu,2026-08-01,16500.0,899
+pomegranate,Tamil Nadu,2026-09-01,15500.0,1206
+pomegranate,Tamil Nadu,2026-10-01,18625.0,1152
+pomegranate,Tamil Nadu,2026-11-01,19750.0,164
+pomegranate,Telangana,2026-05-01,3000.0,33
+pomegranate,Telangana,2026-06-01,3000.0,52
+pomegranate,Telangana,2026-07-01,3000.0,61
+pomegranate,Telangana,2026-08-01,7000.0,58
+pomegranate,Telangana,2026-09-01,3000.0,49
+pomegranate,Telangana,2026-10-01,3000.0,47
+pomegranate,Telangana,2026-11-01,12000.0,9
+pomegranate,Uttar Pradesh,2026-05-01,7820.0,95
+pomegranate,Uttar Pradesh,2026-06-01,7800.0,46
+pomegranate,Uttar Pradesh,2026-07-01,7150.0,35
+pomegranate,Uttar Pradesh,2026-08-01,6550.0,46
+pomegranate,Uttar Pradesh,2026-09-01,6350.0,50
+pomegranate,Uttar Pradesh,2026-10-01,6050.0,53
+pomegranate,Uttar Pradesh,2026-11-01,6250.0,4
+pomegranate,Uttarakhand,2026-05-01,9500.0,110
+pomegranate,Uttarakhand,2026-06-01,8500.0,105
+pomegranate,Uttarakhand,2026-07-01,8500.0,108
+pomegranate,Uttarakhand,2026-08-01,7500.0,127
+pomegranate,Uttarakhand,2026-09-01,6500.0,144
+pomegranate,Uttarakhand,2026-10-01,7500.0,148
+pomegranate,Uttarakhand,2026-11-01,8500.0,19
+pomegranate,West Bengal,2026-05-01,11200.0,31
+pomegranate,West Bengal,2026-06-01,13300.0,30
+pomegranate,West Bengal,2026-07-01,13500.0,29
+pomegranate,West Bengal,2026-08-01,12500.0,29
+pomegranate,West Bengal,2026-09-01,11400.0,30
+pomegranate,West Bengal,2026-10-01,10600.0,30
+pomegranate,West Bengal,2026-11-01,10600.0,4
+potato,Andhra Pradesh,2026-05-01,1450.0,26
+potato,Andhra Pradesh,2026-06-01,1800.0,29
+potato,Andhra Pradesh,2026-07-01,1600.0,28
+potato,Andhra Pradesh,2026-08-01,1700.0,24
+potato,Andhra Pradesh,2026-09-01,1600.0,23
+potato,Andhra Pradesh,2026-10-01,1500.0,19
+potato,Andhra Pradesh,2026-11-01,1600.0,4
+potato,Arunachal Pradesh,2026-05-01,1075.0,6
+potato,Arunachal Pradesh,2026-06-01,1400.0,15
+potato,Assam,2026-05-01,1200.0,121
+potato,Assam,2026-06-01,1300.0,188
+potato,Assam,2026-07-01,1300.0,239
+potato,Assam,2026-08-01,1400.0,207
+potato,Assam,2026-09-01,1400.0,166
+potato,Assam,2026-10-01,1150.0,142
+potato,Assam,2026-11-01,1200.0,20
+potato,Bihar,2026-06-01,1100.0,434
+potato,Bihar,2026-07-01,1200.0,477
+potato,Bihar,2026-08-01,1200.0,463
+potato,Bihar,2026-09-01,1200.0,389
+potato,Bihar,2026-10-01,1150.0,585
+potato,Bihar,2026-11-01,1100.0,137
+potato,Chandigarh,2026-05-01,375.0,48
+potato,Chandigarh,2026-06-01,700.0,29
+potato,Chandigarh,2026-07-01,800.0,24
+potato,Chandigarh,2026-08-01,800.0,23
+potato,Chandigarh,2026-09-01,1100.0,23
+potato,Chandigarh,2026-10-01,1500.0,25
+potato,Chandigarh,2026-11-01,1500.0,2
+potato,Chattisgarh,2026-05-01,1100.0,108
+potato,Chattisgarh,2026-06-01,1200.0,105
+potato,Chattisgarh,2026-07-01,1200.0,97
+potato,Chattisgarh,2026-08-01,1200.0,94
+potato,Chattisgarh,2026-09-01,1300.0,91
+potato,Chattisgarh,2026-10-01,1400.0,100
+potato,Chattisgarh,2026-11-01,1700.0,13
+potato,Goa,2026-05-01,1350.0,27
+potato,Goa,2026-06-01,1300.0,28
+potato,Goa,2026-07-01,1400.0,30
+potato,Goa,2026-08-01,1500.0,31
+potato,Goa,2026-09-01,1500.0,30
+potato,Goa,2026-10-01,1600.0,32
+potato,Goa,2026-11-01,1600.0,5
+potato,Gujarat,2026-05-01,1100.0,602
+potato,Gujarat,2026-06-01,1200.0,574
+potato,Gujarat,2026-07-01,1200.0,617
+potato,Gujarat,2026-08-01,1250.0,606
+potato,Gujarat,2026-09-01,1200.0,577
+potato,Gujarat,2026-10-01,1277.5,618
+potato,Gujarat,2026-11-01,1250.0,108
+potato,Haryana,2026-05-01,700.0,1476
+potato,Haryana,2026-06-01,800.0,1442
+potato,Haryana,2026-07-01,900.0,1631
+potato,Haryana,2026-08-01,900.0,1574
+potato,Haryana,2026-09-01,900.0,1428
+potato,Haryana,2026-10-01,900.0,1342
+potato,Haryana,2026-11-01,900.0,201
+potato,Himachal Pradesh,2026-05-01,900.0,558
+potato,Himachal Pradesh,2026-06-01,1150.0,565
+potato,Himachal Pradesh,2026-07-01,1400.0,637
+potato,Himachal Pradesh,2026-08-01,1500.0,550
+potato,Himachal Pradesh,2026-09-01,1500.0,548
+potato,Himachal Pradesh,2026-10-01,1500.0,524
+potato,Himachal Pradesh,2026-11-01,1500.0,84
+potato,Jammu And Kashmir,2026-05-01,1000.0,194
+potato,Jammu And Kashmir,2026-06-01,1000.0,112
+potato,Jammu And Kashmir,2026-07-01,1100.0,142
+potato,Jammu And Kashmir,2026-08-01,1150.0,108
+potato,Jammu And Kashmir,2026-09-01,1000.0,102
+potato,Jammu And Kashmir,2026-10-01,1000.0,107
+potato,Jammu And Kashmir,2026-11-01,1000.0,16
+potato,Karnataka,2026-05-01,1500.0,625
+potato,Karnataka,2026-06-01,1500.0,423
+potato,Karnataka,2026-07-01,1600.0,476
+potato,Karnataka,2026-08-01,1700.0,418
+potato,Karnataka,2026-09-01,1700.0,429
+potato,Karnataka,2026-10-01,1800.0,429
+potato,Karnataka,2026-11-01,2000.0,43
+potato,Kerala,2026-05-01,3000.0,787
+potato,Keralam,2026-05-01,3000.0,1150
+potato,Keralam,2026-06-01,3200.0,1207
+potato,Keralam,2026-07-01,3200.0,1230
+potato,Keralam,2026-08-01,3300.0,1152
+potato,Keralam,2026-09-01,3400.0,1154
+potato,Keralam,2026-10-01,3400.0,1125
+potato,Keralam,2026-11-01,3600.0,156
+potato,Madhya Pradesh,2026-05-01,750.0,745
+potato,Madhya Pradesh,2026-06-01,800.0,749
+potato,Madhya Pradesh,2026-07-01,900.0,819
+potato,Madhya Pradesh,2026-08-01,900.0,1290
+potato,Madhya Pradesh,2026-09-01,900.0,1248
+potato,Madhya Pradesh,2026-10-01,900.0,1179
+potato,Madhya Pradesh,2026-11-01,900.0,178
+potato,Maharashtra,2026-05-01,1100.0,807
+potato,Maharashtra,2026-06-01,1150.0,697
+potato,Maharashtra,2026-07-01,1200.0,753
+potato,Maharashtra,2026-08-01,1150.0,1432
+potato,Maharashtra,2026-09-01,1100.0,737
+potato,Maharashtra,2026-10-01,1200.0,713
+potato,Maharashtra,2026-11-01,1300.0,115
+potato,Manipur,2026-05-01,1750.0,117
+potato,Manipur,2026-06-01,2750.0,114
+potato,Manipur,2026-07-01,2750.0,105
+potato,Manipur,2026-08-01,3250.0,85
+potato,Manipur,2026-09-01,2750.0,83
+potato,Manipur,2026-10-01,2250.0,62
+potato,Manipur,2026-11-01,1750.0,20
+potato,Meghalaya,2026-05-01,1900.0,54
+potato,Meghalaya,2026-06-01,1625.0,70
+potato,Meghalaya,2026-07-01,1750.0,72
+potato,Meghalaya,2026-08-01,1750.0,67
+potato,Meghalaya,2026-09-01,2000.0,61
+potato,Meghalaya,2026-10-01,1700.0,48
+potato,Meghalaya,2026-11-01,2000.0,9
+potato,Nagaland,2026-05-01,2200.0,32
+potato,Nagaland,2026-06-01,2200.0,34
+potato,Nagaland,2026-07-01,2900.0,41
+potato,Nagaland,2026-08-01,3000.0,29
+potato,Nagaland,2026-09-01,2650.0,32
+potato,Nagaland,2026-10-01,2000.0,27
+potato,Nagaland,2026-11-01,2500.0,5
+potato,Nct Of Delhi,2026-05-01,672.0,126
+potato,Nct Of Delhi,2026-06-01,1000.0,93
+potato,Nct Of Delhi,2026-07-01,1017.0,76
+potato,Nct Of Delhi,2026-08-01,1017.0,102
+potato,Nct Of Delhi,2026-09-01,1025.0,88
+potato,Nct Of Delhi,2026-10-01,1117.0,74
+potato,Nct Of Delhi,2026-11-01,1187.0,12
+potato,Odisha,2026-05-01,1500.0,547
+potato,Odisha,2026-06-01,1500.0,480
+potato,Odisha,2026-07-01,1585.0,490
+potato,Odisha,2026-08-01,1500.0,498
+potato,Odisha,2026-09-01,1700.0,487
+potato,Odisha,2026-10-01,1600.0,494
+potato,Odisha,2026-11-01,1600.0,99
+potato,Punjab,2026-05-01,550.0,1263
+potato,Punjab,2026-06-01,650.0,1333
+potato,Punjab,2026-07-01,750.0,1466
+potato,Punjab,2026-08-01,800.0,1806
+potato,Punjab,2026-09-01,700.0,1799
+potato,Punjab,2026-10-01,700.0,1760
+potato,Punjab,2026-11-01,700.0,253
+potato,Rajasthan,2026-05-01,800.0,580
+potato,Rajasthan,2026-06-01,850.0,593
+potato,Rajasthan,2026-07-01,825.0,617
+potato,Rajasthan,2026-08-01,815.0,596
+potato,Rajasthan,2026-09-01,850.0,548
+potato,Rajasthan,2026-10-01,800.0,595
+potato,Rajasthan,2026-11-01,800.0,91
+potato,Tamil Nadu,2026-05-01,3000.0,4858
+potato,Tamil Nadu,2026-06-01,3200.0,4738
+potato,Tamil Nadu,2026-07-01,3250.0,4819
+potato,Tamil Nadu,2026-08-01,3300.0,4791
+potato,Tamil Nadu,2026-09-01,3400.0,5939
+potato,Tamil Nadu,2026-10-01,3600.0,5370
+potato,Tamil Nadu,2026-11-01,3600.0,817
+potato,Telangana,2026-05-01,1300.0,313
+potato,Telangana,2026-06-01,1400.0,603
+potato,Telangana,2026-07-01,1400.0,442
+potato,Telangana,2026-08-01,1700.0,502
+potato,Telangana,2026-09-01,1700.0,511
+potato,Telangana,2026-10-01,1800.0,495
+potato,Telangana,2026-11-01,1775.0,80
+potato,Tripura,2026-05-01,1500.0,620
+potato,Tripura,2026-06-01,1450.0,595
+potato,Tripura,2026-07-01,1600.0,624
+potato,Tripura,2026-08-01,1600.0,613
+potato,Tripura,2026-09-01,1600.0,573
+potato,Tripura,2026-10-01,1600.0,497
+potato,Tripura,2026-11-01,1780.0,91
+potato,Uttar Pradesh,2026-05-01,522.58,3633
+potato,Uttar Pradesh,2026-06-01,600.0,3427
+potato,Uttar Pradesh,2026-07-01,600.0,3099
+potato,Uttar Pradesh,2026-08-01,600.0,3124
+potato,Uttar Pradesh,2026-09-01,600.0,3262
+potato,Uttar Pradesh,2026-10-01,600.0,2540
+potato,Uttar Pradesh,2026-11-01,600.0,92
+potato,Uttarakhand,2026-05-01,600.0,299
+potato,Uttarakhand,2026-06-01,700.0,298
+potato,Uttarakhand,2026-07-01,800.0,347
+potato,Uttarakhand,2026-08-01,900.0,343
+potato,Uttarakhand,2026-09-01,845.0,315
+potato,Uttarakhand,2026-10-01,840.0,339
+potato,Uttarakhand,2026-11-01,900.0,66
+potato,West Bengal,2026-05-01,800.0,1728
+potato,West Bengal,2026-06-01,800.0,1801
+potato,West Bengal,2026-07-01,800.0,1850
+potato,West Bengal,2026-08-01,720.0,1838
+potato,West Bengal,2026-09-01,720.0,1833
+potato,West Bengal,2026-10-01,720.0,1539
+potato,West Bengal,2026-11-01,740.0,264
+ragi,Andhra Pradesh,2026-06-01,4400.0,23
+ragi,Andhra Pradesh,2026-07-01,4900.0,34
+ragi,Andhra Pradesh,2026-08-01,5000.0,53
+ragi,Andhra Pradesh,2026-09-01,5000.0,53
+ragi,Andhra Pradesh,2026-10-01,5000.0,46
+ragi,Andhra Pradesh,2026-11-01,5000.0,7
+ragi,Chattisgarh,2026-05-01,3000.0,1
+ragi,Chattisgarh,2026-06-01,3000.0,2
+ragi,Chattisgarh,2026-07-01,3000.0,1
+ragi,Chattisgarh,2026-08-01,3000.0,1
+ragi,Chattisgarh,2026-09-01,3000.0,1
+ragi,Chattisgarh,2026-10-01,4102.5,2
+ragi,Karnataka,2026-05-01,3400.0,511
+ragi,Karnataka,2026-06-01,3200.0,346
+ragi,Karnataka,2026-07-01,3360.0,370
+ragi,Karnataka,2026-08-01,3400.0,387
+ragi,Karnataka,2026-09-01,3371.0,355
+ragi,Karnataka,2026-10-01,3409.0,390
+ragi,Karnataka,2026-11-01,3412.5,62
+ragi,Madhya Pradesh,2026-06-01,3800.0,1
+ragi,Maharashtra,2026-05-01,5250.0,25
+ragi,Maharashtra,2026-06-01,5400.0,26
+ragi,Maharashtra,2026-07-01,5550.0,27
+ragi,Maharashtra,2026-08-01,5600.0,50
+ragi,Maharashtra,2026-09-01,5450.0,28
+ragi,Maharashtra,2026-10-01,5700.0,27
+ragi,Maharashtra,2026-11-01,5750.0,4
+ragi,Odisha,2026-05-01,4886.0,1
+ragi,Odisha,2026-10-01,4800.0,1
+ragi,Pondicherry,2026-05-01,3799.0,5
+ragi,Pondicherry,2026-06-01,3700.0,7
+ragi,Pondicherry,2026-07-01,3574.5,12
+ragi,Pondicherry,2026-08-01,3894.0,11
+ragi,Pondicherry,2026-09-01,3904.0,10
+ragi,Pondicherry,2026-10-01,3794.5,8
+ragi,Pondicherry,2026-11-01,3939.0,3
+ragi,Tamil Nadu,2026-05-01,3417.0,170
+ragi,Tamil Nadu,2026-06-01,3349.0,189
+ragi,Tamil Nadu,2026-07-01,3395.0,195
+ragi,Tamil Nadu,2026-08-01,3545.0,123
+ragi,Tamil Nadu,2026-09-01,3650.0,261
+ragi,Tamil Nadu,2026-10-01,3650.0,93
+ragi,Tamil Nadu,2026-11-01,3664.5,3
+ragi,Telangana,2026-05-01,3269.0,29
+ragi,Telangana,2026-06-01,3393.0,13
+ragi,Telangana,2026-07-01,3313.0,1
+ragi,Telangana,2026-09-01,4329.0,5
+ragi,Telangana,2026-10-01,4931.0,8
+ragi,Telangana,2026-11-01,5657.0,4
+ragi,Uttar Pradesh,2026-05-01,4850.0,2
+ragi,Uttar Pradesh,2026-06-01,6603.075,2
+ragi,Uttar Pradesh,2026-08-01,1775.0,2
+ragi,Uttar Pradesh,2026-09-01,5248.15,1
+rice,Andhra Pradesh,2026-05-01,2379.0,67
+rice,Andhra Pradesh,2026-06-01,2369.0,278
+rice,Andhra Pradesh,2026-07-01,2379.0,1232
+rice,Andhra Pradesh,2026-08-01,2380.0,2904
+rice,Andhra Pradesh,2026-09-01,2400.0,2878
+rice,Andhra Pradesh,2026-10-01,2441.0,2800
+rice,Andhra Pradesh,2026-11-01,2441.0,316
+rice,Assam,2026-05-01,2000.0,4
+rice,Assam,2026-06-01,2100.0,4
+rice,Assam,2026-07-01,1775.0,4
+rice,Assam,2026-08-01,1775.0,4
+rice,Assam,2026-09-01,1975.0,5
+rice,Assam,2026-10-01,1775.0,4
+rice,Assam,2026-11-01,1775.0,1
+rice,Bihar,2026-06-01,1950.0,13
+rice,Bihar,2026-08-01,2150.0,19
+rice,Bihar,2026-09-01,2250.0,3
+rice,Bihar,2026-10-01,2175.0,4
+rice,Chattisgarh,2026-05-01,1840.0,2373
+rice,Chattisgarh,2026-06-01,1800.0,2648
+rice,Chattisgarh,2026-07-01,1950.0,2401
+rice,Chattisgarh,2026-08-01,2030.0,1928
+rice,Chattisgarh,2026-09-01,2130.0,2126
+rice,Chattisgarh,2026-10-01,2200.0,2282
+rice,Chattisgarh,2026-11-01,2145.0,306
+rice,Gujarat,2026-05-01,2000.0,441
+rice,Gujarat,2026-06-01,2152.5,408
+rice,Gujarat,2026-07-01,2300.0,276
+rice,Gujarat,2026-08-01,2325.0,216
+rice,Gujarat,2026-09-01,2400.0,245
+rice,Gujarat,2026-10-01,2412.0,435
+rice,Gujarat,2026-11-01,2475.0,84
+rice,Haryana,2026-07-01,2500.0,1
+rice,Haryana,2026-08-01,4200.0,3
+rice,Haryana,2026-09-01,2461.0,136
+rice,Haryana,2026-10-01,2461.0,923
+rice,Haryana,2026-11-01,2461.0,101
+rice,Himachal Pradesh,2026-10-01,2441.0,20
+rice,Himachal Pradesh,2026-11-01,2441.0,5
+rice,Karnataka,2026-05-01,2400.0,1342
+rice,Karnataka,2026-06-01,2400.0,944
+rice,Karnataka,2026-07-01,2600.0,1024
+rice,Karnataka,2026-08-01,2800.0,879
+rice,Karnataka,2026-09-01,2847.0,852
+rice,Karnataka,2026-10-01,3100.0,875
+rice,Karnataka,2026-11-01,3327.5,108
+rice,Kerala,2026-05-01,2500.0,33
+rice,Keralam,2026-05-01,3120.0,45
+rice,Keralam,2026-06-01,2815.0,48
+rice,Keralam,2026-07-01,2500.0,50
+rice,Keralam,2026-08-01,2500.0,44
+rice,Keralam,2026-09-01,2504.5,48
+rice,Keralam,2026-10-01,2500.0,42
+rice,Keralam,2026-11-01,2865.0,8
+rice,Madhya Pradesh,2026-05-01,2000.0,1220
+rice,Madhya Pradesh,2026-06-01,2203.0,1227
+rice,Madhya Pradesh,2026-07-01,2300.0,1076
+rice,Madhya Pradesh,2026-08-01,2260.045,840
+rice,Madhya Pradesh,2026-09-01,2215.0,830
+rice,Madhya Pradesh,2026-10-01,3675.0,2789
+rice,Madhya Pradesh,2026-11-01,4089.1,825
+rice,Maharashtra,2026-05-01,2600.0,444
+rice,Maharashtra,2026-06-01,2638.0,513
+rice,Maharashtra,2026-07-01,2875.0,469
+rice,Maharashtra,2026-08-01,3100.0,749
+rice,Maharashtra,2026-09-01,3074.0,431
+rice,Maharashtra,2026-10-01,3425.0,502
+rice,Maharashtra,2026-11-01,3426.0,87
+rice,Manipur,2026-05-01,3000.0,118
+rice,Manipur,2026-06-01,3000.0,114
+rice,Manipur,2026-07-01,3000.0,107
+rice,Manipur,2026-08-01,3000.0,85
+rice,Manipur,2026-09-01,3000.0,86
+rice,Manipur,2026-10-01,3000.0,64
+rice,Manipur,2026-11-01,3000.0,20
+rice,Nct Of Delhi,2026-05-01,4212.0,70
+rice,Nct Of Delhi,2026-06-01,3590.0,33
+rice,Nct Of Delhi,2026-07-01,3950.0,27
+rice,Nct Of Delhi,2026-08-01,3721.5,26
+rice,Nct Of Delhi,2026-09-01,3611.0,38
+rice,Nct Of Delhi,2026-10-01,3751.0,53
+rice,Nct Of Delhi,2026-11-01,4384.5,4
+rice,Odisha,2026-05-01,2369.0,31
+rice,Odisha,2026-06-01,2369.0,30
+rice,Odisha,2026-07-01,2369.0,30
+rice,Odisha,2026-08-01,2369.0,31
+rice,Odisha,2026-09-01,2369.0,31
+rice,Odisha,2026-10-01,2441.0,29
+rice,Odisha,2026-11-01,2441.0,5
+rice,Pondicherry,2026-05-01,1879.3328635,46
+rice,Pondicherry,2026-06-01,1947.999513,79
+rice,Pondicherry,2026-07-01,1986.9997515,54
+rice,Pondicherry,2026-08-01,2112.8330699999997,28
+rice,Pondicherry,2026-09-01,2366.666075,21
+rice,Pondicherry,2026-10-01,2186.66612,22
+rice,Pondicherry,2026-11-01,2312.0,7
+rice,Punjab,2026-09-01,3625.0,47
+rice,Punjab,2026-10-01,2461.0,2395
+rice,Punjab,2026-11-01,2461.0,388
+rice,Rajasthan,2026-05-01,3900.5,46
+rice,Rajasthan,2026-06-01,3933.0,62
+rice,Rajasthan,2026-07-01,3900.0,61
+rice,Rajasthan,2026-08-01,3850.0,45
+rice,Rajasthan,2026-09-01,2400.0,81
+rice,Rajasthan,2026-10-01,3620.0,197
+rice,Rajasthan,2026-11-01,4047.5,28
+rice,Tamil Nadu,2026-05-01,1908.0,652
+rice,Tamil Nadu,2026-06-01,2100.0,511
+rice,Tamil Nadu,2026-07-01,2250.0,552
+rice,Tamil Nadu,2026-08-01,2305.0,440
+rice,Tamil Nadu,2026-09-01,2303.0,851
+rice,Tamil Nadu,2026-10-01,2450.0,414
+rice,Tamil Nadu,2026-11-01,2400.0,32
+rice,Telangana,2026-05-01,2369.0,1339
+rice,Telangana,2026-06-01,2389.0,1509
+rice,Telangana,2026-07-01,2389.0,709
+rice,Telangana,2026-08-01,2389.0,533
+rice,Telangana,2026-09-01,2400.0,520
+rice,Telangana,2026-10-01,2461.0,858
+rice,Telangana,2026-11-01,2651.0,87
+rice,Tripura,2026-05-01,1775.0,12
+rice,Tripura,2026-06-01,1750.0,14
+rice,Tripura,2026-07-01,2250.0,22
+rice,Tripura,2026-08-01,3500.0,23
+rice,Tripura,2026-09-01,2162.5,16
+rice,Tripura,2026-10-01,2200.0,9
+rice,Uttar Pradesh,2026-05-01,2221.92,2255
+rice,Uttar Pradesh,2026-06-01,2400.0,2524
+rice,Uttar Pradesh,2026-07-01,2457.995,2764
+rice,Uttar Pradesh,2026-08-01,2500.0,2025
+rice,Uttar Pradesh,2026-09-01,2943.13,4031
+rice,Uttar Pradesh,2026-10-01,2807.2,7458
+rice,Uttar Pradesh,2026-11-01,2500.0,351
+rice,Uttarakhand,2026-05-01,2655.0,24
+rice,Uttarakhand,2026-06-01,2050.0,25
+rice,Uttarakhand,2026-07-01,2100.0,30
+rice,Uttarakhand,2026-08-01,2050.0,31
+rice,Uttarakhand,2026-09-01,1945.0,14
+rice,Uttarakhand,2026-10-01,2378.5,78
+rice,Uttarakhand,2026-11-01,2441.0,19
+rice,West Bengal,2026-05-01,2372.0,330
+rice,West Bengal,2026-06-01,2375.0,339
+rice,West Bengal,2026-07-01,2375.0,351
+rice,West Bengal,2026-08-01,2372.0,472
+rice,West Bengal,2026-09-01,2400.0,255
+rice,West Bengal,2026-10-01,2490.0,235
+rice,West Bengal,2026-11-01,2490.0,29
+sesamum,Andhra Pradesh,2026-07-01,9500.0,14
+sesamum,Andhra Pradesh,2026-08-01,9500.0,23
+sesamum,Andhra Pradesh,2026-09-01,9550.0,22
+sesamum,Andhra Pradesh,2026-10-01,8550.0,23
+sesamum,Andhra Pradesh,2026-11-01,9550.0,4
+sesamum,Chattisgarh,2026-05-01,8360.0,2
+sesamum,Chattisgarh,2026-06-01,12026.0,2
+sesamum,Chattisgarh,2026-07-01,9548.5,2
+sesamum,Chattisgarh,2026-08-01,9087.5,2
+sesamum,Chattisgarh,2026-09-01,11623.0,1
+sesamum,Chattisgarh,2026-10-01,7091.0,3
+sesamum,Gujarat,2026-05-01,10625.0,1092
+sesamum,Gujarat,2026-06-01,11387.5,1436
+sesamum,Gujarat,2026-07-01,12065.0,1057
+sesamum,Gujarat,2026-08-01,11725.0,781
+sesamum,Gujarat,2026-09-01,11605.0,628
+sesamum,Gujarat,2026-10-01,14525.0,959
+sesamum,Gujarat,2026-11-01,15103.5,156
+sesamum,Karnataka,2026-05-01,9500.0,78
+sesamum,Karnataka,2026-06-01,9900.0,38
+sesamum,Karnataka,2026-07-01,12500.0,75
+sesamum,Karnataka,2026-08-01,13437.0,70
+sesamum,Karnataka,2026-09-01,12026.0,114
+sesamum,Karnataka,2026-10-01,12025.0,92
+sesamum,Karnataka,2026-11-01,13500.0,7
+sesamum,Madhya Pradesh,2026-05-01,9557.0,99
+sesamum,Madhya Pradesh,2026-06-01,10500.0,383
+sesamum,Madhya Pradesh,2026-07-01,10915.5,414
+sesamum,Madhya Pradesh,2026-08-01,10100.0,235
+sesamum,Madhya Pradesh,2026-09-01,10500.0,220
+sesamum,Madhya Pradesh,2026-10-01,14000.0,696
+sesamum,Madhya Pradesh,2026-11-01,14095.0,157
+sesamum,Maharashtra,2026-05-01,9945.0,305
+sesamum,Maharashtra,2026-06-01,10600.0,472
+sesamum,Maharashtra,2026-07-01,11600.0,366
+sesamum,Maharashtra,2026-08-01,11000.0,543
+sesamum,Maharashtra,2026-09-01,11000.0,232
+sesamum,Maharashtra,2026-10-01,12000.0,197
+sesamum,Maharashtra,2026-11-01,13884.5,36
+sesamum,Pondicherry,2026-05-01,12790.625,14
+sesamum,Pondicherry,2026-06-01,12278.75,13
+sesamum,Pondicherry,2026-07-01,13262.5,17
+sesamum,Pondicherry,2026-08-01,12125.0,7
+sesamum,Pondicherry,2026-09-01,11274.375,2
+sesamum,Pondicherry,2026-10-01,13135.0,2
+sesamum,Rajasthan,2026-05-01,9000.0,43
+sesamum,Rajasthan,2026-06-01,9520.0,67
+sesamum,Rajasthan,2026-07-01,10600.0,73
+sesamum,Rajasthan,2026-08-01,10157.5,32
+sesamum,Rajasthan,2026-09-01,10290.5,50
+sesamum,Rajasthan,2026-10-01,14000.0,303
+sesamum,Rajasthan,2026-11-01,14400.0,66
+sesamum,Tamil Nadu,2026-09-01,8804.5,2
+sesamum,Telangana,2026-05-01,10332.0,50
+sesamum,Telangana,2026-06-01,11619.5,68
+sesamum,Telangana,2026-07-01,12580.0,46
+sesamum,Telangana,2026-08-01,11909.0,33
+sesamum,Telangana,2026-09-01,11932.5,38
+sesamum,Telangana,2026-10-01,12375.0,54
+sesamum,Telangana,2026-11-01,14079.0,6
+sesamum,Uttar Pradesh,2026-05-01,9000.0,76
+sesamum,Uttar Pradesh,2026-06-01,9775.06,111
+sesamum,Uttar Pradesh,2026-07-01,10141.005000000001,102
+sesamum,Uttar Pradesh,2026-08-01,10069.08,80
+sesamum,Uttar Pradesh,2026-09-01,10085.6,95
+sesamum,Uttar Pradesh,2026-10-01,11986.765,258
+sesamum,Uttar Pradesh,2026-11-01,13000.0,15
+soybean,Andhra Pradesh,2026-05-01,5490.5,2
+soybean,Andhra Pradesh,2026-06-01,3900.0,1
+soybean,Andhra Pradesh,2026-08-01,4530.0,1
+soybean,Andhra Pradesh,2026-09-01,2828.0,1
+soybean,Andhra Pradesh,2026-10-01,3541.0,4
+soybean,Chattisgarh,2026-05-01,6000.0,43
+soybean,Chattisgarh,2026-06-01,6200.0,52
+soybean,Chattisgarh,2026-07-01,6200.0,29
+soybean,Chattisgarh,2026-08-01,6070.0,27
+soybean,Chattisgarh,2026-09-01,4575.0,21
+soybean,Chattisgarh,2026-10-01,6000.0,60
+soybean,Chattisgarh,2026-11-01,6400.0,17
+soybean,Gujarat,2026-05-01,6650.0,321
+soybean,Gujarat,2026-06-01,6650.0,380
+soybean,Gujarat,2026-07-01,6800.0,411
+soybean,Gujarat,2026-08-01,6205.0,298
+soybean,Gujarat,2026-09-01,5505.0,207
+soybean,Gujarat,2026-10-01,6625.0,585
+soybean,Gujarat,2026-11-01,6675.0,115
+soybean,Karnataka,2026-05-01,6586.0,317
+soybean,Karnataka,2026-06-01,6647.0,250
+soybean,Karnataka,2026-07-01,6800.0,239
+soybean,Karnataka,2026-08-01,6494.0,167
+soybean,Karnataka,2026-09-01,5498.0,398
+soybean,Karnataka,2026-10-01,6300.0,394
+soybean,Karnataka,2026-11-01,6738.0,37
+soybean,Madhya Pradesh,2026-05-01,6900.0,3558
+soybean,Madhya Pradesh,2026-06-01,6718.5,3958
+soybean,Madhya Pradesh,2026-07-01,6851.0,4248
+soybean,Madhya Pradesh,2026-08-01,6399.0,2947
+soybean,Madhya Pradesh,2026-09-01,5501.5,2856
+soybean,Madhya Pradesh,2026-10-01,6580.0,6177
+soybean,Madhya Pradesh,2026-11-01,6790.0,1082
+soybean,Maharashtra,2026-05-01,6650.0,1732
+soybean,Maharashtra,2026-06-01,6600.0,1816
+soybean,Maharashtra,2026-07-01,6800.0,1988
+soybean,Maharashtra,2026-08-01,6400.0,3138
+soybean,Maharashtra,2026-09-01,5631.0,1761
+soybean,Maharashtra,2026-10-01,6700.0,3769
+soybean,Maharashtra,2026-11-01,6801.0,550
+soybean,Rajasthan,2026-05-01,6765.0,418
+soybean,Rajasthan,2026-06-01,6500.0,479
+soybean,Rajasthan,2026-07-01,6655.0,485
+soybean,Rajasthan,2026-08-01,6258.0,358
+soybean,Rajasthan,2026-09-01,5475.0,314
+soybean,Rajasthan,2026-10-01,6480.0,552
+soybean,Rajasthan,2026-11-01,6700.5,86
+soybean,Tamil Nadu,2026-05-01,9750.0,72
+soybean,Tamil Nadu,2026-06-01,9500.0,60
+soybean,Tamil Nadu,2026-07-01,9500.0,111
+soybean,Tamil Nadu,2026-08-01,9500.0,261
+soybean,Tamil Nadu,2026-09-01,9750.0,367
+soybean,Tamil Nadu,2026-10-01,10000.0,276
+soybean,Tamil Nadu,2026-11-01,9500.0,16
+soybean,Telangana,2026-05-01,6758.0,23
+soybean,Telangana,2026-06-01,6532.0,47
+soybean,Telangana,2026-07-01,6813.0,24
+soybean,Telangana,2026-08-01,6158.0,18
+soybean,Telangana,2026-09-01,5709.0,35
+soybean,Telangana,2026-10-01,6861.0,152
+soybean,Telangana,2026-11-01,7000.0,19
+soybean,Uttar Pradesh,2026-05-01,6500.0,51
+soybean,Uttar Pradesh,2026-06-01,6085.43,32
+soybean,Uttar Pradesh,2026-07-01,6513.889999999999,52
+soybean,Uttar Pradesh,2026-08-01,6200.0,39
+soybean,Uttar Pradesh,2026-09-01,7200.0,17
+soybean,Uttar Pradesh,2026-10-01,6026.22,29
+soybean,Uttarakhand,2026-06-01,5517.5,2
+sugarcane,Chattisgarh,2026-05-01,350.0,20
+sugarcane,Chattisgarh,2026-06-01,350.0,17
+sugarcane,Chattisgarh,2026-07-01,350.0,11
+sugarcane,Chattisgarh,2026-08-01,355.0,2
+sugarcane,Chattisgarh,2026-09-01,300.0,5
+sugarcane,Chattisgarh,2026-10-01,360.0,5
+sugarcane,Maharashtra,2026-05-01,550.0,4
+sugarcane,Maharashtra,2026-06-01,550.0,1
+sugarcane,Maharashtra,2026-10-01,325.0,3
+watermelon,Andaman And Nicobar,2026-05-01,3500.0,12
+watermelon,Chandigarh,2026-05-01,1000.0,4
+watermelon,Chandigarh,2026-06-01,800.0,14
+watermelon,Chandigarh,2026-07-01,1500.0,22
+watermelon,Chandigarh,2026-08-01,2000.0,21
+watermelon,Chandigarh,2026-09-01,2000.0,24
+watermelon,Chandigarh,2026-10-01,2200.0,23
+watermelon,Chandigarh,2026-11-01,2200.0,3
+watermelon,Chattisgarh,2026-05-01,1200.0,81
+watermelon,Chattisgarh,2026-06-01,1200.0,32
+watermelon,Chattisgarh,2026-11-01,2500.0,2
+watermelon,Goa,2026-05-01,2250.0,25
+watermelon,Goa,2026-06-01,2250.0,18
+watermelon,Goa,2026-07-01,2250.0,18
+watermelon,Goa,2026-08-01,2250.0,26
+watermelon,Goa,2026-09-01,2250.0,25
+watermelon,Goa,2026-10-01,2250.0,26
+watermelon,Goa,2026-11-01,2250.0,2
+watermelon,Gujarat,2026-05-01,1050.0,117
+watermelon,Gujarat,2026-06-01,1200.0,65
+watermelon,Gujarat,2026-07-01,1300.0,22
+watermelon,Gujarat,2026-08-01,1000.0,41
+watermelon,Gujarat,2026-09-01,900.0,58
+watermelon,Gujarat,2026-10-01,1200.0,48
+watermelon,Gujarat,2026-11-01,1125.0,6
+watermelon,Haryana,2026-05-01,1000.0,769
+watermelon,Haryana,2026-06-01,1000.0,537
+watermelon,Haryana,2026-07-01,2250.0,217
+watermelon,Haryana,2026-08-01,2200.0,185
+watermelon,Haryana,2026-09-01,2500.0,180
+watermelon,Haryana,2026-10-01,2750.0,172
+watermelon,Haryana,2026-11-01,2625.0,26
+watermelon,Himachal Pradesh,2026-05-01,1450.0,445
+watermelon,Himachal Pradesh,2026-06-01,1500.0,412
+watermelon,Himachal Pradesh,2026-07-01,2600.0,163
+watermelon,Himachal Pradesh,2026-08-01,3100.0,68
+watermelon,Himachal Pradesh,2026-09-01,3100.0,72
+watermelon,Himachal Pradesh,2026-10-01,3800.0,68
+watermelon,Himachal Pradesh,2026-11-01,3900.0,9
+watermelon,Jammu And Kashmir,2026-05-01,2000.0,139
+watermelon,Jammu And Kashmir,2026-06-01,1500.0,86
+watermelon,Jammu And Kashmir,2026-07-01,2500.0,53
+watermelon,Jammu And Kashmir,2026-08-01,2500.0,35
+watermelon,Jammu And Kashmir,2026-09-01,2900.0,30
+watermelon,Jammu And Kashmir,2026-10-01,3250.0,31
+watermelon,Jammu And Kashmir,2026-11-01,2250.0,4
+watermelon,Karnataka,2026-05-01,2000.0,136
+watermelon,Karnataka,2026-06-01,1500.0,101
+watermelon,Karnataka,2026-07-01,1500.0,109
+watermelon,Karnataka,2026-08-01,1500.0,77
+watermelon,Karnataka,2026-09-01,1500.0,80
+watermelon,Karnataka,2026-10-01,1500.0,76
+watermelon,Karnataka,2026-11-01,1500.0,9
+watermelon,Kerala,2026-05-01,2400.0,52
+watermelon,Keralam,2026-05-01,2300.0,68
+watermelon,Keralam,2026-06-01,1800.0,64
+watermelon,Keralam,2026-07-01,1900.0,72
+watermelon,Keralam,2026-08-01,1900.0,54
+watermelon,Keralam,2026-09-01,1800.0,61
+watermelon,Keralam,2026-10-01,1900.0,51
+watermelon,Keralam,2026-11-01,2000.0,8
+watermelon,Madhya Pradesh,2026-05-01,900.0,286
+watermelon,Madhya Pradesh,2026-06-01,900.0,135
+watermelon,Madhya Pradesh,2026-07-01,1200.0,19
+watermelon,Madhya Pradesh,2026-08-01,1525.0,8
+watermelon,Madhya Pradesh,2026-09-01,750.0,30
+watermelon,Madhya Pradesh,2026-10-01,800.0,42
+watermelon,Madhya Pradesh,2026-11-01,600.0,6
+watermelon,Maharashtra,2026-05-01,1000.0,290
+watermelon,Maharashtra,2026-06-01,1500.0,114
+watermelon,Maharashtra,2026-07-01,1100.0,111
+watermelon,Maharashtra,2026-08-01,900.0,258
+watermelon,Maharashtra,2026-09-01,900.0,124
+watermelon,Maharashtra,2026-10-01,1000.0,138
+watermelon,Maharashtra,2026-11-01,1000.0,22
+watermelon,Meghalaya,2026-05-01,3600.0,7
+watermelon,Meghalaya,2026-06-01,2400.0,2
+watermelon,Meghalaya,2026-08-01,2200.0,1
+watermelon,Nagaland,2026-05-01,1300.0,6
+watermelon,Nagaland,2026-06-01,1350.0,3
+watermelon,Nagaland,2026-07-01,1880.0,6
+watermelon,Nagaland,2026-08-01,1650.0,2
+watermelon,Nct Of Delhi,2026-05-01,1000.0,100
+watermelon,Nct Of Delhi,2026-06-01,1200.0,63
+watermelon,Nct Of Delhi,2026-07-01,2200.0,41
+watermelon,Nct Of Delhi,2026-08-01,1700.0,30
+watermelon,Nct Of Delhi,2026-09-01,2100.0,27
+watermelon,Nct Of Delhi,2026-10-01,2000.0,28
+watermelon,Nct Of Delhi,2026-11-01,1450.0,4
+watermelon,Odisha,2026-05-01,1400.0,142
+watermelon,Odisha,2026-06-01,1700.0,49
+watermelon,Odisha,2026-07-01,2750.0,7
+watermelon,Punjab,2026-05-01,1000.0,757
+watermelon,Punjab,2026-06-01,900.0,641
+watermelon,Punjab,2026-07-01,1500.0,254
+watermelon,Punjab,2026-08-01,1735.0,286
+watermelon,Punjab,2026-09-01,1630.0,236
+watermelon,Punjab,2026-10-01,2000.0,197
+watermelon,Punjab,2026-11-01,2200.0,25
+watermelon,Rajasthan,2026-05-01,1000.0,171
+watermelon,Rajasthan,2026-06-01,1100.0,146
+watermelon,Rajasthan,2026-07-01,1800.0,104
+watermelon,Rajasthan,2026-08-01,1800.0,108
+watermelon,Rajasthan,2026-09-01,1800.0,94
+watermelon,Rajasthan,2026-10-01,2000.0,101
+watermelon,Rajasthan,2026-11-01,2000.0,13
+watermelon,Tamil Nadu,2026-05-01,2000.0,1143
+watermelon,Tamil Nadu,2026-06-01,2200.0,1009
+watermelon,Tamil Nadu,2026-07-01,2250.0,860
+watermelon,Tamil Nadu,2026-08-01,1750.0,934
+watermelon,Tamil Nadu,2026-09-01,1750.0,1006
+watermelon,Tamil Nadu,2026-10-01,2250.0,708
+watermelon,Tamil Nadu,2026-11-01,2250.0,89
+watermelon,Telangana,2026-05-01,600.0,49
+watermelon,Telangana,2026-06-01,600.0,57
+watermelon,Telangana,2026-07-01,500.0,44
+watermelon,Telangana,2026-08-01,400.0,35
+watermelon,Telangana,2026-09-01,400.0,32
+watermelon,Telangana,2026-10-01,400.0,36
+watermelon,Telangana,2026-11-01,450.0,4
+watermelon,Tripura,2026-05-01,2700.0,20
+watermelon,Tripura,2026-06-01,2500.0,9
+watermelon,Tripura,2026-07-01,3000.0,3
+watermelon,Tripura,2026-09-01,3500.0,1
+watermelon,Uttar Pradesh,2026-05-01,1100.0,210
+watermelon,Uttar Pradesh,2026-06-01,1000.0,121
+watermelon,Uttar Pradesh,2026-07-01,980.0,10
+watermelon,Uttar Pradesh,2026-08-01,2000.0,2
+watermelon,Uttar Pradesh,2026-09-01,2000.0,3
+watermelon,Uttar Pradesh,2026-10-01,2050.0,6
+watermelon,Uttar Pradesh,2026-11-01,1950.0,2
+watermelon,Uttarakhand,2026-05-01,800.0,333
+watermelon,Uttarakhand,2026-06-01,700.0,169
+watermelon,Uttarakhand,2026-07-01,1000.0,12
+watermelon,Uttarakhand,2026-09-01,1200.0,1
+watermelon,Uttarakhand,2026-11-01,2000.0,1
+wheat,Bihar,2026-06-01,2500.0,76
+wheat,Bihar,2026-07-01,2500.0,56
+wheat,Bihar,2026-08-01,2560.0,72
+wheat,Bihar,2026-09-01,2640.0,64
+wheat,Bihar,2026-10-01,2645.0,76
+wheat,Bihar,2026-11-01,2685.0,16
+wheat,Chattisgarh,2026-05-01,2300.0,255
+wheat,Chattisgarh,2026-06-01,2302.5,246
+wheat,Chattisgarh,2026-07-01,2437.0,184
+wheat,Chattisgarh,2026-08-01,2530.0,142
+wheat,Chattisgarh,2026-09-01,2540.0,115
+wheat,Chattisgarh,2026-10-01,2542.5,102
+wheat,Chattisgarh,2026-11-01,2691.0,15
+wheat,Gujarat,2026-05-01,2350.0,1867
+wheat,Gujarat,2026-06-01,2350.0,1900
+wheat,Gujarat,2026-07-01,2500.0,1705
+wheat,Gujarat,2026-08-01,2600.0,1550
+wheat,Gujarat,2026-09-01,2725.0,1399
+wheat,Gujarat,2026-10-01,2780.0,1639
+wheat,Gujarat,2026-11-01,3000.0,251
+wheat,Haryana,2026-05-01,2585.0,439
+wheat,Haryana,2026-06-01,2380.0,1
+wheat,Haryana,2026-07-01,2545.0,6
+wheat,Haryana,2026-08-01,2550.0,4
+wheat,Haryana,2026-09-01,2600.0,3
+wheat,Haryana,2026-10-01,2600.0,1
+wheat,Haryana,2026-11-01,2700.0,3
+wheat,Himachal Pradesh,2026-05-01,2585.0,10
+wheat,Himachal Pradesh,2026-06-01,2585.0,2
+wheat,Karnataka,2026-05-01,2481.5,450
+wheat,Karnataka,2026-06-01,2477.0,331
+wheat,Karnataka,2026-07-01,2675.0,353
+wheat,Karnataka,2026-08-01,2719.0,311
+wheat,Karnataka,2026-09-01,2800.0,286
+wheat,Karnataka,2026-10-01,3100.0,257
+wheat,Karnataka,2026-11-01,3191.5,32
+wheat,Madhya Pradesh,2026-05-01,2398.0,14775
+wheat,Madhya Pradesh,2026-06-01,2356.0,11871
+wheat,Madhya Pradesh,2026-07-01,2481.0,10592
+wheat,Madhya Pradesh,2026-08-01,2560.0,7921
+wheat,Madhya Pradesh,2026-09-01,2611.0,7451
+wheat,Madhya Pradesh,2026-10-01,2650.0,8171
+wheat,Madhya Pradesh,2026-11-01,2780.0,1569
+wheat,Maharashtra,2026-05-01,2320.0,2632
+wheat,Maharashtra,2026-06-01,2300.0,2624
+wheat,Maharashtra,2026-07-01,2498.0,2938
+wheat,Maharashtra,2026-08-01,2585.0,5307
+wheat,Maharashtra,2026-09-01,2650.0,2926
+wheat,Maharashtra,2026-10-01,2751.0,2418
+wheat,Maharashtra,2026-11-01,3056.5,334
+wheat,Nagaland,2026-09-01,2570.0,1
+wheat,Nagaland,2026-10-01,2550.0,2
+wheat,Nct Of Delhi,2026-05-01,2560.0,180
+wheat,Nct Of Delhi,2026-06-01,2534.5,100
+wheat,Nct Of Delhi,2026-07-01,2591.0,87
+wheat,Nct Of Delhi,2026-08-01,2651.5,80
+wheat,Nct Of Delhi,2026-09-01,2746.5,72
+wheat,Nct Of Delhi,2026-10-01,2868.5,68
+wheat,Nct Of Delhi,2026-11-01,2897.5,8
+wheat,Punjab,2026-05-01,2585.0,614
+wheat,Punjab,2026-06-01,2462.5,18
+wheat,Punjab,2026-07-01,2510.0,10
+wheat,Punjab,2026-08-01,2615.0,17
+wheat,Punjab,2026-09-01,2700.0,13
+wheat,Punjab,2026-10-01,2775.0,5
+wheat,Rajasthan,2026-05-01,2450.0,2100
+wheat,Rajasthan,2026-06-01,2411.0,1962
+wheat,Rajasthan,2026-07-01,2495.0,1934
+wheat,Rajasthan,2026-08-01,2570.0,1572
+wheat,Rajasthan,2026-09-01,2630.0,1456
+wheat,Rajasthan,2026-10-01,2702.0,1360
+wheat,Rajasthan,2026-11-01,2830.0,177
+wheat,Telangana,2026-05-01,2290.0,14
+wheat,Telangana,2026-06-01,2259.0,54
+wheat,Telangana,2026-07-01,2462.0,21
+wheat,Telangana,2026-08-01,2478.5,18
+wheat,Telangana,2026-09-01,2599.0,17
+wheat,Telangana,2026-10-01,2525.0,7
+wheat,Telangana,2026-11-01,2011.0,1
+wheat,Uttar Pradesh,2026-05-01,2451.15,15207
+wheat,Uttar Pradesh,2026-06-01,2450.0,10966
+wheat,Uttar Pradesh,2026-07-01,2450.0,10030
+wheat,Uttar Pradesh,2026-08-01,2500.0,9120
+wheat,Uttar Pradesh,2026-09-01,2525.16,8743
+wheat,Uttar Pradesh,2026-10-01,2535.27,6079
+wheat,Uttar Pradesh,2026-11-01,2600.0,123
+wheat,Uttarakhand,2026-05-01,2585.0,119
+wheat,Uttarakhand,2026-06-01,2600.0,78
+wheat,Uttarakhand,2026-07-01,2600.0,43
+wheat,Uttarakhand,2026-08-01,2600.0,33
+wheat,Uttarakhand,2026-09-01,2600.0,31
+wheat,Uttarakhand,2026-10-01,2600.0,25
+wheat,Uttarakhand,2026-11-01,2600.0,1
+wheat,West Bengal,2026-05-01,2650.0,280
+wheat,West Bengal,2026-06-01,2700.0,295
+wheat,West Bengal,2026-07-01,2700.0,294
+wheat,West Bengal,2026-08-01,2700.0,296
+wheat,West Bengal,2026-09-01,2700.0,271
+wheat,West Bengal,2026-10-01,2700.0,265
+wheat,West Bengal,2026-11-01,2700.0,36

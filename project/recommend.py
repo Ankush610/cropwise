@@ -146,19 +146,25 @@ def _yield(crop: str, district: pd.Series) -> tuple[float, str]:
     return float("nan"), "no yield data"
 
 
-def _price(crop: str, state: str, sow: datetime.date) -> tuple[float, str, float]:
-    """Forecast Rs/quintal when the crop is sold: MSP for paddy and wheat in procurement states, else the state's series,
-    else All India. Returns (price, source, mape); mape is NaN for MSP (a fixed price, not a forecast)."""
-    if crop in MSP and state in PROCUREMENT_STATES:
-        return float(MSP[crop]), "MSP 2026-27", float("nan")
+def _series(crop: str, state: str) -> pd.DataFrame:
+    """Forecast rows for the crop: the state's or All India's, whichever backtested better (lower MAPE). Thin or volatile
+    state series (Maharashtra onion: 98.6%) do worse than the national one (57.6%)."""
     p = _tables()[1]
     p = p[p["crop"] == crop]
+    options = [o for o in (p[p["state"] == s] for s in (state, "All India")) if len(o)]
+    return min(options, key=lambda o: o["mape"].fillna(np.inf).iloc[0], default=p.iloc[:0])
+
+
+def _price(crop: str, state: str, sow: datetime.date) -> tuple[float, str, float]:
+    """Forecast Rs/quintal when the crop is sold: MSP for paddy and wheat in procurement states, else the state's or All
+    India's series (see _series). Returns (price, source, mape); mape is NaN for MSP (a fixed price, not a forecast)."""
+    if crop in MSP and state in PROCUREMENT_STATES:
+        return float(MSP[crop]), "MSP 2026-27", float("nan")
+    rows = _series(crop, state)
     if crop in GROW_MONTHS:  # the forecast covers 12 months, so month-of-year picks one
-        p = p[p["moy"] == (sow.month - 1 + GROW_MONTHS[crop]) % 12 + 1]
-    for source in (state, "All India"):
-        rows = p[p["state"] == source]
-        if len(rows):
-            return float(rows["price"].mean()), source, float(rows["mape"].iloc[0])
+        rows = rows[rows["moy"] == (sow.month - 1 + GROW_MONTHS[crop]) % 12 + 1]
+    if len(rows):
+        return float(rows["price"].mean()), rows["state"].iloc[0], float(rows["mape"].iloc[0])
     return float("nan"), "no price data", float("nan")
 
 
@@ -276,18 +282,15 @@ def check_crop(inputs: dict, crop: str) -> dict:
 
 
 def price_outlook(crop: str, state: str | None = None) -> dict:
-    """12-month mandi price forecast (Rs/quintal): the state's series, else All India; MSP for paddy and wheat in
-    procurement states."""
+    """12-month mandi price forecast (Rs/quintal): the state's or All India's series (see _series); MSP for paddy and
+    wheat in procurement states."""
     if crop in MSP and state in PROCUREMENT_STATES:
         return {"crop": crop, "source": "MSP 2026-27 (fixed government price)", "price_rs_q": MSP[crop]}
-    p = _tables()[1]
-    p = p[p["crop"] == crop]
-    for source in (state, "All India"):
-        rows = p[p["state"] == source].sort_values("month")
-        if len(rows):
-            return {"crop": crop, "source": source, "forecast_error_pct": float(rows["mape"].iloc[0]),
-                    "months": [{"month": m.strftime("%b %Y"), "price_rs_q": round(float(v))}
-                               for m, v in zip(rows["month"], rows["price"])]}
+    rows = _series(crop, state).sort_values("month")
+    if len(rows):
+        return {"crop": crop, "source": rows["state"].iloc[0], "forecast_error_pct": float(rows["mape"].iloc[0]),
+                "months": [{"month": m.strftime("%b %Y"), "price_rs_q": round(float(v))}
+                           for m, v in zip(rows["month"], rows["price"])]}
     raise ValueError(f"No price data for {crop!r}")
 
 
@@ -307,6 +310,7 @@ if __name__ == "__main__":
     top = check_crop(inputs, table["crop"].iloc[0])
     assert top["suitability"] == table["suitability"].iloc[0] and top["offered_this_season"], top
     assert check_crop(inputs, "jute")["rank"] in (None, *range(2, 28))
+    assert price_outlook("onion", "Maharashtra")["source"] == "All India"  # state backtest 98.6% vs national 57.6%
     assert len(price_outlook("onion", "Maharashtra")["months"]) == 12 and "months" not in price_outlook("wheat", "Punjab")
     assert _price("rice", "Punjab", datetime.date(2026, 6, 15))[:2] == (2441.0, "MSP 2026-27")
     assert _price("rice", "Odisha", datetime.date(2026, 6, 15))[1] != "MSP 2026-27"

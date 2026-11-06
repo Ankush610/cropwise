@@ -39,6 +39,9 @@ were in training, so optimistic).
 - DES season labels differ by state (UP files sugarcane as Kharif; West Bengal's Winter/Summer rice). Our mapping is
   in `data.SEASON_OF`, `data.RICE_SEASON`; year-round crops are split equally across seasons.
 - CACP cost exceeds the crop's value for some state-crop pairs (ragi, Maharashtra paddy), so net return is negative.
+- Onion and potato prices swing too much for a monthly forecast: backtest MAPE 58% and 41% All India, up to 99% for
+  single states (Maharashtra onion ₹4,100 → ₹900 → ₹3,775 within two years). The app warns above 30% and uses the
+  All-India series when it backtests better (`notes/2026-11-06_price_refresh.md`).
 
 ## Method
 

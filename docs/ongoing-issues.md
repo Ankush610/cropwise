@@ -29,6 +29,9 @@ Priority is against the Nov 10 freeze: **High** = wrong advice or a broken demo,
   share is ~0.91. Rice in the same district: cost share ~0.56.
 - **Check:** CACP soybean A2+FL share for Madhya Pradesh in `cost_shares()`, and the DES soybean yield for Vidisha
   (0.83 t/ha is low for MP). If the share is right, the advice is right but needs explaining.
+- **Also seen (Nov 6):** Pune, N 90 P 42 K 43 pH 6.5, kharif sowing: top crop rice has cost share 1.47 (CACP
+  Maharashtra), so net is −₹40,678/ha while it still ranks first. A share above 1 likely means CACP's Maharashtra rice
+  value doesn't match our price × DES yield; worth capping or flagging shares > 1.
 
 ## Ranking shown to the farmer
 

@@ -4,9 +4,13 @@ __pycache__/
 .venv/
 .ipynb_checkpoints/
 
-# Data and models: too big for git, rebuilt by project/data.py and notebooks 05-06
-data/
-models/
+# Raw data is too big for git (rebuilt by project/data.py, see docs/Crop Recommendation System Datasets.md).
+# data/processed/ and data/raw/cost/ (small CSVs the app reads) and models/ (compressed, <50 MB each) are committed.
+data/*
+!data/processed/
+!data/raw/
+data/raw/*
+!data/raw/cost/
 
 # Secrets
 .env

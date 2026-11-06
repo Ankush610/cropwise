@@ -485,3 +485,15 @@ User asked for a production-grade minimal HTML/CSS/JS UI with the advisor at its
 User asked for one file of open issues. `docs/ongoing-issues.md` collects them by area with evidence, impact and a
 possible fix, prioritised against the Nov 10 freeze. Two new from reading the test numbers: Vidisha soybean's cost
 share works out to ~0.91 (net ₹5,281 from ₹55,884 gross), and the Ollama context is 4,096 tokens.
+
+## Nov 6, 2026 · Repo runs from a clone
+
+User noticed the models weren't on GitHub. `data/` and `models/` were git-ignored, so a clone had code only.
+- Models re-saved with `joblib.dump(..., compress=3)`: 509 MB → 82 MB (crop 261 → 43, annual 135 → 25,
+  Kaggle 137 → 14 MB), all under GitHub's 100 MB limit, so they go in git directly (no Release or LFS needed).
+  Load time stays under 1 s. Notebooks 05, 09 and 11 now save with `compress=3` too.
+- Also committed: `data/processed/` (2.8 MB) and `data/raw/cost/` (1.6 MB, read by `cost_shares()` on every run).
+  The rest of `data/raw/` (1.7 GB) stays ignored; it's only needed to rebuild or retrain.
+- Checked: a copy holding only the files git tracks gives the same top 3 and SHAP reasons as the working repo
+  (Pune, kharif). NASA POWER weather is fetched on first use.
+- Each retrain now adds ~40 MB to git history. Fine until the Nov 10 freeze; move models to a Release if it grows.

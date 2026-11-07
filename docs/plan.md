@@ -12,7 +12,7 @@ Started Oct 29, 2026. **Project done by Nov 10.** Conclave and paper on Nov 15.
 | Nov 4 | **Ranking + SHAP:** expected revenue = district yield × forecast price; one SHAP plot per prediction. (✅ Nov 3, `project/recommend.py`; Nov 3 update: suitability order, net return over CACP cost breaks near-ties) | Top 3 ranked with explanations |
 | Nov 5–6 | **Real-world check:** compare the model's picks with what each district grows (DES area data). (✅ Nov 3, Soil Health Card soil, 539 districts: no better than random; Kaggle N-P-K don't match real soil. Nov 4: replaced by a district model trained on SHC soil + DES area, 28 crops incl. wheat, soybean, sugarcane: main crop first 62% vs 50% for the most common crops, leave-state-out) | Match-rate table in `research/` |
 | Nov 7–8 | **Demo + agent:** Streamlit app (✅ Nov 4, `project/app.py`), consultant agent (`docs/agent.md`). | Chat in Hindi gets a grounded answer |
-| Nov 9 | **Model-size test:** Qwen3 1.7B / 4B / 8B + Haiku reference on 40 questions. | Size table in `research/` |
+| Nov 9 | **Model-size test:** Qwen3 1.7B / 4B / 8B + Haiku reference on 40 questions. (✅ Nov 7, changed: Qwen3.8-27B and gpt-oss-120b on Groq's free tier as references, Gemini partial (20 requests/day); Qwen3-1.7B stopped at 22 answers, 4B and 8B not run. `research/notes/2026-11-07_agent_size_test.md`) | Size table in `research/` |
 | Nov 10 | **Buffer:** fixes, rerun everything, freeze results. | **Project complete** |
 | Nov 11–12 | **Paper:** Results, Limitations, Abstract. Data and Method get written as each phase ends. | Full draft |
 | Nov 11–13 | **Workshop:** Colab notebooks, slides. | Notebooks run clean in Colab |

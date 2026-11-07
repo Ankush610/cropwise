@@ -128,6 +128,13 @@ The size reasoning above is a claim. A small test turns it into a result.
 Expected result: 1.7B fails on tools and grounding, 4B gets close to 8B at about half the memory, Haiku sets the ceiling.
 Results go in `research/` as the model-size table.
 
+**Result (Nov 7, `research/notes/2026-11-07_agent_size_test.md`):** run with Qwen3.8-27B and gpt-oss-120b on Groq's
+free tier as references (Gemini's free tier allows 20 requests a day; no Haiku key). Qwen3.8-27B: 97.5% right tool,
+100% grounded, 100% right language, 1.4 s an answer. Qwen3-1.7B (22 of 40 answered, then stopped): 81.8% right tool,
+81.8% grounded, and English replies to every Hindi and Marathi question, ~190 s an answer on the laptop CPU. Qwen3-4B
+and 8B not measured. Every model, large ones included, re-orders the tools' ranking by money in 20–30% of
+recommend answers: a prompt fix, not a model size fix.
+
 ## Code
 
 `project/agent.py` (built Nov 4): tool schemas, the agent loop (max 4 tool rounds, then the model must answer),

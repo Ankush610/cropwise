@@ -1,0 +1,22 @@
+agent: groq failed (HTTPError: 429 Client Error: Too Many Requests for url: https://api.groq.com/openai/v1/chat/completions), trying next
+agent: groq failed (HTTPError: 429 Client Error: Too Many Requests for url: https://api.groq.com/openai/v1/chat/completions), trying next
+agent: groq failed (HTTPError: 429 Client Error: Too Many Requests for url: https://api.groq.com/openai/v1/chat/completions), trying next
+agent: groq failed (HTTPError: 429 Client Error: Too Many Requests for url: https://api.groq.com/openai/v1/chat/completions), trying next
+agent: groq failed (HTTPError: 429 Client Error: Too Many Requests for url: https://api.groq.com/openai/v1/chat/completions), trying next
+agent: groq failed (HTTPError: 429 Client Error: Too Many Requests for url: https://api.groq.com/openai/v1/chat/completions), trying next
+Traceback (most recent call last):
+  File "/home/ankushss/Desktop/Office/Namebia/Model-New/project/size_test.py", line 239, in <module>
+    run(m, only)
+  File "/home/ankushss/Desktop/Office/Namebia/Model-New/project/size_test.py", line 182, in run
+    r = agent.chat(farmer, q["message"], q.get("farm"))
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/ankushss/Desktop/Office/Namebia/Model-New/project/agent.py", line 193, in chat
+    reply, used = _llm(messages, round_ == MAX_ROUNDS, providers)
+                  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/ankushss/Desktop/Office/Namebia/Model-New/project/agent.py", line 179, in _llm
+    raise err
+  File "/home/ankushss/Desktop/Office/Namebia/Model-New/project/agent.py", line 174, in _llm
+    r.raise_for_status()
+  File "/home/ankushss/Desktop/Office/Namebia/Model-New/.venv/lib/python3.12/site-packages/requests/models.py", line 1167, in raise_for_status
+    raise HTTPError(http_error_msg, response=self)
+requests.exceptions.HTTPError: 429 Client Error: Too Many Requests for url: https://api.groq.com/openai/v1/chat/completions

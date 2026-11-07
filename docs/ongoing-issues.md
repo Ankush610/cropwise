@@ -35,6 +35,14 @@ Priority is against the Nov 10 freeze: **High** = wrong advice or a broken demo,
 
 ## Advisor (agent)
 
+### District typed in Devanagari isn't found · Medium
+- **Seen:** size test, Nov 7. Hindi question "ज़िला विदिशा": Gemini 2.5 Flash called `recommend_crops(district="विदिशा")`,
+  which failed ("not found"), then asked the farmer for the English name. gpt-oss-120b, Qwen3.8-27B and Qwen3-1.7B
+  wrote "Vidisha" themselves.
+- **Done (Nov 7):** the `district` argument now says "English letters, e.g. Vidisha (not विदिशा)".
+- **Not yet shown to work:** only Gemini made the mistake, and its free quota was used up. Re-run `rec-hi-1` on Gemini,
+  or add a Devanagari lookup in `find_district` if it still fails.
+
 ### Gemini 3.5 Flash often unavailable · Medium
 - **Seen:** Nov 4. 3.5 Flash answers 503 "high demand" on most calls, so 2.5 Flash answers most messages. 3.8 Flash
   gave 503 twice and was dropped. Free-tier 429 rate limits also happen mid-chat.

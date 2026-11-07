@@ -22,3 +22,6 @@ data/raw/*
 .DS_Store
 .vscode/
 .idea/
+
+# Size-test farm profiles (rebuilt each run)
+research/size_test/sessions/

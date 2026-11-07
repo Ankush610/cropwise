@@ -1,0 +1,7 @@
+gemini-3.5-flash rec-en-1: 13.6 s, tools ['recommend_crops']
+gemini-3.5-flash rec-en-2: 26.5 s, tools ['recommend_crops']
+gemini-3.5-flash rec-en-3: 33.5 s, tools ['recommend_crops']
+agent: gemini failed (HTTPError: 503 Server Error: Service Unavailable for url: https://generativelanguage.googleapis.com/v1beta/openai/chat/completions), trying next
+gemini-3.5-flash rec-en-4: 8.7 s, tools ['recommend_crops']
+agent: gemini failed (HTTPError: 429 Client Error: Too Many Requests for url: https://generativelanguage.googleapis.com/v1beta/openai/chat/completions), trying next
+gemini-3.5-flash rec-en-5: 13.1 s, tools ['get_area_soil', 'recommend_crops', 'recommend_crops']

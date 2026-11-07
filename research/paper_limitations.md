@@ -50,3 +50,6 @@ were in training, so optimistic).
 - Yields and prices are year-round: rabi rice gets the district's annual rice yield.
 - Summer is weak (main crop in list 67% vs kharif 84%) and many districts sow little then; the app warns below 10%.
 - Validation is leave-one-state-out on district averages; a farm's own card can fall outside the district range.
+- The agent size test is partial: Qwen3-4B, the app's offline fallback, and Qwen3-8B were not run (CPU time), and
+  Qwen3-1.7B answered 22 of 40 questions. References are Qwen3.8-27B and gpt-oss-120b on Groq; Gemini only partly
+  (free tier, 20 requests a day). 40 questions, one run each (`notes/2026-11-07_agent_size_test.md`).

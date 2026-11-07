@@ -596,3 +596,59 @@ User approved fetching with a curl User-Agent (`fetch_daily` sends `curl/8`; the
 - Checked: `recommend.py` and `api.py --check` self-checks pass; Pune (Jun), Vidisha and Nashik (Nov) give sensible
   prices. Web UI price chart not opened (same data shape).
 - To refresh later: `data.daily_prices(start, end)` for the new days, then re-run notebook 06.
+
+## Nov 7, 2026 · Model-size test started
+
+Per `docs/agent.md` ("Proving the choice"). Plan for the paper's size table.
+- **Questions:** `research/size_test/questions.json`, 40 = 20 English, 10 Hindi, 10 Marathi × 4 types (recommend,
+  why-not, price, off-topic incl. pesticide/loan/vet referrals), 10 each. Half the farm questions give soil values in
+  the message (tests argument extraction), half send them on the app's farm card. Months fixed (Jun or Nov).
+- **Runner/scorer:** `project/size_test.py`, through the real `agent.chat()` (same prompt, tools, 4-round loop), a fresh
+  profile per question, answers appended to `research/size_test/<model>.jsonl` (resumable). Scored by script: right
+  tool, valid arguments (no tool error, key args match the question), grounded (every number in the reply is in a
+  tool result or the question; 2% / 0.5 rounding slack; counts 0–12 and 2026/27 free), right language (script +
+  Hindi/Marathi marker words), kept_top (recommend: the reply names the tool's top crop first), seconds, RAM
+  (`/api/ps`). `--check` self-test passes.
+- **Models:** Qwen3-1.7B and Qwen3-8B (hybrid thinking models; `/no_think` appended to the system prompt since this
+  Ollama ignores `think: false`; `agent.chat` now strips any `<think>` block), Qwen3-4B-Instruct-2507 (the app's
+  fallback). All Q4 on the i5 CPU, Ollama context 4096 (no truncation warnings in the log).
+- **Reference blocked:** Gemini 2.5 Flash free tier = 20 requests/day; 9 questions done before the 429. No Anthropic
+  key for Haiku. Gemini 3.5 Flash answers today but has a free daily cap too.
+- Early findings logged in `ongoing-issues.md`: the advisor re-orders the ranking by money (Gemini 2 of 4 English
+  recommend answers, Qwen3-1.7B too) and Devanagari district names fail the lookup. Not fixed yet, so every model
+  sees the same setup.
+- Speed so far: Qwen3-1.7B 150–250 s per answer (first one partly during the 8B download). Local run of all three
+  models expected to take ~10 h; log in `research/size_test/run_local.log`.
+- **Reference models (Nov 7, later):** AI Studio's free tier gives every Gemini Flash model 20 requests/day (2.5 Flash
+  22/20, 3.6 Flash 21/20 used today), so Gemini stops at 9 (2.5 Flash) and 5 (3.5 Flash) answers, kept as partial.
+  Gemma 4 31B (14.4K requests/day) does tool calls but gave 500/503s and ran past the 30 s timeout: dropped.
+  Switched to **Groq** (free key in `.env` as `GROQ_API_KEY`; 30 RPM, 1K requests, 8K tokens/min, 200K tokens/day per
+  model): `groq:openai/gpt-oss-120b` and `groq:qwen/qwen3.8-27b` (same family as the local models, `/no_think` like
+  them; Groq sometimes fails to parse its tool call, `tool_use_failed`, a retry fixes it). Running now.
+- `agent.chat` strips `<think>` and `<thought>` (Gemma 4) blocks; `size_test.py` routes `gemini*`/`gemma*` to the
+  Gemini API and `groq:<model>` to Groq, gives each model its own profile ids (runs overlap), and stops instead of
+  recording failures when a hosted model's quota is gone (resumable).
+- First Qwen3.8-27B answers also re-rank by money ("Rice fits the soil best but is not profitable here, so I'd skip
+  it"); the kept_top metric counts that as not keeping the ranking.
+- **Stopped and scored (Nov 7, evening).** User stopped the local run after Qwen3-1.7B's first 22 answers (190 s each);
+  Qwen3-4B and 8B not run. Groq runs finished all 40 within the free quota. Results in
+  `research/notes/2026-11-07_agent_size_test.md` and `research/results/2026-11-07_agent_size_test.csv`:
+  Qwen3.8-27B 97.5% right tool / 100% grounded / 100% right language; gpt-oss-120b 92.5 / 100 / 82.5 (Hindi replies to
+  English questions); Qwen3-1.7B 81.8 / 81.8 / 50 (English replies to every Hindi and Marathi question). Every model
+  keeps the tool's top crop first only 70–80% of the time.
+
+## Nov 7, 2026 · Prompt fix: the advisor keeps the ranking
+
+Size test showed every model putting the highest-earning crop first in 20–30% of recommend answers.
+- `agent.py` prompt: `recommend_crops` lists crops best first; give the first as the advice, then the rest in order; a
+  lower crop that earns more may be mentioned but never called the best. The tool result names it (`recommended`).
+- Language rule spelled out (English to English, Hindi to Hindi, Marathi to Marathi): gpt-oss-120b answered English
+  questions in Hindi.
+- `district` argument asks for English letters ("Vidisha, not विदिशा"): a Devanagari district failed the lookup.
+- Re-test (recommend + why-not, `size_test.py run <model>#prompt2 --only recommend,why-not`): kept top crop
+  gpt-oss-120b 80% → 100% (10 questions), Qwen3.8-27B 83% → 100% (6, Groq capacity and daily token cap stopped the
+  rest); right language 90% → 100% for gpt-oss-120b. Details in `research/notes/2026-11-07_agent_size_test.md`.
+- `size_test.py`: `#tag` re-runs go to their own file, `--only` limits question types; "छोले" added to chickpea names.
+- Checked: `agent.py` and `api.py --check` self-checks pass. Not re-tested: off-topic and price questions, and the
+  Devanagari district fix (only Gemini made that mistake and its quota is used up; the Groq models wrote "Vidisha"
+  before and after). Ranking issue closed in `ongoing-issues.md`; district issue stays open.

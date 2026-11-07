@@ -39,11 +39,14 @@ Farm profile (saved from earlier tool calls): {profile}
 
 Rules:
 - Use the tools for every crop, price, yield or weather fact. Never guess a number.
-- The tools decide which crops are best. Explain their result; do not change the ranking.
+- The tools decide which crops are best. recommend_crops lists them best first (`recommended` is the first): give that
+  crop as your advice, then the others in the same order. If a lower crop earns more, you may say so, but never call
+  it the best or tell the farmer to pick it instead. check_crop's rank says where a crop stands.
 - Farm values already in the profile can be left out of tool calls; they are filled in for you.
 - If soil values or district are missing, ask for them. A farmer without a Soil Health Card can use get_area_soil.
 - If a crop has no price data, say so.
-- Reply in the same language as the farmer's last message. Keep it short and simple.
+- Reply in the language of the farmer's last message (English to English, Hindi to Hindi, Marathi to Marathi). Keep
+  it short and simple.
 - The app shows each tool result as a card under your reply. Don't list every number again: say in 2-4 short
   sentences what the result means for this farmer, quoting only the numbers that matter. Write money like ₹42,193.
 - Talk in acres: quote net_rs_acre, net_rs_acre_month and yield_q_acre, never the per-hectare fields. A crop that
@@ -63,6 +66,7 @@ def recommend_crops(**farm) -> dict:
     out["crops"] = table[["crop", "suitability", "yield_q_acre", "price_rs_q", "price_source", "price_mape",
                       "net_rs_acre", "grow_months", "net_rs_acre_month"]] \
         .to_dict("records")
+    out["recommended"] = out["crops"][0]["crop"]  # the list is in order; the advisor must not re-rank it by money
     if inputs["season_share"] < recommend.QUIET_SEASON:
         out["warning"] = f"Little is sown in {inputs['district']} in the {inputs['season']} season; picks rest on other districts."
     asked = min(int(farm.get("top") or 3), recommend.MAX_TOP)
@@ -98,7 +102,7 @@ TOOL_FUNCS = {f.__name__: f for f in (recommend_crops, check_crop, get_weather, 
 def tools() -> list[dict]:
     """Ollama tool schemas. Built on first use: the crop list comes from the model file."""
     crop = {"type": "string", "enum": recommend._model()["classes"]}
-    place = {"district": {"type": "string"},
+    place = {"district": {"type": "string", "description": "District name in English letters, e.g. Vidisha (not विदिशा)"},
              "state": {"type": "string", "description": "Only needed when the district name is in two states"}}
     farm = {"N": {"type": "number", "description": "Nitrogen, kg/ha, from the Soil Health Card"},
             "P": {"type": "number", "description": "Phosphorus, kg/ha"},
@@ -205,7 +209,8 @@ def chat(farmer_id: str, message: str, farm: dict | None = None) -> dict:
             calls.append({"tool": name, "args": args, "farm": dict(profile["farm"]), "result": result})  # farm: for /explain
             messages.append({"role": "tool", "tool_call_id": call.get("id", ""), "name": name,
                              "content": json.dumps(result, ensure_ascii=False)})
-    answer = (reply.get("content") or "").strip()
+    # reasoning some models put in the reply: <think> (hybrid Qwen3), <thought> (Gemma 4 on the Gemini API)
+    answer = re.sub(r"<(think|thought)>.*?</\1>", "", reply.get("content") or "", flags=re.S).strip()
     profile["history"] = (profile["history"] + [{"role": "user", "content": message},
                                                 {"role": "assistant", "content": answer}])[-HISTORY:]
     SESSIONS.mkdir(parents=True, exist_ok=True)

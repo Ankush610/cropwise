@@ -1,0 +1,8 @@
+model,answers,right_tool,valid_args,grounded,right_language,kept_top,kept_top_unknown,failed,median_s,mean_s,ram_gb
+gemini-2.5-flash,9,100.0,88.9,100.0,100.0,75.0,1,0,4.9,5.3,
+gemini-3.5-flash,5,100.0,100.0,100.0,100.0,80.0,0,0,13.6,19.1,
+groq_openai_gpt-oss-120b,40,92.5,90.0,100.0,82.5,80.0,0,0,2.1,2.0,
+groq_openai_gpt-oss-120b#prompt2,20,95.0,95.0,100.0,100.0,100.0,0,0,2.8,2.9,
+groq_qwen_qwen3.8-27b,40,97.5,96.7,100.0,100.0,70.0,0,0,1.4,1.4,
+groq_qwen_qwen3.8-27b#prompt2,6,100.0,100.0,100.0,100.0,100.0,0,0,1.6,1.6,
+qwen3_1.7b,22,81.8,68.2,81.8,50.0,77.8,1,0,190.1,192.6,

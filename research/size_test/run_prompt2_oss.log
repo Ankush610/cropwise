@@ -1,0 +1,38 @@
+groq:openai/gpt-oss-120b rec-en-1: 3.1 s, tools ['recommend_crops']
+groq:openai/gpt-oss-120b rec-en-2: 3.0 s, tools ['recommend_crops']
+agent: groq failed (HTTPError: 429 Client Error: Too Many Requests for url: https://api.groq.com/openai/v1/chat/completions), trying next
+groq:openai/gpt-oss-120b rec-en-3: 1.9 s, tools ['recommend_crops']
+agent: groq failed (HTTPError: 429 Client Error: Too Many Requests for url: https://api.groq.com/openai/v1/chat/completions), trying next
+groq:openai/gpt-oss-120b rec-en-4: 2.2 s, tools ['recommend_crops']
+agent: groq failed (HTTPError: 429 Client Error: Too Many Requests for url: https://api.groq.com/openai/v1/chat/completions), trying next
+groq:openai/gpt-oss-120b rec-en-5: 2.6 s, tools ['get_area_soil', 'recommend_crops']
+agent: groq failed (HTTPError: 429 Client Error: Too Many Requests for url: https://api.groq.com/openai/v1/chat/completions), trying next
+groq:openai/gpt-oss-120b rec-hi-1: 2.3 s, tools ['recommend_crops']
+agent: groq failed (HTTPError: 429 Client Error: Too Many Requests for url: https://api.groq.com/openai/v1/chat/completions), trying next
+groq:openai/gpt-oss-120b rec-hi-2: 2.4 s, tools ['recommend_crops']
+agent: groq failed (HTTPError: 429 Client Error: Too Many Requests for url: https://api.groq.com/openai/v1/chat/completions), trying next
+groq:openai/gpt-oss-120b rec-hi-3: 2.5 s, tools ['recommend_crops']
+agent: groq failed (HTTPError: 429 Client Error: Too Many Requests for url: https://api.groq.com/openai/v1/chat/completions), trying next
+groq:openai/gpt-oss-120b rec-mr-1: 1.9 s, tools ['recommend_crops']
+agent: groq failed (HTTPError: 429 Client Error: Too Many Requests for url: https://api.groq.com/openai/v1/chat/completions), trying next
+groq:openai/gpt-oss-120b rec-mr-2: 3.1 s, tools ['recommend_crops']
+agent: groq failed (HTTPError: 429 Client Error: Too Many Requests for url: https://api.groq.com/openai/v1/chat/completions), trying next
+groq:openai/gpt-oss-120b why-en-1: 2.7 s, tools ['recommend_crops']
+agent: groq failed (HTTPError: 429 Client Error: Too Many Requests for url: https://api.groq.com/openai/v1/chat/completions), trying next
+groq:openai/gpt-oss-120b why-en-2: 4.0 s, tools ['check_crop', 'recommend_crops']
+agent: groq failed (HTTPError: 429 Client Error: Too Many Requests for url: https://api.groq.com/openai/v1/chat/completions), trying next
+agent: groq failed (HTTPError: 429 Client Error: Too Many Requests for url: https://api.groq.com/openai/v1/chat/completions), trying next
+groq:openai/gpt-oss-120b why-en-3: 3.3 s, tools ['check_crop', 'recommend_crops']
+groq:openai/gpt-oss-120b why-en-4: 2.8 s, tools ['check_crop']
+agent: groq failed (HTTPError: 429 Client Error: Too Many Requests for url: https://api.groq.com/openai/v1/chat/completions), trying next
+groq:openai/gpt-oss-120b why-en-5: 2.8 s, tools ['check_crop']
+agent: groq failed (HTTPError: 429 Client Error: Too Many Requests for url: https://api.groq.com/openai/v1/chat/completions), trying next
+groq:openai/gpt-oss-120b why-hi-1: 3.7 s, tools ['check_crop', 'recommend_crops']
+agent: groq failed (HTTPError: 429 Client Error: Too Many Requests for url: https://api.groq.com/openai/v1/chat/completions), trying next
+groq:openai/gpt-oss-120b why-hi-2: 3.0 s, tools ['check_crop']
+agent: groq failed (HTTPError: 429 Client Error: Too Many Requests for url: https://api.groq.com/openai/v1/chat/completions), trying next
+groq:openai/gpt-oss-120b why-mr-1: 3.7 s, tools ['check_crop', 'recommend_crops']
+agent: groq failed (HTTPError: 429 Client Error: Too Many Requests for url: https://api.groq.com/openai/v1/chat/completions), trying next
+groq:openai/gpt-oss-120b why-mr-2: 2.4 s, tools ['check_crop']
+agent: groq failed (HTTPError: 429 Client Error: Too Many Requests for url: https://api.groq.com/openai/v1/chat/completions), trying next
+groq:openai/gpt-oss-120b why-mr-3: 3.9 s, tools ['check_crop', 'recommend_crops']
